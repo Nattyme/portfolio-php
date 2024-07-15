@@ -9,23 +9,22 @@ $uri = rtrim($uri, "/"); // Удаляем сивол / в конце строк
 $uri = filter_var($uri, FILTER_SANITIZE_URL); // Удалем лишние сиволы из запроса
 $uri = substr($uri, 1); //Удаляем первый символ (слэш) в запросе
 $uri = explode('?', $uri);
-print_r($uri);
 
 switch ($uri[0]) {
   case '':
-    echo "Main page";
+    require ROOT . "modules/main/index.php";
     break;
 
   case 'about':
-    echo "About me";
+    require ROOT . "modules/about/index.php";
     break;
 
   case 'blog':
-    echo "Blog";
+    require ROOT . "modules/blog/index.php";
     break;
 
   case 'contacts':
-    echo "Contact page";
+    require ROOT . "modules/contacts/index.php";
     break;
 
   default: 
