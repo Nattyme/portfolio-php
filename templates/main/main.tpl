@@ -1,1 +1,2 @@
-<h1>Main.tpl</h1>
+<h1><?php echo $page_name ?></h1>
+<?php echo $page_text; ?>
