@@ -3,7 +3,8 @@
     <h2 class="heading">Регистрация </h2>
   </div>
 
-  <?php include ROOT . "templates/components/errors.php"; ?>
+  <?php include ROOT . "templates/components/errors.tpl"; ?>
+  <?php include ROOT . "templates/components/success.tpl"; ?>
 
   <div class="authorization-form__input">
     <input name="email" class="input" type="text" placeholder="Email" />

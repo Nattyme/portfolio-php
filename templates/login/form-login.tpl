@@ -11,5 +11,5 @@
   <div class="authorization-form__button">
     <button class="primary-button" type="submit">Вход на сайт</button>
   </div>
-  <div class="authorization-form__links"><a href="#">Забыл пароль</a><a href="#">Регистрация</a></div>
+  <div class="authorization-form__links"><a href="<?php echo HOST.'lost-password'; ?>">Забыл пароль</a><a href="<?php echo HOST.'registration'; ?>">Регистрация</a></div>
 </form>

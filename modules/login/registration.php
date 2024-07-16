@@ -36,7 +36,13 @@ if ( isset($_POST['register']) ) {
     $user->role = 'user';
     // Сохраняем пароль в зашифрованном виде функцией password_hash
     $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    R::store($user);
+    $result = R::store($user);
+
+    if ( is_int($result) ) {
+      $success[] = ['title' => 'Регистрация прошла успешно', 'desc' => 'Вы можете <a href="'.HOST.'login">войти в профиль</a>'];
+    } else {
+      $errors[] = ['title' => 'Что-то пошло не так. Повторите действие заново.'];
+    }
   }
 }
 
