@@ -5,20 +5,37 @@ $pageTitle = "Регистрация";
 // Если форма отправлена - делаем регистрацию
 if ( isset($_POST['register']) ) {
   //Проверка на заполненность
-  if( $_POST['email'] == "") {
+  if( trim($_POST['email']) == "" ) {
     // Ошибка - email пуст. Добавляем массив этой ошибки в массив $errors 
     $errors[] = ['title' => 'Введите email', 'desc' => '<p>Email обязателен для регистрации на сайте</p>'];
+  } else if ( !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) ) {
+    $errors[] = ['title' => 'Введите корректный Email'];
   }
 
-  if( $_POST['password'] == "") {
+  if( trim($_POST['password']) == "") {
     // Ошибка - пароль пуст. Добавляем массив этой ошибки в массив $errors 
     $errors[] = ['title' => 'Введите пароль'];
   }
 
-  if( ! $_POST['password'] == "" && strlen($_POST['password']) <= 4) {
-    $errors[] = ['title' => 'Введите корректный пароль', 'desc' => '<p>Длина пароля должна быть более 4-ёх символов</p>'];
+  if( ! trim($_POST['password']) == "" && strlen( trim($_POST['password']) ) != 4) {
+    $errors[] = ['title' => 'Неверный формат пароля', 'desc' => '<p>Пароль должен состоять из четырёх символов</p>'];
+  }
+
+  //Если нет ошибок - Регистрируем пользователя
+  if ( empty($errors) ) {
+    $user = R::dispense('users');
+    $user->email = $_POST['email'];
+    $user->role = 'user';
+    // Сохраняем пароль в зашифрованном виде функцией password_hash
+    $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    R::store($user);
   }
 }
+
+//TODO: Сделать проверку на корректность email filtervar
+
+
+
 
 //Сохраняем код ниже в буфер
 ob_start();
