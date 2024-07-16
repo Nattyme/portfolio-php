@@ -1,4 +1,15 @@
 <?php 
+  $details = R::find('about', 1); 
+  
+  // echo "<pre>";
+  // // print_r($details[1]);
+  // echo $details[1]['name'];
+  // echo $details[1]['description'];
+  // echo "</pre>";
+
+  $aboutName = $details[1]['name'];
+  $aboutDesc = $details[1]['description'];
+
   $page_name = "Главная страница";
   $page_text = "Текст главной страницы";
 
