@@ -17,8 +17,8 @@ if ( isset($_POST['register']) ) {
     $errors[] = ['title' => 'Введите пароль'];
   }
 
-  if( ! trim($_POST['password']) == "" && strlen( trim($_POST['password']) ) != 4) {
-    $errors[] = ['title' => 'Неверный формат пароля', 'desc' => '<p>Пароль должен состоять из четырёх символов</p>'];
+  if( ! trim($_POST['password']) == "" && strlen( trim($_POST['password']) ) < 5) {
+    $errors[] = ['title' => 'Неверный формат пароля', 'desc' => '<p>Пароль должен быть больше четырёх символов</p>'];
   }
 
   // Проверка на занятый email
@@ -36,6 +36,7 @@ if ( isset($_POST['register']) ) {
     $user->role = 'user';
     // Сохраняем пароль в зашифрованном виде функцией password_hash
     $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
     $result = R::store($user);
 
     if ( is_int($result) ) {

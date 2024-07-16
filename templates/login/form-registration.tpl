@@ -7,7 +7,11 @@
   <?php include ROOT . "templates/components/success.tpl"; ?>
 
   <div class="authorization-form__input">
-    <input name="email" class="input" type="text" placeholder="Email" />
+    <?php if( isset($_POST['register']) && !empty(trim($_POST['email']))) : ?>
+      <input name="email" class="input" type="text" value="<?php echo $_POST['email'];?>" />
+    <?php else: ?>
+      <input name="email" class="input" type="text" placeholder="Email" />
+    <?php endif; ?>
   </div>
   <div class="authorization-form__input">
     <input name="password" class="input" type="password" placeholder="Пароль" />
@@ -15,5 +19,5 @@
   <div class="authorization-form__button">
     <button name="register" value="register" class="primary-button" type="submit">Зарегистрироваться</button>
   </div>
-  <div class="authorization-form__links"><a>Вход на сайт</a></div>
+  <div class="authorization-form__links"><a href="<?php echo HOST.'login'; ?>">Вход на сайт</a></div>
 </form>
