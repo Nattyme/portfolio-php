@@ -21,6 +21,14 @@ if ( isset($_POST['register']) ) {
     $errors[] = ['title' => 'Неверный формат пароля', 'desc' => '<p>Пароль должен состоять из четырёх символов</p>'];
   }
 
+  // Проверка на занятый email
+  if ( R::count('users', 'email = ?', array($_POST['email'])) > 0 ) {
+    $errors[] = [
+      'title' => 'Пользователь с таким email уже существует', 
+      'desc' => '<p>Используйте другой email адрес или воспользуйтесь <a href="'.HOST.'lost-password">восстановлением пароля.</a></p>'
+    ];
+  }
+
   //Если нет ошибок - Регистрируем пользователя
   if ( empty($errors) ) {
     $user = R::dispense('users');
@@ -31,11 +39,6 @@ if ( isset($_POST['register']) ) {
     R::store($user);
   }
 }
-
-//TODO: Сделать проверку на корректность email filtervar
-
-
-
 
 //Сохраняем код ниже в буфер
 ob_start();
