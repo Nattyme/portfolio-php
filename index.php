@@ -3,7 +3,8 @@
 require_once('config.php');
 require_once('db.php');
 
-echo "<h1>Index.php</h1>";
+$errors = array();
+$success = array();
 
 $uri = $_SERVER['REQUEST_URI'];
 $uri = rtrim($uri, "/"); // Удаляем сивол / в конце строки
