@@ -2,12 +2,9 @@
 
 $pageTitle = "Восстановить пароль";
 
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
-
 // 1. Проверить, что форма отправлена. Принять данные
 if ( isset($_POST['lost-password']) ) {
+
   // 2. Проверка на заполненный email
   if( trim($_POST['email']) == '') {
     $errors[] = ['title' => 'Введите email', 'desc' => '<p>Email обязателен для регистрации на сайте</p>'];
@@ -17,32 +14,32 @@ if ( isset($_POST['lost-password']) ) {
 
   if ( empty($errors)) {
     // 3. Проверить есть ли пользователь с такиv email в БД
-    $user = R::findOne('users', 'email = ?', array( $_POST['email']) );
+    $user = R::findOne('users', 'email = ?', array( trim($_POST['email']) ));
 
     if ( $user ) {
-      // Генерируем секретный код
+
+      // 4. Генерируем секретный код
       function random_str($num = 30) {
         return substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, $num);
       }
 
       $recovery_code = random_str();
-      echo $recovery_code;
       // 5. Запомнить секретный код. Записать в БД.
       $user->recovery_code = $recovery_code;
       R::store($user);
  
-      //6. Присылаем пользователью спец ссылку с секреткным кодом для установки нового пароля
-      $recovery_message = "<p>Код сброса пароля: <strong>$recovery_code</strong></p>";
+      // 6. Присылаем пользователю спец ссылку с секретным кодом для сброса пароля
+      $recovery_message  = "<p>Код сброса пароля: <strong>$recovery_code</strong></p>";
       $recovery_message .= "<p>Для сброса пароля перейдите по ссылке ниже и установите новый пароль:</p>";
 
-      $recovery_link = HOST . "set-new-password?email={$_POST['email']}&code={$recovery_code}";
-      $recovery_message .= '<p><a href="' . $recovery_link . '">Установить новый пароль</a></p>';
-      // $recovery_message .= "<p></p>";
+      $recovery_link     = HOST . "set-new-password?email={$_POST['email']}&code={$recovery_code}";
+      $recovery_message .= '<p> <a href="' . $recovery_link . '">Установить новый пароль</a> </p>';
 
-      $headers = "MIME-Version: 1.0" . PHP_EOL .
-            "Content-Type: text/html; charset=utf-8" . PHP_EOL .
-            "From: " . "=?utf-8?B?" . base64_encode(SITE_NAME) . "?=" . "<" . SITE_EMAIL . ">" . PHP_EOL .
-            "Reply-To: " . SITE_EMAIL . PHP_EOL;
+      $headers =  "MIME-Version: 1.0" . PHP_EOL .
+                  "Content-Type: text/html; charset=utf-8" . PHP_EOL .
+                  "From: " . "=?utf-8?B?" . base64_encode(SITE_NAME) . "?=" . "<" . SITE_EMAIL . ">" . PHP_EOL .
+                  "Reply-To: " . SITE_EMAIL . PHP_EOL;
+
       $resultEmail = mail($_POST['email'], 'Восстановление доступа', $recovery_message, $headers);
 
       if ($resultEmail) {
