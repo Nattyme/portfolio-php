@@ -17,7 +17,7 @@ if ( isset($_POST['register']) ) {
     $errors[] = ['title' => 'Введите пароль'];
   }
 
-  if( ! trim($_POST['password']) == "" && strlen( trim($_POST['password']) ) < 5) {
+  if( ! trim($_POST['password']) == "" && strlen(trim($_POST['password']) ) < 5) {
     $errors[] = ['title' => 'Неверный формат пароля', 'desc' => '<p>Пароль должен быть больше четырёх символов</p>'];
   }
 
