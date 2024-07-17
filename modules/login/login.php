@@ -2,10 +2,6 @@
 
 $pageTitle = "Вход на сайт";
 
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
-
 //1. Проверяем массив POST
 if( isset($_POST['login']) ) {
 
