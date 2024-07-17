@@ -13,11 +13,16 @@
       <input name="email" class="input" type="text" placeholder="Email" />
     <?php endif; ?>
   </div>
+
   <div class="authorization-form__input">
     <input name="password" class="input" type="password" placeholder="Пароль" />
   </div>
+
   <div class="authorization-form__button">
     <button name="register" value="register" class="primary-button" type="submit">Зарегистрироваться</button>
   </div>
-  <div class="authorization-form__links"><a href="<?php echo HOST.'login'; ?>">Вход на сайт</a></div>
+
+  <div class="authorization-form__links">
+    <a href="<?php echo HOST.'login'; ?>">Вход на сайт</a>
+  </div>
 </form>

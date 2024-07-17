@@ -17,8 +17,6 @@
   //Окончание буфера, очищаем вывод
   ob_end_clean();
 
-
-
   include ROOT . "templates/_parts/_header.tpl";
   include ROOT . "templates/template.tpl";
   include ROOT . "templates/_parts/_footer.tpl";
