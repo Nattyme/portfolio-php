@@ -1,5 +1,17 @@
 <main class="page-profile">
-		<div class="section">
+
+  <?php if ($user['id'] === 0) : ?>
+    <div class="section">
+			<div class="container">
+				<div class="section__title">
+					<h2 class="heading">Такого пользователя не существует</h2>
+				</div>
+			</div>
+		</div>
+
+  <?php else : ?>
+
+    <div class="section">
 			<div class="container">
 				<div class="section__title">
 					<h2 class="heading">Профиль пользователя </h2>
@@ -13,15 +25,11 @@
 							<div class="definition-list mb-20">
 								<dl class="definition">
 									<dt class="definition__term">имя и фамилия</dt>
-									<dd class="definition__description"> Сергей Петров</dd>
-								</dl>
-								<dl class="definition">
-									<dt class="definition__term">email</dt>
-									<dd class="definition__description"> info@mail.com</dd>
+									<dd class="definition__description"><?php echo $user->name; ?> <?php echo $user->surname; ?></dd>
 								</dl>
 								<dl class="definition">
 									<dt class="definition__term">Страна, город</dt>
-									<dd class="definition__description"> Россия, Екатеринбург</dd>
+									<dd class="definition__description"><?php echo $user->country; ?> <?php echo $user->city; ?></dd>
 								</dl>
 							</div><a class="secondary-button" href="#">Редактировать</a>
 						</div>
@@ -87,4 +95,6 @@
 				</div>
 			</div>
 		</div>
+  <?php endif; ?>
+
 	</main>

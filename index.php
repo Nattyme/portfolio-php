@@ -14,8 +14,18 @@ $uri = filter_var($uri, FILTER_SANITIZE_URL); // Удалем лишние си�
 $uri = substr($uri, 1); //Удаляем первый символ (слэш) в запросе
 $uri = explode('?', $uri);
 
+if ( isset($uri[1])) {
+  $uriGet = $uri[1];
+}
+
+// Запись выше можно сделать короче через тернарный оператор
+// $uriGet = isset($uri[1]) ? $uri[1] : null;
+
+$uriArray = explode('/', $uri[0]);
+$uriModule = $uriArray[0];
+
 // Роутер
-switch ($uri[0]) {
+switch ($uriModule) {
   case '':
     require ROOT . "modules/main/index.php";
     break;

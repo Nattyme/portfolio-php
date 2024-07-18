@@ -1,16 +1,8 @@
 <?php 
   $pageTitle = "Профиль пользователя";
 
-  // //Сохраняем код ниже в буфер
-  // ob_start();
-  // include ROOT . 'templates/about/about.tpl';
-  
-  // //Записываем вывод из буфера в пепеменную
-  // $content = ob_get_contents();
-
-  // //Окончание буфера, очищаем вывод
-  // ob_end_clean();
-
+  // Загружаем данные пользователя из БД по его ID
+  $user = R::load('users', $uriArray[1]);
 
   include ROOT . 'templates/page-parts/_head.tpl';
   include ROOT . "templates/_parts/_header.tpl";
