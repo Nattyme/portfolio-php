@@ -1,6 +1,7 @@
 <?php
 
 $pageTitle = "Регистрация";
+$pageClass = "authorization-page";
 
 // Если форма отправлена - делаем регистрацию
 if ( isset($_POST['register']) ) {

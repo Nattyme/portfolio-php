@@ -1,6 +1,7 @@
 <?php
 
 $pageTitle = "Восстановить пароль";
+$pageClass = "authorization-page";
 
 // 1. Проверить, что форма отправлена. Принять данные
 if ( isset($_POST['lost-password']) ) {

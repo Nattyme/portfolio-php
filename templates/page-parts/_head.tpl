@@ -10,4 +10,4 @@
 	<link rel="stylesheet" href="<?php echo HOST; ?>static/css/main.css">
 	<link rel="stylesheet" href="<?php echo HOST; ?>static/css/custom.css">
 </head>
-  <body class="authorization-page">
+  <body <?php echo isset($pageClass) ? "class=\"$pageClass\"" : ''; ?> >

@@ -1,6 +1,7 @@
 <?php
 
 $pageTitle = "Установить новый пароль";
+$pageClass = "authorization-page";
 
 // 1. Пришли по секретной ссыке с email
   if( !empty($_GET['email']) && !empty($_GET['code'])) {
@@ -17,7 +18,7 @@ $pageTitle = "Установить новый пароль";
 
     if( $user ) {
       // Проверить секретный код на верность
-      if( $user->recovery_code === $_POST['resetCode'] && $user->recovery_code != '') {
+      if( $user->recovery_code === $_POST['resetCode'] && $user->recovery_code != '' && $user->recovery_code != null) {
 
         // Смена пароля. Сохраняем пароль в зашифрованном виде функцией password_hash
         $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -27,7 +28,9 @@ $pageTitle = "Установить новый пароль";
         $success[] = ['title' => 'Пароль был успешно изменён'];
 
         $newPasswordReady = true;
-      } 
+      } else {
+        $errors[] = ['title' => 'Неверный код'];
+      }
     }
   }
   else {

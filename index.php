@@ -39,6 +39,10 @@ switch ($uri[0]) {
     require ROOT . "modules/login/set-new-password.php";
     break;
 
+  case 'profile':
+    require ROOT . "modules/profile/index.php";
+    break;
+
   case 'profile-edit':
     require ROOT . "modules/profile/edit.php";
     break;

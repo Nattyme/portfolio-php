@@ -1,6 +1,7 @@
 <?php
 
 $pageTitle = "Вход на сайт";
+$pageClass = "authorization-page";
 
 //1. Проверяем массив POST
 if( isset($_POST['login']) ) {
