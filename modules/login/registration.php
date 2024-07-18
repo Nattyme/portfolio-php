@@ -42,6 +42,15 @@ if ( isset($_POST['register']) ) {
 
     if ( is_int($result) ) {
       $success[] = ['title' => 'Регистрация прошла успешно', 'desc' => 'Вы можете <a href="'.HOST.'login">войти в профиль</a>'];
+
+      // Автологин пользователя после регистрации
+      $_SESSION['logged_user'] = $user;
+      $_SESSION['login'] = 1;
+      $_SESSION['role'] = $user->role;
+
+      header('Location: ' . HOST . 'profile-edit');
+      exit();
+
     } else {
       $errors[] = ['title' => 'Что-то пошло не так. Повторите действие заново.'];
     }

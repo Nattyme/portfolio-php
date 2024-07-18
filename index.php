@@ -6,6 +6,8 @@ require_once('db.php');
 $errors = array();
 $success = array();
 
+session_start();
+
 $uri = $_SERVER['REQUEST_URI'];
 $uri = rtrim($uri, "/"); // Удаляем сивол / в конце строки
 $uri = filter_var($uri, FILTER_SANITIZE_URL); // Удалем лишние сиволы из запроса
@@ -44,7 +46,7 @@ switch ($uri[0]) {
     break;
 
   case 'profile-edit':
-    require ROOT . "modules/profile/edit.php";
+    require ROOT . "modules/profile/profile-edit.php";
     break;
 
   // ::::::::::::: OTHER :::::::::::::::::::
