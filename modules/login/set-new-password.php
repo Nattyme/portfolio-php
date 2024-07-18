@@ -17,13 +17,16 @@ $pageTitle = "Установить новый пароль";
 
     if( $user ) {
       // Проверить секретный код на верность
-      if( $user->recovery_code === $_POST['resetCode']) {
+      if( $user->recovery_code === $_POST['resetCode'] && $user->recovery_code != '') {
 
         // Смена пароля. Сохраняем пароль в зашифрованном виде функцией password_hash
         $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $user->recovery_code = '';
         R::store($user);
       
         $success[] = ['title' => 'Пароль был успешно изменён'];
+
+        $newPasswordReady = true;
       } 
     }
   }

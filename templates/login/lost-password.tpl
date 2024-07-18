@@ -6,15 +6,21 @@
   <?php include ROOT . "templates/components/errors.tpl"; ?>
   <?php include ROOT . "templates/components/success.tpl"; ?>
 
-  <div class="authorization-form__input">
-    <input name="email" class="input" type="text" placeholder="Email" />
-  </div>
- 
-  <div class="authorization-form__button">
-    <button name="lost-password" value="lost-password" class="primary-button" type="submit">
-      Восстановить пароль
-    </button>
-  </div>
+  <?php 
+    if (!isset($resultEmail)) {
+  ?>
+      <div class="authorization-form__input">
+        <input name="email" class="input" type="text" placeholder="Email" />
+      </div>
+
+      <div class="authorization-form__button">
+        <button name="lost-password" value="lost-password" class="primary-button" type="submit">
+          Восстановить пароль
+        </button>
+      </div>
+  <?php  
+    }
+  ?>
 
   <div class="authorization-form__links">
     <a href="<?php echo HOST; ?>login">Войти на сайт</a>
