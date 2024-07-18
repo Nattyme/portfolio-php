@@ -10,7 +10,7 @@
     <input name="password" class="input" type="password" placeholder="Новый пароль" />
   </div>
 
-  <input type="hidden" name="resetEmail" value="<?php echo $_GET['email'] ?>">
+  <input type="hidden" name="email" value="<?php echo $_GET['email'] ?>">
   <input type="hidden" name="resetCode" value="<?php echo $_GET['code'] ?>">
  
   <div class="authorization-form__button">

@@ -8,8 +8,29 @@ $pageTitle = "Установить новый пароль";
     $user = R::findOne('users', 'email = ?', array($_GET['email'])); 
 
     if (!$user) {
-      header("Location: " . HOST . ";ost-password");
+      header("Location: " . HOST . "lost-password");
     } 
+
+  } else if ( !empty($_POST['set-new-password'])) {
+    // Найти пользователя по email в БД
+    $user = R::findOne('users', 'email = ?', array($_POST['email'])); 
+
+    if( $user ) {
+      // Проверить секретный код на верность
+      if( $user->recovery_code === $_POST['resetCode']) {
+
+        // Смена пароля. Сохраняем пароль в зашифрованном виде функцией password_hash
+        $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        R::store($user);
+      
+        $success[] = ['title' => 'Пароль был успешно изменён'];
+      } 
+    }
+  }
+  else {
+    // Если не понятно как, но попал на страницу
+    header("Location: " . HOST . "lost-password");
+    die();
   }
 // 2. Найти пользователя по email в БД
 // 3. Проверить секретный код на верность
