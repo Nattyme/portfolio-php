@@ -17,7 +17,6 @@ $uri = explode('?', $uri);
 if ( isset($uri[1])) {
   $uriGet = $uri[1];
 }
-
 // Запись выше можно сделать короче через тернарный оператор
 // $uriGet = isset($uri[1]) ? $uri[1] : null;
 

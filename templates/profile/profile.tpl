@@ -11,10 +11,8 @@
             <a href="<?php echo HOST; ?>registration">зарегистрируйтесь</a>
           </p>
 				</div>
-
 			</div>
 		</div>
-
   <!-- Если пользователя с таким ID не существует -->
   <?php elseif ($user['id'] === 0) : ?>
     <div class="section">

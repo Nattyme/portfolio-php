@@ -37,8 +37,14 @@
       }
 
     } else if ( $_SESSION['logged_user']['role'] === 'admin') {
-      // Это администратор сайта
-
+      // Это администратор сайта. Делаем проверку на доп парам - ID пользователя для редактирования
+      if( isset($uriArray[1])) {
+        //Редакт. чужого профиля. 
+        $user = R::load('users', intval($uriArray[1]) ); // Загружаем данные о профиле
+      } else {
+         // Редактирование своего профиля
+         $user = R::load('users', $_SESSION['logged_user']['id']);
+      }
     }
   } else {
     header('Location: ' . HOST . 'login');

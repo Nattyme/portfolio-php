@@ -14,7 +14,6 @@ $pageClass = "authorization-page";
   } else if ( !empty($_POST['set-new-password'])) {
     // Найти пользователя по email в БД
     $user = R::findOne('users', 'email = ?', array($_POST['email'])); 
-
     if( $user ) {
       // Проверить секретный код на верность
       if( $user->recovery_code === $_POST['resetCode'] && $user->recovery_code != '' && $user->recovery_code != null) {
