@@ -49,7 +49,19 @@
 									<dt class="definition__term">Страна, город</dt>
 									<dd class="definition__description"><?php echo $user->country; ?> <?php echo $user->city; ?></dd>
 								</dl>
-							</div><a class="secondary-button" href="<?php echo HOST; ?>profile-edit">Редактировать</a>
+							</div>
+              <!-- Показываем кнопку редактировать только залогиненому пользователю -->
+              <!-- Только владельцу профиля или админу -->
+              <?php 
+              print_r($_SESSION['logged_user']['role']);
+                if ( 
+                  isset($_SESSION['login']) 
+                  && $_SESSION['login'] === 1
+                  && ($_SESSION['logged_user']['id'] == $user->id || $_SESSION['logged_user']['role'] === 'admin' )
+                ) :
+              ?>
+                <a class="secondary-button" href="<?php echo HOST; ?>profile-edit">Редактировать</a>
+              <?php endif; ?>
 						</div>
 					</div>
 				</div>
