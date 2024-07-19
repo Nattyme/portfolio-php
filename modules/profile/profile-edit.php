@@ -9,15 +9,13 @@
       if ( isset($_POST['updateProfile'])) {
         // Проверить поля на заполненность
         if ( trim($_POST['name']) === '') {
-          $errors = ['title' => 'Введите имя'];
+          $errors[] = ['title' => 'Введите имя'];
         }
-
         if ( trim($_POST['surname']) === '') {
-          $errors = ['title' => 'Введите фамилию'];
+          $errors[] = ['title' => 'Введите фамилию'];
         }
-
         if ( trim($_POST['email']) === '') {
-          $errors = ['title' => 'Введите email'];
+          $errors[] = ['title' => 'Введите email'];
         }
 
         // Если ошибок нет - обновить данные в БД
@@ -41,9 +39,64 @@
       if( isset($uriArray[1])) {
         //Редакт. чужого профиля. 
         $user = R::load('users', intval($uriArray[1]) ); // Загружаем данные о профиле
+        if ( isset($_POST['updateProfile'])) {
+          // Проверить поля на заполненность
+          if ( trim($_POST['name']) === '') {
+            $errors[] = ['title' => 'Введите имя'];
+          }
+          if ( trim($_POST['surname']) === '') {
+            $errors[] = ['title' => 'Введите фамилию'];
+          }
+          if ( trim($_POST['email']) === '') {
+            $errors[] = ['title' => 'Введите email'];
+          }
+  
+          // Если ошибок нет - обновить данные в БД
+          if ( empty($errors) ) {
+            $user->name = htmlentities($_POST['name']);
+            $user->surname = htmlentities($_POST['surname']);
+            $user->email = htmlentities($_POST['email']);
+            $user->country = htmlentities($_POST['country']);
+            $user->city = htmlentities($_POST['city']);
+  
+            R::store($user);
+            $_SESSION['logged_user'] = $user;
+  
+            header('Location: ' . HOST . 'profile');
+            exit();
+          }
+        }
       } else {
          // Редактирование своего профиля
-         $user = R::load('users', $_SESSION['logged_user']['id']);
+        $user = R::load('users', $_SESSION['logged_user']['id']);
+        if ( isset($_POST['updateProfile'])) {
+          // Проверить поля на заполненность
+          if ( trim($_POST['name']) === '') {
+            $errors[] = ['title' => 'Введите имя'];
+          }
+          if ( trim($_POST['surname']) === '') {
+            $errors[] = ['title' => 'Введите фамилию'];
+          }
+          if ( trim($_POST['email']) === '') {
+            $errors[] = ['title' => 'Введите email'];
+          }
+  
+          // Если ошибок нет - обновить данные в БД
+          if ( empty($errors) ) {
+            $user->name = htmlentities($_POST['name']);
+            $user->surname = htmlentities($_POST['surname']);
+            $user->email = htmlentities($_POST['email']);
+            $user->country = htmlentities($_POST['country']);
+            $user->city = htmlentities($_POST['city']);
+  
+            R::store($user);
+            $_SESSION['logged_user'] = $user;
+  
+            header('Location: ' . HOST . 'profile');
+            exit();
+          }
+        }
+
       }
     }
   } else {

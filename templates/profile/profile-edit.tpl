@@ -24,9 +24,15 @@
     <div class="section__body">
       <div class="container">
 
+      <?php if (isset($uriArray[1])) : ?>
+        <form action="<?php echo HOST; ?>profile-edit/<?php echo $uriArray[1]; ?>" method="POST">
+      <?php else : ?>
         <form action="<?php echo HOST; ?>profile-edit" method="POST">
+      <?php endif; ?>
           <div class="row justify-content-center">
             <div class="col-md-8">
+              <?php include ROOT . "templates/components/errors.tpl"; ?>
+              <?php include ROOT . "templates/components/success.tpl"; ?>
               <div class="form-group">
                 <label class="input__label">
                   Введите имя 

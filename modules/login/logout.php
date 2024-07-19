@@ -1,6 +1,4 @@
 <?php
-
-
 $_SESSION['logged_user'] = $user;
 $_SESSION['login'] = 1;
 $_SESSION['role'] = $user->role;
