@@ -41,7 +41,7 @@
                     type="text" 
                     placeholder="Имя"
                     name="name"
-                    value="<?php echo $user->name; ?>" 
+                    value="<?php echo isset($_POST['name']) ? $_POST['name'] : $user->name; ?>" 
                   />
                 </label>
               </div>
@@ -53,7 +53,7 @@
                     type="text" 
                     placeholder="Фамилия"
                     name="surname"
-                    value="<?php echo $user->surname; ?>"
+                    value="<?php echo isset($_POST['surname']) ? $_POST['surname'] : $user->surname; ?>"
                   />
                 </label>
               </div>
@@ -63,7 +63,7 @@
                     class="input input--width-label" 
                     type="text" placeholder="Email"
                     name="email"
-                    value="<?php echo $user['email']; ?>"
+                    value="<?php echo isset($_POST['email']) ? $_POST['email'] : $user->email; ?>"
                   />
                 </label>
               </div>
@@ -101,7 +101,7 @@
                     type="text" 
                     placeholder="Страна"
                     name="country"
-                    value="<?php echo $user->country; ?>"
+                    value="<?php echo isset($_POST['country']) ? $_POST['country'] : $user->country; ?>"
                   />
                 </label>
               </div>
@@ -113,7 +113,7 @@
                     type="text" 
                     placeholder="Город"
                     name="city"
-                    value="<?php echo $user->city; ?>"
+                    value="<?php echo isset($_POST['city']) ? $_POST['city'] : $user->city; ?>"
                   />
                 </label>
               </div>
