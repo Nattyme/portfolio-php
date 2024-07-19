@@ -1,14 +1,12 @@
 <?php
-
 $pageTitle = "Вход на сайт";
 $pageClass = "authorization-page";
 
 //1. Проверяем массив POST
 if( isset($_POST['login']) ) {
 
-  //2. Заполненность полей
-  //Проверка на заполненность
-  if( trim($_POST['email']) == "" ) {
+  //2. Заполненность полей. Проверка на заполненность
+  if( trim($_POST['email']) == '' ) {
   // Ошибка - email пуст. Добавляем массив этой ошибки в массив $errors 
     $errors[] = ['title' => 'Введите email', 'desc' => '<p>Email обязателен для регистрации на сайте</p>'];
   } else if ( !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) ) {
@@ -29,7 +27,15 @@ if( isset($_POST['login']) ) {
       // Проверить пароль
       if( password_verify($_POST['password'], $user->password ) ) {
         // Пароль верен, вход на сайт 
-        $success[] = ['title' => 'Верный пароль'];
+        // $success[] = ['title' => 'Верный пароль'];
+
+         // Автологин пользователя после регистрации
+        $_SESSION['logged_user'] = $user;
+        $_SESSION['login'] = 1;
+        $_SESSION['role'] = $user->role;
+
+        header('Location: ' . HOST . 'profile');
+        exit();
       } else {
         // Пароль не верен
         $errors[] = ['title' => 'Неверный пароль'];

@@ -1,16 +1,34 @@
 <main class="page-profile">
+  <!-- Если пользователя открывает profile без входа на сайт -->
+  <?php if( isset($userNotLoggedIn)) : ?>
+    <div class="section">
+			<div class="container">
+				<div class="section__title">
+					<h2 class="heading mb-25">Профиль пользователя</h2>
+          <p>Чтобы посмотреть свой профиль
+            <a href="<?php echo HOST; ?>login">войдите</a>
+            либо
+            <a href="<?php echo HOST; ?>registration">зарегистрируйтесь</a>
+          </p>
+				</div>
 
-  <?php if ($user['id'] === 0) : ?>
+			</div>
+		</div>
+
+  <!-- Если пользователя с таким ID не существует -->
+  <?php elseif ($user['id'] === 0) : ?>
     <div class="section">
 			<div class="container">
 				<div class="section__title">
 					<h2 class="heading">Такого пользователя не существует</h2>
+          <p><a href="<?php echo HOST; ?>">Вернуться на главную</a></p>
 				</div>
 			</div>
 		</div>
+  <!--// Если пользователя с таким ID не существует -->
 
+  <!-- Если пользователь НАЙДЕН -->
   <?php else : ?>
-
     <div class="section">
 			<div class="container">
 				<div class="section__title">
@@ -31,7 +49,7 @@
 									<dt class="definition__term">Страна, город</dt>
 									<dd class="definition__description"><?php echo $user->country; ?> <?php echo $user->city; ?></dd>
 								</dl>
-							</div><a class="secondary-button" href="#">Редактировать</a>
+							</div><a class="secondary-button" href="<?php echo HOST; ?>profile-edit">Редактировать</a>
 						</div>
 					</div>
 				</div>
@@ -96,5 +114,6 @@
 			</div>
 		</div>
   <?php endif; ?>
+  <!--// Если пользователь НАЙДЕН -->
 
-	</main>
+</main>

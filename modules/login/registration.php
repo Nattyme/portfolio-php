@@ -1,5 +1,4 @@
 <?php
-
 $pageTitle = "Регистрация";
 $pageClass = "authorization-page";
 
@@ -41,7 +40,7 @@ if ( isset($_POST['register']) ) {
     $result = R::store($user);
 
     if ( is_int($result) ) {
-      $success[] = ['title' => 'Регистрация прошла успешно', 'desc' => 'Вы можете <a href="'.HOST.'login">войти в профиль</a>'];
+      // $success[] = ['title' => 'Регистрация прошла успешно', 'desc' => 'Вы можете <a href="'.HOST.'login">войти в профиль</a>'];
 
       // Автологин пользователя после регистрации
       $_SESSION['logged_user'] = $user;

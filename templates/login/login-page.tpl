@@ -7,7 +7,7 @@
 
 <footer class="authorization-page__footer">
   <div class="authorization-page__footer__copyright">
-    <p>© Юрий Ключевский</p>
+    <p>© Наталья Балашова</p>
     <p>Создано в WebCademy.ru в 2024 году.</p>
   </div>
 </footer><!-- build:js1 js/jquery.js -->

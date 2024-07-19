@@ -1,5 +1,4 @@
 <?php
-
 $pageTitle = "Установить новый пароль";
 $pageClass = "authorization-page";
 
@@ -33,6 +32,7 @@ $pageClass = "authorization-page";
       }
     }
   }
+  
   else {
     // Если не понятно как, но попал на страницу
     header("Location: " . HOST . "lost-password");

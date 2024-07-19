@@ -1,5 +1,4 @@
 <?php
-
 $pageTitle = "Восстановить пароль";
 $pageClass = "authorization-page";
 
