@@ -32,7 +32,13 @@
 				<div class="section__title">
 					<h2 class="heading">Профиль пользователя </h2>
 				</div>
-				<div class="section__body">-
+				<div class="section__body">
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <?php include ROOT . "templates/components/errors.tpl"; ?>
+              <?php include ROOT . "templates/components/success.tpl"; ?>
+            </div>
+          </div>
 					<div class="row justify-content-center">
 						<div class="col-md-2">
 							<div class="avatar-big"><img src="<?php echo HOST; ?>static/img/section-about-me/img-01.jpg" alt="Аватарка" /></div>

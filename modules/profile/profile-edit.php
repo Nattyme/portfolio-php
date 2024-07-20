@@ -1,20 +1,19 @@
 <?php 
   function updateUserAndGoToProfile($user) {
-    global $errors;
     if ( isset($_POST['updateProfile'])) {
       // Проверить поля на заполненность
       if ( trim($_POST['name']) === '') {
-        $errors[] = ['title' => 'Введите имя'];
+        $_SESSION['errors'][] = ['title' => 'Введите имя'];
       }
       if ( trim($_POST['surname']) === '') {
-        $errors[] = ['title' => 'Введите фамилию'];
+        $_SESSION['errors'][] = ['title' => 'Введите фамилию'];
       }
       if ( trim($_POST['email']) === '') {
-        $errors[] = ['title' => 'Введите email'];
+        $_SESSION['errors'][] = ['title' => 'Введите email'];
       }
 
       // Если ошибок нет - обновить данные в БД
-      if ( empty($errors) ) {
+      if ( empty($_SESSION['errors']) ) {
         $user->name = htmlentities($_POST['name']);
         $user->surname = htmlentities($_POST['surname']);
         $user->email = htmlentities($_POST['email']);

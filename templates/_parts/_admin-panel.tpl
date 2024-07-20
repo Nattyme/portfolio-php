@@ -35,5 +35,11 @@
 
     <a href="<?php echo HOST; ?>logout" class="admin-panel__block-button">Выход</a>
 
+  </div> 
+<?php else : ?>
+  <div class="admin-panel">
+    <div class="admin-panel__block-list">
+    </div>
+    <a href="<?php echo HOST; ?>login" class="admin-panel__block-button">Вход</a>
   </div>
 <?php endif; 

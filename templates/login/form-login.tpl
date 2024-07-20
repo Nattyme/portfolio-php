@@ -7,7 +7,7 @@
   <?php include ROOT . "templates/components/success.tpl"; ?>
   
   <?php
-    if(!$success) {
+    if(empty($_SESSION['success'])) {
   ?>
       <div class="authorization-form__input">
         <input name="email" class="input" type="text" placeholder="Email" />

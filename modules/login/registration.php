@@ -7,30 +7,30 @@ if ( isset($_POST['register']) ) {
   //Проверка на заполненность
   if( trim($_POST['email']) == "" ) {
     // Ошибка - email пуст. Добавляем массив этой ошибки в массив $errors 
-    $errors[] = ['title' => 'Введите email', 'desc' => '<p>Email обязателен для регистрации на сайте</p>'];
+    $_SESSION['errors'][] = ['title' => 'Введите email', 'desc' => '<p>Email обязателен для регистрации на сайте</p>'];
   } else if ( !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) ) {
-    $errors[] = ['title' => 'Введите корректный Email'];
+    $_SESSION['errors'][] = ['title' => 'Введите корректный Email'];
   }
 
   if( trim($_POST['password']) == "") {
     // Ошибка - пароль пуст. Добавляем массив этой ошибки в массив $errors 
-    $errors[] = ['title' => 'Введите пароль'];
+    $_SESSION['errors'][] = ['title' => 'Введите пароль'];
   }
 
   if( ! trim($_POST['password']) == "" && strlen(trim($_POST['password']) ) < 5) {
-    $errors[] = ['title' => 'Неверный формат пароля', 'desc' => '<p>Пароль должен быть больше четырёх символов</p>'];
+    $_SESSION['errors'][] = ['title' => 'Неверный формат пароля', 'desc' => '<p>Пароль должен быть больше четырёх символов</p>'];
   }
 
   // Проверка на занятый email
   if ( R::count('users', 'email = ?', array($_POST['email'])) > 0 ) {
-    $errors[] = [
+    $_SESSION['errors'][] = [
       'title' => 'Пользователь с таким email уже существует', 
       'desc' => '<p>Используйте другой email адрес или воспользуйтесь <a href="'.HOST.'lost-password">восстановлением пароля.</a></p>'
     ];
   }
 
   //Если нет ошибок - Регистрируем пользователя
-  if ( empty($errors) ) {
+  if ( empty($_SESSION['errors']) ) {
     $user = R::dispense('users');
     $user->email = $_POST['email'];
     $user->role = 'user';
@@ -40,18 +40,16 @@ if ( isset($_POST['register']) ) {
     $result = R::store($user);
 
     if ( is_int($result) ) {
-      // $success[] = ['title' => 'Регистрация прошла успешно', 'desc' => 'Вы можете <a href="'.HOST.'login">войти в профиль</a>'];
-
       // Автологин пользователя после регистрации
       $_SESSION['logged_user'] = $user;
       $_SESSION['login'] = 1;
       $_SESSION['role'] = $user->role;
-
+      $_SESSION['success'][] = ['title' => 'Регистрация завершена.', 'desc'=>'Заполните свой профиль для дальнейшего пользования сайтом'];
       header('Location: ' . HOST . 'profile-edit');
       exit();
 
     } else {
-      $errors[] = ['title' => 'Что-то пошло не так. Повторите действие заново.'];
+      $_SESSION['errors'][] = ['title' => 'Что-то пошло не так. Повторите действие заново.'];
     }
   }
 }
@@ -59,10 +57,8 @@ if ( isset($_POST['register']) ) {
 //Сохраняем код ниже в буфер
 ob_start();
 include ROOT . 'templates/login/form-registration.tpl';
-
 //Записываем вывод из буфера в пепеменную
 $content = ob_get_contents();
-
 //Окончание буфера, очищаем вывод
 ob_end_clean();
 

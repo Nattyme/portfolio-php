@@ -7,12 +7,12 @@ if ( isset($_POST['lost-password']) ) {
 
   // 2. Проверка на заполненный email
   if( trim($_POST['email']) == '') {
-    $errors[] = ['title' => 'Введите email', 'desc' => '<p>Email обязателен для регистрации на сайте</p>'];
+    $_SESSION['errors'][] = ['title' => 'Введите email', 'desc' => '<p>Email обязателен для регистрации на сайте</p>'];
   } else if ( !filter_var( trim($_POST['email']), FILTER_VALIDATE_EMAIL) ) {
-    $errors[] = ['title' => 'Введите корректный Email'];
+    $_SESSION['errors'][] = ['title' => 'Введите корректный Email'];
   }
 
-  if ( empty($errors)) {
+  if ( empty($_SESSION['errors'])) {
     // 3. Проверить есть ли пользователь с такиv email в БД
     $user = R::findOne('users', 'email = ?', array( trim($_POST['email']) ));
 
@@ -43,13 +43,13 @@ if ( isset($_POST['lost-password']) ) {
       $resultEmail = mail($_POST['email'], 'Восстановление доступа', $recovery_message, $headers);
 
       if ($resultEmail) {
-        $success[] = [
+        $_SESSION['success'][] = [
           'title' => 'Проверьте почту', 
           'desc' => '<p>На указанную почту был отправлен email с ссылкой для сброса пароля.</p>'
         ];
         // $emailSent = true;
       } else {
-        $errors[] = [
+        $_SESSION['errors'][] = [
           'title' => 'Что-то пошло не так. Повторите действие заново.', 
           'desc' => '<p>Произошла ошибка. Повторите отправку формы.</p>'
         ];
@@ -57,7 +57,7 @@ if ( isset($_POST['lost-password']) ) {
 
     } else {
       // Email не найден
-      $errors[] = ['title' => 'Пользователя с таким email не существует'];
+      $_SESSION['errors'][] = ['title' => 'Пользователя с таким email не существует'];
     }
 
   }
