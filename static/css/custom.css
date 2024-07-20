@@ -7,3 +7,14 @@ html {
   flex-direction: column;
   justify-content: space-between;
 }
+
+.enter-or-reg {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: auto;
+  min-height: 180px;
+}
+
+.flex-row-gap {
+  row-gap: 20px;
+}

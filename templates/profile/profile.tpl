@@ -24,7 +24,7 @@
 			</div>
 		</div>
   <!--// Если пользователя с таким ID не существует -->
-
+  
   <!-- Если пользователь НАЙДЕН -->
   <?php else : ?>
     <div class="section">
@@ -39,63 +39,70 @@
               <?php include ROOT . "templates/components/success.tpl"; ?>
             </div>
           </div>
-					<div class="row justify-content-center">
-						<div class="col-md-2">
-							<div class="avatar-big"><img src="<?php echo HOST; ?>static/img/section-about-me/img-01.jpg" alt="Аватарка" /></div>
-						</div>
-						<div class="col-md-4">
-							<div class="definition-list mb-20">
-                <?php if ($user->name !== NULL) : ?>
-                  <dl class="definition">
-                    <dt class="definition__term">имя и фамилия</dt>
-                    <dd class="definition__description"><?php echo $user->name; ?> <?php echo $user->surname; ?></dd>
-                  </dl>
-                <?php endif; ?>
 
-                <?php if (!empty($user->country) || !empty($user->city)) : ?>
-                  <dl class="definition">
-                    <dt class="definition__term">
-                      <?php if (!empty($user->country)) : ?>
-                        Страна
-                      <?php endif; ?>
+          <!-- Блок пустого профиля -->
+          <?php if (empty($user->name)) : ?>
+            <div class="row justify-content-center">
+              <div class="col-md-6">
+                <div class="enter-or-reg flex-column flex-row-gap">
+                  <div class="enter-or-reg__text">
+                      Пустой профиль 😑 
+                  </div>
+                  <!-- Кнопка редактирования профиля -->
+                  <?php include ROOT . "templates\profile\_parts\button-edit-profile.tpl"; ?>
+                </div>
+              </div>
+            </div>
+          <!-- Заполненный профиль -->
+          <?php else : ?>
+            <div class="row justify-content-center">
+              <div class="col-md-2">
+                <div class="avatar-big">
+                  <img src="<?php echo HOST; ?>static/img/section-about-me/img-01.jpg" alt="Аватарка" />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="definition-list mb-20">
+                  <?php if (!empty($user->name)) : ?>
+                    <dl class="definition">
+                      <dt class="definition__term">имя и фамилия</dt>
+                      <dd class="definition__description">
+                        <?php echo $user->name; ?> 
+                        <?php echo $user->surname; ?>
+                      </dd>
+                    </dl>
+                  <?php endif; ?>
 
-                      <?php if (!empty($user->country) && !empty($user->city)) : ?>
-                        ,
-                      <?php endif; ?>
+                  <?php if (!empty($user->country) || !empty($user->city)) : ?>
+                    <dl class="definition">
+                      <dt class="definition__term">
+                        <?php if (!empty($user->country)) : ?>
+                          Страна
+                        <?php endif; ?>
 
-                      <?php if (!empty($user->city)) : ?>
-                        город
-                      <?php endif; ?>
-                    </dt>
-                    <dd class="definition__description">
-                      <?php echo $user->country; ?> 
-                      <?php if (!empty($user->country) && !empty($user->city)) : ?>
-                        ,
-                      <?php endif; ?>
-                      <?php echo $user->city; ?>
-                    </dd>
-                  </dl>
-                <?php endif; ?>
-							</div>
-            <?php
-              if ( isset($_SESSION['login']) && $_SESSION['login'] === 1) {
-                // Если админ
-                if ($_SESSION['logged_user']['role'] === 'admin') { 
-                  echo "<a class=\"secondary-button\" href=\" " . HOST . "profile-edit/". $user->id ."\">Редактировать</a>";
-                }
-                // Если юзер
-                else if ($_SESSION['logged_user']['role'] === 'user') {
-                  // Открыл свой профиль
-                  if ( $_SESSION['logged_user']['id'] === $user->id ) {
-                    echo "<a class=\"secondary-button\" href=\" " . HOST . "profile-edit\">Редактировать</a>";
-                  }
-                  // Открыл чужой профиль
-                }
-              } 
-            ?>
+                        <?php if (!empty($user->country) && !empty($user->city)) : ?>
+                          ,
+                        <?php endif; ?>
 
-						</div>
-					</div>
+                        <?php if (!empty($user->city)) : ?>
+                          город
+                        <?php endif; ?>
+                      </dt>
+                      <dd class="definition__description">
+                        <?php echo $user->country; ?> 
+                        <?php if (!empty($user->country) && !empty($user->city)) : ?>
+                          ,
+                        <?php endif; ?>
+                        <?php echo $user->city; ?>
+                      </dd>
+                    </dl>
+                  <?php endif; ?>
+                </div>
+                <!-- Кнопка редактирования профиля -->
+                <?php include ROOT . "templates\profile\_parts\button-edit-profile.tpl"; ?>
+              </div>
+					  </div>
+          <?php endif; ?>
 				</div>
 			</div>
 		</div>
@@ -159,5 +166,4 @@
 		</div>
   <?php endif; ?>
   <!--// Если пользователь НАЙДЕН -->
-
 </main>
