@@ -13,7 +13,7 @@
 			</div>
 		</div>
   <?php else: ?>
-
+<?php  print_r($_FILES); ?>
   <div class="section">
     <div class="section__title">
       <div class="container">
@@ -25,9 +25,9 @@
       <div class="container">
 
       <?php if (isset($uriArray[1])) : ?>
-        <form action="<?php echo HOST; ?>profile-edit/<?php echo $uriArray[1]; ?>" method="POST">
+        <form enctype="multipart/form-data" action="<?php echo HOST; ?>profile-edit/<?php echo $uriArray[1]; ?>" method="POST">
       <?php else : ?>
-        <form action="<?php echo HOST; ?>profile-edit" method="POST">
+        <form enctype="multipart/form-data" action="<?php echo HOST; ?>profile-edit" method="POST">
       <?php endif; ?>
           <div class="row justify-content-center">
             <div class="col-md-8">

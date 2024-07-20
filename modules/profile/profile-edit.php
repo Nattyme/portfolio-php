@@ -62,10 +62,41 @@
 
           // Если ошибок нет
           if ( empty($_SESSION['errors']) ) {
-            
-          }
+            // Проверяем установлен ли у пользофателя аватар
+            $avatar = $user->avatar;
+            $avatarFolderLocation = ROOT . 'usercontent/avatars/';
 
+            // Если у пользователя есть старый аватар - удаляем его
+            if (!empty($avatar)) {
+              // Определяем путь к большой аватарке и удаляем её
+              $pictureUrl = $avatarFolderLocation . $avatar;
+              file_exists($pictureUrl) ? unlink($pictureUrl) : '';
+
+              // Определяем путь к маленькой аватарке и удаляем её
+              $pictureUrl48 = $avatarFolderLocation . '48-' . $avatar;
+              file_exists($pictureUrl48) ? unlink($pictureUrl48) : '';
+  
+            }
+
+            $db_file_name = rand(100000000000,999999999999) . "." . $fileExt;
+            $uploadfile = $avatarFolderLocation . $db_file_name;
+            $moveResult = move_uploaded_file($fileTmpLoc, $uploadfile);
+
+            if ($moveResult != true) {
+              $_SESSION['errors'][] = ['title' => 'Ошибка сохранения файла'];
+              return false;
+            }
+
+            //Обработать фотографию
+            // 1. Обрезать до 160x160
+            // 2. Обрезать до 48x48
+
+            // Сохраняем имя файла в БД
+            $user->avatar = $db_file_name;
+            $user->avatarSmall = '48-' . $db_file_name;
+          }
         }
+
         R::store($user);
         $_SESSION['logged_user'] = $user;
         header('Location: ' . HOST . 'profile');
