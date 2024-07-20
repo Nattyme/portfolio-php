@@ -1,5 +1,4 @@
 <?php
-
 // DB SETTINGS
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'project');

@@ -1,6 +1,8 @@
 <?php
 require_once('config.php');
 require_once('db.php');
+require_once('./libs/resize-and-crop.php');
+
 $_SESSION['errors'] = array();
 $_SESSION['success'] = array();
 
