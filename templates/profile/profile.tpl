@@ -45,14 +45,37 @@
 						</div>
 						<div class="col-md-4">
 							<div class="definition-list mb-20">
-								<dl class="definition">
-									<dt class="definition__term">имя и фамилия</dt>
-									<dd class="definition__description"><?php echo $user->name; ?> <?php echo $user->surname; ?></dd>
-								</dl>
-								<dl class="definition">
-									<dt class="definition__term">Страна, город</dt>
-									<dd class="definition__description"><?php echo $user->country; ?> <?php echo $user->city; ?></dd>
-								</dl>
+                <?php if ($user->name !== NULL) : ?>
+                  <dl class="definition">
+                    <dt class="definition__term">имя и фамилия</dt>
+                    <dd class="definition__description"><?php echo $user->name; ?> <?php echo $user->surname; ?></dd>
+                  </dl>
+                <?php endif; ?>
+
+                <?php if (!empty($user->country) || !empty($user->city)) : ?>
+                  <dl class="definition">
+                    <dt class="definition__term">
+                      <?php if (!empty($user->country)) : ?>
+                        Страна
+                      <?php endif; ?>
+
+                      <?php if (!empty($user->country) && !empty($user->city)) : ?>
+                        ,
+                      <?php endif; ?>
+
+                      <?php if (!empty($user->city)) : ?>
+                        город
+                      <?php endif; ?>
+                    </dt>
+                    <dd class="definition__description">
+                      <?php echo $user->country; ?> 
+                      <?php if (!empty($user->country) && !empty($user->city)) : ?>
+                        ,
+                      <?php endif; ?>
+                      <?php echo $user->city; ?>
+                    </dd>
+                  </dl>
+                <?php endif; ?>
 							</div>
             <?php
               if ( isset($_SESSION['login']) && $_SESSION['login'] === 1) {
