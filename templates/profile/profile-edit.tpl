@@ -82,8 +82,7 @@
                   <div class="block-upload__title">Фотография</div>
                   <p>Изображение jpg или png, рекомендуемая ширина 945px и больше, высота от 400px и более. Вес до 2Мб.</p>
                   <div class="block-upload__file-wrapper">
-                    <button class="file-button" type="file">Выбрать файл</button>
-                    <div class="block-upload__file-name">Файл не выбран</div>
+                    <input name="avatar" class="file-button" type="file">
                   </div>
                 </div>
               </div>
