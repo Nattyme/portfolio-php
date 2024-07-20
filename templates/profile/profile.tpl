@@ -32,7 +32,7 @@
 				<div class="section__title">
 					<h2 class="heading">Профиль пользователя </h2>
 				</div>
-				<div class="section__body">
+				<div class="section__body">-
 					<div class="row justify-content-center">
 						<div class="col-md-2">
 							<div class="avatar-big"><img src="<?php echo HOST; ?>static/img/section-about-me/img-01.jpg" alt="Аватарка" /></div>
@@ -48,16 +48,22 @@
 									<dd class="definition__description"><?php echo $user->country; ?> <?php echo $user->city; ?></dd>
 								</dl>
 							</div>
-   
-              <!-- Проверяем, что пользователь залогинен. Юзер либо Админ -->
-              <?php if( isset($_SESSION['login']) && $_SESSION['login'] === 1) :
-                //Проверка на пользователя или админа  и меняем ссылку
-                $btnLink = $_SESSION['logged_user']['role'] === 'admin' ? '/' . $user->id : '';
-              ?>
-                <a class="secondary-button" href="<?php echo HOST . 'profile-edit' . $btnLink ?>">Редактировать</a>
-
-              <?php endif; ?>
-            
+            <?php
+              if ( isset($_SESSION['login']) && $_SESSION['login'] === 1) {
+                // Если админ
+                if ($_SESSION['logged_user']['role'] === 'admin') { 
+                  echo "<a class=\"secondary-button\" href=\" " . HOST . "profile-edit/". $user->id ."\">Редактировать</a>";
+                }
+                // Если юзер
+                else if ($_SESSION['logged_user']['role'] === 'user') {
+                  // Открыл свой профиль
+                  if ( $_SESSION['logged_user']['id'] === $user->id ) {
+                    echo "<a class=\"secondary-button\" href=\" " . HOST . "profile-edit\">Редактировать</a>";
+                  }
+                  // Открыл чужой профиль
+                }
+              } 
+            ?>
 
 						</div>
 					</div>
