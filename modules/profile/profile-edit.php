@@ -112,8 +112,12 @@
         }
 
         R::store($user);
-        $_SESSION['logged_user'] = $user;
-        header('Location: ' . HOST . 'profile');
+
+        if ($user->id ===  $_SESSION['logged_user']['id']) {
+          $_SESSION['logged_user'] = $user;
+        }
+        
+        header('Location: ' . HOST . 'profile/' . $user->id);
         exit();
       }
     }
