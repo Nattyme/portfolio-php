@@ -58,7 +58,11 @@
             <div class="row justify-content-center">
               <div class="col-md-2">
                 <div class="avatar-big">
-                  <img src="<?php echo HOST; ?>static/img/section-about-me/img-01.jpg" alt="Аватарка" />
+                  <?php if ( !empty($user->avatar)) : ?>
+                    <img src="<?php echo HOST; ?>usercontent/avatars/<?php echo $user->avatar; ?>" alt="Аватарка" />
+                  <?php else : ?>
+                    <img src="<?php echo HOST; ?>usercontent/avatars/no-avatar.svg" alt="Аватарка" />
+                  <?php endif; ?>
                 </div>
               </div>
               <div class="col-md-4">

@@ -13,7 +13,6 @@
 			</div>
 		</div>
   <?php else: ?>
-<?php  print_r($_FILES); ?>
   <div class="section">
     <div class="section__title">
       <div class="container">
@@ -73,20 +72,26 @@
           <div class="row justify-content-center pt-40 pb-40">
             <div class="col-2">
               <div class="avatar-big">
-                <img src="<?php echo HOST; ?>static/img/section-about-me/img-01.jpg" alt="Аватарка" />
+                <?php if ( !empty($user->avatar)) : ?>
+                  <img src="<?php echo HOST; ?>usercontent/avatars/<?php echo $user->avatar; ?>" alt="Аватарка" />
+                <?php else : ?>
+                  <img src="<?php echo HOST; ?>usercontent/avatars/no-avatar.svg" alt="Аватарка" />
+                <?php endif; ?>
               </div>
             </div>
             <div class="col-6">
               <div class="block-upload">
                 <div class="block-upload__description">
                   <div class="block-upload__title">Фотография</div>
-                  <p>Изображение jpg или png, рекомендуемая ширина 945px и больше, высота от 400px и более. Вес до 2Мб.</p>
+                  <p>Изображение jpg или png, рекомендуемая ширина 160px и больше, высота от 160px и более. Вес до 4Мб.</p>
                   <div class="block-upload__file-wrapper">
                     <input name="avatar" class="file-button" type="file">
                   </div>
                 </div>
               </div>
-              <button class="delete-button mt-20" type="reset">Удалить</button>
+              <?php if ( !empty($user->avatar)) : ?>
+                <button class="delete-button mt-20" type="reset">Удалить</button>
+              <?php endif; ?>
             </div>
           </div>
 
