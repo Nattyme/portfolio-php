@@ -151,10 +151,8 @@
   // Запрос данныз из БД по юзеру
   $pageTitle = "Профиль пользователя";
 
-  include ROOT . 'templates/page-parts/_head.tpl';
+  include ROOT . "templates/page-parts/_head.tpl";
   include ROOT . "templates/_parts/_header.tpl";
-
   include ROOT . "templates/profile/profile-edit.tpl";
-
   include ROOT . "templates/_parts/_footer.tpl";
-  include ROOT . 'templates/page-parts/_foot.tpl';
+  include ROOT . "templates/page-parts/_foot.tpl";

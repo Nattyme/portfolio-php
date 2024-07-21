@@ -32,7 +32,9 @@
             <img src="<?php echo HOST; ?>static/img/posts/post-3.jpg" alt="Мое рабочее место и аксессуары в 2020 году" />
           </a>
         </div>
-        <h4 class="card-post__title"><a href="#"> Мое рабочее место и аксессуары в 2020 году</a></h4>
+        <h4 class="card-post__title">
+          <a href="#"> Мое рабочее место и аксессуары в 2020 году</a>
+        </h4>
       </div>
     </div>
   </div>

@@ -6,23 +6,19 @@
   <?php include ROOT . "templates/components/errors.tpl"; ?>
   <?php include ROOT . "templates/components/success.tpl"; ?>
   
-  <?php
-    if(empty($_SESSION['success'])) {
-  ?>
-      <div class="authorization-form__input">
-        <input name="email" class="input" type="text" placeholder="Email" />
-      </div>
-      
-      <div class="authorization-form__input">
-        <input name="password" class="input" type="password" placeholder="Пароль" />
-      </div>
+  <?php if(empty($_SESSION['success'])) : ?>
+    <div class="authorization-form__input">
+      <input name="email" class="input" type="text" placeholder="Email" />
+    </div>
+    
+    <div class="authorization-form__input">
+      <input name="password" class="input" type="password" placeholder="Пароль" />
+    </div>
 
-      <div class="authorization-form__button">
-        <button name="login" value="login" class="primary-button" type="submit">Вход на сайт</button>
-      </div>
-  <?php
-    }
-  ?>
+    <div class="authorization-form__button">
+      <button name="login" value="login" class="primary-button" type="submit">Вход на сайт</button>
+    </div>
+  <?php endif; ?>
 
   <div class="authorization-form__links">
     <a href="<?php echo HOST; ?>lost-password">Забыл пароль</a>

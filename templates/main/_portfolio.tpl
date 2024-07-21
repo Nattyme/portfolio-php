@@ -42,7 +42,9 @@
             <img src="<?php echo HOST; ?>static/img/projects/project-img-04.jpg" alt="Верстка сайта для газеты 'Вечерний Лондон'" />
             <div class="card-project__technology">HTML, CSS, wordpress</div>
           </a></div>
-        <h4 class="card-project__title"><a href="#">Верстка сайта для газеты 'Вечерний Лондон'</a></h4>
+        <h4 class="card-project__title">
+          <a href="#">Верстка сайта для газеты 'Вечерний Лондон'</a>
+        </h4>
       </div>
     </div>
   </div>

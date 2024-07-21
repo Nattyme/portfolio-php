@@ -49,7 +49,7 @@
                       Пустой профиль 😑 
                   </div>
                   <!-- Кнопка редактирования профиля -->
-                  <?php include ROOT . "templates\profile\_parts\button-edit-profile.tpl"; ?>
+                  <?php include ROOT . "templates/profile/_parts/button-edit-profile.tpl"; ?>
                 </div>
               </div>
             </div>
@@ -103,7 +103,7 @@
                   <?php endif; ?>
                 </div>
                 <!-- Кнопка редактирования профиля -->
-                <?php include ROOT . "templates\profile\_parts\button-edit-profile.tpl"; ?>
+                <?php include ROOT . "templates/profile/_parts/button-edit-profile.tpl"; ?>
               </div>
 					  </div>
           <?php endif; ?>

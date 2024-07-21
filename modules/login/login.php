@@ -6,7 +6,7 @@ $pageClass = "authorization-page";
 if( isset($_POST['login']) ) {
   //2. Заполненность полей. Проверка на заполненность
   if( trim($_POST['email']) == '' ) {
-  // Ошибка - email пуст. Добавляем массив этой ошибки в массив $errors 
+    // Ошибка - email пуст. Добавляем массив этой ошибки в массив $errors 
     $_SESSION['errors'][] = ['title' => 'Введите email', 'desc' => '<p>Email обязателен для регистрации на сайте</p>'];
   } else if ( !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) ) {
     $_SESSION['errors'][] = ['title' => 'Введите корректный Email'];
@@ -53,6 +53,6 @@ $content = ob_get_contents();
 //Окончание буфера, очищаем вывод
 ob_end_clean();
 
-include ROOT . 'templates/page-parts/_head.tpl';
-include ROOT . 'templates/login/login-page.tpl';
-include ROOT . 'templates/page-parts/_foot.tpl';
+include ROOT . "templates/page-parts/_head.tpl";
+include ROOT . "templates/login/login-page.tpl";
+include ROOT . "templates/page-parts/_foot.tpl";

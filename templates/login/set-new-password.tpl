@@ -6,26 +6,23 @@
   <?php include ROOT . "templates/components/errors.tpl"; ?>
   <?php include ROOT . "templates/components/success.tpl"; ?>
 
-  <?php
-    if( !isset($newPasswordReady) ) { 
-  ?>
-      <div class="authorization-form__input">
-        <input name="password" class="input" type="password" placeholder="Новый пароль" />
-      </div>
+  <?php if( !isset($newPasswordReady) ) : ?>
+    <div class="authorization-form__input">
+      <input name="password" class="input" type="password" placeholder="Новый пароль" />
+    </div>
 
-      <input type="hidden" name="email" value="<?php echo $_GET['email'] ?>">
-      <input type="hidden" name="resetCode" value="<?php echo $_GET['code'] ?>">
- 
-      <div class="authorization-form__button">
-        <button name="set-new-password" value="set-new-password" class="primary-button" type="submit">
-          Установить пароль
-        </button>
-      </div>
-  <?php 
-    }
-  ?>
+    <input type="hidden" name="email" value="<?php echo $_GET['email']; ?>">
+    <input type="hidden" name="resetCode" value="<?php echo $_GET['code']; ?>">
+
+    <div class="authorization-form__button">
+      <button name="set-new-password" value="set-new-password" class="primary-button" type="submit">
+        Установить пароль
+      </button>
+    </div>
+  <?php endif; ?>
 
   <div class="authorization-form__links">
     <a href="<?php echo HOST; ?>login">Войти на сайт</a>
-    <a href="<?php echo HOST; ?>registration">Регистрация</a></div>
+    <a href="<?php echo HOST; ?>registration">Регистрация</a>
+  </div>
 </form>
