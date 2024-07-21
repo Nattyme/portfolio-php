@@ -99,6 +99,18 @@
           }
         }
 
+        // Удаление аватарки
+        if ( isset($_POST['delete-avatar']) && $_POST['delete-avatar'] == 'on') {
+          // Удадить физичнски файл с сервера
+          $avatarFolderLocation = ROOT . 'usercontent/avatars/';
+          unlink($avatarFolderLocation . $user->avatar);
+          unlink($avatarFolderLocation . '48-' . $user->avatar);
+
+          // Удалить записи файла в БД
+          $user->avatar = '';
+          $user->avatarSmall = '';
+        }
+
         R::store($user);
         $_SESSION['logged_user'] = $user;
         header('Location: ' . HOST . 'profile');

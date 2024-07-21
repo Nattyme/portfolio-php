@@ -90,7 +90,10 @@
                 </div>
               </div>
               <?php if ( !empty($user->avatar)) : ?>
-                <button class="delete-button mt-20" type="reset">Удалить</button>
+                <label class="checkbox__item mt-15">
+                  <input class="checkbox__btn" type="checkbox" name="delete-avatar">
+                  <span class="checkbox__label">Удалить фотографию</span>
+                </label>
               <?php endif; ?>
             </div>
           </div>
