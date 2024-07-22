@@ -132,9 +132,9 @@
 
     } else if ( $_SESSION['logged_user']['role'] === 'admin') {
       // Это администратор сайта. Делаем проверку на доп парам - ID пользователя для редактирования
-      if( isset($uriArray[1])) {
+      if( isset($uriGet)) {
         //Редакт. чужого профиля. 
-        $user = R::load('users', intval($uriArray[1]) ); // Загружаем данные о профиле
+        $user = R::load('users', intval($uriGet) ); // Загружаем данные о профиле
         //Обновляем данные пользователя
         updateUserAndGoToProfile($user);
       } else {
