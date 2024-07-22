@@ -11,7 +11,7 @@ session_start();
 /* ................................................
                   РОУТЕР - МАРШРУТ
 ................................................ */
-$uriModule = getModuleNameForAdmin ();
+$uriModule = getModuleNameForAdmin();
 
 switch ($uriModule) {
   case '':
