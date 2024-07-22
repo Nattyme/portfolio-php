@@ -5,46 +5,44 @@ require_once ROOT . 'libs/resize-and-crop.php';
 
 $_SESSION['errors'] = array();
 $_SESSION['success'] = array();
-
 session_start();
 
 $uri = $_SERVER['REQUEST_URI'];
-$uri = rtrim($uri, "/"); // Удаляем сивол / в конце строки
+$uriArr = explode('?', $uri); // Разбиваем запрос по сиволу '?', чтобы отсечь GET запрос
+$uri = $uriArr[0]; //  /admin/blog?id=15 => /admin/blog
+$uri = rtrim($uri, "/"); // Обрезаем сивол '/' в конце /admin/blog/ => /admin/blog
+$uri = substr($uri, 1); //Удаляем первый символ (слэш) в запросе admin/blog
 $uri = filter_var($uri, FILTER_SANITIZE_URL); // Удалем лишние сиволы из запроса
-$uri = substr($uri, 1); //Удаляем первый символ (слэш) в запросе
-$uri = explode('?', $uri);
 
-if ( isset($uri[1])) {
-  $uriGet = $uri[1];
-}
-// Запись выше можно сделать короче через тернарный оператор
-// $uriGet = isset($uri[1]) ? $uri[1] : null;
-
-$uriArray = explode('/', $uri[0]);
-$uriModule = $uriArray[0];
+// Еще раз разбиваем строку запроса по символу "/",  получаем массив 
+$moduleNameArr = explode('/', $uri); // admin/blog => ['admin, 'blog']
+$uriModule = $moduleNameArr[1]; // Достаем имя модуля кот нужно запустить  admin/blog => blog
 
 // Роутер
 switch ($uriModule) {
-
+  case '':
+    require ROOT . "admin/modules/admin/index.php";
+    break;
+  // ::::::::::::: BLOG :::::::::::::::::::
   case 'blog':
     require ROOT . "admin/modules/blog/index.php";
     break;
 
   case 'post-new':
-    require ROOT . "admin/modules/post-new/index.php";
+    require ROOT . "admin/modules/blog/post-new.php";
     break;
 
   case 'post-edit':
-    require ROOT . "admin/modules/post-edit/index.php";
+    require ROOT . "admin/modules/blog/post-edit.php";
     break;
 
   case 'post-delete':
-    require ROOT . "admin/modules/post-delete/index.php";
+    require ROOT . "admin/modules/blog/post-delete.php";
     break;
   
   // ::::::::::::: OTHER :::::::::::::::::::
   default: 
-    echo "Main or 404";
+    require ROOT . "admin/modules/admin/index.php";
     break;
 }
 

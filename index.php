@@ -73,7 +73,7 @@ switch ($uriModule) {
     break;
 
   default: 
-    echo "Main or 404";
+    require ROOT . "modules/main/index.php";
     break;
 }
 
