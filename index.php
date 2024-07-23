@@ -47,7 +47,6 @@ switch ($uriModule) {
     break;
 
   // ::::::::::::: OTHER :::::::::::::::::::
-
   case 'about':
     require ROOT . "modules/about/index.php";
     break;

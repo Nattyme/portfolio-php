@@ -17,7 +17,6 @@ if ( !(isset($_SESSION['role']) && $_SESSION['role'] === 'admin')) {
                   РОУТЕР - МАРШРУТ
 ................................................ */
 $uriModule = getModuleNameForAdmin();
-
 switch ($uriModule) {
   case '':
     require ROOT . "admin/modules/admin/index.php";
