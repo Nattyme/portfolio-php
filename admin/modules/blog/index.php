@@ -1,4 +1,8 @@
 <?php
+
+//Запрос постов в БД с сортировкой id по убыванию
+$posts = R::find('posts', 'ORDER BY id DESC'); 
+
 ob_start();
 include ROOT . "admin/templates/blog/index.tpl";
 $content = ob_get_contents();
