@@ -1,8 +1,8 @@
 <div class="admin-page__content">
   <div class="admin-page__content-form">
-    <?php echo "<pre>";
-    print_r($_POST);
-    echo "</pre>"; ?>
+    <?php include ROOT . "admin/templates/components/errors.tpl"; ?>
+    <?php include ROOT . "admin/templates/components/success.tpl"; ?>
+
     <form class="admin-form" method="POST" action="<?php echo HOST;?>admin/post-new" enctype="multipart/form-data">
       <div class="admin-form__item">
         <h2 class="heading">Добавить пост </h2>
