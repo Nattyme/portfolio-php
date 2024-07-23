@@ -32,17 +32,22 @@
             <div class="block-upload__title">Обложка поста:</div>
             <p>Изображение jpg или png, рекомендуемая ширина 945px и больше, высота от 400px и более. Вес до 2Мб.</p>
             <div class="block-upload__file-wrapper">
-              <button class="file-button" type="file">Выбрать файл</button>
-              <div class="block-upload__file-name">some-picture.jpg</div>
+              <input name="cover" class="file-button" type="file">
             </div>
           </div>
-          <div class="block-upload__img"><img src="<?php echo HOST; ?>static/img/block-upload/block-upload.jpg" alt="Загрузка картинки" />
-            <div class="block-downloads__delete">
-              <button class="delete-button" type="reset">Удалить</button>
-            </div>
+          <div class="block-upload__img">
+            <img src="<?php echo HOST; ?>static/img/block-upload/block-upload.jpg" alt="Загрузка картинки" />
           </div>
         </div>
+        <?php /* if ( !empty($user->avatar)) : ?>
+                <label class="checkbox__item mt-15">
+                  <input class="checkbox__btn" type="checkbox" name="delete-avatar">
+                  <span class="checkbox__label">Удалить фотографию</span>
+                </label>
+        <?php endif; */ ?>
       </div>
+
+
       <div class="admin-form__item buttons">
         <button name="postSubmit" value="postSubmit" class="primary-button" type="submit">Опубликовать</button><a class="secondary-button" href="#">Отмена</a>
       </div>
