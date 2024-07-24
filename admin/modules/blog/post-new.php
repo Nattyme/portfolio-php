@@ -44,7 +44,7 @@ if( isset($_POST['postSubmit']) ) {
       }
 
       // 2.3 Проверка на формат файла
-      if (!preg_match("/\.(gif|jpg|jpeg|png)$/i", $fileName)) {
+      if (!preg_match("/\.(gif|jpg|jpeg|png|webp)$/i", $fileName)) {
         $_SESSION['errors'][] = [
           'title'=> 'Недопустимый формат файла',
           'desc'=> '<p>Файл изображения должен быть в формате gif, jpg, jpeg или png.</p>'
