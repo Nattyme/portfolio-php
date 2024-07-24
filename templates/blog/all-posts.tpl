@@ -22,7 +22,7 @@
 
     </div>
     <div class="page-blog__pagination">
-        <?php include ROOT . "templates/_parts/_pagination.tpl"; ?>
+        <?php include ROOT . "templates/_parts/pagination/_pagination.tpl"; ?>
     </div>
   </div>
 </main>

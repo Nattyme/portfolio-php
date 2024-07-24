@@ -11,12 +11,12 @@ if (isset($uriGet)) {
 } else {
   // Кол-во постов на странице
   $results_per_page = 3;
-
+  
   // Определяем текущий номер запрашиваемой страницы 
   if ( !isset($_GET['page'])) {
     $page_number = 1;
   } else {
-    $page_number = $_GET['page']; // 2ая стр. пагинации
+    $page_number = intval($_GET['page']); // 2ая стр. пагинации
   }
 
   // Определяем с какого поста начать вывод
