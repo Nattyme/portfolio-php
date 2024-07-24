@@ -25,7 +25,7 @@
 
 
     <div class="section-pagination__item"> 
-      <a class="pagination-button" href="?page=<?php echo $page_number;?>"><?php echo $page_number;?></a>
+      <a class="pagination-button active" href="?page=<?php echo $page_number;?>"><?php echo $page_number;?></a>
     </div>
 
     <?php if ($page_number + 2 <= $number_of_pages) : ?>
