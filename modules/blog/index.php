@@ -3,7 +3,6 @@ $pageTitle = "Блог - все записи";
 if (isset($uriGet)) {
   // Показываем отдельную страницу блога
   $post = R::load('posts', $uriGet); 
-  
   ob_start();
   include ROOT . "templates/blog/single-post.tpl";
   $content = ob_get_contents();

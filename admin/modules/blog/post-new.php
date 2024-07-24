@@ -14,6 +14,7 @@ if( isset($_POST['postSubmit']) ) {
     $post = R::dispense('posts');
     $post->title = $_POST['title'];
     $post->content = $_POST['content'];
+    $post->timestamp= time();
 
     //Если передано изображение - уменьшаем, сохр., записываем в БД
     if( isset($_FILES['cover']['name']) && $_FILES['cover']['tmp_name'] !== '') {

@@ -105,5 +105,3 @@ function rus_date () {
   }
 }
 
-echo rus_date("j l F Y H:i", time());
-die();

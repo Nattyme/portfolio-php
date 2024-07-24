@@ -4,7 +4,7 @@
       <div class="section-posts__title">
         <h1 class="heading"><?php echo $post['title'];?></h1>
       </div>
-      <div class="section-posts__info">16 Марта 2017</div>
+      <div class="section-posts__info"><?php echo rus_date("j F Y", $post['timestamp']); ?></div>
       <?php if (!empty($post['cover'])) : ?>
       <div class="section-posts__img">
         <img src="<?php echo HOST . "usercontent/blog/{$post['cover']}";?>" alt="<?php echo $post['title'];?>" />
