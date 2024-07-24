@@ -10,7 +10,7 @@ if (isset($uriGet)) {
   ob_end_clean();
 } else {
   // Кол-во постов на странице
-  $results_per_page = 6;
+  $results_per_page = 3;
 
   // Определяем текущий номер запрашиваемой страницы 
   if ( !isset($_GET['page'])) {
