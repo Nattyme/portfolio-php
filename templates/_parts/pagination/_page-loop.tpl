@@ -10,4 +10,4 @@
     ?>
     <a class="pagination-button <?php echo $active_class;?>" href="?page=<?php echo $page;?>"><?php echo $page;?></a>
   </div>
-<?php endfor;?>
+<?php endfor;

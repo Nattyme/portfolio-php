@@ -35,7 +35,6 @@ if (isset($uriGet)) {
   ob_end_clean();
 } 
 
-
 include ROOT . "templates/page-parts/_head.tpl";
 include ROOT . "templates/_parts/_header.tpl";
 
