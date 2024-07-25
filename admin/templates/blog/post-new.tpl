@@ -41,7 +41,7 @@
 
     <div class="admin-form__item buttons">
       <button name="postSubmit" value="postSubmit" class="primary-button" type="submit">Опубликовать</button>
-      <a class="secondary-button" href="#">Отмена</a>
+      <a class="secondary-button" href="<?php echo HOST;?>admin/blog">Отмена</a>
     </div>
     <div class="admin-form__item"></div>
     <div class="admin-form__item"></div>

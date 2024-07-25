@@ -43,26 +43,21 @@
             <input name="cover" class="file-button" type="file">
           </div>
         </div>
-        <div class="block-upload__img">
-          <img src="<?php echo HOST . 'usercontent/blog/' . $post['coverSmall'];?>" alt="Загрузка картинки" />
-        </div>
-        <label class="checkbox__item mt-15">
-          <input class="checkbox__btn" type="checkbox" name="delete-cover">
-          <span class="checkbox__label">Удалить обложку</span>
-        </label>
+        <?php if (!empty($post->cover)) : ?>
+          <div class="block-upload__img">
+            <img src="<?php echo HOST . 'usercontent/blog/' . $post['coverSmall'];?>" alt="Загрузка картинки" />
+          </div>
+          <label class="checkbox__item mt-15">
+            <input class="checkbox__btn" type="checkbox" name="delete-cover">
+            <span class="checkbox__label">Удалить обложку</span>
+          </label>
+        <?php endif;?>
       </div>
-      <?php /* if ( !empty($user->avatar)) : ?>
-              <label class="checkbox__item mt-15">
-                <input class="checkbox__btn" type="checkbox" name="delete-avatar">
-                <span class="checkbox__label">Удалить фотографию</span>
-              </label>
-      <?php endif; */ ?>
     </div>
-
 
     <div class="admin-form__item buttons">
       <button name="postEdit" value="postEdit" class="primary-button" type="submit">Сохранить изменения</button>
-      <a class="secondary-button" href="#">Отмена</a>
+      <a class="secondary-button" href="<?php echo HOST;?>admin/blog">Отмена</a>
     </div>
     <div class="admin-form__item"></div>
     <div class="admin-form__item"></div>
