@@ -1,3 +1,4 @@
+<script src="<?php echo HOST;?>libs/ckeditor/ckeditor.js"></script>
 <div class="admin-page__content">
   <div class="admin-page__content-form">
     <?php include ROOT . "admin/templates/components/errors.tpl"; ?>
@@ -21,10 +22,10 @@
         </label>
       </div>
       <div class="admin-form__item">
-        <label class="textarea__label">
+        <label class="textarea__label mb-15" name="editor">
           Содержимое поста 
-          <textarea name="content" class="textarea textarea--width-label" placeholder="Введите текст"></textarea>
         </label>
+        <textarea name="content" class="textarea textarea--width-label" placeholder="Введите текст" id="editor"></textarea>
       </div>
       <div class="admin-form__item">
         <div class="block-upload">
@@ -56,3 +57,10 @@
     </form>
   </div>
 </div>
+
+<script>
+  CKEDITOR.replace('editor', {
+    filebrowserUploadMethod: 'form',
+    filebrowserUploadUrl: '<?php echo HOST;?>libs/ck-upload/upload.php'
+  });
+</script>
