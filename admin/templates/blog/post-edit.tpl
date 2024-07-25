@@ -3,9 +3,10 @@
 <div class="admin-page__content-form">
   <?php include ROOT . "admin/templates/components/errors.tpl"; ?>
   <?php include ROOT . "admin/templates/components/success.tpl"; ?>
+
   <form class="admin-form" method="POST" action="<?php echo HOST;?>admin/post-new" enctype="multipart/form-data">
     <div class="admin-form__item">
-      <h2 class="heading">Добавить пост </h2>
+      <h2 class="heading">Редактировать пост</h2>
     </div>
     <div class="admin-form__item">
       <label class="input__label">
@@ -36,12 +37,21 @@
             <input name="cover" class="file-button" type="file">
           </div>
         </div>
+        <div class="block-upload__img">
+          <img src="<?php echo HOST; ?>static/img/block-upload/block-upload.jpg" alt="Загрузка картинки" />
+        </div>
       </div>
+      <?php /* if ( !empty($user->avatar)) : ?>
+              <label class="checkbox__item mt-15">
+                <input class="checkbox__btn" type="checkbox" name="delete-avatar">
+                <span class="checkbox__label">Удалить фотографию</span>
+              </label>
+      <?php endif; */ ?>
     </div>
 
+
     <div class="admin-form__item buttons">
-      <button name="postSubmit" value="postSubmit" class="primary-button" type="submit">Опубликовать</button>
-      <a class="secondary-button" href="#">Отмена</a>
+      <button name="postSubmit" value="postSubmit" class="primary-button" type="submit">Опубликовать</button><a class="secondary-button" href="#">Отмена</a>
     </div>
     <div class="admin-form__item"></div>
     <div class="admin-form__item"></div>

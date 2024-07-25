@@ -23,7 +23,7 @@
               <a href="<?php echo HOST . "admin/"; ?>post-edit?id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a>
             </td>
             <td>
-              <button class="icon-delete"></button>
+              <a href="<?php echo HOST . "admin/";?>post-delete?id=<?php echo $post['id'];?>" class="icon-delete"></a>
             </td>
           </tr>
         <?php endforeach; ?>
