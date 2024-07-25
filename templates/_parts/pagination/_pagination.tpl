@@ -4,7 +4,7 @@
   include ROOT . "templates/_parts/pagination/_button-prev.tpl";
 
   // Если больше 6-ти страниц 
-  if ($number_of_pages > 6) {
+  if ($pagination['number_of_pages'] > 6) {
     include ROOT . "templates/_parts/pagination/_pages-more-than-6.tpl";
   } else {
     //Если 6 или меньше 

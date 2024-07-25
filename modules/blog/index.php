@@ -9,25 +9,10 @@ if (isset($uriGet)) {
   $content = ob_get_contents();
   ob_end_clean();
 } else {
-  // Кол-во постов на странице
-  $results_per_page = 2;
-
-  // Определяем текущий номер запрашиваемой страницы 
-  if ( !isset($_GET['page'])) {
-    $page_number = 1;
-  } else {
-    $page_number = intval($_GET['page']); // 2ая стр. пагинации
-  }
-
-  // Определяем с какого поста начать вывод
-  $starting_limit_number = ($page_number-1) * $results_per_page; // (2-1) * 6 = 6;
-
-  // Считаем кол-во страниц пагинации
-  $number_of_results = R::count('posts'); // Вернет кол-во постов
-  $number_of_pages = ceil($number_of_results / $results_per_page); // ceil округляет число в бол. сторону
-
+  $pagination = pagination(6, 'posts');
+ 
   // Делаем запрос в БД для получения постов
-  $posts = R::find('posts', "ORDER BY id DESC LIMIT {$starting_limit_number}, {$results_per_page}");
+  $posts = R::find('posts', "ORDER BY id DESC {$pagination['sql_page_limit']}");
 
   ob_start();
   include ROOT . "templates/blog/all-posts.tpl";
