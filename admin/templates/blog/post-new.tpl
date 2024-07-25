@@ -1,8 +1,10 @@
 <script src="<?php echo HOST;?>libs/ckeditor/ckeditor.js"></script>
 
 <div class="admin-page__content-form">
+  
   <?php include ROOT . "admin/templates/components/errors.tpl"; ?>
   <?php include ROOT . "admin/templates/components/success.tpl"; ?>
+
   <form class="admin-form" method="POST" action="<?php echo HOST;?>admin/post-new" enctype="multipart/form-data">
     <div class="admin-form__item">
       <h2 class="heading">Добавить пост </h2>
@@ -40,11 +42,11 @@
     </div>
 
     <div class="admin-form__item buttons">
-      <button name="postSubmit" value="postSubmit" class="primary-button" type="submit">Опубликовать</button>
+      <button name="postSubmit" value="postSubmit" class="primary-button" type="submit">
+        Опубликовать
+      </button>
       <a class="secondary-button" href="<?php echo HOST;?>admin/blog">Отмена</a>
     </div>
-    <div class="admin-form__item"></div>
-    <div class="admin-form__item"></div>
   </form>
 </div>
 

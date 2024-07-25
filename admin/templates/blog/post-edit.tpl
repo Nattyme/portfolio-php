@@ -59,8 +59,6 @@
       <button name="postEdit" value="postEdit" class="primary-button" type="submit">Сохранить изменения</button>
       <a class="secondary-button" href="<?php echo HOST;?>admin/blog">Отмена</a>
     </div>
-    <div class="admin-form__item"></div>
-    <div class="admin-form__item"></div>
   </form>
 </div>
 

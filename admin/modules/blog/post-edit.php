@@ -86,9 +86,9 @@ if( isset($_POST['postEdit'])) {
     // Удаление обложки
     if ( isset($_POST['delete-cover']) && $_POST['delete-cover'] == 'on') {
       // Удадить файлы обложки с сервера
-      $avatarFolderLocation = ROOT . 'usercontent/blog/';
-      unlink($avatarFolderLocation . $post->cover);
-      unlink($avatarFolderLocation . $post->coverSmall);
+      $coverFolderLocation = ROOT . 'usercontent/blog/';
+      unlink($coverFolderLocation . $post->cover);
+      unlink($coverFolderLocation . $post->coverSmall);
 
       // Удалить записи файла в БД
       $post->cover = NULL;
