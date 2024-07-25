@@ -4,14 +4,18 @@
   <?php include ROOT . "admin/templates/components/errors.tpl"; ?>
   <?php include ROOT . "admin/templates/components/success.tpl"; ?>
 
-  <form class="admin-form" method="POST" action="<?php echo HOST;?>admin/post-new" enctype="multipart/form-data">
+  <form class="admin-form" 
+        method="POST" 
+        action="<?php echo HOST;?>admin/post-edit?id=<?php echo $post['id']; ?>" enctype="multipart/form-data">
+
     <div class="admin-form__item">
       <h2 class="heading">Редактировать пост</h2>
     </div>
     <div class="admin-form__item">
       <label class="input__label">
         Введите название записи 
-        <input name="title" class="input input--width-label" type="text" placeholder="Заголовок поста" />
+        <input name="title" class="input input--width-label" 
+               type="text" placeholder="Заголовок поста" value="<?php echo $post['title'] ;?>"/>
       </label>
     </div>
     <div class="admin-form__item">
@@ -26,7 +30,9 @@
       <label class="textarea__label mb-15" name="editor">
         Содержимое поста 
       </label>
-      <textarea name="content" class="textarea textarea--width-label" placeholder="Введите текст" id="editor"></textarea>
+      <textarea name="content" class="textarea textarea--width-label" placeholder="Введите текст" id="editor">
+        <?php echo $post['content'] ;?>
+      </textarea>
     </div>
     <div class="admin-form__item">
       <div class="block-upload">
@@ -38,8 +44,12 @@
           </div>
         </div>
         <div class="block-upload__img">
-          <img src="<?php echo HOST; ?>static/img/block-upload/block-upload.jpg" alt="Загрузка картинки" />
+          <img src="<?php echo HOST . 'usercontent/blog/' . $post['coverSmall'];?>" alt="Загрузка картинки" />
         </div>
+        <label class="checkbox__item mt-15">
+          <input class="checkbox__btn" type="checkbox" name="delete-cover">
+          <span class="checkbox__label">Удалить обложку</span>
+        </label>
       </div>
       <?php /* if ( !empty($user->avatar)) : ?>
               <label class="checkbox__item mt-15">
@@ -51,7 +61,8 @@
 
 
     <div class="admin-form__item buttons">
-      <button name="postSubmit" value="postSubmit" class="primary-button" type="submit">Опубликовать</button><a class="secondary-button" href="#">Отмена</a>
+      <button name="postEdit" value="postEdit" class="primary-button" type="submit">Сохранить изменения</button>
+      <a class="secondary-button" href="#">Отмена</a>
     </div>
     <div class="admin-form__item"></div>
     <div class="admin-form__item"></div>
