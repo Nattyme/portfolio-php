@@ -1,5 +1,5 @@
 <?php 
-require "./../resize-and-crop.php";
+require "./../resize.php";
  //Если передано изображение - уменьшаем, сохр., записываем в БД
 if( isset($_FILES['upload']['name']) && $_FILES['upload']['tmp_name'] !== '') {
   // 1. Записываем парам файла в переменные
@@ -40,13 +40,22 @@ if( isset($_FILES['upload']['name']) && $_FILES['upload']['tmp_name'] !== '') {
     $db_file_name = rand(100000000000,999999999999) . "." . $fileExt;
     $uploadfile = $coverFolderLocation . $db_file_name;
 
-    //Обработать фотографию
-    // 1. Обрезать по ширине до 920px, если меньше, то не увеличивать
-    $result = resize_and_crop($fileTmpLoc, $uploadfile, 920, 400);
+    // Проверем, если высота илиширина больше 920px, масштабируем изображение
+    if ( $width > 920 || $height > 920) {
+      // Масштабируем изображение
+      $result = resize($fileTmpLoc, $uploadfile, 920);
 
-    if ($result != true) {
-      $message = 'Ошибка сохранения файла.';
-      return false;
+      if ($result != true) {
+        $message = 'Ошибка сохранения файла при масштабировании.';
+        return false;
+      }
+    } else {
+      $result = move_uploaded_file($fileTmpLoc, $uploadfile);
+
+      if ($result != true) {
+        $message = 'Ошибка перемещения файла.';
+        return false;
+      }
     }
 
     // Сохраняем имя файла в БД
