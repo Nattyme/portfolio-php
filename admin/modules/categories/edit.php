@@ -9,7 +9,7 @@ if( isset($_POST['submit'])) {
   // Если нет ошибок
   if ( empty($_SESSION['errors'])) {
     $cat = R::load('categories', $_GET['id']);
-    $cat->title = $_POST['title'];
+    $cat->cat_title = $_POST['title'];
 
     R::store($cat);
 

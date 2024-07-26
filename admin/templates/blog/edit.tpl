@@ -28,7 +28,7 @@
           <?php foreach ($cats as $cat) : ?>
             <option 
               <?php echo $post['cat'] == $cat['id'] ? 'selected' : '';?> 
-              value=<?php echo $cat['id'];?>><?php echo $cat['title'];?>
+              value=<?php echo $cat['id'];?>><?php echo $cat['cat_title'];?>
             </option>
           <?php endforeach; ?>
         </select>

@@ -3,7 +3,15 @@ $pageTitle = "Блог - все записи";
 
 if (isset($uriGet)) {
   // Показываем отдельную страницу блога
-  $post = R::load('posts', $uriGet); 
+  $sqlQuery = 'SELECT
+                  posts.id, posts.title, posts.content, posts.cover, posts.timestamp, posts.edit_time, posts.cat,
+                  categories.cat_title
+               FROM `posts`
+               
+               LEFT JOIN `categories` ON posts.cat = categories.id
+               WHERE posts.id = ' . $uriGet . ' LIMIT 1';
+  $post = R::getrow($sqlQuery);
+  
   ob_start();
   include ROOT . "templates/blog/single-post.tpl";
   $content = ob_get_contents();

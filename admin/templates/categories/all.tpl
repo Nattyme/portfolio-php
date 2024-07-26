@@ -21,7 +21,7 @@
             <td><?php echo $cat['id'];?></td>
             <td>
               <a href="<?php echo HOST; ?>admin/category-edit?id=<?php echo $cat['id'];?>">
-                <?php echo $cat['title'];?>
+                <?php echo $cat['cat_title'];?>
               </a>
             </td>
             <td>

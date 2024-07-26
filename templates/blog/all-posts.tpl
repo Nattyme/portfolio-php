@@ -1,7 +1,7 @@
 <main class="page-blog">
   <div class="container">
     <div class="page-blog__header">
-      <h2 class="heading">Блог </h2>
+      <h2 class="heading">Блог</h2>
     </div>
     <div class="page-blog__posts">
 

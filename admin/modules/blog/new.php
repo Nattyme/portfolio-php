@@ -1,5 +1,5 @@
 <?php
-$cats = R::find('categories', 'ORDER BY title ASC'); 
+$cats = R::find('categories', 'ORDER BY cat_title ASC'); 
 if( isset($_POST['postSubmit']) ) {
   // Проверка на заполненность названия
   if( trim($_POST['title']) == '' ) {

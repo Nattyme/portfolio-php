@@ -15,7 +15,7 @@
           class="input input--width-label" 
           type="text" 
           placeholder="Заголовок поста" 
-          value="<?php echo $cat['title'];?>"
+          value="<?php echo $cat['cat_title'];?>"
         />
       </label>
     </div>

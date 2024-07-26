@@ -8,7 +8,9 @@
         <span>
           <?php echo rus_date("j F Y", $post['timestamp']); ?>
         </span>
-        <div class="badge"><?php echo $post['cat'];?></div>
+        <?php if (!empty($post['cat'])) : ?>
+          <div class="badge"><?php echo $post['cat'];?></div>
+        <?php endif; ?>
       </div>
       <?php if (!empty($post['cover'])) : ?>
         <div class="section-posts__img">

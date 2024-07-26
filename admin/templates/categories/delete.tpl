@@ -8,7 +8,7 @@
       <h2 class="heading">Удалить категорию</h2>
     </div>
     <div class="admin-form__item">
-      <p>Вы действительно хотите удалить категорию <strong>"<?php echo $cat['title'];?>"</strong>?</p>  
+      <p>Вы действительно хотите удалить категорию <strong>"<?php echo $cat['cat_title'];?>"</strong>?</p>  
     </div>
 
     <div class="admin-form__item buttons">
