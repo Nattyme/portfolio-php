@@ -1,7 +1,24 @@
 <?php
 
-//Запрос постов в БД с сортировкой id по убыванию
-// $posts = R::find('posts', 'ORDER BY id DESC'); 
+if( isset($_POST['submit'])) {
+  // Проверка на заполненность названия
+  if( trim($_POST['title']) == '' ) {
+    $_SESSION['errors'][] = ['title' => 'Введите заголовок поста'];
+  } 
+
+  // Если нет ошибок
+  if ( empty($_SESSION['errors'])) {
+    $cat = R::load('categories', $_GET['id']);
+    $cat->title = $_POST['title'];
+
+    R::store($cat);
+
+    $_SESSION['success'][] = ['title' => 'Категория успешно обновлена.'];
+  }
+}
+
+// Запрос постов в БД с сортировкой id по убыванию
+$cat = R::load('categories', $_GET['id']); 
 
 ob_start();
 include ROOT . "admin/templates/categories/category-edit.tpl";

@@ -1,7 +1,7 @@
 <?php
 
 //Запрос постов в БД с сортировкой id по убыванию
-// $posts = R::find('posts', 'ORDER BY id DESC'); 
+$cats = R::find('categories', 'ORDER BY id DESC'); 
 
 ob_start();
 include ROOT . "admin/templates/categories/index.tpl";

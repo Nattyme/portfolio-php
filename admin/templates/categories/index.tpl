@@ -16,24 +16,19 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td><a href="<?php echo HOST; ?>admin/category-edit">Заметки программиста</a></td>
-          <td>
-            <a href="<?php echo HOST . "admin/";?>category-delete" class="icon-delete"></a>
-          </td>
-        </tr>
-        <?php /* foreach ($posts as $post) : ?>
+        <?php foreach ($cats as $cat) : ?>
           <tr>
-            <td><?php echo $post['id']; ?></td>
+            <td><?php echo $cat['id'];?></td>
             <td>
-              <a href="<?php echo HOST . "admin/"; ?>post-edit?id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a>
+              <a href="<?php echo HOST; ?>admin/category-edit?id=<?php echo $cat['id'];?>">
+                <?php echo $cat['title'];?>
+              </a>
             </td>
             <td>
-              <a href="<?php echo HOST . "admin/";?>post-delete?id=<?php echo $post['id'];?>" class="icon-delete"></a>
+              <a href="<?php echo HOST . "admin/";?>category-delete?id=<?php echo $cat['id'];?>" class="icon-delete"></a>
             </td>
           </tr>
-        <?php endforeach; */ ?>
+        <?php endforeach; ?>
       </tbody>
     </table>
     <div class="admin-form__item pt-40">
