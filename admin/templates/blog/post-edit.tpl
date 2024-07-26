@@ -14,15 +14,23 @@
     <div class="admin-form__item">
       <label class="input__label">
         Введите название записи 
-        <input name="title" class="input input--width-label" 
-               type="text" placeholder="Заголовок поста" value="<?php echo $post['title'] ;?>"/>
+        <input name="title" 
+               class="input input--width-label" 
+               type="text" 
+               placeholder="Заголовок поста" 
+               value="<?php echo $post['title'] ;?>"
+        />
       </label>
     </div>
     <div class="admin-form__item">
-      <label class="select-label">Выберите категорию <select class="select">
-          <option value="notes1">Заметки путешественника</option>
-          <option value="notes2">Заметки программиста</option>
-          <option value="notes3">Заметки спортсмена</option>
+      <label class="select-label">Выберите категорию 
+        <select class="select" name="cat">
+          <?php foreach ($cats as $cat) : ?>
+            <option 
+              <?php echo $post['cat'] == $cat['id'] ? 'selected' : '';?> 
+              value=<?php echo $cat['id'];?>><?php echo $cat['title'];?>
+            </option>
+          <?php endforeach; ?>
         </select>
       </label>
     </div>

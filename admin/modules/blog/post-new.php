@@ -1,4 +1,5 @@
 <?php
+$cats = R::find('categories', 'ORDER BY title ASC'); 
 if( isset($_POST['postSubmit']) ) {
   // Проверка на заполненность названия
   if( trim($_POST['title']) == '' ) {
@@ -13,8 +14,9 @@ if( isset($_POST['postSubmit']) ) {
   if ( empty($_SESSION['errors'])) {
     $post = R::dispense('posts');
     $post->title = $_POST['title'];
+    $post->cat = $_POST['cat'];
     $post->content = $_POST['content'];
-    $post->timestamp= time();
+    $post->timestamp = time();
 
     // Если передано изображение - уменьшаем, сохраняем, записываем в БД
     if ( isset($_FILES['cover']['name']) && $_FILES['cover']['tmp_name'] !== '') {

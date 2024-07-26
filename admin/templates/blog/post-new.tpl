@@ -16,10 +16,11 @@
       </label>
     </div>
     <div class="admin-form__item">
-      <label class="select-label">Выберите категорию <select class="select">
-          <option value="notes1">Заметки путешественника</option>
-          <option value="notes2">Заметки программиста</option>
-          <option value="notes3">Заметки спортсмена</option>
+      <label class="select-label">Выберите категорию 
+        <select class="select" name="cat">
+          <?php foreach ($cats as $cat) : ?>
+            <option value="<?php echo $cat['id'];?>"><?php echo $cat['title'];?></option>
+          <?php endforeach; ?>
         </select>
       </label>
     </div>

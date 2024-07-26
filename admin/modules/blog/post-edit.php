@@ -1,4 +1,6 @@
 <?php
+$cats = R::find('categories', 'ORDER BY title ASC'); 
+
 if( isset($_POST['postEdit'])) {
   // Проверка на заполненность названия
   if( trim($_POST['title']) == '' ) {
@@ -14,6 +16,7 @@ if( isset($_POST['postEdit'])) {
   if ( empty($_SESSION['errors'])) {
     $post = R::load('posts', $_GET['id']);
     $post->title = $_POST['title'];
+    $post->cat = $_POST['cat'];
     $post->content = $_POST['content'];
     $post->editTime = time();
 
