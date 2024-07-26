@@ -18,7 +18,12 @@ if( isset($_POST['postSubmit']) ) {
 
     // Если передано изображение - уменьшаем, сохраняем в папку
     $coverFileName = saveUploadedImg('cover', [600, 300], 12, 'blog', [1110, 460], [290, 230]);
-
+     // Если новое изображение успешно загружено 
+    if ($coverFileName) {
+      // Удаляем старое изображение
+      unlink(ROOT . 'usercontent/blog/' . $post->cover);
+      unlink(ROOT . 'usercontent/blog/' . $post->coverSmall);
+    }
     // Записываем имя файлов в БД
     $post->cover = $coverFileName[0];
     $post->coverSmall = $coverFileName[1];
