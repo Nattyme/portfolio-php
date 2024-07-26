@@ -99,6 +99,12 @@
           }
         }
 
+        // Если передано изображение - уменьшаем, сохраняем в папку
+        $avatarFileName = saveUploadedImg('avatar', [160, 160], 12, 'avatars', [160, 160], [48, 48]);
+        // Записываем имя файлов в БД
+        $user->avatar = $avatarFileName[0];
+        $user->avatarSmall = $avatarFileName[1];
+
         // Удаление аватарки
         if ( isset($_POST['delete-avatar']) && $_POST['delete-avatar'] == 'on') {
           // Удадить физичнски файл с сервера

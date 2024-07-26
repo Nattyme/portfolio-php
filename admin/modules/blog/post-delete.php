@@ -10,6 +10,7 @@ if( isset($_POST['postDelete']) ) {
   }
 
   R::trash($post);
+  
   $_SESSION['success'][] = ['title' => 'Пост был успешно удалён.'];
   header('Location: ' . HOST . 'admin/blog');
   exit();
