@@ -17,25 +17,43 @@ if( isset($_POST['postEdit'])) {
     $post->content = $_POST['content'];
     $post->editTime = time();
 
-    // Если передано изображение - уменьшаем, сохраняем в папку
-    $coverFileName = saveUploadedImg('cover', [600, 300], 12, 'blog', [1110, 460], [290, 230]);
+    // Если передано изображение - уменьшаем, сохраняем, записываем в БД
+    if( isset($_FILES['cover']['name']) && $_FILES['cover']['tmp_name'] !== '') {
+      //Если передано изображение - уменьшаем, сохраняем файлы в папку, получаем название файлов изображений
+      $coverFileName = saveUploadedImg('cover', [600, 300], 12, 'blog', [1110, 460], [290, 230]);
 
-    // Если новое изображение успешно загружено 
-    if ($coverFileName) {
-      // Удаляем старое изображение
-      unlink(ROOT . 'usercontent/blog/' . $post->cover);
-      unlink(ROOT . 'usercontent/blog/' . $post->coverSmall);
+      // Если новое изображение успешно загружено 
+      if ($coverFileName) {
+        $coverFolderLocation = ROOT . 'usercontent/blog/';
+        // Если есть старое изображение - удаляем 
+        if (file_exists($coverFolderLocation . $post->cover) && !empty($post->cover)) {
+          unlink($coverFolderLocation . $post->cover);
+        }
+
+        // Если есть старое маленькое изображение - удаляем 
+        if (file_exists($coverFolderLocation . $post->coverSmall) && !empty($post->coverSmall)) {
+          unlink($coverFolderLocation . $post->coverSmall);
+        }
+      }
+
+      // Записываем имя файлов в БД
+      $post->cover = $coverFileName[0];
+      $post->coverSmall = $coverFileName[1];
     }
-    
-    // Записываем имя файлов в БД
-    $post->cover = $coverFileName[0];
-    $post->coverSmall = $coverFileName[1];
+
     // Удаление обложки
     if ( isset($_POST['delete-cover']) && $_POST['delete-cover'] == 'on') {
-      // Удадить файлы обложки с сервера
       $coverFolderLocation = ROOT . 'usercontent/blog/';
-      unlink($coverFolderLocation . $post->cover);
-      unlink($coverFolderLocation . $post->coverSmall);
+
+      // Если есть старое изображение - удаляем 
+      if (file_exists($coverFolderLocation . $post->cover) && !empty($post->cover)) {
+        unlink($coverFolderLocation . $post->cover);
+      }
+
+      // Если есть старое маленькое изображение - удаляем 
+      if (file_exists($coverFolderLocation . $post->coverSmall) && !empty($post->coverSmall)) {
+        unlink($coverFolderLocation . $post->coverSmall);
+      }
 
       // Удалить записи файла в БД
       $post->cover = NULL;

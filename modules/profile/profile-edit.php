@@ -20,97 +20,26 @@
         $user->country = htmlentities($_POST['country']);
         $user->city = htmlentities($_POST['city']);
 
-        // Работа с файлом фотографии аватарки пользователя
+        // Если передано изображение - уменьшаем, сохраняем, записываем в БД
         if( isset($_FILES['avatar']['name']) && $_FILES['avatar']['tmp_name'] !== '') {
-          // 1. Записываем парам файла в переменные
-          $fileName = $_FILES['avatar']['name'];
-          $fileTmpLoc = $_FILES['avatar']['tmp_name'];
-          $fileType = $_FILES['avatar']['type'];
-          $fileSize = $_FILES['avatar']['size'];
-          $fileErrorMsg = $_FILES['avatar']['error'];
-          $kaboom = explode(".", $fileName);
-          $fileExt = end($kaboom);
-
-          // 2. Проверка файла на соответствие требованиям сайта к фото
-          // 2.1 Проверка на маленький размер изображения
-          list($width, $height) = getimagesize($fileTmpLoc);
-          if ($width < 160 || $height <160 ) {
-            $_SESSION['errors'][] = [
-              'title' => 'Изображение слишком маленького размера',
-              'desc' => 'Загрузите изображение побольше.'
-            ];
-          }
-          // 2.2 Проверка на большой вес файла изображения
-          if ($fileSize > 4194304) {
-            $_SESSION['errors'][] = [
-              'title' => 'Файл изображения не должен быть более 4 Mb'
-            ];
-          }
-
-          // 2.3 Проверка на формат файла
-          if (!preg_match("/\.(gif|jpg|jpeg|png)$/i", $fileName)) {
-            $_SESSION['errors'][] = [
-              'title'=> 'Недопустимый формат файла',
-              'desc'=> '<p>Файл изображения должен быть в формате gif, jpg, jpeg или png.</p>'
-            ];
-          }
-
-          // 2.4 Проверка на иную ошибку
-          if ($fileErrorMsg == 1) {
-            $_SESSION['errors'][] = ['title' => 'При загрузке файла произошла ошибка. Повторите попытку.'];
-          }
-
-          // Если ошибок нет
-          if ( empty($_SESSION['errors']) ) {
-            // Проверяем установлен ли у пользофателя аватар
-            $avatar = $user->avatar;
-            $avatarFolderLocation = ROOT . 'usercontent/avatars/';
-
-            // Если у пользователя есть старый аватар - удаляем его
-            if (!empty($avatar)) {
-              // Определяем путь к большой аватарке и удаляем её
-              $pictureUrl = $avatarFolderLocation . $avatar;
-              file_exists($pictureUrl) ? unlink($pictureUrl) : '';
-
-              // Определяем путь к маленькой аватарке и удаляем её
-              $pictureUrl48 = $avatarFolderLocation . '48-' . $avatar;
-              file_exists($pictureUrl48) ? unlink($pictureUrl48) : '';
-  
+          //Если передано изображение - уменьшаем, сохраняем файлы в папку, получаем название файлов изображений
+          $avatarFileName = saveUploadedImg('avatar', [160, 160], 12, 'avatars', [160, 160], [48, 48]);
+          
+          // Если новое изображение успешно загружено - удаляем старое
+          if ($avatarFileName) {
+            // Если есть старое изображение - удаляем 
+            if (file_exists(ROOT . 'usercontent/avatars/' . $user->avatar) && !empty($user->avatar)) {
+              unlink(ROOT . 'usercontent/avatars/' . $user->avatar);
             }
 
-            $db_file_name = rand(100000000000,999999999999) . "." . $fileExt;
-            $uploadfile160 = $avatarFolderLocation . $db_file_name;
-            $uploadfile48 = $avatarFolderLocation . '48-' . $db_file_name;
-
-            //Обработать фотографию
-            // 1. Обрезать до 160x160
-            $result160 = resize_and_crop($fileTmpLoc, $uploadfile160, 160, 160);
-            // 2. Обрезать до 48x48
-            $result48 = resize_and_crop($fileTmpLoc, $uploadfile48, 48, 48);
-
-            if ($result160 != true || $result48 != true) {
-              $_SESSION['errors'][] = ['title' => 'Ошибка сохранения файла'];
-              return false;
+            if (file_exists(ROOT . 'usercontent/avatars/' . $user->avatarSmall) && !empty($user->avatarSmall)) {
+              unlink(ROOT . 'usercontent/avatars/' . $user->avatarSmall);
             }
-
-            // Сохраняем имя файла в БД
-            $user->avatar = $db_file_name;
-            $user->avatarSmall = '48-' . $db_file_name;
           }
+          // Записываем имя файлов в БД
+          $user->avatar = $avatarFileName[0];
+          $user->avatarSmall = $avatarFileName[1];
         }
-
-        // Если передано изображение - уменьшаем, сохраняем в папку
-        $avatarFileName = saveUploadedImg('avatar', [160, 160], 12, 'avatars', [160, 160], [48, 48]);
-        
-        // Если новое изображение успешно загружено 
-        if ($avatarFileName) {
-          // Удаляем старое изображение
-          unlink(ROOT . 'usercontent/avatars/' . $user->avatar);
-          unlink(ROOT . 'usercontent/avatars/' . $user->avatarSmall);
-        }
-        // Записываем имя файлов в БД
-        $user->avatar = $avatarFileName[0];
-        $user->avatarSmall = $avatarFileName[1];
 
         // Удаление аватарки
         if ( isset($_POST['delete-avatar']) && $_POST['delete-avatar'] == 'on') {
@@ -145,7 +74,7 @@
 
     } else if ( $_SESSION['logged_user']['role'] === 'admin') {
       // Это администратор сайта. Делаем проверку на доп парам - ID пользователя для редактирования
-      if( isset($uriGet)) {
+      if ( isset($uriGet)) {
         //Редакт. чужого профиля. 
         $user = R::load('users', intval($uriGet) ); // Загружаем данные о профиле
         //Обновляем данные пользователя
