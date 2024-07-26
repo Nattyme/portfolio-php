@@ -23,35 +23,35 @@ switch ($uriModule) {
     break;
   // ::::::::::::: BLOG :::::::::::::::::::
   case 'blog':
-    require ROOT . "admin/modules/blog/index.php";
+    require ROOT . "admin/modules/blog/all.php";
     break;
 
   case 'post-new':
-    require ROOT . "admin/modules/blog/post-new.php";
+    require ROOT . "admin/modules/blog/new.php";
     break;
 
   case 'post-edit':
-    require ROOT . "admin/modules/blog/post-edit.php";
+    require ROOT . "admin/modules/blog/edit.php";
     break;
 
   case 'post-delete':
-    require ROOT . "admin/modules/blog/post-delete.php";
+    require ROOT . "admin/modules/blog/delete.php";
     break;
  // ::::::::::::: CATEGORIES :::::::::::::::::::
   case 'category':
-    require ROOT . "admin/modules/categories/index.php";
+    require ROOT . "admin/modules/categories/all.php";
     break;
 
   case 'category-new':
-    require ROOT . "admin/modules/categories/category-new.php";
+    require ROOT . "admin/modules/categories/new.php";
     break;
 
   case 'category-edit':
-    require ROOT . "admin/modules/categories/category-edit.php";
+    require ROOT . "admin/modules/categories/edit.php";
     break;
 
   case 'category-delete':
-    require ROOT . "admin/modules/categories/category-delete.php";
+    require ROOT . "admin/modules/categories/delete.php";
     break;
   
   // ::::::::::::: OTHER :::::::::::::::::::
