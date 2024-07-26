@@ -69,3 +69,10 @@ html {
 .icon-delete {
   display: inline-block;
 }
+
+.section-posts__info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 15px;
+}

@@ -4,17 +4,26 @@
       <div class="section-posts__title">
         <h1 class="heading"><?php echo $post['title'];?></h1>
       </div>
-      <div class="section-posts__info"><?php echo rus_date("j F Y", $post['timestamp']); ?></div>
-      <?php if (!empty($post['cover'])) : ?>
-      <div class="section-posts__img">
-        <img src="<?php echo HOST . "usercontent/blog/{$post['cover']}";?>" alt="<?php echo $post['title'];?>" />
+      <div class="section-posts__info">
+        <span>
+          <?php echo rus_date("j F Y", $post['timestamp']); ?>
+        </span>
+        <div class="badge"><?php echo $post['cat'];?></div>
       </div>
+      <?php if (!empty($post['cover'])) : ?>
+        <div class="section-posts__img">
+          <img src="<?php echo HOST . "usercontent/blog/{$post['cover']}";?>" alt="<?php echo $post['title'];?>" />
+        </div>
       <?php endif; ?>
       <div class="section-posts__content">
         <?php echo $post['content'];?>
-    </div>
-    <div class="page-post__post-pagination">
-      <div class="post-pagination"> <a class="post-pagination__button" href="#">Назад </a><a class="post-pagination__button post-pagination__button--forward" href="#">Вперед</a></div>
+      </div>
+      <div class="page-post__post-pagination">
+        <div class="post-pagination">
+          <a class="post-pagination__button" href="#">Назад </a>
+          <a class="post-pagination__button post-pagination__button--forward" href="#">Вперед</a>
+        </div>
+      </div>
     </div>
   </section>
   <section class="page-post__comments">
@@ -23,8 +32,11 @@
     </div>
     <div class="page-post__comments-comment">
       <div class="comment">
-        <div class="comment__avatar"><a href="#">
-            <div class="avatar-small"><img src="./img/avatars/comment-avatars.png" alt="Аватарка" /></div>
+        <div class="comment__avatar">
+          <a href="#">
+            <div class="avatar-small">
+              <img src="./img/avatars/comment-avatars.png" alt="Аватарка" />
+            </div>
           </a>
         </div>
         <div class="comment__data">
@@ -40,8 +52,11 @@
     </div>
     <div class="page-post__comments-comment">
       <div class="comment">
-        <div class="comment__avatar"><a href="#">
-            <div class="avatar-small"><img src="./img/avatars/comment-avatar-02.jpg" alt="Аватарка" /></div>
+        <div class="comment__avatar">
+          <a href="#">
+            <div class="avatar-small">
+              <img src="./img/avatars/comment-avatar-02.jpg" alt="Аватарка" />
+            </div>
           </a>
         </div>
         <div class="comment__data">
