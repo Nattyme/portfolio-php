@@ -6,13 +6,14 @@
         <p class="control-panel__subtitle">панель управления</p>
       </div>
       <ul class="control-panel__list">
+        <!-- Блог -->
         <li class="control-panel__list-item"><a class="control-panel__list-link control-panel__list-link--active" href="<?php echo HOST;?>admin/blog">
             <div class="control-panel__list-img-wrapper"><img class="control-panel__list-img" src="<?php echo HOST;?>static/img/control-panel/book.svg" alt="icon" />
             </div>Блог
           </a>
           <ul class="control-panel__list">
             <li class="control-panel__list-item">
-              <a class="control-panel__list-link control-panel__inner-link control-panel__inner-link--active" href="<?php echo HOST;?>admin/post-new">
+              <a class="control-panel__list-link control-panel__inner-link" href="<?php echo HOST;?>admin/post-new">
                 <div class="control-panel__list-img-wrapper">
                   <img class="control-panel__list-img" src="<?php echo HOST; ?>static/img/control-panel/corner.svg" alt="icon" />
                 </div>Добавить пост
@@ -25,6 +26,17 @@
             </li>
           </ul>
         </li>
+        <!--// Блог -->
+        <!-- Категории -->
+        <li class="control-panel__list-item">
+          <a class="control-panel__list-link" href="<?php echo HOST;?>admin/category">
+            <div class="control-panel__list-img-wrapper">
+              <img class="control-panel__list-img" src="<?php echo HOST;?>static/img/control-panel/book.svg" alt="icon" />
+            </div>
+            Категории
+          </a>
+        </li>
+        <!--// Категори -->
         <li class="control-panel__list-item"><a class="control-panel__list-link" href="#">
             <div class="control-panel__list-img-wrapper"><img class="control-panel__list-img" src="<?php echo HOST; ?>static/img/control-panel/portfolio.svg" alt="icon" />
             </div>Портфолио

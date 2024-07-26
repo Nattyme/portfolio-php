@@ -27,13 +27,14 @@
           
           // Если новое изображение успешно загружено - удаляем старое
           if ($avatarFileName) {
+            $avatarFolderLocation = ROOT . 'usercontent/avatars/';
             // Если есть старое изображение - удаляем 
-            if (file_exists(ROOT . 'usercontent/avatars/' . $user->avatar) && !empty($user->avatar)) {
-              unlink(ROOT . 'usercontent/avatars/' . $user->avatar);
+            if (file_exists($avatarFolderLocation . $user->avatar) && !empty($user->avatar)) {
+              unlink($avatarFolderLocation . $user->avatar);
             }
 
-            if (file_exists(ROOT . 'usercontent/avatars/' . $user->avatarSmall) && !empty($user->avatarSmall)) {
-              unlink(ROOT . 'usercontent/avatars/' . $user->avatarSmall);
+            if (file_exists($avatarFolderLocation . $user->avatarSmall) && !empty($user->avatarSmall)) {
+              unlink($avatarFolderLocation . $user->avatarSmall);
             }
           }
           // Записываем имя файлов в БД
@@ -43,10 +44,16 @@
 
         // Удаление аватарки
         if ( isset($_POST['delete-avatar']) && $_POST['delete-avatar'] == 'on') {
-          // Удадить физичнски файл с сервера
           $avatarFolderLocation = ROOT . 'usercontent/avatars/';
-          unlink($avatarFolderLocation . $user->avatar);
-          unlink($avatarFolderLocation . '48-' . $user->avatar);
+          
+          // Если есть старое изображение - удаляем 
+          if (file_exists($avatarFolderLocation . $user->avatar) && !empty($user->avatar)) {
+            unlink($avatarFolderLocation . $user->avatar);
+          }
+
+          if (file_exists($avatarFolderLocation . $user->avatarSmall) && !empty($user->avatarSmall)) {
+            unlink($avatarFolderLocation . $user->avatarSmall);
+          }
 
           // Удалить записи файла в БД
           $user->avatar = '';

@@ -37,6 +37,22 @@ switch ($uriModule) {
   case 'post-delete':
     require ROOT . "admin/modules/blog/post-delete.php";
     break;
+ // ::::::::::::: CATEGORIES :::::::::::::::::::
+  case 'category':
+    require ROOT . "admin/modules/categories/categories.php";
+    break;
+
+  case 'category-new':
+    require ROOT . "admin/modules/category/category-new.php";
+    break;
+
+  case 'category-edit':
+    require ROOT . "admin/modules/category/category-edit.php";
+    break;
+
+  case 'category-delete':
+    require ROOT . "admin/modules/category/category-delete.php";
+    break;
   
   // ::::::::::::: OTHER :::::::::::::::::::
   default: 
