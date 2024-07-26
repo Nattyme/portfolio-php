@@ -65,3 +65,7 @@ html {
 .admin-form {
   width: 900px;
 }
+
+.icon-delete {
+  display: inline-block;
+}
