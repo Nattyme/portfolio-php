@@ -23,8 +23,8 @@
     <div class="section__body">
       <div class="container">
 
-      <?php if (isset($uriArray[1])) : ?>
-        <form enctype="multipart/form-data" action="<?php echo HOST; ?>profile-edit/<?php echo $uriArray[1]; ?>" method="POST">
+      <?php if (isset($uriGet)) : ?>
+        <form enctype="multipart/form-data" action="<?php echo HOST; ?>profile-edit/<?php echo $uriGet; ?>" method="POST">
       <?php else : ?>
         <form enctype="multipart/form-data" action="<?php echo HOST; ?>profile-edit" method="POST">
       <?php endif; ?>

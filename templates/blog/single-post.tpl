@@ -20,11 +20,11 @@
       <div class="section-posts__content">
         <?php echo $post['content'];?>
       </div>
-      <div class="page-post__post-pagination">
-        <div class="post-pagination">
-          <a class="post-pagination__button" href="#">Назад </a>
-          <a class="post-pagination__button post-pagination__button--forward" href="#">Вперед</a>
-        </div>
+    </div>
+    <div class="page-post__post-pagination">
+      <div class="post-pagination">
+        <a class="post-pagination__button" href="#">Назад </a>
+        <a class="post-pagination__button post-pagination__button--forward" href="#">Вперед</a>
       </div>
     </div>
   </section>
