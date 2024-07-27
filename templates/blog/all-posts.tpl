@@ -13,7 +13,6 @@
         <div class="card-post">
           <div class="card-post__img">
             <a href="<?php echo HOST . "blog/{$post['id']}"?>">
-        
               <img src="<?php echo HOST;?>usercontent/blog/<?php echo empty($post['coverSmall']) ? "290-no-photo.jpg" : $post['coverSmall'];?>" 
                    alt="<?php echo $post['title'];?>"/>
             </a>
