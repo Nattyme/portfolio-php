@@ -58,6 +58,12 @@ html {
   height: 20px;
 }
 
+.admin-panel__message::after {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
 .primary-button--red {
   background-color: #c93535;
 }
@@ -75,4 +81,14 @@ html {
   justify-content: center;
   align-items: center;
   column-gap: 15px;
+}
+
+.badge {
+  transition: all 0.2s ease-in;
+}
+
+.badge--link:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: rgb(255, 115, 0);
 }

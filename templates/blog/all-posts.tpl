@@ -1,7 +1,11 @@
 <main class="page-blog">
   <div class="container">
     <div class="page-blog__header">
-      <h2 class="heading">Блог</h2>
+      <?php if(isset($catTitle)) : ?>
+        <h2 class="heading"><?php echo $catTitle; ?></h2>
+      <?php else: ?>
+        <h2 class="heading">Блог</h2>
+      <?php endif; ?>
     </div>
     <div class="page-blog__posts">
 

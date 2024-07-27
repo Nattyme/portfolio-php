@@ -9,7 +9,7 @@
           <?php echo rus_date("j F Y", $post['timestamp']); ?>
         </span>
         <?php if (!empty($post['cat'])) : ?>
-          <div class="badge"><?php echo $post['cat'];?></div>
+          <a href="<?php echo HOST . "blog/cat/" . $post['cat'];?>" class="badge badge--link"><?php echo $post['cat'];?></a>
         <?php endif; ?>
       </div>
       <?php if (!empty($post['cover'])) : ?>

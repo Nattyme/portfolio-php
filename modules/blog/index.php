@@ -6,10 +6,11 @@ if (isset($uriGet)) {
   // Если зарпос постов из определенной категории
   if ($uriGet === 'cat') {
     if (!empty($uriGetParam)) {
-      $pagination = pagination(6, 'posts');
-      $pagination (6, 'posts', [' cat = ? ', [4] ]);
+      $category = R::load('categories', $uriGetParam);
+      $pageTitle = "Категория: {$category['cat_title']}";
+      $catTitle = "Категория: {$category['cat_title']}";
 
-      // $posts = R::find('posts', 'cat = ' . $uriGetParam); 
+      $pagination = pagination(6, 'posts', ['cat = ? ', [$uriGetParam]]);
       $posts = R::findLike('posts', ['cat' => [$uriGetParam]], 'ORDER BY id DESC ' . $pagination['sql_page_limit']); 
     
       ob_start();
