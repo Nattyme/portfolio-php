@@ -39,10 +39,20 @@ function getUriGet () {
   $uri = explode('?', $uri);
   $uri = $uri[0];
   $uriArr = explode('/', $uri);
-  $uriGet = isset($uriArr[1]) ? $uriArr[1] : null;
+  $uriGet = isset($uriArr[1]) ? $uriArr[1] : null; 
   return $uriGet;
-  // Запись выше можно сделать короче через тернарный оператор
-  // $uriGet = isset($uri[1]) ? $uri[1] : null;
+}
+
+function getUriGetParam () {
+  $uri = $_SERVER['REQUEST_URI'];
+  $uri = rtrim($uri, "/"); // Удаляем сивол / в конце строки 'site.ru/' => 'site.ru'
+  $uri = filter_var($uri, FILTER_SANITIZE_URL); // Удалем лишние сиволы из запроса
+  $uri = substr($uri, 1); //Удаляем первый символ (слэш) в запросе
+  $uri = explode('?', $uri); // ['blog/cat/5', 'id=20']
+  $uri = $uri[0];// ['blog/cat/5']
+  $uriArr = explode('/', $uri); // ['blog', 'cat', '5']
+  $uriGet = isset($uriArr[2]) ? $uriArr[2] : null; 
+  return $uriGet; // ['blog/cat/5'] => 5
 }
 
 function rus_date () {
@@ -105,7 +115,9 @@ function rus_date () {
   }
 }
 
-function pagination ($results_per_page, $type) {
+// pagination (6, 'posts');
+// pagination (6, 'posts', [' cat = ? ', [4] ]);
+function pagination ($results_per_page, $type, $params = NULL) {
   // Определяем текущий номер запрашиваемой страницы 
   if ( !isset($_GET['page'])) {
     $page_number = 1;
@@ -113,8 +125,15 @@ function pagination ($results_per_page, $type) {
     $page_number = intval($_GET['page']); // 2ая стр. пагинации
   }
 
+  if ( empty($params)) {
+    $number_of_results = R::count($type);
+  } else {
+    $number_of_results = R::count($type, 'cat = ? ', $params[0], $params[1]); // Вернет кол-во постов
+  }
+
   // Считаем кол-во страниц пагинации
-  $number_of_results = R::count($type); // Вернет кол-во постов
+  // $number_of_results = R::count($type); // Вернет кол-во постов
+ 
   $number_of_pages = ceil($number_of_results / $results_per_page); // ceil округляет число в бол. сторону
 
   // Если текущий номер страницы больше общего кол-ва страниц - показываем последнюю доступную
