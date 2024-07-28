@@ -110,64 +110,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="section bg-grey">
-			<div class="container">
-				<div class="section__title">
-					<h2 class="heading">Комментарии пользователя </h2>
-				</div>
-				<div class="section__body">
-					<div class="row justify-content-center">
-						<div class="col-md-10">
-							<div class="comment">
-								<div class="comment__avatar"><a href="#">
-										<div class="avatar-small"><img src="<?php echo HOST; ?>static/img/avatars/avatart-rect.jpg" alt="Аватарка" /></div>
-									</a>
-								</div>
-								<div class="comment__data">
-									<div class="comment__user-info">
-										<div class="comment__username">Джон До</div>
-										<div class="comment__date"><img src="<?php echo HOST; ?>static/img/favicons/clock.svg" alt="Дата публикации" />05 мая 2017 года 15:45</div>
-									</div>
-									<div class="comment__text">
-										<p>Замечательный парк, обязательно отправлюсь туда этим летом.</p>
-									</div>
-								</div>
-							</div>
-							<div class="comment">
-								<div class="comment__avatar"><a href="#">
-										<div class="avatar-small"><img src="<?php echo HOST; ?>static/img/avatars/avatart-rect.jpg" alt="Аватарка" /></div>
-									</a>
-								</div>
-								<div class="comment__data">
-									<div class="comment__user-info">
-										<div class="comment__username">Джон До</div>
-										<div class="comment__date"><img src="<?php echo HOST; ?>static/img/favicons/clock.svg" alt="Дата публикации" />05 мая 2017 года 15:45</div>
-									</div>
-									<div class="comment__text">
-										<p>Замечательный парк, обязательно отправлюсь туда этим летом.</p>
-									</div>
-								</div>
-							</div>
-							<div class="comment">
-								<div class="comment__avatar"><a href="#">
-										<div class="avatar-small"><img src="<?php echo HOST; ?>static/img/avatars/avatart-rect.jpg" alt="Аватарка" /></div>
-									</a>
-								</div>
-								<div class="comment__data">
-									<div class="comment__user-info">
-										<div class="comment__username">Джон До</div>
-										<div class="comment__date"><img src="<?php echo HOST; ?>static/img/favicons/clock.svg" alt="Дата публикации" />05 мая 2017 года 15:45</div>
-									</div>
-									<div class="comment__text">
-										<p>Замечательный парк, обязательно отправлюсь туда этим летом.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+    <?php include ROOT . "templates/profile/_parts/user-comments.tpl";?>
   <?php endif; ?>
   <!--// Если пользователь НАЙДЕН -->
 </main>
