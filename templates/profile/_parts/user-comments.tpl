@@ -32,7 +32,7 @@
                     <div class="comment__date">
                       <img src="<?php echo HOST; ?>static/img/favicons/clock.svg" alt="Дата публикации" />
                       <?php echo rus_date("j F Y, H:i", $comment['timestamp']); ?>
-                      <a href="<?php echo HOST . 'blog/' . $comment['post'];?>">к записи Пост 18</a>
+                      <a href="<?php echo HOST . 'blog/' . $comment['post'];?>">к записи <?php echo $comment['title'];?></a>
                     </div>
                   </div>
                   <div class="comment__text">
