@@ -92,14 +92,8 @@ html {
   color: #fff;
   background-color: rgb(255, 115, 0);
 }
-
+/* Pagination */
 .post-pagination__button--forward {
   margin-left: auto;
 }
-
-.post-pagination__button--forward {
-  margin-left: auto;
-}
-
-
 

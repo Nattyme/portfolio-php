@@ -232,6 +232,45 @@ function saveUploadedImg($inputFileName, $minSize, $maxFileSizeMb, $folderName, 
 }
 
 
+  /**
+ * Word declension after a number.
+ *
+ *     // Examples of invocation:
+ *     num_decline( $num, 'книга,книги,книг' )
+ *     num_decline( $num, 'book,books' )
+ *     num_decline( $num, [ 'книга','книги','книг' ] )
+ *     num_decline( $num, [ 'book','books' ] )
+ *
+ * @param int|string   $number       The number that is followed by the word. You can use HTML tags.
+ * @param string|array $titles       Variants of words for numbers.
+ * @param bool         $show_number  Set to `false`, when you don't want to output the number itself.
+ *
+ * @return string For example: 1 book, 2 books, 10 books.
+ *
+ * @version 3.1
+ */
+function num_decline( $number, $titles, $show_number = false ){
+
+	if( is_string( $titles ) ){
+		$titles = preg_split( '/, */', $titles );
+	}
+
+	// когда указано 2 элемента
+	if( empty( $titles[2] ) ){
+		$titles[2] = $titles[1];
+	}
+
+	$cases = [ 2, 0, 1, 1, 1, 2 ];
+
+	$intnum = abs( (int) strip_tags( $number ) );
+
+	$title_index = ( $intnum % 100 > 4 && $intnum % 100 < 20 )
+		? 2
+		: $cases[ min( $intnum % 10, 5 ) ];
+
+	return ( $show_number ? "$number " : '' ) . $titles[ $title_index ];
+}
+
 
 
 

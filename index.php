@@ -63,6 +63,10 @@ switch ($uriModule) {
     }
     break;
 
+  case 'add-comment':
+    require ROOT . "modules/blog/add-comment.php";
+    break;
+
   case 'contacts':
     require ROOT . "modules/contacts/index.php";
     break;
