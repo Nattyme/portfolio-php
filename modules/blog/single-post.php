@@ -5,15 +5,15 @@ $pageTitle = "Блог - все записи";
 // Показываем отдельную страницу блога
 $sqlQuery = 'SELECT
               posts.id, posts.title, posts.content, posts.cover, posts.timestamp, posts.edit_time, posts.cat,
-              categories.cat_title
+              categories.title AS cat_title
             FROM `posts`
             LEFT JOIN `categories` ON posts.cat = categories.id
-            WHERE posts.id = ' . $uriGet . ' LIMIT 1';
+            WHERE posts.id = ? LIMIT 1';
 
-$post = R::getrow($sqlQuery);
+$post = R::getRow($sqlQuery, [$uriGet]);
 
 // Кнопки назад и вперед
-$postsId = R::getCol('SELECT ID FROM `posts`');
+$postsId = R::getCol('SELECT id FROM posts');
 foreach ($postsId as $index => $value) {
   if ( $post['id'] == $value ) {
     $prevId = array_key_exists($index + 1, $postsId) ? $postsId[$index + 1] : NULL;

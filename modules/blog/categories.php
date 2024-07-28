@@ -2,8 +2,8 @@
 $pageTitle = "Блог - все записи";
 
 $category = R::load('categories', $uriGetParam);
-$pageTitle = "Категория: {$category['cat_title']}";
-$catTitle = "Категория: {$category['cat_title']}";
+$pageTitle = "Категория: {$category['title']}";
+$catTitle = "Категория: {$category['title']}";
 
 $pagination = pagination(6, 'posts', ['cat = ? ', [$uriGetParam]]);
 $posts = R::findLike('posts', ['cat' => [$uriGetParam]], 'ORDER BY id DESC ' . $pagination['sql_page_limit']); 
