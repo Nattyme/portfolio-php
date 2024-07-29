@@ -1,5 +1,5 @@
 <?php
-$cats = R::find('categories', 'ORDER BY cat_title ASC'); 
+$cats = R::find('categories', 'ORDER BY title ASC'); 
 if( isset($_POST['postSubmit']) ) {
   // Проверка на заполненность названия
   if( trim($_POST['title']) == '' ) {
@@ -43,6 +43,7 @@ if( isset($_POST['postSubmit']) ) {
   }
 }
 
+$pageTitle = "Блог - создание новой записи";
 // Центральный шаблон для модуля
 ob_start();
 include ROOT . "admin/templates/blog/new.tpl";
