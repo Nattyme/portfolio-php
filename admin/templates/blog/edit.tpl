@@ -18,7 +18,7 @@
                class="input input--width-label" 
                type="text" 
                placeholder="Заголовок поста" 
-               value="<?php echo $post['title'] ;?>"
+               value="<?php echo $post['title']; ?>"
         />
       </label>
     </div>
@@ -28,7 +28,7 @@
           <?php foreach ($cats as $cat) : ?>
             <option 
               <?php echo $post['cat'] == $cat['id'] ? 'selected' : '';?> 
-              value=<?php echo $cat['id'];?>><?php echo $cat['cat_title'];?>
+              value=<?php echo $cat['id'];?>><?php echo $cat['title'];?>
             </option>
           <?php endforeach; ?>
         </select>

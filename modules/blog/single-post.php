@@ -31,11 +31,9 @@ $sqlQueryComments = 'SELECT
 $comments = R::getAll( $sqlQueryComments, [$post['id']] );
 
 // Вывод похожих постов
-if($post['title'] !== $page['title']) {
-  $relatedPosts = get_related_posts($post['title']);
-}
-$pageTitle = "{$post['title']}";
+$relatedPosts = get_related_posts($post['title']);
 
+$pageTitle = "Запись в блоге - {$post['title']}";
 // Подключение шаблонов страницы
 ob_start();
 include ROOT . "templates/blog/single-post.tpl";

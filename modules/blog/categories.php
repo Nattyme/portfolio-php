@@ -1,13 +1,11 @@
 <?php 
-$pageTitle = "Блог - все записи";
-
 $category = R::load('categories', $uriGetParam);
 $pageTitle = "Категория: {$category['title']}";
-$catTitle = "Категория: {$category['title']}";
 
 $pagination = pagination(6, 'posts', ['cat = ? ', [$uriGetParam]]);
 $posts = R::findLike('posts', ['cat' => [$uriGetParam]], 'ORDER BY id DESC ' . $pagination['sql_page_limit']); 
 
+// Подключение шаблонов страницы
 ob_start();
 include ROOT . "templates/blog/all-posts.tpl";
 $content = ob_get_contents();

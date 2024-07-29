@@ -55,6 +55,7 @@ function getUriGetParam () {
   return $uriGet; // ['blog/cat/5'] => 5
 }
 
+// Форматируем дату
 function rus_date () {
   // Перевод
   $translate = array(
@@ -115,8 +116,7 @@ function rus_date () {
   }
 }
 
-// pagination (6, 'posts');
-// pagination (6, 'posts', [' cat = ? ', [4] ]);
+// pagination (6, 'posts'); pagination (6, 'posts', [' cat = ? ', [4] ]);
 function pagination ($results_per_page, $type, $params = NULL) {
   if ( empty($params)) {
     $number_of_results = R::count($type);
@@ -310,7 +310,6 @@ function get_related_posts ($postTitle) {
   }
 
   $sqlQuery .= 'order by RAND() LIMIT 3';
-
   return R::getAll($sqlQuery, $newWordsArray);
 };
 

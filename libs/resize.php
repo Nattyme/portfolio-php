@@ -52,10 +52,10 @@ function resize($source_image_path, $resized_image_path, $resize) {
       0,
       0,
       0,
-      $result_width,
-      $result_height,
-      $source_width,
-      $source_height
+      intval($result_width),
+      intval($result_height),
+      intval($source_width),
+      intval($source_height)
   );
   /*
   * Сохраняем изображение из виртуального результирующего холста $temp_gdim по адресу $resized_image_path

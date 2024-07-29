@@ -1,5 +1,4 @@
 <?php
-
 if( isset($_POST['submit'])) {
   // Проверка на заполненность названия
   if( trim($_POST['title']) == '' ) {
@@ -20,7 +19,7 @@ if( isset($_POST['submit'])) {
 // Запрос постов в БД с сортировкой id по убыванию
 $cat = R::load('categories', $_GET['id']); 
 
-$pageTitle = "Категории - редактировтаь запись";
+$pageTitle = "Категории. Редактировать категорию {$cat['title']}";
 ob_start();
 include ROOT . "admin/templates/categories/edit.tpl";
 $content = ob_get_contents();

@@ -25,14 +25,10 @@ if( isset($_POST['postSubmit']) ) {
 
       // Если новое изображение успешно загружено 
       if ($coverFileName) {
-        // Удаляем старое изображение
-        unlink(ROOT . 'usercontent/blog/' . $post->cover);
-        unlink(ROOT . 'usercontent/blog/' . $post->coverSmall);
+        // Записываем имя файлов в БД
+        $post->cover = $coverFileName[0];
+        $post->coverSmall = $coverFileName[1];
       }
-
-      // Записываем имя файлов в БД
-      $post->cover = $coverFileName[0];
-      $post->coverSmall = $coverFileName[1];
     }
 
     R::store($post);

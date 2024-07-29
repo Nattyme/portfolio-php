@@ -1,5 +1,6 @@
 <?php
 $post = R::load('posts', $_GET['id']); 
+
 if( isset($_POST['postDelete']) ) {
   // Удаление обложки
   if ( !empty($post['cover']) ) {

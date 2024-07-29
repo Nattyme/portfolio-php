@@ -1,5 +1,5 @@
 <?php
-$cats = R::find('categories', 'ORDER BY cat_title ASC'); 
+$cats = R::find('categories', 'ORDER BY title ASC'); 
 
 if( isset($_POST['postEdit'])) {
   // Проверка на заполненность названия
@@ -72,7 +72,7 @@ if( isset($_POST['postEdit'])) {
 
 $post = R::load('posts', $_GET['id']);
 
-$pageTitle = "Блог - редактировать пост";
+$pageTitle = "Блог. Редактировать пост {$post['title']}";
 
 // Центральный шаблон для модуля
 ob_start();

@@ -1,11 +1,11 @@
 <?php 
-$pageTitle = "Блог - все записи";
-
 $pagination = pagination(6, 'posts');
 
 // Делаем запрос в БД для получения постов
 $posts = R::find('posts', "ORDER BY id DESC {$pagination['sql_page_limit']}");
 
+$pageTitle = "Блог - все записи";
+// Подключение шаблонов страницы
 ob_start();
 include ROOT . "templates/blog/all-posts.tpl";
 $content = ob_get_contents();
