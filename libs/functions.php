@@ -231,24 +231,6 @@ function saveUploadedImg($inputFileName, $minSize, $maxFileSizeMb, $folderName, 
   }
 }
 
-
-  /**
- * Word declension after a number.
- *
- *     // Examples of invocation:
- *     num_decline( $num, 'книга,книги,книг' )
- *     num_decline( $num, 'book,books' )
- *     num_decline( $num, [ 'книга','книги','книг' ] )
- *     num_decline( $num, [ 'book','books' ] )
- *
- * @param int|string   $number       The number that is followed by the word. You can use HTML tags.
- * @param string|array $titles       Variants of words for numbers.
- * @param bool         $show_number  Set to `false`, when you don't want to output the number itself.
- *
- * @return string For example: 1 book, 2 books, 10 books.
- *
- * @version 3.1
- */
 function num_decline( $number, $titles, $show_number = false ){
 
 	if( is_string( $titles ) ){
@@ -270,6 +252,67 @@ function num_decline( $number, $titles, $show_number = false ){
 
 	return ( $show_number ? "$number " : '' ) . $titles[ $title_index ];
 }
+
+// Вывод похожих постов
+function get_related_posts ($postTitle) {
+  // Разбиваем заголовок на слова, записваем массив в переменую
+  $wordsArray = explode(' ', $postTitle);
+  $wordsArray = array_unique($wordsArray);
+
+  // Массив со стоп словами (предлоги, союзы, и др. "общие" слова)
+  $stopWords = ['и', 'на', 'в', 'а', 'под', 'если', 'за', 'что', '-', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+  // Новый обработанный массив
+  $newWordsArray = array();
+  foreach ($wordsArray as $word) {
+    // Перевод в нижний регистр
+    $word = mb_strtolower($word);
+
+    // Удаление кавычек и лишних символов
+    $word = str_replace('"', "", $word);
+    $word = str_replace("'", "", $word);
+    $word = str_replace('«', "", $word);
+    $word = str_replace('»', "", $word);
+    $word = str_replace(',', "", $word);
+    $word = str_replace('.', "", $word);
+    $word = str_replace(':', "", $word);
+    $word = str_replace('(', "", $word);
+    $word = str_replace(')', "", $word);
+
+    // Проверка наличия слова в стоп списке
+    if ( !in_array($word, $stopWords) ) {
+
+      // Обрезаем окончания
+      if (mb_strlen($word) > 4 ) {
+        $word = mb_substr($word, 0, -2);
+      } else if (mb_strlen($word) > 3) {
+        $word = mb_substr($word, 0, -1);
+      }
+
+      // Добавляем символ шаблона
+      $word = '%' . $word . '%';
+
+      // Добавляем слова в новыц массив
+      $newWordsArray[] = $word;
+    }
+  }
+
+  // Фрмируем sql запрос
+  $sqlQuery = 'SELECT id, title, cover_small FROM `posts` WHERE ';
+
+  for ($i = 0; $i < count($newWordsArray); $i++) {
+    if ($i + 1 == count($newWordsArray)) {
+      // Последний цикл
+      $sqlQuery .= 'title LIKE ?';
+    } else {
+      $sqlQuery .= 'title LIKE ? OR ';
+    }
+  }
+
+  $sqlQuery .= 'order by RAND() LIMIT 3';
+
+  return R::getAll($sqlQuery, $newWordsArray);
+};
 
 
 
