@@ -20,7 +20,7 @@ if ( isset($_SESSION['login']) && $_SESSION['login'] === 1) {
     // Сохранение комментария
     if ( empty($_SESSION['errors'])) {
       $comment = R::dispense('comments');
-      $comment->text = $_POST['comment'];
+      $comment->text = trim($_POST['comment']);
       $comment->post = $_POST['id'];
       $comment->user = $_SESSION['logged_user']['id'];
       $comment->timestamp = time();

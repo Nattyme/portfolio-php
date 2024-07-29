@@ -26,8 +26,10 @@
           <div class="comment__data">
             <div class="comment__user-info">
               <div class="comment__username">
-                <?php echo !empty($comment['name']) ? $comment['name'] : 'Аноним'; ?>
-                <?php echo !empty($comment['surname']) ? $comment['surname'] : ''; ?>
+                <a href="<?php echo HOST . 'profile/' . $comment['user'];?>">
+                  <?php echo !empty($comment['name']) ? $comment['name'] : 'Аноним'; ?>
+                  <?php echo !empty($comment['surname']) ? $comment['surname'] : ''; ?>
+                </a>
               </div>
               <div class="comment__date">
                 <img src="<?php echo HOST;?>static/img/favicons/clock.svg" alt="Дата публикации" />
