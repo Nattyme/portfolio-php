@@ -1,6 +1,6 @@
 <?php
 //Запрос постов в БД с сортировкой id по убыванию
-// $cats = R::find('categories', 'ORDER BY id DESC'); 
+$messages = R::find('messages', 'ORDER BY id DESC'); 
 
 $pageTitle = "Сообщения - все записи";
 $pageClass = "admin-page";

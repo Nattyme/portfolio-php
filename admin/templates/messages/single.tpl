@@ -1,32 +1,41 @@
 <div class="admin-page__content-form">
-  
+
   <?php include ROOT . "admin/templates/components/errors.tpl"; ?>
   <?php include ROOT . "admin/templates/components/success.tpl"; ?>
 
-  <form class="admin-form" method="POST" action="<?php echo HOST;?>admin/category-edit?id=<?php echo $cat['id']; ?>">
+  <form class="admin-form" method="POST" action="<?php echo HOST;?>admin/category-edit?id=<?php echo $message['id']; ?>">
     <div class="admin-form__item">
-      <h2 class="heading">Сообщение №1</h2>
+      <h2 class="heading">Сообщение №<?php echo $_GET['id'];?></h2>
+    </div>
+
+    <div class="admin-form__item">
+      <label class="input__label mb-10">
+        Получено
+      </label>
+      <p><?php echo rus_date("j F Y в H:i", $message['timestamp']); ?></p>
     </div>
 
     <div class="admin-form__item">
       <label class="input__label mb-10">
         Имя отправителя
       </label>
-      <p>Наталья</p>
+      <p><?php echo $message['name']; ?></p>
     </div>
 
     <div class="admin-form__item">
       <label class="input__label mb-10">
         Email отправителя
       </label>
-      <p>info@mail.ru</p>
+      <p><?php echo $message['email']; ?></p>
     </div>
 
     <div class="admin-form__item">
       <label class="input__label mb-10">
         Текст сообщения
       </label>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi optio eos quia velit ipsam nobis eligendi nam adipisci doloremque fuga, accusantium, quae laboriosam exercitationem odio cumque aliquam? Explicabo, nisi quibusdam!</p>
+      <p>
+        <?php echo $message['message']; ?>
+      </p>
     </div>
 
     <div class="admin-form__item">

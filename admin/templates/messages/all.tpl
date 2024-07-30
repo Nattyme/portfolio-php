@@ -14,38 +14,39 @@
           <th>Отправитель</th>
           <th>Email</th>
           <th>Текст</th>
+          <th>Время</th>
           <th>Файл</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <?php /* foreach ($cats as $cat) : ?>
+        <?php foreach ($messages as $message) : ?>
           <tr>
-            <td><?php echo $cat['id'];?></td>
             <td>
-              <a href="<?php echo HOST; ?>admin/category-edit?id=<?php echo $cat['id'];?>">
-                <?php echo $cat['title'];?>
+              <?php echo $message['id'];?>
+            </td>
+            <td>
+              <a href="<?php echo HOST;?>admin/message?id=<?php echo $message['id'];?>">
+                <?php echo $message['name'];?>
               </a>
             </td>
             <td>
-              <a href="<?php echo HOST . "admin/";?>category-delete?id=<?php echo $cat['id'];?>" class="icon-delete"></a>
+              <?php echo $message['email'];?>
             </td>
-          </tr>
-        <?php endforeach; */ ?> 
-        <tr>
-            <td>1</td>
             <td>
-              <a href="<?php echo HOST;?>admin/message">
-                Наташа
+              <a href="<?php echo HOST;?>admin/message?id=<?php echo $message['id'];?>">
+                <?php echo $message['message'];?>
               </a>
             </td>
-            <td>info@mail.ru</td>
-            <td><a href="<?php echo HOST;?>admin/message">Короткий текст сообще...</a></td>
+            <td>
+              <?php echo rus_date("j. m. Y. H:i", $message['timestamp']); ?>
+            </td>
             <td>photo.jpg</td>
             <td>
               <a href="<?php echo HOST . "admin/";?>category-delete?id=<?php echo $cat['id'];?>" class="icon-delete"></a>
             </td>
           </tr>
+        <?php endforeach; ?> 
       </tbody>
     </table>
     <div class="admin-form__item pt-40">

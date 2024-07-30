@@ -1,25 +1,7 @@
 <?php
-// if( isset($_POST['submit'])) {
-//   // Проверка на заполненность названия
-//   if( trim($_POST['title']) == '' ) {
-//     $_SESSION['errors'][] = ['title' => 'Введите заголовок поста'];
-//   } 
+$message = R::load('messages', $_GET['id']); 
 
-//   // Если нет ошибок
-//   if ( empty($_SESSION['errors'])) {
-//     $cat = R::load('categories', $_GET['id']);
-//     $cat->cat_title = $_POST['title'];
-
-//     R::store($cat);
-
-//     $_SESSION['success'][] = ['title' => 'Категория успешно обновлена.'];
-//   }
-// }
-
-// Запрос постов в БД с сортировкой id по убыванию
-// $cat = R::load('categories', $_GET['id']); 
-
-$pageTitle = "Сообщения. Редактировать сообщение";
+$pageTitle = "Сообщение";
 $pageClass = "admin-page";
 ob_start();
 include ROOT . "admin/templates/messages/single.tpl";
