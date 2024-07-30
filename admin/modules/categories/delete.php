@@ -10,6 +10,7 @@ if ( isset($_POST['submit']) ) {
 }
 
 $pageTitle = "Категории - удалить запись";
+$pageClass = "admin-page";
 ob_start();
 include ROOT . "admin/templates/categories/delete.tpl";
 $content = ob_get_contents();

@@ -18,6 +18,7 @@ if( isset($_POST['submit']) ) {
 }
 
 $pageTitle = "Категории - новая запись";
+$pageClass = "admin-page";
 //Запрос постов в БД с сортировкой id по убыванию
 // $posts = R::find('posts', 'ORDER BY id DESC'); 
 ob_start();

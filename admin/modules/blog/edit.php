@@ -73,7 +73,7 @@ if( isset($_POST['postEdit'])) {
 $post = R::load('posts', $_GET['id']);
 
 $pageTitle = "Блог. Редактировать пост {$post['title']}";
-
+$pageClass = "admin-page";
 // Центральный шаблон для модуля
 ob_start();
 include ROOT . "admin/templates/blog/edit.tpl";

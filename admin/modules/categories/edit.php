@@ -20,6 +20,7 @@ if( isset($_POST['submit'])) {
 $cat = R::load('categories', $_GET['id']); 
 
 $pageTitle = "Категории. Редактировать категорию {$cat['title']}";
+$pageClass = "admin-page";
 ob_start();
 include ROOT . "admin/templates/categories/edit.tpl";
 $content = ob_get_contents();

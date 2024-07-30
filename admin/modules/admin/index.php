@@ -3,6 +3,7 @@
 $posts = R::find('posts', 'ORDER BY id DESC'); 
 
 $pageTitle = "Панель администратора - главная страница";
+$pageClass = "admin-page";
 ob_start();
 include ROOT . "admin/templates/main/main.tpl";
 $content = ob_get_contents();

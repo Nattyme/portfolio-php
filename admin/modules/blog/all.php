@@ -3,6 +3,7 @@
 $posts = R::find('posts', 'ORDER BY id DESC'); 
 
 $pageTitle = "Блог - все записи";
+$pageClass = "admin-page";
 ob_start();
 include ROOT . "admin/templates/blog/all.tpl";
 $content = ob_get_contents();

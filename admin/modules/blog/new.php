@@ -40,6 +40,7 @@ if( isset($_POST['postSubmit']) ) {
 }
 
 $pageTitle = "Блог - создание новой записи";
+$pageClass = "admin-page";
 // Центральный шаблон для модуля
 ob_start();
 include ROOT . "admin/templates/blog/new.tpl";

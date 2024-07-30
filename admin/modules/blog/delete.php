@@ -18,6 +18,7 @@ if( isset($_POST['postDelete']) ) {
 }
 
 $pageTitle = "Блог - удалить пост";
+$pageClass = "admin-page";
 // Центральный шаблон для модуля
 ob_start();
 include ROOT . "admin/templates/blog/delete.tpl";
