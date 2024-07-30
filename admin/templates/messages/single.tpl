@@ -49,9 +49,9 @@
 
     <div class="admin-form__item buttons justify-content-between">
       <a class="secondary-button" href="<?php echo HOST;?>admin/messages">Отмена</a>
-      <button name="submit" value="submit" class="primary-button primary-button--red" type="submit">
+      <a class="primary-button primary-button--red" href="<?php echo HOST . 'admin/messages?action=delete&id=' . $message['id'];?>" class="icon-delete">
         Удалить
-      </button>
+      </a>
     </div>
   </form>
 </div>

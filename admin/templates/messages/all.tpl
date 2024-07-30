@@ -45,7 +45,7 @@
               <?php echo $message['fileNameOriginal']; ?>
             </td>
             <td>
-              <a href="<?php echo HOST . "admin/";?>category-delete?id=<?php echo $cat['id'];?>" class="icon-delete"></a>
+              <a href="<?php echo HOST . "admin/";?>messages?action=delete&id=<?php echo $message['id'];?>" class="icon-delete"></a>
             </td>
           </tr>
         <?php endforeach; ?> 
