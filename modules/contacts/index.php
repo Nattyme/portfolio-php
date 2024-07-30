@@ -1,4 +1,5 @@
 <?php 
+  $contacts = R::load('contacts', 1); 
   $pageTitle = "Контакты";
   include ROOT . 'templates/page-parts/_head.tpl';
   include ROOT . 'templates/_parts/_header.tpl';

@@ -1,76 +1,35 @@
 <?php
-// $cats = R::find('categories', 'ORDER BY title ASC'); 
+$contacts = R::load('contacts', 1);
 
-// if( isset($_POST['postEdit'])) {
-//   // Проверка на заполненность названия
-//   if( trim($_POST['title']) == '' ) {
-//     $_SESSION['errors'][] = ['title' => 'Введите заголовок поста'];
-//   } 
+if( isset($_POST['submit'])) {
+  // Проверка на заполненность названия
+  if( trim($_POST['contacts_title']) == '' ) {
+    $_SESSION['errors'][] = ['title' => 'Введите заголовок контактов'];
+  } 
 
-//   // Проверка на заполненность содержимого
-//   if( trim($_POST['content']) == '' ) {
-//     $_SESSION['errors'][] = ['title' => 'Заполните содержимое поста'];
-//   } 
+  // Проверка на заполненность содержимого
+  if( trim($_POST['contacts_text']) == '' ) {
+    $_SESSION['errors'][] = ['title' => 'Заполните содержимое контактов'];
+  } 
 
-//   // Если нет ошибок
-//   if ( empty($_SESSION['errors'])) {
-//     $post = R::load('posts', $_GET['id']);
-//     $post->title = $_POST['title'];
-//     $post->cat = $_POST['cat'];
-//     $post->content = $_POST['content'];
-//     $post->editTime = time();
+  // Если нет ошибок
+  if ( empty($_SESSION['errors'])) {
+    $contacts->about_title = $_POST['about_title'];
+    $contacts->about_text = $_POST['about_text'];
 
-//     // Если передано изображение - уменьшаем, сохраняем, записываем в БД
-//     if( isset($_FILES['cover']['name']) && $_FILES['cover']['tmp_name'] !== '') {
-//       //Если передано изображение - уменьшаем, сохраняем файлы в папку, получаем название файлов изображений
-//       $coverFileName = saveUploadedImg('cover', [600, 300], 12, 'blog', [1110, 460], [290, 230]);
+    $contacts->services_title = $_POST['services_title'];
+    $contacts->services_text = $_POST['services_text'];
 
-//       // Если новое изображение успешно загружено 
-//       if ($coverFileName) {
-//         $coverFolderLocation = ROOT . 'usercontent/blog/';
-//         // Если есть старое изображение - удаляем 
-//         if (file_exists($coverFolderLocation . $post->cover) && !empty($post->cover)) {
-//           unlink($coverFolderLocation . $post->cover);
-//         }
+    $contacts->contacts_title = $_POST['contacts_title'];
+    $contacts->contacts_text = $_POST['contacts_text'];
 
-//         // Если есть старое маленькое изображение - удаляем 
-//         if (file_exists($coverFolderLocation . $post->coverSmall) && !empty($post->coverSmall)) {
-//           unlink($coverFolderLocation . $post->coverSmall);
-//         }
-//           // Записываем имя файлов в БД
-//         $post->cover = $coverFileName[0];
-//         $post->coverSmall = $coverFileName[1];
-//       }
-//     }
+    R::store($contacts);
 
-//     // Удаление обложки
-//     if ( isset($_POST['delete-cover']) && $_POST['delete-cover'] == 'on') {
-//       $coverFolderLocation = ROOT . 'usercontent/blog/';
-
-//       // Если есть старое изображение - удаляем 
-//       if (file_exists($coverFolderLocation . $post->cover) && !empty($post->cover)) {
-//         unlink($coverFolderLocation . $post->cover);
-//       }
-
-//       // Если есть старое маленькое изображение - удаляем 
-//       if (file_exists($coverFolderLocation . $post->coverSmall) && !empty($post->coverSmall)) {
-//         unlink($coverFolderLocation . $post->coverSmall);
-//       }
-
-//       // Удалить записи файла в БД
-//       $post->cover = NULL;
-//       $post->coverSmall = NULL;
-//     }
-
-//     R::store($post);
-
-//     if ( empty($_SESSION['errors'])) {
-//       $_SESSION['success'][] = ['title' => 'Пост успешно обновлен.'];
-//     }
-//   }
-// }
-
-// $post = R::load('posts', $_GET['id']);
+    if ( empty($_SESSION['errors'])) {
+      $_SESSION['success'][] = ['title' => 'Контакты успешно обновлен.'];
+    }
+  }
+}
 
 $pageTitle = "Контакты - редактирвание";
 $pageClass = "admin-page";
