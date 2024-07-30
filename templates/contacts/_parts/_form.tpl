@@ -21,7 +21,7 @@
         <div class="block-upload__title">Прикрепить файл:</div>
         <p>jpg, png, pdf, вес до 2 Мб</p>
         <div class="block-upload__file-wrapper">
-          <input name="cover" class="file-button" type="file">
+          <input name="file" class="file-button" type="file">
         </div>
       </div>
     </div>

@@ -41,7 +41,9 @@
             <td>
               <?php echo rus_date("j. m. Y. H:i", $message['timestamp']); ?>
             </td>
-            <td>photo.jpg</td>
+            <td>
+              <?php echo $message['fileNameOriginal']; ?>
+            </td>
             <td>
               <a href="<?php echo HOST . "admin/";?>category-delete?id=<?php echo $cat['id'];?>" class="icon-delete"></a>
             </td>

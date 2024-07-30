@@ -4,15 +4,13 @@
   <?php include ROOT . "admin/templates/components/success.tpl"; ?>
 
   <form class="admin-form" method="POST" action="<?php echo HOST;?>admin/category-edit?id=<?php echo $message['id']; ?>">
-    <div class="admin-form__item">
+    <div class="admin-form__item admin-form__item--flex">
       <h2 class="heading">Сообщение №<?php echo $_GET['id'];?></h2>
-    </div>
-
-    <div class="admin-form__item">
-      <label class="input__label mb-10">
+      <div class="admin-form__date">
+        <img src="<?php echo HOST;?>static/img/favicons/clock.svg" alt="Получено">
         Получено
-      </label>
-      <p><?php echo rus_date("j F Y в H:i", $message['timestamp']); ?></p>
+        <?php echo rus_date("j F Y в H:i", $message['timestamp']); ?>              
+      </div>
     </div>
 
     <div class="admin-form__item">
@@ -42,7 +40,11 @@
       <label class="input__label mb-10">
         Прикреплённый файл
       </label>
-      <p>photo.jpeg</p>
+      <p>
+        <a href="<?php echo HOST . 'usercontent/contact-form/' . $message['fileNameSrc']; ?>">
+          <?php echo $message['fileNameOriginal']; ?>
+        </a>
+      </p>
     </div>
 
     <div class="admin-form__item buttons justify-content-between">

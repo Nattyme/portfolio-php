@@ -45,8 +45,14 @@
       $message->name = htmlentities(trim($_POST['name']));
       $message->message = htmlentities(trim($_POST['message']));
       $message->timestamp = time();
-      R::store($message);
 
+      if( isset($_FILES['file']['name']) && $_FILES['file']['tmp_name'] !== '') {
+        $file = saveUploadedFile('file', 12, 'contact-form');
+        $message->fileNameSrc = $file[0];
+        $message->fileNameOriginal = $file[1];
+      }
+
+      R::store($message);
       $_SESSION['success'][] = ['title' => 'Сообщение отправлено успешно'];
     }
   }

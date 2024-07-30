@@ -231,6 +231,60 @@ function saveUploadedImg($inputFileName, $minSize, $maxFileSizeMb, $folderName, 
   }
 }
 
+// saveUploadedFile("file", 12, 'contact-form') 
+function saveUploadedFile($inputFileName, $maxFileSizeMb, $folderName) {
+  if( isset($_FILES[$inputFileName]['name']) && $_FILES[$inputFileName]['tmp_name'] !== '') {
+    // 1. Записываем парам-ры файла в переменные
+    $fileName = $_FILES[$inputFileName]['name'];
+    $fileTmpLoc = $_FILES[$inputFileName]['tmp_name'];
+    $fileType = $_FILES[$inputFileName]['type'];
+    $fileSize = $_FILES[$inputFileName]['size'];
+    $fileErrorMsg = $_FILES[$inputFileName]['error'];
+    $kaboom = explode(".", $fileName);
+    $fileExt = end($kaboom);
+
+    // 2. Проверка файла на соответствие требованиям сайта к фото
+    // 2.1 Проверка на большой вес файла изображения
+    if ($fileSize > ($maxFileSizeMb * 1024 * 1024)) {
+      $_SESSION['errors'][] = [
+        'title' => 'Файл изображения не должен быть более 12 Mb'
+      ];
+    }
+
+    // 2.2 Проверка на формат файла
+    if (!preg_match("/\.(gif|jpg|jpeg|png|pdf|zip|rar|doc|docx)$/i", $fileName)) {
+      $_SESSION['errors'][] = [
+        'title'=> 'Недопустимый формат файла',
+        'desc'=> '<p>Файл должен быть в формате gif, jpg, jpeg,png, pdf, zip, rar, doc или docx</p>'
+      ];
+    }
+
+    // 2.3 Проверка на иную ошибку
+    if ($fileErrorMsg == 1) {
+      $_SESSION['errors'][] = ['title' => 'При загрузке файла произошла ошибка. Повторите попытку.'];
+    }
+
+    // Если ошибок нет
+    if ( empty($_SESSION['errors']) ) {
+      // Прописываем путь для хранения изображения
+      $fileFolderLocation = ROOT . "usercontent/{$folderName}/";
+
+      $db_file_name = rand(100000000000,999999999999) . "." . $fileExt;
+      $newFilePath = $fileFolderLocation . $db_file_name;
+
+      // Перемещаем загруженный файл
+      $result = move_uploaded_file($fileTmpLoc, $newFilePath);
+
+      if ($result != true) {
+        $_SESSION['errors'][] = ['title' => 'Ошибка сохранения файла'];
+        return false;
+      }
+
+      return [$db_file_name, $fileName];
+    }
+  }
+}
+
 function num_decline( $number, $titles, $show_number = false ){
 
 	if( is_string( $titles ) ){
