@@ -35,6 +35,15 @@ html {
   padding-bottom: 90px;
 }
 
+.primary-button--red {
+  background-color: #c93535;
+}
+
+.icon-delete {
+  display: inline-block;
+}
+
+/* .... Authorization .... */
 .authorization-page__header {
   text-align: center;
 }
@@ -64,18 +73,19 @@ html {
   text-align: center;
 }
 
-.primary-button--red {
-  background-color: #c93535;
-}
-
 .admin-form {
   width: 900px;
 }
 
-.icon-delete {
-  display: inline-block;
+.admin-section-title {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 30px -30px 20px;
+  padding: 15px 30px;
+  background-color: #efefef;
 }
 
+/* ....... Blog ....... */
 .section-posts__info {
   display: flex;
   justify-content: center;
@@ -92,7 +102,8 @@ html {
   color: #fff;
   background-color: rgb(255, 115, 0);
 }
-/* Pagination */
+
+/* .... Pagination .... */
 .post-pagination__button--forward {
   margin-left: auto;
 }
@@ -109,14 +120,7 @@ html {
   overflow: hidden;
 }
 
-.admin-section-title {
-  font-size: 26px;
-  font-weight: 600;
-  margin: 30px -30px 20px;
-  padding: 15px 30px;
-  background-color: #efefef;
-}
-
+/* .... Contacts .... */
 .block-contacts__info {
   font-weight: 400;
 }
