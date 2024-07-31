@@ -53,6 +53,10 @@ switch ($uriModule) {
     require ROOT . "modules/about/index.php";
     break;
 
+  case 'portfolio':
+    require ROOT . "modules/portfolio/all.php";
+    break;
+
   case 'blog':
     if ( isset($uriGet) && $uriGet === 'cat' && !empty($uriGetParam) ) {
       require ROOT . "modules/blog/categories.php";

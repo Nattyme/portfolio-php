@@ -1,13 +1,13 @@
 <?php
 // if ( isset($_POST['submit'])) {
 //   // Проверка на заполненность названия
-//   if( trim($_POST['contacts_title']) == '' ) {
-//     $_SESSION['errors'][] = ['title' => 'Введите заголовок контактов'];
+//   if( trim($_POST['about_title']) == '' ) {
+//     $_SESSION['errors'][] = ['title' => 'Введите заголовок "Обо мне"'];
 //   } 
 
 //   // Проверка на заполненность содержимого
-//   if( trim($_POST['contacts_text']) == '' ) {
-//     $_SESSION['errors'][] = ['title' => 'Заполните содержимое контактов'];
+//   if( trim($_POST['about_text']) == '' ) {
+//     $_SESSION['errors'][] = ['title' => 'Заполните содержимое "Обо мне" '];
 //   } 
 
 //   // Если нет ошибок
@@ -55,9 +55,7 @@ foreach ($settingsAbout as $key => $value) {
   $about[$value['name']] = $value['value'];
 }
 
-// foreach ($settingsContacts as $key => $value) {
-//   $contacts[$value['name']] = $value['value'];
-// }
+
 
 $pageTitle = "Главная - редактирвание";
 $pageClass = "admin-page";

@@ -82,7 +82,7 @@
     <!--// Фото главной страницы -->
 
     <div class="admin-form__item buttons">
-      <button name="submit" class="primary-button" type="submit">Сохранить изменения</button>
+      <button name="submit" value="submit" class="primary-button" type="submit">Сохранить изменения</button>
       <a class="secondary-button" href="<?php echo HOST;?>admin">Отмена</a>
     </div>
     
