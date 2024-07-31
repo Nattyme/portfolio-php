@@ -1,7 +1,5 @@
 <?php
-$contacts = R::load('contacts', 1);
-
-if( isset($_POST['submit'])) {
+if ( isset($_POST['submit'])) {
   // Проверка на заполненность названия
   if( trim($_POST['contacts_title']) == '' ) {
     $_SESSION['errors'][] = ['title' => 'Введите заголовок контактов'];
@@ -14,30 +12,56 @@ if( isset($_POST['submit'])) {
 
   // Если нет ошибок
   if ( empty($_SESSION['errors'])) {
-    $contacts->about_title = $_POST['about_title'];
-    $contacts->about_text = $_POST['about_text'];
+    function trimElement ($item) {
+      return trim($item);
+    }
 
-    $contacts->services_title = $_POST['services_title'];
-    $contacts->services_text = $_POST['services_text'];
+    // Обходим массив и удаляем пробелы
+    $_POST = array_map('trimElement', $_POST);
 
-    $contacts->contacts_title = $_POST['contacts_title'];
-    $contacts->contacts_text = $_POST['contacts_text'];
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['about_title'], 'about_title']);
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['about_text'], 'about_text']);
 
-    R::store($contacts);
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['services_title'], 'services_title']);
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['services_text'], 'services_text']);
 
-    if ( empty($_SESSION['errors'])) {
-      $_SESSION['success'][] = ['title' => 'Контакты успешно обновлен.'];
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['contacts_title'], 'contacts_title']);
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['contacts_text'], 'contacts_text']);
+
+    $fail = false;
+    // Если в массиве вернулось значение пустого массива  - ошибка
+    foreach ($res as $value) {
+      if (is_array($value) && empty($value)) {
+        $fail = true;
+      } 
+    }
+
+    if ($fail) {
+      $_SESSION['errors'][] = [
+        'title' => 'Данные не сохранились',
+        'desc' => 'Если ошибка повторяется, обратитесь к администратору сайта'
+      ];
     }
   }
 }
 
+$settingsContacts = R::find('settings', ' section LIKE ? ', ['contacts']); // Получаем массив с нужными настройками
+
+//  Для вывода в шаблоне нашими ключами должны стать значения из поля 'name':
+// about_title, abput_text, services_title и т д
+// Значить нужно сформир-ть новый массив с такими ключами из 'name' и значениями из 'value'
+$contacts = []; // Создаем массив кот. наполним
+
+foreach ($settingsContacts as $key => $value) {
+  $contacts[$value['name']] = $value['value'];
+}
+
 $pageTitle = "Контакты - редактирвание";
 $pageClass = "admin-page";
-// Центральный шаблон для модуля
+//Шаблон страницы
 ob_start();
 include ROOT . "admin/templates/contacts/edit.tpl";
 $content = ob_get_contents();
 ob_end_clean();
 
-//Шаблон страницы
 include ROOT . "admin/templates/template.tpl";

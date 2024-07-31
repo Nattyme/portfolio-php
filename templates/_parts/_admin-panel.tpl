@@ -1,4 +1,5 @@
 <?php if( isset($_SESSION['login']) && $_SESSION['login'] === 1) : ?>
+  <?php $messages = R::find('messages', 'ORDER BY id DESC'); ;?>
   <div class="admin-panel">
 
     <div class="admin-panel__block-list">
@@ -15,8 +16,8 @@
       </a>
 
       <?php if ($_SESSION['role'] === 'admin' ) : ?>
-        <a class="admin-panel__link" href="#">
-          <div class="admin-panel__message" data-number="8">
+        <a class="admin-panel__link" href="<?php echo HOST; ?>admin/messages">
+          <div class="admin-panel__message" data-number="<?php echo count($messages);?>">
             <img src="<?php echo HOST; ?>static/img/admin-panel/mail.svg" alt=" Сообщение"></div>
           <div class="span">Сообщение</div>
         </a>
