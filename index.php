@@ -54,7 +54,11 @@ switch ($uriModule) {
     break;
 
   case 'portfolio':
-    require ROOT . "modules/portfolio/all.php";
+    if ( isset($uriGet) ) {
+      require ROOT . "modules/portfolio/single.php";
+    } else {
+      require ROOT . "modules/portfolio/all.php";
+    }
     break;
 
   case 'blog':

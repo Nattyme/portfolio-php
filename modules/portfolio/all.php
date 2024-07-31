@@ -7,7 +7,7 @@
 $pageTitle = "Портфолио - все записи";
 // Подключение шаблонов страницы
 ob_start();
-include ROOT . "templates/portfolio/all-projects.tpl";
+include ROOT . "templates/portfolio/all.tpl";
 $content = ob_get_contents();
 ob_end_clean();
 
