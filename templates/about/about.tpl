@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="section-about-main__img">
-          <img src="<?php echo HOST . 'static/img/section-about-main/' . $settings['about_img'];?>" alt="Изображение" />
+          <img src="<?php echo HOST . 'static/img/section-about-main/' . $about['about_img'];?>" alt="Изображение" />
         </div>
         <div class="section-about-main__wrapper">
           <div class="section-about-main__content">

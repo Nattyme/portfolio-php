@@ -55,6 +55,10 @@ switch ($uriModule) {
     break;
   
   // ::::::::::::: OTHER :::::::::::::::::::
+  case 'about':
+    require ROOT . "admin/modules/about/edit.php";
+    break;
+
   case 'contacts':
     require ROOT . "admin/modules/contacts/edit.php";
     break;

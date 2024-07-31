@@ -1,8 +1,9 @@
 <?php 
 $settingsAbout = R::find('settings', ' section LIKE ? ', ['about']); 
 
+$about[];
 foreach ($settingsAbout as $key => $value) {
-  $settings [$value['name']] = $value['value'];
+  $about[$value['name']] = $value['value'];
 }
 
 $page_name = "О сайте";
