@@ -61,6 +61,7 @@ if (empty($_SESSION['errors'])) {
 
   R::store($message);
   $_SESSION['success'][] = ['title' => 'Сообщение отправлено успешно'];
+  $_POST = array();
 }
 }
 

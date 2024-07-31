@@ -1,16 +1,20 @@
 <?php 
-  $page_name = "О сайте";
-  $page_text = "Текст главной страницы";
+$settingsAbout = R::find('settings', ' section LIKE ? ', ['about']); 
 
-  //Сохраняем код ниже в буфер
-  ob_start();
-  include ROOT . "templates/about/about.tpl";
-  //Записываем вывод из буфера в пепеменную
-  $content = ob_get_contents();
-  //Окончание буфера, очищаем вывод
-  ob_end_clean();
+foreach ($settingsAbout as $key => $value) {
+  $settings [$value['name']] = $value['value'];
+}
 
-  include ROOT . "templates/_parts/_header.tpl";
-  include ROOT . "templates/template.tpl";
-  include ROOT . "templates/_parts/_footer.tpl";
+$page_name = "О сайте";
+$page_text = "Текст главной страницы";
+
+$pageTitle = "Обо мне";
+// Шаблон страницы
+include ROOT . 'templates/page-parts/_head.tpl';
+include ROOT . 'templates/_parts/_header.tpl';
+
+include ROOT . 'templates/about/about.tpl';
+
+include ROOT . 'templates/_parts/_footer.tpl';
+include ROOT . 'templates/page-parts/_foot.tpl';
     

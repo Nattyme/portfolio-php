@@ -36,6 +36,15 @@ $messages = R::find('messages', 'ORDER BY id DESC');
             </div>Страницы
           </a>
         </li>
+        <!-- Контакты-->
+        <li class="control-panel__list-item">
+          <a class="control-panel__list-link" href="<?php echo HOST; ?>admin/contacts">
+            <div class="control-panel__list-img-wrapper">
+              <img class="control-panel__list-img" src="<?php echo HOST; ?>static/img/control-panel/file.svg" alt="icon" />
+            </div>
+            Контакты
+          </a>
+        </li>
         <!-- Сообщения -->
         <li class="control-panel__list-item">
           <a class="control-panel__list-link" href="<?php echo HOST; ?>admin/messages">
@@ -45,7 +54,6 @@ $messages = R::find('messages', 'ORDER BY id DESC');
             Сообщения
           </a>
         </li>
-        <!--// Сообщения -->
         <li class="control-panel__list-item"><a class="control-panel__list-link" href="#">
             <div class="control-panel__list-img-wrapper"><img class="control-panel__list-img" src="<?php echo HOST; ?>static/img/control-panel/message.svg" alt="icon" />
               <div class="control-panel__list-img-badge">15</div>
