@@ -29,7 +29,7 @@ if( isset($_POST['postSubmit']) ) {
     // Если передано изображение - уменьшаем, сохраняем, записываем в БД
     if ( isset($_FILES['cover']['name']) && $_FILES['cover']['tmp_name'] !== '') {
       //Если передано изображение - уменьшаем, сохраняем файлы в папку
-      $coverFileName = saveUploadedImg('cover', [600, 300], 12, 'portfolio', [1110, 460], [290, 230]);
+      $coverFileName = saveUploadedImg('cover', [500, 241], 12, 'portfolio', [1110, 460], [500, 241]);
 
       // Если новое изображение успешно загружено 
       if ($coverFileName) {

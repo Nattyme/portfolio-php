@@ -36,7 +36,7 @@
       </div>
     </div>
     <div class="page-project__nav">
-      <div class="post-pagination"> <a class="post-pagination__button" href="#">Назад </a><a class="post-pagination__button post-pagination__button--forward" href="#">Вперед</a></div>
+      <?php include ROOT . "templates/_parts/post-nav.tpl";?>
     </div>
   </div>
 </main>

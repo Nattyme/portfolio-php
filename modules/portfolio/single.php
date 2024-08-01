@@ -27,7 +27,7 @@ $project = R::getRow($sqlQuery, [$uriGet]);
 // Вывод похожих постов
 // $relatedPosts = get_related_posts($post['title']);
 
-$pageTitle = "Проект в портфолио - ";
+$pageTitle = "Проект в портфолио - {$project['title']}";
 // Подключение шаблонов страницы
 ob_start();
 include ROOT . "templates/portfolio/single.tpl";
