@@ -5,7 +5,7 @@
   <?php include ROOT . "admin/templates/components/errors.tpl"; ?>
   <?php include ROOT . "admin/templates/components/success.tpl"; ?>
 
-<form class="admin-form" method="POST" action="<?php echo HOST;?>admin/project-new" enctype="multipart/form-data">
+<form class="admin-form" method="POST" action="<?php echo HOST;?>admin/project-edit?id=<?php echo $project['id'];?>" enctype="multipart/form-data">
   <div class="admin-form__item">
     <h2 class="heading">Редактирование записи портфолио</h2>
   </div>
@@ -63,11 +63,21 @@
         </div>
       </div>
     </div>
+    <?php if (!empty($project->cover)) : ?>
+      <div class="block-upload__img">
+        <img src="<?php echo HOST . 'usercontent/portfolio/' . $project['coverSmall'];?>" alt="Загрузка картинки" />
+      </div>
+      <label class="checkbox__item mt-15">
+        <input class="checkbox__btn" type="checkbox" name="delete-cover">
+        <span class="checkbox__label">Удалить обложку</span>
+      </label>
+    <?php endif;?>
   </div>
+  
 
   <div class="admin-form__item buttons">
-    <button name="postSubmit" value="postSubmit" class="primary-button" type="submit">
-      Опубликовать
+    <button name="postEdit" value="postEdit" class="primary-button" type="submit">
+      Сохранить изменения
     </button>
     <a class="secondary-button" href="<?php echo HOST;?>admin/portfolio">Отмена</a>
   </div>
