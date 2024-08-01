@@ -1,9 +1,6 @@
 <?php 
-$projects = R::find('portfolio'); 
-// $pagination = pagination(6, 'posts');
-
-// Делаем запрос в БД для получения постов
-// $posts = R::find('posts', "ORDER BY id DESC {$pagination['sql_page_limit']}");
+$pagination = pagination(6, 'portfolio');
+$projects = R::find('portfolio', "ORDER BY id DESC {$pagination['sql_page_limit']}");
 
 $pageTitle = "Портфолио - все записи";
 // Подключение шаблонов страницы
