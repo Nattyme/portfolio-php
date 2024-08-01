@@ -1,4 +1,5 @@
 <?php 
+$projects = R::find('portfolio'); 
 // $pagination = pagination(6, 'posts');
 
 // Делаем запрос в БД для получения постов

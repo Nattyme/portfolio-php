@@ -6,8 +6,12 @@ if( isset($_POST['postSubmit']) ) {
   } 
 
   // Проверка на заполненность содержимого
-  if( trim($_POST['content']) == '' ) {
+  if( trim($_POST['about']) == '' ) {
     $_SESSION['errors'][] = ['title' => 'Заполните содержимое проекта'];
+  } 
+
+  if( trim($_POST['tools']) == '' ) {
+    $_SESSION['errors'][] = ['title' => 'Заполните технологии проекта'];
   } 
 
   if ( empty($_SESSION['errors'])) {
@@ -22,18 +26,18 @@ if( isset($_POST['postSubmit']) ) {
     $project->link = $_POST['link'];
     $project->timestamp = time();
 
-    // // Если передано изображение - уменьшаем, сохраняем, записываем в БД
-    // if ( isset($_FILES['cover']['name']) && $_FILES['cover']['tmp_name'] !== '') {
-    //   //Если передано изображение - уменьшаем, сохраняем файлы в папку
-    //   $coverFileName = saveUploadedImg('cover', [600, 300], 12, 'blog', [1110, 460], [290, 230]);
+    // Если передано изображение - уменьшаем, сохраняем, записываем в БД
+    if ( isset($_FILES['cover']['name']) && $_FILES['cover']['tmp_name'] !== '') {
+      //Если передано изображение - уменьшаем, сохраняем файлы в папку
+      $coverFileName = saveUploadedImg('cover', [600, 300], 12, 'portfolio', [1110, 460], [290, 230]);
 
-    //   // Если новое изображение успешно загружено 
-    //   if ($coverFileName) {
-    //     // Записываем имя файлов в БД
-    //     $post->cover = $coverFileName[0];
-    //     $post->coverSmall = $coverFileName[1];
-    //   }
-    // }
+      // Если новое изображение успешно загружено 
+      if ($coverFileName) {
+        // Записываем имя файлов в БД
+        $project->cover = $coverFileName[0];
+        $project->coverSmall = $coverFileName[1];
+      }
+    }
 
     R::store($project);
 

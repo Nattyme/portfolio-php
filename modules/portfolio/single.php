@@ -1,5 +1,6 @@
 <?php 
 require_once ROOT . "./libs/functions.php";
+$projects = R::find('portfolio', [$uriGet]); 
 
 //Одиночный пост, показываем отдельную страницу блога
 // $sqlQuery = 'SELECT
