@@ -1,8 +1,9 @@
 <?php
+$pagination = pagination(8, 'portfolio');
+
 //Запрос постов в БД с сортировкой id по убыванию
-$projects = R::find('portfolio', 'ORDER BY id DESC'); 
-// print_r($projects);
-// die();
+$projects = R::find('portfolio', "ORDER BY id DESC {$pagination['sql_page_limit']}");
+
 $pageTitle = "Портфолио - все записи";
 $pageClass = "admin-page";
 ob_start();
