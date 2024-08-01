@@ -16,6 +16,9 @@ define('HOST', $protocol . $_SERVER['HTTP_HOST'] . '/'); //  //project/
 //Физический путь к корневой директории скрипта
 define('ROOT', dirname(__FILE__) . '/');
 
+// Для внешних ссылок
+define('OUTLINK', $protocol);
+
 // Доп настройки
 define('SITE_NAME', 'Сайт Digital Nomand');
 define('SITE_EMAIL', 'info@project.com'); //email обяз-но домена, где расположен сайт, чтобы не поло в спам
