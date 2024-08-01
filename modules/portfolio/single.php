@@ -5,14 +5,14 @@ require_once ROOT . "./libs/functions.php";
 $sqlQuery = 'SELECT * FROM `portfolio` WHERE portfolio.id = ? LIMIT 1';
 $project = R::getRow($sqlQuery, [$uriGet]);
 
-// // Кнопки назад и вперед
-// $postsId = R::getCol('SELECT id FROM posts');
-// foreach ($postsId as $index => $value) {
-//   if ( $post['id'] == $value ) {
-//     $prevId = array_key_exists($index + 1, $postsId) ? $postsId[$index + 1] : NULL;
-//     $nextId = array_key_exists($index - 1, $postsId) ? $postsId[$index - 1] : NULL;
-//   }
-// }
+// Кнопки назад и вперед
+$postsId = R::getCol('SELECT id FROM `portfolio`');
+foreach ($postsId as $index => $value) {
+  if ( $project['id'] == $value ) {
+    $prevId = array_key_exists($index + 1, $postsId) ? $postsId[$index + 1] : NULL;
+    $nextId = array_key_exists($index - 1, $postsId) ? $postsId[$index - 1] : NULL;
+  }
+}
 
 // // Комментарии
 // $sqlQueryComments = 'SELECT 
