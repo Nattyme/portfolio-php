@@ -164,8 +164,7 @@ html {
     margin-bottom: 4px;
 }
 
-.admin-form__item--flex {
+.admin-form__item--details {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  column-gap: 20px;
 }

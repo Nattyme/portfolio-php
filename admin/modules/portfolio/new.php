@@ -13,13 +13,13 @@ if( isset($_POST['postSubmit']) ) {
   if ( empty($_SESSION['errors'])) {
     $project = R::dispense('portfolio');
     $project->title = $_POST['title'];
-    $project->cat = $_POST['cat'];
+    // $project->cat = $_POST['cat'];
     $project->about = $_POST['about'];
-    $project->tools = $_POST['tools'];
-    $project->link = $_POST['link'];
     $project->deadline = $_POST['deadline'];
     $project->pages = $_POST['pages'];
     $project->budget = $_POST['budget'];
+    $project->tools = $_POST['tools'];
+    $project->link = $_POST['link'];
     $project->timestamp = time();
 
     // // Если передано изображение - уменьшаем, сохраняем, записываем в БД
