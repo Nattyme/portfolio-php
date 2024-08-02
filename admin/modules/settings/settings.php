@@ -10,50 +10,50 @@ if ( isset($_POST['submit'])) {
     $_SESSION['errors'][] = ['title' => 'Заполните поле "Копирайт первая строка'];
   } 
 
-    // Если нет ошибок
-    if ( empty($_SESSION['errors'])) {
-      function trimElement ($item) {
-        return trim($item);
-      }
-
-      $_POST = array_map('trimElement', $_POST);
-
-      $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['site_title'], 'site_title']);
-      $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['site_slogan'], 'site_slogan']);
-
-      $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['copyright_name'], 'copyright_name']);
-      $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['copyright_year'], 'copyright_year']);
-
-      $_POST['status_on'] = isset($_POST['status_on']) ? $_POST['status_on'] : NULL;
-      $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['status_on'], 'status_on']);
-      $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['status_label'], 'status_label']);
-      $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['status_text'], 'status_text']);
-      $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['status_link'], 'status_link']);
-
-      $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['youtube'], 'youtube']);
-      $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['instagram'], 'instagram']);
-      $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['facebook'], 'facebook']);
-      $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['vkontakte'], 'vkontakte']);
-      $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['linkedin'], 'linkedin']);
-      $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['github'], 'github']);
-
-      $fail = false;
-      // Если в массиве вернулось значение пустого массива  - ошибка
-      foreach ($res as $value) {
-        if (is_array($value) && empty($value)) {
-          $fail = true;
-        } 
-      }
-  
-      if ($fail) {
-        $_SESSION['errors'][] = [
-          'title' => 'Данные не сохранились',
-          'desc' => 'Если ошибка повторяется, обратитесь к администратору сайта'
-        ];
-      } else {
-        $_SESSION['success'][] = ['title' => 'Все изменения успешно сохранены.'];
-      }
+  // Если нет ошибок
+  if ( empty($_SESSION['errors'])) {
+    function trimElement ($item) {
+      return trim($item);
     }
+
+    $_POST = array_map('trimElement', $_POST);
+
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['site_title'], 'site_title']);
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['site_slogan'], 'site_slogan']);
+
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['copyright_name'], 'copyright_name']);
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['copyright_year'], 'copyright_year']);
+
+    $_POST['status_on'] = isset($_POST['status_on']) ? $_POST['status_on'] : NULL;
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['status_on'], 'status_on']);
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['status_label'], 'status_label']);
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['status_text'], 'status_text']);
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['status_link'], 'status_link']);
+
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['youtube'], 'youtube']);
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['instagram'], 'instagram']);
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['facebook'], 'facebook']);
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['vkontakte'], 'vkontakte']);
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['linkedin'], 'linkedin']);
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['github'], 'github']);
+
+    $fail = false;
+    // Если в массиве вернулось значение пустого массива  - ошибка
+    foreach ($res as $value) {
+      if (is_array($value) && empty($value)) {
+        $fail = true;
+      } 
+    }
+
+    if ($fail) {
+      $_SESSION['errors'][] = [
+        'title' => 'Данные не сохранились',
+        'desc' => 'Если ошибка повторяется, обратитесь к администратору сайта'
+      ];
+    } else {
+      $_SESSION['success'][] = ['title' => 'Все изменения успешно сохранены.'];
+    }
+  }
 }
 
 $settingsArray = R::find('settings', ' section LIKE ? ', ['settings']);

@@ -9,6 +9,8 @@ $_SESSION['success'] = array();
 
 session_start();
 
+require ROOT . "modules/settings/settings.php";
+
 $uriModule = getModuleName();
 $uriGet = getUriGet();
 $uriGetParam = getUriGetParam();
