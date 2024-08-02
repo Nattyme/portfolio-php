@@ -21,7 +21,8 @@
       </thead>
       <tbody>
         <?php foreach ($messages as $message) : ?>
-          <tr>
+
+          <tr <?php echo $message['status'] === 'new' ? 'class="message-new"' : NULL;?>>
             <td>
               <?php echo $message['id'];?>
             </td>

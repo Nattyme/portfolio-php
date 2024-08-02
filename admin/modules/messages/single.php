@@ -1,6 +1,12 @@
 <?php
 $message = R::load('messages', $_GET['id']); 
 
+if ($message['status'] === 'new') {
+  $message->status = NULL;
+  R::store($message);
+  $messagesNewCounter = R::count('messages', ' status = ?', ['new']);
+}
+
 $pageTitle = "Сообщение";
 $pageClass = "admin-page";
 ob_start();
