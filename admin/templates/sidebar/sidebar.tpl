@@ -4,102 +4,26 @@ $messages = R::find('messages', 'ORDER BY id DESC');
 <div class="admin-page__left-panel">
   <div class="control-panel">
     <div class="control-panel__container">
-      <div class="control-panel__title-wrapper">
+      <a href="<?php echo HOST;?>" class="control-panel__title-wrapper">
         <h2 class="control-panel__title">Digital Nomad</h2>
         <p class="control-panel__subtitle">панель управления</p>
-      </div>
+      </a>
       <ul class="control-panel__list">
-        <!-- Блог -->
-        <li class="control-panel__list-item"><a class="control-panel__list-link" href="<?php echo HOST;?>admin/blog">
-            <div class="control-panel__list-img-wrapper"><img class="control-panel__list-img" src="<?php echo HOST;?>static/img/control-panel/book.svg" alt="icon" />
-            </div>Блог
-          </a>
-        </li>
-        <!--// Блог -->
-        <!-- Категории -->
-        <li class="control-panel__list-item">
-          <a class="control-panel__list-link" href="<?php echo HOST;?>admin/category">
-            <div class="control-panel__list-img-wrapper">
-              <img class="control-panel__list-img" src="<?php echo HOST;?>static/img/control-panel/book.svg" alt="icon" />
-            </div>
-            Категории
-          </a>
-        </li>
-        <!--// Категори -->
-        <li class="control-panel__list-item"><a class="control-panel__list-link" href="<?php echo HOST;?>admin/portfolio">
-            <div class="control-panel__list-img-wrapper"><img class="control-panel__list-img" src="<?php echo HOST; ?>static/img/control-panel/portfolio.svg" alt="icon" />
-            </div>Портфолио
-          </a>
-        </li>
-        <li class="control-panel__list-item"><a class="control-panel__list-link" href="#">
-            <div class="control-panel__list-img-wrapper"><img class="control-panel__list-img" src="<?php echo HOST; ?>static/img/control-panel/file.svg" alt="icon" />
-            </div>Страницы
-          </a>
-        </li>
-        <!-- Главная -->
-        <li class="control-panel__list-item">
-          <a class="control-panel__list-link" href="<?php echo HOST;?>admin/about">
-            <div class="control-panel__list-img-wrapper">
-              <img class="control-panel__list-img" src="<?php echo HOST; ?>static/img/control-panel/file.svg" alt="icon" />
-            </div>
-            Обо мне
-          </a>
-        </li>
-        <!-- Контакты-->
-        <li class="control-panel__list-item">
-          <a class="control-panel__list-link" href="<?php echo HOST; ?>admin/contacts">
-            <div class="control-panel__list-img-wrapper">
-              <img class="control-panel__list-img" src="<?php echo HOST; ?>static/img/control-panel/file.svg" alt="icon" />
-            </div>
-            Контакты
-          </a>
-        </li>
-        <!-- Сообщения -->
-        <li class="control-panel__list-item">
-          <a class="control-panel__list-link" href="<?php echo HOST; ?>admin/messages">
-            <div class="control-panel__list-img-wrapper"><img class="control-panel__list-img" src="<?php echo HOST; ?>static/img/control-panel/mail.svg" alt="icon" />
-              <?php if ($messagesNewCounter > 0) : ?>
-                <div class="control-panel__list-img-badge">
-                  <?php echo $messagesNewCounter;?>
-                </div>
-              <?php endif; ?>
-            </div>
-            Сообщения
-          </a>
-        </li>
-        <li class="control-panel__list-item"><a class="control-panel__list-link" href="#">
-            <div class="control-panel__list-img-wrapper"><img class="control-panel__list-img" src="<?php echo HOST; ?>static/img/control-panel/message.svg" alt="icon" />
-              <div class="control-panel__list-img-badge">15</div>
-            </div>Комментарии
-          </a>
-        </li>
-        <li class="control-panel__list-item"><a class="control-panel__list-link" href="#">
-            <div class="control-panel__list-img-wrapper"><img class="control-panel__list-img" src="<?php echo HOST; ?>static/img/control-panel/users.svg" alt="icon" />
-            </div>Пользователи
-          </a>
-        </li>
-        <li class="control-panel__list-item"><a class="control-panel__list-link" href="#">
-            <div class="control-panel__list-img-wrapper"><img class="control-panel__list-img" src="<?php echo HOST; ?>static/img/control-panel/settings.svg" alt="icon" />
-            </div>Настройки
-          </a>
-        </li>
+        <?php include ROOT . "admin/templates/sidebar/links/_main.tpl";?>
+        <?php include ROOT . "admin/templates/sidebar/links/_blog.tpl";?>
+        <?php include ROOT . "admin/templates/sidebar/links/_cats.tpl";?>
+        <?php include ROOT . "admin/templates/sidebar/links/_portfolio.tpl";?>
+        <?php include ROOT . "admin/templates/sidebar/links/_about.tpl";?>
+        <?php include ROOT . "admin/templates/sidebar/links/_contacts.tpl";?>
+        <?php include ROOT . "admin/templates/sidebar/links/_messages.tpl";?>
+        <?php include ROOT . "admin/templates/sidebar/links/_comments.tpl";?>
+        <?php include ROOT . "admin/templates/sidebar/links/_users.tpl";?>
+        <?php include ROOT . "admin/templates/sidebar/links/_settings.tpl";?>
       </ul>
     </div>
     <ul class="control-panel__list">
-      <li class="control-panel__list-item">
-        <a class="control-panel__list-link" href="<?php echo HOST; ?>profile">
-          <div class="control-panel__list-img-wrapper">
-            <img class="control-panel__list-img" src="<?php echo HOST; ?>static/img/control-panel/user.svg" alt="icon" />
-          </div>Мой профиль
-        </a>
-      </li>
-      <li class="control-panel__list-item">
-        <a class="control-panel__list-link" href="<?php echo HOST; ?>logout">
-          <div class="control-panel__list-img-wrapper">
-            <img class="control-panel__list-img" src="<?php echo HOST; ?>static/img/control-panel/log-out.svg" alt="icon" />
-          </div>Выход
-        </a>
-      </li>
+      <?php include ROOT . "admin/templates/sidebar/links/_profile.tpl";?>
+      <?php include ROOT . "admin/templates/sidebar/links/_exit.tpl";?>
     </ul>
   </div>
 </div>

@@ -6,7 +6,7 @@
 
   <form class="admin-form" 
         method="POST" 
-        action="<?php echo HOST;?>admin/contacts">
+        action="<?php echo HOST;?>admin/about">
 
     <div class="admin-form__item">
       <h2 class="heading">Редактировать страницу "Обо мне"</h2>

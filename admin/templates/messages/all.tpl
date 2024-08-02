@@ -43,7 +43,7 @@
               <?php echo rus_date("j. m. Y. H:i", $message['timestamp']); ?>
             </td>
             <td>
-              <?php echo $message['fileNameOriginal']; ?>
+              <a target="_blank" href="<?php echo HOST . 'usercontent/contact-form/' . $message['fileNameSrc'];?>"><?php echo $message['fileNameOriginal']; ?></a>
             </td>
             <td>
               <a href="<?php echo HOST . "admin/";?>messages?action=delete&id=<?php echo $message['id'];?>" class="icon-delete"></a>
