@@ -164,8 +164,10 @@ html {
     margin-bottom: 4px;
 }
 
-.admin-form__item--details {
+.admin-form__item--flex {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   column-gap: 20px;
 }
 
