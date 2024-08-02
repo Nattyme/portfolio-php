@@ -1,7 +1,7 @@
 <?php 
 $settingsAbout = R::find('settings', ' section LIKE ? ', ['about']); 
 
-$about[];
+$about = [];
 foreach ($settingsAbout as $key => $value) {
   $about[$value['name']] = $value['value'];
 }
