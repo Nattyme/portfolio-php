@@ -13,6 +13,9 @@ if ( !(isset($_SESSION['role']) && $_SESSION['role'] === 'admin')) {
   header('Location: ' . HOST . 'login');
 } 
 
+// Siderbar
+require ROOT . "admin/modules/sidebar/sidebar.php";
+
 /* ................................................
                   РОУТЕР - МАРШРУТ
 ................................................ */

@@ -52,6 +52,7 @@ if (empty($_SESSION['errors'])) {
   $message->name = htmlentities(trim($_POST['name']));
   $message->message = htmlentities(trim($_POST['message']));
   $message->timestamp = time();
+  $message->status = 'new';
 
   if( isset($_FILES['file']['name']) && $_FILES['file']['tmp_name'] !== '') {
     $file = saveUploadedFile('file', 12, 'contact-form');
