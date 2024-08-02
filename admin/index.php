@@ -90,6 +90,10 @@ switch ($uriModule) {
     require ROOT . "admin/modules/messages/single.php";
     break;
 
+  case 'settings':
+    require ROOT . "admin/modules/settings/settings.php";
+    break;
+
   default: 
     require ROOT . "admin/modules/admin/index.php";
     break;

@@ -4,13 +4,14 @@ $pageClass = "authorization-page";
 
 // 1. Пришли по секретной ссыке с email
 if( !empty($_GET['email']) && !empty($_GET['code'])) {
+
   // 2. Найти пользователя по email в БД
   $user = R::findOne('users', 'email = ?', array($_GET['email'])); 
 
   if (!$user) {
     header("Location: " . HOST . "lost-password");
   } 
-
+  
 } else if ( !empty($_POST['set-new-password'])) {
   // Найти пользователя по email в БД
   $user = R::findOne('users', 'email = ?', array($_POST['email'])); 
