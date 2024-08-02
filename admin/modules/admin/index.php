@@ -1,6 +1,11 @@
 <?php
 //Запрос постов в БД с сортировкой id по убыванию
-$posts = R::find('posts', 'ORDER BY id DESC'); 
+$postCount = R::count('posts'); 
+$categoriesCount = R::count('categories'); 
+$commentsCount = R::count('comments'); 
+$userCount = R::count('users'); 
+$projectsCount = R::count('portfolio'); 
+$messagesTotalCount = R::count('messages'); 
 
 $pageTitle = "Панель администратора - главная страница";
 $pageClass = "admin-page";
