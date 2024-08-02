@@ -10,7 +10,7 @@ $messagesTotalCount = R::count('messages');
 $pageTitle = "Панель администратора - главная страница";
 $pageClass = "admin-page";
 ob_start();
-include ROOT . "admin/templates/main/main.tpl";
+include ROOT . "admin/templates/admin/main.tpl";
 $content = ob_get_contents();
 ob_end_clean();
 

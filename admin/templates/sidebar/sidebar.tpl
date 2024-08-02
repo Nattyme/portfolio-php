@@ -9,11 +9,11 @@ $messages = R::find('messages', 'ORDER BY id DESC');
         <p class="control-panel__subtitle">панель управления</p>
       </a>
       <ul class="control-panel__list">
-        <?php include ROOT . "admin/templates/sidebar/links/_main.tpl";?>
+        <?php include ROOT . "admin/templates/sidebar/links/_admin.tpl";?>
         <?php include ROOT . "admin/templates/sidebar/links/_blog.tpl";?>
         <?php include ROOT . "admin/templates/sidebar/links/_cats.tpl";?>
         <?php include ROOT . "admin/templates/sidebar/links/_portfolio.tpl";?>
-        <?php include ROOT . "admin/templates/sidebar/links/_about.tpl";?>
+        <?php include ROOT . "admin/templates/sidebar/links/_main.tpl";?>
         <?php include ROOT . "admin/templates/sidebar/links/_contacts.tpl";?>
         <?php include ROOT . "admin/templates/sidebar/links/_messages.tpl";?>
         <?php include ROOT . "admin/templates/sidebar/links/_comments.tpl";?>

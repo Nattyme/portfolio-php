@@ -74,8 +74,8 @@ switch ($uriModule) {
     break;
 
   // ::::::::::::: OTHER :::::::::::::::::::
-  case 'about':
-    require ROOT . "admin/modules/about/edit.php";
+  case 'main':
+    require ROOT . "admin/modules/main/edit.php";
     break;
 
   case 'contacts':

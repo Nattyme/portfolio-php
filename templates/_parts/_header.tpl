@@ -11,7 +11,7 @@
     </a>
     <nav class="nav">
       <ul class="nav__list">
-        <li class="nav__list-item"><a class="nav__list-item-link" href="<?php echo HOST;?>about">Обо мне</a></li>
+        <li class="nav__list-item"><a class="nav__list-item-link" href="<?php echo HOST;?>main">Главная</a></li>
         <li class="nav__list-item"><a class="nav__list-item-link" href="<?php echo HOST;?>portfolio">Портфолио</a></li>
         <li class="nav__list-item"><a class="nav__list-item-link" href="<?php echo HOST;?>blog">Блог</a></li>
         <li class="nav__list-item"><a class="nav__list-item-link" href="<?php echo HOST;?>contacts">Контакты</a></li>

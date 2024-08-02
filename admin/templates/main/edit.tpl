@@ -6,10 +6,10 @@
 
   <form class="admin-form" 
         method="POST" 
-        action="<?php echo HOST;?>admin/about">
+        action="<?php echo HOST;?>admin/main">
 
     <div class="admin-form__item">
-      <h2 class="heading">Редактировать страницу "Обо мне"</h2>
+      <h2 class="heading">Редактировать главную страницу</h2>
     </div>
 
     <!-- About -->
@@ -21,7 +21,7 @@
                class="input input--width-label" 
                type="text" 
                placeholder="Заголовок секции" 
-               value="<?php echo $about['about_title']; ?>"
+               value="<?php echo $main['about_title']; ?>"
         />
       </label>
     </div>
@@ -30,7 +30,7 @@
         Содержимое поста 
       </label>
       <textarea name="about_text" class="textarea textarea--width-label" placeholder="Введите текст" id="about_text">
-        <?php echo $about['about_text'] ;?>
+        <?php echo $main['about_text'] ;?>
       </textarea>
     </div>
     <!--// About -->
@@ -44,7 +44,7 @@
                class="input input--width-label" 
                type="text" 
                placeholder="Заголовок секции" 
-               value="<?php echo $about['services_title']; ?>"
+               value="<?php echo $main['services_title']; ?>"
         />
       </label>
     </div>
@@ -53,7 +53,7 @@
         Содержимое поста 
       </label>
       <textarea name="services_text" class="textarea textarea--width-label" placeholder="Введите текст" id="services_text">
-        <?php echo $about['services_text'] ;?>
+        <?php echo $main['services_text'] ;?>
       </textarea>
     </div>
     <!--// Services -->
@@ -68,9 +68,9 @@
             <input name="cover" class="file-button" type="file">
           </div>
         </div>
-        <?php  if (!empty($about['about_img'])) : ?>
+        <?php  if (!empty($main['main_img'])) : ?>
           <div class="block-upload__img">
-            <img src="<?php echo HOST . 'usercontent/about-main/' . $about['about_img'];?>" alt="Загрузка картинки" />
+            <img src="<?php echo HOST . 'usercontent/main/' . $main['main_img'];?>" alt="Загрузка картинки" />
           </div>
           <label class="checkbox__item mt-15">
             <input class="checkbox__btn" type="checkbox" name="delete-cover">

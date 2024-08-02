@@ -3,22 +3,18 @@
     <div class="container">
       <div class="row">
         <div class="section-about-main__img">
-          <img src="<?php echo HOST; ?>static/img/section-about-main/section-about-main.jpg" alt="Изображение" />
+          <img src="<?php echo HOST . 'usercontent/main/' . $main['main_img'];?>" alt="Изображение" />
         </div>
         <div class="section-about-main__wrapper">
           <div class="section-about-main__content">
             <div class="post-about-me">
-              <h4 class="post-about-me__title">обо мне</h4>
-              <p>Занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты. Этот сайт я сделал в рамках обучения в школе онлайн обучения WebCademy. Чуть позже я обновлю в нём свой контент. А пока посмотрите, как тут всё классно!</p>
+              <h4 class="post-about-me__title"><?php echo $main['about_title'];?></h4>
+              <?php echo $main['about_text'];?>
             </div>
           </div>
           <div class="post-about-skills">
-            <h4 class="post-about-skills__title">чем могу быть полезен</h4>
-            <ul class="skills__list">
-              <li class="skills__list-item">Верстка сайтов</li>
-              <li class="skills__list-item">Frontend</li>
-              <li class="skills__list-item">UI/UX дизайн</li>
-            </ul>
+            <h4 class="post-about-skills__title"><?php echo $main['services_title'];?></h4>
+            <?php echo $main['services_text'];?>
           </div>
         </div>
       </div>

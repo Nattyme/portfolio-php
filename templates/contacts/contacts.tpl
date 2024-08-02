@@ -19,7 +19,4 @@
       </div>
     </div>
   </section>
-  <div class="page-contacts__map">
-    <img src="../img/contacts/map.jpg" alt="map" />
-  </div>
 </main>

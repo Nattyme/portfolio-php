@@ -47,21 +47,20 @@
 //   }
 // }
 
-$settingsAbout = R::find('settings', ' section LIKE ? ', ['about']); // Получаем массив с нужными настройками
+$settingsMain = R::find('settings', ' section LIKE ? ', ['main']); // Получаем массив с нужными настройками
 
-$about = []; // Создаем массив кот. наполним
+$main = []; // Создаем массив кот. наполним
 
-foreach ($settingsAbout as $key => $value) {
-  $about[$value['name']] = $value['value'];
+foreach ($settingsMain as $key => $value) {
+  $main[$value['name']] = $value['value'];
 }
-
 
 
 $pageTitle = "Главная - редактирвание";
 $pageClass = "admin-page";
 //Шаблон страницы
 ob_start();
-include ROOT . "admin/templates/about/edit.tpl";
+include ROOT . "admin/templates/main/edit.tpl";
 $content = ob_get_contents();
 ob_end_clean();
 

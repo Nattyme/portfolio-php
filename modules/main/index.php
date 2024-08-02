@@ -1,4 +1,10 @@
 <?php 
+  $settingsMain = R::find('settings', ' section LIKE ? ', ['main']); 
+
+  $main = [];
+  foreach ($settingsMain as $key => $value) {
+    $main[$value['name']] = $value['value'];
+  }
   $pageTitle = "Главная страница";
   $pageClass = "main-page";
 

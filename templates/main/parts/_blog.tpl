@@ -1,6 +1,6 @@
 <section class="main-page__posts-cards">
   <div class="main-page__posts-cards-title">
-    <h2 class="heading">Новые записи в <a href="#">блоге</a></h2>
+    <h2 class="heading">Новые записи в <a href="<?php HOST;?>blog">блоге</a></h2>
   </div>
   <div class="row">
     <div class="col-4">
