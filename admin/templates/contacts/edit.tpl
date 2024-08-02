@@ -1,6 +1,7 @@
 <script src="<?php echo HOST;?>libs/ckeditor/ckeditor.js"></script>
 
 <div class="admin-page__content-form">
+  
   <?php include ROOT . "admin/templates/components/errors.tpl"; ?>
   <?php include ROOT . "admin/templates/components/success.tpl"; ?>
 
