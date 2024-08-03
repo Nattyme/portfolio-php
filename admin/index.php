@@ -73,6 +73,19 @@ switch ($uriModule) {
     require ROOT . "admin/modules/portfolio/delete.php";
     break;
 
+  // ::::::::::::: USERS :::::::::::::::::::
+  case 'users':
+    require ROOT . "admin/modules/users/all.php";
+    break; 
+
+  case 'users-edit':
+    require ROOT . "admin/modules/users/edit.php";
+    break; 
+
+  case 'users-delete':
+    require ROOT . "admin/modules/users/delete.php";
+    break; 
+
   // ::::::::::::: OTHER :::::::::::::::::::
   case 'main':
     require ROOT . "admin/modules/main/edit.php";

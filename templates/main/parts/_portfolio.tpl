@@ -1,6 +1,6 @@
 <section class="main-page__projects-cards">
   <div class="main-page__projects-cards-title">
-    <h2 class="heading">Новые проекты в <a href="#">портфолио</a>
+    <h2 class="heading">Новые проекты в <a href="<?php HOST;?>portfolio">портфолио</a>
     </h2>
   </div>
   <div class="row">

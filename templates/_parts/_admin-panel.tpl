@@ -17,8 +17,15 @@
 
       <?php if ($_SESSION['role'] === 'admin' ) : ?>
         <a class="admin-panel__link" href="<?php echo HOST; ?>admin/messages">
-          <div class="admin-panel__message" data-number="<?php echo count($messages);?>">
-            <img src="<?php echo HOST; ?>static/img/admin-panel/mail.svg" alt=" Сообщение"></div>
+          <div class="admin-panel__message">
+            <img src="<?php echo HOST; ?>static/img/admin-panel/mail.svg" alt=" Сообщение">
+            
+            <?php if ($messagesNewCounter > 0) : ?>
+              <div class="admin-panel__message-icon">
+                <?php echo $messagesNewCounter;?>
+              </div>
+            <?php endif;?>
+          </div>
           <div class="span">Сообщение</div>
         </a>
         <a class="admin-panel__link" href="#">

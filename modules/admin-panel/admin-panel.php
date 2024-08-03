@@ -1,2 +1,2 @@
 <?php
-$meddagesNewCounter = R::count('messages', ' status = ? ', ['new']);
+$messagesNewCounter = R::count('messages', ' status = ? ', ['new']);
