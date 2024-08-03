@@ -27,10 +27,17 @@
           </div>
           <div class="span">Комментарии</div>
         </a>
-        <a class="admin-panel__link" href="#">
-          <img src="<?php echo HOST; ?>static/img/admin-panel/edit-3.svg" alt="Редактировать эту страницу">
-          <div class="span">Редактировать</div>
-        </a>
+        <?php if ( $uriModule === 'blog' && isset($uriGet) && $uriGet !== 'cat') : ?>
+          <a class="admin-panel__link" href="<?php echo HOST . 'admin/post-edit?id=' . $uriGet; ?>">
+            <img src="<?php echo HOST; ?>static/img/admin-panel/edit-3.svg" alt="Редактировать эту страницу">
+            <div class="span">Редактировать</div>
+          </a>
+        <?php elseif ( $uriModule === 'portfolio' && isset($uriGet) && $uriGet !== 'cat') : ?>
+          <a class="admin-panel__link" href="<?php echo HOST . 'admin/project-edit?id=' . $uriGet; ?>">
+            <img src="<?php echo HOST; ?>static/img/admin-panel/edit-3.svg" alt="Редактировать эту страницу">
+            <div class="span">Редактировать</div>
+          </a>
+        <?php endif; ?>
       <?php endif; ?>
     </div>
 
