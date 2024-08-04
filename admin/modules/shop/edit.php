@@ -1,7 +1,7 @@
 <?php
 // $cats = R::find('categories', 'ORDER BY title ASC'); 
 
-if( isset($_POST['postEdit'])) {
+if( isset($_POST['submit'])) {
   // Проверка на заполненность названия
   if( trim($_POST['title']) == '' ) {
     $_SESSION['errors'][] = ['title' => 'Введите название товара'];
@@ -21,7 +21,7 @@ if( isset($_POST['postEdit'])) {
   if ( empty($_SESSION['errors'])) {
     $product = R::load('products', $_GET['id']);
     $product->title = $_POST['title'];
-    $product->cat = $_POST['price'];
+    $product->price = $_POST['price'];
     $product->content = $_POST['content'];
     $product->editTime = time();
 

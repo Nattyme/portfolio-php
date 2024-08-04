@@ -12,6 +12,8 @@
         <tr>
           <th>ID</th>
           <th>Название</th>
+          <th>Создан</th>
+          <th>Обновлён</th>
           <th></th>
         </tr>
       </thead>
@@ -23,12 +25,19 @@
               <a href="<?php echo HOST . "admin/"; ?>shop-edit?id=<?php echo $product['id']; ?>"><?php echo $product['title']; ?></a>
             </td>
             <td>
+              <?php echo rus_date("j. m. Y. в H:i", $product['timestamp']); ?>
+            </td>
+            <td>
+              <?php echo !empty($product['edit_time']) ? rus_date("j. m. Y. в H:i", $product['edit_time']) : ''; ?>
+            </td>
+            <td>
               <a href="<?php echo HOST . "admin/";?>shop-delete?id=<?php echo $product['id'];?>" class="icon-delete"></a>
             </td>
           </tr>
         <?php endforeach; ?>
       </tbody>
     </table>
+    
     <div class="admin-form__item pt-40">
       <div class="section-pagination">
           <?php include ROOT . "admin/templates/_parts/pagination/_pagination.tpl"; ?>

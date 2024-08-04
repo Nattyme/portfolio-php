@@ -1,23 +1,23 @@
 <?php
-// $post = R::load('posts', $_GET['id']); 
+$product = R::load('products', $_GET['id']); 
 
-// if( isset($_POST['postDelete']) ) {
-//   // Удаление обложки
-//   if ( !empty($post['cover']) ) {
-//     // Удадить файлы обложки с сервера
-//     $coverFolderLocation = ROOT . 'usercontent/blog/';
-//     unlink($coverFolderLocation . $post->cover);
-//     unlink($coverFolderLocation . $post->coverSmall);
-//   }
+if( isset($_POST['submit']) ) {
+  // Удаление обложки
+  if ( !empty($product['cover']) ) {
+    // Удадить файлы обложки с сервера
+    $coverFolderLocation = ROOT . 'usercontent/products/';
+    unlink($coverFolderLocation . $product->cover);
+    unlink($coverFolderLocation . $product->coverSmall);
+  }
 
-//   R::trash($post);
+  R::trash($product);
   
-//   $_SESSION['success'][] = ['title' => 'Пост был успешно удалён.'];
-//   header('Location: ' . HOST . 'admin/blog');
-//   exit();
-// }
+  $_SESSION['success'][] = ['title' => 'Товар был успешно удалён.'];
+  header('Location: ' . HOST . 'admin/blog');
+  exit();
+}
 
-$pageTitle = "Магащин - удалить товар";
+$pageTitle = "Магазин - удалить товар";
 $pageClass = "admin-page";
 // Центральный шаблон для модуля
 ob_start();

@@ -1,7 +1,6 @@
 <?php
 $pagination = pagination(8, 'products');
-// Запрос постов в БД с сортировкой id по убыванию
-$products = R::find('products', "ORDER BY id DESC {$pagination['sql_page_limit']}");
+$products = R::find('products');
 
 $pageTitle = "Магазин - все товары";
 $pageClass = "admin-page";
