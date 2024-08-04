@@ -12,10 +12,10 @@
         <tr>
           <th>ID</th>
           <th>Имя</th>
-          <th>Фамилия</th>
           <th>Эл. почта</th>
           <th>Зарегестрирован</th>
           <th>Комментарии</th>
+          <th>Роль</th>
           <th></th>
         </tr>
       </thead>
@@ -24,17 +24,12 @@
           <tr>
             <td><?php echo $user['id'];?></td>
             <td>
-              <a href="<?php echo HOST; ?>admin/profile-edit?id=<?php echo $user['id'];?>">
+              <a href="<?php echo HOST; ?>profile-edit/<?php echo $user['id'];?>">
                 <?php echo $user['name'];?>
               </a>
             </td>
             <td>
-              <a href="<?php echo HOST; ?>admin/profile-edit?id=<?php echo $user['id'];?>">
-                <?php echo $user['surname'];?>
-              </a>
-            </td>
-            <td>
-              <a href="<?php echo HOST; ?>admin/profile-edit?id=<?php echo $user['id'];?>">
+              <a href="<?php echo HOST; ?>profile-edit?id=<?php echo $user['id'];?>">
                 <?php echo $user['email'];?>
               </a>
             </td>
@@ -49,7 +44,12 @@
               </a>
             </td>
             <td>
-              <a href="<?php echo HOST . "admin/";?>profile-delete?id=<?php echo $user['id'];?>" class="icon-delete"></a>
+              <a href="<?php echo HOST; ?>admin/profile-edit?id=<?php echo $user['id'];?>">
+                <?php echo $user['role'];?>
+              </a>
+            </td>
+            <td>
+              <a href="<?php echo HOST;?>admin/user-delete?id=<?php echo $user['id'];?>" class="icon-delete"></a>
             </td>
           </tr>
         <?php endforeach; ?>

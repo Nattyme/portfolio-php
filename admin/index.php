@@ -78,13 +78,30 @@ switch ($uriModule) {
     require ROOT . "admin/modules/users/all.php";
     break; 
 
-  case 'users-edit':
+  case 'user-edit':
     require ROOT . "admin/modules/users/edit.php";
     break; 
 
-  case 'users-delete':
+  case 'user-delete':
     require ROOT . "admin/modules/users/delete.php";
     break; 
+
+  // ::::::::::::: SHOP :::::::::::::::::::
+  case 'shop':
+    require ROOT . "admin/modules/shop/all.php";
+    break;
+
+  case 'shop-new':
+    require ROOT . "admin/modules/shop/new.php";
+    break;
+
+  case 'shop-edit':
+    require ROOT . "admin/modules/shop/edit.php";
+    break;
+
+  case 'shop-delete':
+    require ROOT . "admin/modules/shop/delete.php";
+    break;
 
   // ::::::::::::: OTHER :::::::::::::::::::
   case 'main':
