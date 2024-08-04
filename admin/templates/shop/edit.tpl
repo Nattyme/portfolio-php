@@ -9,20 +9,29 @@
         action="<?php echo HOST;?>admin/shop-edit?id=<?php echo $post['id']; ?>" enctype="multipart/form-data">
 
     <div class="admin-form__item">
-      <h2 class="heading">Редактировать пост</h2>
+      <h2 class="heading">Редактировать товар</h2>
     </div>
     <div class="admin-form__item">
       <label class="input__label">
-        Введите название записи 
+        Название товара 
         <input name="title" 
                class="input input--width-label" 
                type="text" 
-               placeholder="Заголовок поста" 
                value="<?php echo $post['title']; ?>"
         />
       </label>
     </div>
     <div class="admin-form__item">
+      <label class="input__label">
+        Цена товара 
+        <input name="price" 
+               class="input input--width-label" 
+               type="text" 
+               value="<?php echo $post['title']; ?>"
+        />
+      </label>
+    </div>
+    <!-- <div class="admin-form__item">
       <label class="select-label">Выберите категорию 
         <select class="select" name="cat">
           <?php /* foreach ($cats as $cat) : ?>
@@ -33,10 +42,10 @@
           <?php endforeach; */ ?>
         </select>
       </label>
-    </div>
+    </div> -->
     <div class="admin-form__item">
       <label class="textarea__label mb-15" name="editor">
-        Содержимое поста 
+        Описание товара 
       </label>
       <textarea name="content" class="textarea textarea--width-label" placeholder="Введите текст" id="editor">
         <?php echo $post['content'] ;?>
@@ -45,7 +54,7 @@
     <div class="admin-form__item">
       <div class="block-upload">
         <div class="block-upload__description">
-          <div class="block-upload__title">Обложка поста:</div>
+          <div class="block-upload__title">Фотография товара:</div>
           <p>Изображение jpg или png, рекомендуемая ширина 945px и больше, высота от 400px и более. Вес до 2Мб.</p>
           <div class="block-upload__file-wrapper">
             <input name="cover" class="file-button" type="file">

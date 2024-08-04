@@ -49,7 +49,7 @@
     </div>
 
     <div class="admin-form__item buttons">
-      <button name="postSubmit" value="postSubmit" class="primary-button" type="submit">
+      <button name="submit" value="submit" class="primary-button" type="submit">
         Опубликовать
       </button>
       <a class="secondary-button" href="<?php echo HOST;?>admin/shop">Отмена</a>
