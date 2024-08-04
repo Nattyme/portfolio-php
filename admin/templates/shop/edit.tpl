@@ -6,7 +6,7 @@
 
   <form class="admin-form" 
         method="POST" 
-        action="<?php echo HOST;?>admin/shop-edit?id=<?php echo $post['id']; ?>" enctype="multipart/form-data">
+        action="<?php echo HOST;?>admin/shop-edit?id=<?php echo $product['id']; ?>" enctype="multipart/form-data">
 
     <div class="admin-form__item">
       <h2 class="heading">Редактировать товар</h2>
@@ -17,7 +17,7 @@
         <input name="title" 
                class="input input--width-label" 
                type="text" 
-               value="<?php echo $post['title']; ?>"
+               value="<?php echo $product['title']; ?>"
         />
       </label>
     </div>
@@ -27,7 +27,7 @@
         <input name="price" 
                class="input input--width-label" 
                type="text" 
-               value="<?php echo $post['title']; ?>"
+               value="<?php echo $product['price']; ?>"
         />
       </label>
     </div>
@@ -47,8 +47,8 @@
       <label class="textarea__label mb-15" name="editor">
         Описание товара 
       </label>
-      <textarea name="content" class="textarea textarea--width-label" placeholder="Введите текст" id="editor">
-        <?php echo $post['content'] ;?>
+      <textarea name="content" class="textarea textarea--width-label" id="editor">
+        <?php echo $product['content'] ;?>
       </textarea>
     </div>
     <div class="admin-form__item">
@@ -60,21 +60,21 @@
             <input name="cover" class="file-button" type="file">
           </div>
         </div>
-        <?php /* if (!empty($post->cover)) : ?>
+        <?php if (!empty($product->cover)) : ?>
           <div class="block-upload__img">
-            <img src="<?php echo HOST . 'usercontent/blog/' . $post['coverSmall'];?>" alt="Загрузка картинки" />
+            <img src="<?php echo HOST . 'usercontent/products/' . $product['coverSmall'];?>" alt="Загрузка картинки" />
           </div>
           <label class="checkbox__item mt-15">
             <input class="checkbox__btn" type="checkbox" name="delete-cover">
             <span class="checkbox__label">Удалить обложку</span>
           </label>
-        <?php endif; */?>
+        <?php endif; ?>
       </div>
     </div>
 
     <div class="admin-form__item buttons">
       <button name="postEdit" value="postEdit" class="primary-button" type="submit">Сохранить изменения</button>
-      <a class="secondary-button" href="<?php echo HOST;?>admin/blog">Отмена</a>
+      <a class="secondary-button" href="<?php echo HOST;?>admin/shop">Отмена</a>
     </div>
   </form>
 </div>
