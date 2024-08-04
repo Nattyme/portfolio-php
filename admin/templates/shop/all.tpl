@@ -16,17 +16,17 @@
         </tr>
       </thead>
       <tbody>
-        <?php /* foreach ($posts as $post) : ?>
+        <?php foreach ($products as $product) : ?>
           <tr>
-            <td><?php echo $post['id']; ?></td>
+            <td><?php echo $product['id']; ?></td>
             <td>
-              <a href="<?php echo HOST . "admin/"; ?>post-edit?id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a>
+              <a href="<?php echo HOST . "admin/"; ?>shop-edit?id=<?php echo $product['id']; ?>"><?php echo $product['title']; ?></a>
             </td>
             <td>
-              <a href="<?php echo HOST . "admin/";?>post-delete?id=<?php echo $post['id'];?>" class="icon-delete"></a>
+              <a href="<?php echo HOST . "admin/";?>shop-delete?id=<?php echo $product['id'];?>" class="icon-delete"></a>
             </td>
           </tr>
-        <?php endforeach; */?>
+        <?php endforeach; ?>
       </tbody>
     </table>
     <div class="admin-form__item pt-40">
