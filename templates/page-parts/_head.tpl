@@ -9,6 +9,7 @@
 	<meta name="description" />
 	<link rel="stylesheet" href="<?php echo HOST; ?>static/css/main.css">
 	<link rel="stylesheet" href="<?php echo HOST; ?>static/css/custom.css">
+	<link rel="stylesheet" href="<?php echo HOST; ?>static/css/shop.css">
 </head>
 
 <?php if ( isset($pageClass) && $pageClass === 'authorization-page') : ?>
