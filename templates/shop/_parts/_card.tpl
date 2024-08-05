@@ -1,11 +1,12 @@
 <div class="card-product">
-  
-    <?php if (!empty($product['cat'])) : ?>
-      <a href="<?php echo HOST . "shop/cat/" . $product['cat'];?>" class="badge badge--link">Категория</a>
-    <?php endif; ?>
+  <?php if (!empty($product['cat_title'])) : ?>
+    <a href="<?php echo HOST . "shop/cat/" . $product['cat'];?>" class="badge badge--link">
+      <?php echo $product['cat_title'];?>
+    </a>
+  <?php endif; ?>
 
   <div class="card-product__img">
-    <img src=<?php echo HOST . 'usercontent/products/' . $product['coverSmall'];?> 
+    <img src=<?php echo HOST . 'usercontent/products/' . $product['cover_small'];?> 
           alt="<?php echo $product['title'];?>" 
     />
   </div>

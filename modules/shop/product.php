@@ -1,6 +1,5 @@
 <?php 
 require_once ROOT . "./libs/functions.php";
-// $product = R::load('products', $uriGet);
 //Одиночный пост, показываем отдельную страницу блога
 $sqlQuery = 'SELECT
                 products.id, products.title, products.content, products.cover, products.timestamp, 
