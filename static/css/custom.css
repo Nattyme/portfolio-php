@@ -265,3 +265,26 @@ a.logo-link:hover {
   display: flex;
   justify-content: space-between;
 }
+
+.card-product__button::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card-product .badge {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+}
+
+.card-product .badge.badge--link {
+  color: #fff;
+}
+
+
