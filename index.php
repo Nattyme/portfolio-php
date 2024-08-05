@@ -62,9 +62,10 @@ switch ($uriModule) {
     } else {
       require ROOT . "modules/portfolio/all.php";
     }
-    break;
+    break
 
-  case 'blog':
+   // ::::::::::::: BLOG :::::::::::::::::::
+   case 'blog':
     if ( isset($uriGet) && $uriGet === 'cat' && !empty($uriGetParam) ) {
       require ROOT . "modules/blog/categories.php";
     } else if ( isset($uriGet) ) {
@@ -76,6 +77,17 @@ switch ($uriModule) {
 
   case 'add-comment':
     require ROOT . "modules/blog/add-comment.php";
+    break;
+
+   // ::::::::::::: SHOP :::::::::::::::::::
+   case 'shop':
+    if ( isset($uriGet) && $uriGet === 'cat' && !empty($uriGetParam) ) {
+      require ROOT . "modules/shop/categories.php";
+    } else if ( isset($uriGet) ) {
+      require ROOT . "modules/shop/product.php";
+    } else {
+      require ROOT . "modules/shop/catalog.php";
+    }
     break;
 
   case 'contacts':
