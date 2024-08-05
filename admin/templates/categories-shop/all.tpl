@@ -4,8 +4,8 @@
     <?php include ROOT . "admin/templates/components/success.tpl"; ?>
 
     <div class="admin-form__item d-flex justify-content-between mb-20">
-      <h2 class="heading">Категории</h2>
-      <a class="secondary-button" href="<?php HOST;?>category-new">Создать новую категорию</a>
+      <h2 class="heading">Категории товаров</h2>
+      <a class="secondary-button" href="<?php HOST;?>category-shop-new">Создать новую категорию</a>
     </div>
     <table class="table">
       <thead>
@@ -20,16 +20,19 @@
           <tr>
             <td><?php echo $cat['id'];?></td>
             <td>
-              <a href="<?php echo HOST; ?>admin/category-edit?id=<?php echo $cat['id'];?>">
+              <a href="<?php echo HOST; ?>admin/category-shop-edit?id=<?php echo $cat['id'];?>">
                 <?php echo $cat['title'];?>
               </a>
             </td>
             <td>
-              <a href="<?php echo HOST . "admin/";?>category-delete?id=<?php echo $cat['id'];?>" class="icon-delete"></a>
+              <a href="<?php echo HOST . "admin/";?>category-shop-delete?id=<?php echo $cat['id'];?>" class="icon-delete"></a>
             </td>
           </tr>
         <?php endforeach; ?>
       </tbody>
     </table>
+    <div class="admin-form__item pt-40">
+      
+    </div>
   </div>
 </div>

@@ -1,7 +1,9 @@
 <?php 
-// require_once ROOT . "./libs/functions.php";
-
-// //Одиночный пост, показываем отдельную страницу блога
+require_once ROOT . "./libs/functions.php";
+$product = R::load('products', $uriGet);
+// print_r($product);
+// die();
+//Одиночный пост, показываем отдельную страницу блога
 // $sqlQuery = 'SELECT
 //                 posts.id, posts.title, posts.content, posts.cover, posts.timestamp, posts.edit_time, posts.cat,
 //                 categories.title AS cat_title
@@ -33,7 +35,7 @@
 // // Вывод похожих постов
 // $relatedPosts = get_related_posts($post['title']);
 
-$pageTitle = "Название товара";
+$pageTitle = "Название товара {$product['title']}";
 // Подключение шаблонов страницы
 include ROOT . "templates/page-parts/_head.tpl";
 include ROOT . "templates/_parts/_header.tpl";

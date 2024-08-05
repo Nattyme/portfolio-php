@@ -21,7 +21,7 @@
         <input name="price" class="input input--width-label" type="text"/>
       </label>
     </div>
-    <!-- <div class="admin-form__item">
+    <div class="admin-form__item">
       <label class="select-label">Выберите категорию 
         <select class="select" name="cat">
           <?php /* foreach ($cats as $cat) : ?>
@@ -29,7 +29,7 @@
           <?php endforeach; */ ?>
         </select>
       </label>
-    </div> -->
+    </div>
     <div class="admin-form__item">
       <label class="textarea__label mb-15" name="editor">
         Описание товара
