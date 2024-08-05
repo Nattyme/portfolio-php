@@ -24,9 +24,9 @@
     <div class="admin-form__item">
       <label class="select-label">Выберите категорию 
         <select class="select" name="cat">
-          <?php /* foreach ($cats as $cat) : ?>
+          <?php foreach ($cats as $cat) : ?>
             <option value="<?php echo $cat['id'];?>"><?php echo $cat['title'];?></option>
-          <?php endforeach; */ ?>
+          <?php endforeach; ?>
         </select>
       </label>
     </div>

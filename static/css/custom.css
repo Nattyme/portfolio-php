@@ -260,3 +260,8 @@ a.logo-link:hover {
   height: 54px;
   z-index: 99;
 }
+
+.page-product__title {
+  display: flex;
+  justify-content: space-between;
+}

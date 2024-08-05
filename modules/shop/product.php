@@ -1,24 +1,23 @@
 <?php 
 require_once ROOT . "./libs/functions.php";
-$product = R::load('products', $uriGet);
-// print_r($product);
-// die();
+// $product = R::load('products', $uriGet);
 //Одиночный пост, показываем отдельную страницу блога
-// $sqlQuery = 'SELECT
-//                 posts.id, posts.title, posts.content, posts.cover, posts.timestamp, posts.edit_time, posts.cat,
-//                 categories.title AS cat_title
-//              FROM `posts`
-//              LEFT JOIN `categories` ON posts.cat = categories.id
-//              WHERE posts.id = ? LIMIT 1';
+$sqlQuery = 'SELECT
+                products.id, products.title, products.content, products.cover, products.timestamp, 
+                products.edit_time, products.cat, products.price,
+                categories_shop.title AS cat_title
+             FROM `products`
+             LEFT JOIN `categories_shop` ON products.cat = categories_shop.id
+             WHERE products.id = ? LIMIT 1';
 
-// $post = R::getRow($sqlQuery, [$uriGet]);
+$product = R::getRow($sqlQuery, [$uriGet]);
 
 // // Кнопки назад и вперед
-// $postsId = R::getCol('SELECT id FROM posts');
-// foreach ($postsId as $index => $value) {
+// $productsId = R::getCol('SELECT id FROM products');
+// foreach ($productsId as $index => $value) {
 //   if ( $post['id'] == $value ) {
-//     $prevId = array_key_exists($index + 1, $postsId) ? $postsId[$index + 1] : NULL;
-//     $nextId = array_key_exists($index - 1, $postsId) ? $postsId[$index - 1] : NULL;
+//     $prevId = array_key_exists($index + 1, $productsId) ? $productsId[$index + 1] : NULL;
+//     $nextId = array_key_exists($index - 1, $productsId) ? $productsId[$index - 1] : NULL;
 //   }
 // }
 
@@ -33,7 +32,7 @@ $product = R::load('products', $uriGet);
 // $comments = R::getAll( $sqlQueryComments, [$post['id']] );
 
 // // Вывод похожих постов
-// $relatedPosts = get_related_posts($post['title']);
+// $relatedproducts = get_related_products($post['title']);
 
 $pageTitle = "Название товара {$product['title']}";
 // Подключение шаблонов страницы
