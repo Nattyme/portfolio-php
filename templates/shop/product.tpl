@@ -16,7 +16,7 @@
             <?php endif; ?>
 					</div>
 					<div class="page-product__price"><?php echo $product['price'];?> руб.</div>
-          <a class="page-product__button primary-button" href="page-shopping-card.html">В корзину</a>
+          <a class="page-product__button primary-button" href="<?php echo HOST;?>addtocart?id=<?php echo $product['id'];?>">В корзину</a>
 					<div class="page-product-text">
             <?php echo $product['content'];?>
 						<p>
