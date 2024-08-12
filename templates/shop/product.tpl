@@ -12,7 +12,7 @@
 					<div class="page-product__title">
 						<h2 class="section-title"><?php echo $product['title'];?></h2>
             <?php if (!empty($product['cat_title'])) : ?>
-              <a href="<?php echo HOST . "shop/cat/" . $product['cat'];?>" class="badge badge--link"><?php echo $product['cat_title'];?></a>
+              <a href="<?php echo HOST . "shop/cat/" . $product['cat'];?>" class="badge badge--light badge--link"><?php echo $product['cat_title'];?></a>
             <?php endif; ?>
 					</div>
 					<div class="page-product__price"><?php echo $product['price'];?> руб.</div>

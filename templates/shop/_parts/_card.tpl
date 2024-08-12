@@ -1,6 +1,6 @@
 <div class="card-product">
   <?php if (!empty($product['cat_title'])) : ?>
-    <a href="<?php echo HOST . "shop/cat/" . $product['cat'];?>" class="badge badge--link">
+    <a href="<?php echo HOST . "shop/cat/" . $product['cat'];?>" class="badge badge--light badge--link">
       <?php echo $product['cat_title'];?>
     </a>
   <?php endif; ?>

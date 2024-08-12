@@ -281,11 +281,9 @@ a.logo-link:hover {
   top: 0;
   right: 0;
   display: inline-block;
+}
+
+.badge--light {
   background-color: #7e9bbd;
 }
-
-.card-product .badge.badge--link {
-  color: #fff;
-}
-
 

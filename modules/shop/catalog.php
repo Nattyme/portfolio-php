@@ -1,5 +1,6 @@
 <?php 
 $pagination = pagination(6, 'products');
+
 $sqlQuery = 'SELECT
                 products.id, products.title, products.content, products.cover, products.cover_small,
                 products.timestamp, products.edit_time, products.cat, products.price,
@@ -7,8 +8,8 @@ $sqlQuery = 'SELECT
              FROM `products`
              LEFT JOIN `categories_shop` ON products.cat = categories_shop.id';
 
-$products = R::getAll($sqlQuery);
-// $products = R::find('products', "ORDER BY id DESC {$pagination['sql_page_limit']}");
+// $products = R::getAll($sqlQuery);
+$products = R::find('products', "ORDER BY id DESC {$pagination['sql_page_limit']}");
 $pageTitle = "Каталог товаров";
 
 // Подключение шаблонов страницы
