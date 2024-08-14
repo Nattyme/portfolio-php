@@ -49,7 +49,7 @@
     </div>
 
     <div class="admin-panel__block-list">
-      <a href="<?php echo HOST; ?>cart" class="admin-panel__link">Корзина</a>
+      <a href="<?php echo HOST; ?>cart" class="admin-panel__link">Корзина (<?php echo $cartCount;?>)</a>
       <a href="<?php echo HOST; ?>logout" class="admin-panel__block-button">Выход</a>
     </div>
 
