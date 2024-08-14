@@ -30,6 +30,8 @@ if( isset($_POST['login']) ) {
         $_SESSION['logged_user'] = $user;
         $_SESSION['login'] = 1;
         $_SESSION['role'] = $user->role;
+
+        $_SESSION['cart'] = json_decode($_SESSION['logged_user']['cart'], true);
         $_SESSION['success'][] = ['title' => 'Вы успешно вошли на сайт. Рады снова видеть вас'];
 
         header('Location: ' . HOST . 'profile');
