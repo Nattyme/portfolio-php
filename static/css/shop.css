@@ -126,14 +126,17 @@
 
 
 .page-product {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.page-product__row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .page-product__col {

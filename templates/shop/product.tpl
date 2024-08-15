@@ -1,29 +1,34 @@
 <main>
 		<div class="container">
 			<section class="page-product">
-				<div class="page-product__col">
-					<div class="page-product__img">
-            <img src="<?php echo HOST . 'usercontent/products/' . $product['cover'];?>" 
-                  alt="<?php echo $product['title'];?>"
-            />
+        <?php include ROOT . "templates/components/errors.tpl"; ?>
+        <?php include ROOT . "templates/components/success.tpl"; ?>
+
+        <div class="page-product__row">
+          <div class="page-product__col">
+            <div class="page-product__img">
+              <img src="<?php echo HOST . 'usercontent/products/' . $product['cover'];?>" 
+                    alt="<?php echo $product['title'];?>"
+              />
+            </div>
+          </div>
+          <div class="page-product__col">
+            <div class="page-product__title">
+              <h2 class="section-title"><?php echo $product['title'];?></h2>
+              <?php if (!empty($product['cat_title'])) : ?>
+                <a href="<?php echo HOST . "shop/cat/" . $product['cat'];?>" class="badge badge--light badge--link"><?php echo $product['cat_title'];?></a>
+              <?php endif; ?>
+            </div>
+            <div class="page-product__price"><?php echo $product['price'];?> руб.</div>
+            <a class="page-product__button primary-button" href="<?php echo HOST;?>addtocart?id=<?php echo $product['id'];?>">В корзину</a>
+            <div class="page-product-text">
+              <?php echo $product['content'];?>
+              <p>
+                <a href="!#">Подробнее об особенностях и преимуществах MacBook Air.</a>
+              </p>
+            </div>
+          </div>
         </div>
-				</div>
-				<div class="page-product__col">
-					<div class="page-product__title">
-						<h2 class="section-title"><?php echo $product['title'];?></h2>
-            <?php if (!empty($product['cat_title'])) : ?>
-              <a href="<?php echo HOST . "shop/cat/" . $product['cat'];?>" class="badge badge--light badge--link"><?php echo $product['cat_title'];?></a>
-            <?php endif; ?>
-					</div>
-					<div class="page-product__price"><?php echo $product['price'];?> руб.</div>
-          <a class="page-product__button primary-button" href="<?php echo HOST;?>addtocart?id=<?php echo $product['id'];?>">В корзину</a>
-					<div class="page-product-text">
-            <?php echo $product['content'];?>
-						<p>
-              <a href="!#">Подробнее об особенностях и преимуществах MacBook Air.</a>
-            </p>
-					</div>
-				</div>
 			</section>
 			<section>
 				<div class="page-product__section-title">
