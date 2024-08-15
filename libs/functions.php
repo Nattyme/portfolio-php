@@ -442,6 +442,17 @@ function get_related_posts ($postTitle) {
   return R::getAll($sqlQuery, $newWordsArray);
 };
 
+// Проверка вошел ли пользователь в профиль (залогинился)
+function isLoggedIn() {
+  $result = false;
+
+  if ( isset($_SESSION['logged_user']) ) {
+    $result = true;
+  }
+
+  return $result;
+}
+
 
 
 
