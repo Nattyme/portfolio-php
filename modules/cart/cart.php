@@ -1,5 +1,9 @@
 <?php 
-$pageTitle = "Корзинаг товаров";
+$pageTitle = "Корзина товаров";
+
+// Получаем товары, которые соответствуют товарам в корзине
+$products = R::findLike ('products', ['id' => array_keys($_SESSION['cart'])]); 
+// R::findLike('products', ['id' => ['5', '2']])
 
 // Подключение шаблонов страницы
 include ROOT . "templates/page-parts/_head.tpl";
