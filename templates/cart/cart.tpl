@@ -33,6 +33,10 @@
           </div>
           <a class="page-shopping-cart__button" href="order-registration.html">Перейти к оформлению заказа</a>
         <?php else : ?>
+          
+          <?php include ROOT . "templates/components/errors.tpl"; ?>
+          <?php include ROOT . "templates/components/success.tpl"; ?>
+
           <h1 class="page-shopping-cart__main-title">Ваша корзина пуста</h1>
           <a href="<?php echo HOST;?>shop" class="page-shopping-cart__delete">Добавить товары</a>
         <?php endif;?>

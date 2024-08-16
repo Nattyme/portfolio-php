@@ -1,5 +1,4 @@
 <?php
-
 // Определяем корзину
 $cart = array();
 if ( isLoggedIn() && isset($_SESSION['cart'])) {

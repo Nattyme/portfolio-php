@@ -32,6 +32,20 @@ if( isset($_POST['login']) ) {
         $_SESSION['role'] = $user->role;
 
         $_SESSION['cart'] = json_decode($_SESSION['logged_user']['cart'], true);
+
+        if ( isset($_COOKIE['cart']) && !empty($_COOKIE['cart'])) {
+          $cartTemp = json_decode($_COOKIE['cart'], true);
+          foreach ($cartTemp as $key => $value) {
+            if (isset($_SESSION['cart'][$key])) {
+              $_SESSION['cart'][$key] += $value;
+            } else {
+              $_SESSION['cart'][$key] = $value;
+            }
+          }
+          // Очищаем корзину COOKIE
+          setcookie('cart', '', time() - 3600);
+        }
+
         $_SESSION['success'][] = ['title' => 'Вы успешно вошли на сайт. Рады снова видеть вас'];
 
         header('Location: ' . HOST . 'profile');
