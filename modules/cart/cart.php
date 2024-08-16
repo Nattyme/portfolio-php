@@ -2,8 +2,13 @@
 $pageTitle = "Корзина товаров";
 
 // Получаем товары, которые соответствуют товарам в корзине
-$products = R::findLike ('products', ['id' => array_keys($cart)]); 
-// R::findLike('products', ['id' => ['5', '2']])
+if ( !empty($cart) ) {
+
+  $products = R::findLike ('products', ['id' => array_keys($cart)]); 
+  // R::findLike('products', ['id' => ['5', '2']])
+} else {
+  $products = array();
+}
 
 // Общая стоимость товаров в корзине
 $cartPriceTotal = 0;
