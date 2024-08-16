@@ -17,13 +17,16 @@
 					<tbody>
               <tr>
                 <td>
-                <?php 
-                  $i = 1;
-                  foreach ($products as $product) {
-                    echo $i !== count($products) ? $product['title'] . ', ' : $product['title'] . '.';
-                    $i = $i + 1;
-                  }
-                ?>
+                  <?php 
+                    $i = 1;
+                    foreach ($products as $product) {
+                      if( $i !== count($products) ) {
+                        echo $link = '<a href="' . HOST . 'shop/' . $product['id'] . '">' . $product['title'] . '</a>' . ', ';
+                      } else {
+                        echo $product['title'] . '.';
+                      }
+                    }
+                  ?>
                 </td>
                 <td><?php echo $cartCount;?> шт.</td>
                 <td><?php echo $cartTotalPrice; ?> руб.</td>
