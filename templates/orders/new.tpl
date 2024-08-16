@@ -20,11 +20,21 @@
                   <?php 
                     $i = 1;
                     foreach ($products as $product) {
-                      if( $i !== count($products) ) {
-                        echo $link = '<a href="' . HOST . 'shop/' . $product['id'] . '">' . $product['title'] . '</a>' . ', ';
+                      $link = ' <a href=" ';
+                      $link .= HOST;
+                      $link .= 'shop/';
+                      $link .= $product['id'];
+                      $link .= ' "> ';
+                      $link .= $product['title'];
+                      $link .= '</a>';
+                    
+                      if ($i !== count($products)) {
+                        echo $link .= ', ';
                       } else {
-                        echo $product['title'] . '.';
+                        echo $link .= '.';
                       }
+                      $i = $i + 1;
+                      gi// echo $link = '<a href="'; . HOST . 'shop/' . $product['id'] . '">' . $product['title'] . '</a>' . ', ';
                     }
                   ?>
                 </td>
