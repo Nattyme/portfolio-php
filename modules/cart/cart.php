@@ -1,6 +1,4 @@
 <?php 
-$pageTitle = "Корзина товаров";
-
 // Получаем товары, которые соответствуют товарам в корзине
 if ( !empty($cart) ) {
 
@@ -16,7 +14,7 @@ foreach ( $cart as $index => $item) {
   $cartPriceTotal += $products[$index]['price'] * $item;
 }
 
-
+$pageTitle = "Корзина товаров";
 // Подключение шаблонов страницы
 include ROOT . "templates/page-parts/_head.tpl";
 include ROOT . "templates/_parts/_header.tpl";

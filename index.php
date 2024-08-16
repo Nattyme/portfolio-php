@@ -65,6 +65,10 @@ switch ($uriModule) {
     }
     break;
 
+  case 'contacts':
+    require ROOT . 'modules/contacts/index.php';
+    break;
+
   // ::::::::::::: BLOG :::::::::::::::::::
   case 'blog':
     if ( isset($uriGet) && $uriGet === 'cat' && !empty($uriGetParam) ) {
@@ -101,10 +105,15 @@ switch ($uriModule) {
   
   case 'removefromcart':
     require ROOT . 'modules/cart/remove.php';
-  break;
+    break;
 
-  case 'contacts':
-    require ROOT . 'modules/contacts/index.php';
+  // ::::::::::::: ORDERS :::::::::::::::::::
+  case 'neworder':
+    require ROOT . 'modules/orders/new.php';
+    break;
+
+  case 'ordercreated':
+    require ROOT . 'modules/orders/created.php';
     break;
 
   default: 
