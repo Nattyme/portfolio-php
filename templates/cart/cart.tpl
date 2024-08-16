@@ -29,9 +29,9 @@
           <?php endforeach; ?>
           <div class="page-shopping-cart__row-down">
             <div class="page-shopping-cart__id"><?php echo num_decline(array_sum($cart), ['единица', 'единицы', 'единиц'], true);?></div>
-            <div class="page-shopping-cart__money"><?php echo $cartPriceTotal;?> руб.</div>
+            <div class="page-shopping-cart__money"><?php echo $cartTotalPrice;?> руб.</div>
           </div>
-          <a class="page-shopping-cart__button" href="order-registration.html">Перейти к оформлению заказа</a>
+          <a class="page-shopping-cart__button" href="<?php HOST;?>neworder">Перейти к оформлению заказа</a>
         <?php else : ?>
           
           <?php include ROOT . "templates/components/errors.tpl"; ?>

@@ -15,11 +15,21 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>Apple MacBook Air 13, Apple watch, Mac Pro</td>
-							<td>3 единицы</td>
-							<td>329 000 руб.</td>
-						</tr>
+              <tr>
+                <td>
+                <?php 
+                  $i = 1;
+                  foreach ($products as $product) {
+                    echo $i !== count($products) ? $product['title'] . ', ' : $product['title'] . '.';
+                    $i = $i + 1;
+                  }
+                ?>
+                </td>
+                <td><?php echo $cartCount;?> шт.</td>
+                <td><?php echo $cartTotalPrice; ?> руб.</td>
+              </tr>
+          
+
 					</tbody>
 				</table>
 
@@ -60,8 +70,8 @@
 					</div>
 
 					<div class="order-form__row order-form__row--justify-between">
-						<button class="primary-button">Оформить заказ </button>
-						<a class="secondary-button" href="./basket.html">Вернуться в корзину </a>
+						<a href="<?php HOST;?>ordercreated" class="primary-button">Оформить заказ </a>
+						<a class="secondary-button" href="<?php HOST;?>cart">Вернуться в корзину </a>
 					</div>
 
 				</form>

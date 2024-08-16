@@ -9,9 +9,9 @@ if ( !empty($cart) ) {
 }
 
 // Общая стоимость товаров в корзине
-$cartPriceTotal = 0;
+$cartTotalPrice = 0;
 foreach ( $cart as $index => $item) {
-  $cartPriceTotal += $products[$index]['price'] * $item;
+  $cartTotalPrice = $cartTotalPrice + $products[$index]['price'] * $item;
 }
 
 $pageTitle = "Корзина товаров";
