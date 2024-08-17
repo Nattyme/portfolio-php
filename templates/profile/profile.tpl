@@ -101,6 +101,27 @@
                       </dd>
                     </dl>
                   <?php endif; ?>
+
+                  <?php if ( !empty($user->phone) ) : ?>
+                    <dl class="definition">
+                      <dt class="definition__term">
+                        Номер телефона
+                      </dt>
+                      <dd class="definition__description">
+                        <?php echo $user->phone; ?> 
+                      </dd>
+                    </dl>
+                  <?php endif; ?>
+                  <?php if (!empty($user->address) ) : ?>
+                    <dl class="definition">
+                      <dt class="definition__term">
+                        Адрес доставки заказов
+                      </dt>
+                      <dd class="definition__description">
+                        <?php echo $user->address; ?> 
+                      </dd>
+                    </dl>
+                  <?php endif; ?>
                 </div>
                 <!-- Кнопка редактирования профиля -->
                 <?php include ROOT . "templates/profile/_parts/button-edit-profile.tpl"; ?>
