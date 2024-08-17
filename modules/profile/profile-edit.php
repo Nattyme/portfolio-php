@@ -14,13 +14,13 @@
 
       // Если ошибок нет - обновить данные в БД
       if ( empty($_SESSION['errors']) ) {
-        $user->name = htmlentities($_POST['name']);
-        $user->surname = htmlentities($_POST['surname']);
-        $user->email = htmlentities($_POST['email']);
-        $user->country = htmlentities($_POST['country']);
-        $user->city = htmlentities($_POST['city']);
-        $user->phone = htmlentities($_POST['phone']);
-        $user->address = htmlentities($_POST['address']);
+        $user->name = htmlentities(trim($_POST['name']));
+        $user->surname = htmlentities(trim($_POST['surname']));
+        $user->email = htmlentities(trim($_POST['email']));
+        $user->country = htmlentities(trim($_POST['country']));
+        $user->city = htmlentities(trim($_POST['city']));
+        $user->phone = htmlentities(trim($_POST['phone']));
+        $user->address = htmlentities(trim($_POST['address']));
 
         // Если передано изображение - уменьшаем, сохраняем, записываем в БД
         if( isset($_FILES['avatar']['name']) && $_FILES['avatar']['tmp_name'] !== '') {

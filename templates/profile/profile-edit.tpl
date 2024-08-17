@@ -124,6 +124,31 @@
                     />
                   </label>
                 </div>
+                <fieldset class="form-group-wrapper">
+                  <div class="form-group-wrapper__header">
+                    <p class="form-group-wrapper__title">Информация для заказа товаров в интернет-магазине.</p>
+                    <p>(Не отображается для других пользователей)</p>
+                  </div>
+                
+                  <div class="form-group">
+                    <label class="input__label">Введите номер телефона 
+                      <input 
+                        class="input input--width-label" 
+                        type="text" placeholder="Телефон"
+                        name="phone"
+                        value="<?php echo isset($_POST['phone']) ? $_POST['phone'] : $user->phone; ?>"
+                      />
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label class="input__label">Введите адрес доставки
+                      <textarea class="textarea mt-10" name="address" placeholder="Введите адрес доставки" title="Адрес доставки">
+                        <?php echo isset($_POST['address']) ? $_POST['address'] : $user->address; ?>
+                      </textarea>
+                    </label>
+                  </div>
+                </fieldset>
+
                 <div class="form-group form-group--buttons-left">
                   <button name="updateProfile" class="primary-button" type="submit">Сохранить</button>
                   <a class="secondary-button" href="<?php echo HOST; ?>profile">Отмена</a>
