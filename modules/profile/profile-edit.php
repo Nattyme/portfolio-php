@@ -19,6 +19,8 @@
         $user->email = htmlentities($_POST['email']);
         $user->country = htmlentities($_POST['country']);
         $user->city = htmlentities($_POST['city']);
+        $user->phone = htmlentities($_POST['phone']);
+        $user->address = htmlentities($_POST['address']);
 
         // Если передано изображение - уменьшаем, сохраняем, записываем в БД
         if( isset($_FILES['avatar']['name']) && $_FILES['avatar']['tmp_name'] !== '') {
