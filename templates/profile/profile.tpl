@@ -102,38 +102,36 @@
                     </dl>
                   <?php endif; ?>
 
-                  <!-- Видно только владельцу профиля -->
-                  <?php 
-                   if ( isset($_SESSION['logged_user']) && 
-                        $_SESSION['logged_user']['id'] === $user['id'] && 
-                        !empty($user->phone) 
-                      ) : 
-                  ?>
-                    <dl class="definition">
-                      <dt class="definition__term">
-                        Номер телефона
-                      </dt>
-                      <dd class="definition__description">
-                        <?php echo $user->phone; ?> 
-                      </dd>
-                    </dl>
-                  <?php endif; ?>
+                  <!-- Видно только владельцу профиля или админу -->
                   <?php 
                     if ( isset($_SESSION['logged_user']) && 
-                         $_SESSION['logged_user']['id'] === $user['id'] && 
-                         !empty($user->address) 
-                        ) : 
+                        ($_SESSION['logged_user']['id'] === $user['id'] || $_SESSION['logged_user']['role'] === 'admin') 
+                      ) : 
                   ?>
-                    <dl class="definition">
-                      <dt class="definition__term">
-                        Адрес доставки заказов
-                      </dt>
-                      <dd class="definition__description">
-                        <?php echo $user->address; ?> 
-                      </dd>
-                    </dl>
-                  <?php endif; ?>
-                  <!-- // Видно только владельцу профиля -->
+                      <dl class="definition">
+                        <?php if ( !empty($user->phone)) : ?>
+                          <dt class="definition__term">
+                            Номер телефона
+                          </dt>
+                          <dd class="definition__description">
+                            <?php echo $user->phone; ?> 
+                          </dd>
+                        <?php endif; ?>
+                      </dl>
+                      <dl class="definition">
+                        <?php if ( !empty($user->address) ) : ?>
+                          <dt class="definition__term">
+                            Адрес доставки заказов
+                          </dt>
+                          <dd class="definition__description">
+                            <?php echo $user->address; ?> 
+                          </dd>
+                        <?php endif;?>
+                      </dl>
+                  <?php 
+                    endif; 
+                  ?>
+                  <!-- // Видно только владельцу профиля или админу-->
                 </div>
                 <!-- Кнопка редактирования профиля -->
                 <?php include ROOT . "templates/profile/_parts/button-edit-profile.tpl"; ?>

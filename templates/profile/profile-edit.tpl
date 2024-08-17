@@ -127,7 +127,7 @@
                 <fieldset class="form-group-wrapper">
                   <div class="form-group-wrapper__header">
                     <p class="form-group-wrapper__title">Информация для заказа товаров в интернет-магазине.</p>
-                    <p>(Не отображается для других пользователей)</p>
+                    <p>(Не видна другим пользователям)</p>
                   </div>
                 
                   <div class="form-group">
