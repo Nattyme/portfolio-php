@@ -34,7 +34,7 @@
                         echo $link .= '.';
                       }
                       $i = $i + 1;
-                      gi// echo $link = '<a href="'; . HOST . 'shop/' . $product['id'] . '">' . $product['title'] . '</a>' . ', ';
+                      // echo $link = '<a href="'; . HOST . 'shop/' . $product['id'] . '">' . $product['title'] . '</a>' . ', ';
                     }
                   ?>
                 </td>
@@ -50,7 +50,7 @@
 					<h1 class="section-title">Оформить заказ</h1>
 				</div>
 
-				<form class="order-form" name="order-registration" action="./order-placed.html">
+				<form class="order-form" name="order-registration" action="<?php HOST;?>neworder" method="POST">
 					<div class="order-form__row">
 						<label>
 							<p class="order-form__name">Имя</p>
@@ -59,7 +59,7 @@
 
 						<label>
 							<p class="order-form__name">Фамилия</p>
-							<input class="input-text" type="text" placeholder="Введите фамилию" id="form-title" name="name" />
+							<input class="input-text" type="text" placeholder="Введите фамилию" id="form-title" name="surname" />
 						</label>
 					</div>
 
@@ -71,19 +71,19 @@
 
 						<label>
 							<p class="order-form__name">Телефон</p>
-								<input class="input-text" type="text" placeholder="Введите фамилию" id="form-title" name="name" />
+								<input class="input-text" type="text" placeholder="Введите фамилию" id="form-title" name="phone" />
 						</label>
 					</div>
 
 					<div class="order-form__row">
 						<label>
 							<p class="order-form__name">Адрес доставки</p>
-							<textarea class="textarea" name="buyer-adress" placeholder="Введите адрес доставки" title="Адрес доставки"></textarea>
+							<textarea class="textarea" name="address" placeholder="Введите адрес доставки" title="Адрес доставки"></textarea>
 						</label>
 					</div>
 
 					<div class="order-form__row order-form__row--justify-between">
-						<a href="<?php HOST;?>ordercreated" class="primary-button">Оформить заказ </a>
+						<button class="primary-button" type="submit" name="submit">Оформить заказ </button>
 						<a class="secondary-button" href="<?php HOST;?>cart">Вернуться в корзину </a>
 					</div>
 
