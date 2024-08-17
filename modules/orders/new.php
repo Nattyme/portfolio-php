@@ -21,6 +21,7 @@ if (isset($_POST['submit'])) {
     $_SESSION['errors'][] = ['title' => 'Поле "адрес" мустое. Заполните данные для отправки.'];
   } 
 
+  // Если массив ошибок пуст
   if ( empty($_SESSION['errors'])) {
     $order = R::dispense('orders');
 
@@ -33,6 +34,10 @@ if (isset($_POST['submit'])) {
     $order->address = htmlentities(trim($_POST['message']));
 
     $order->cart = json_encode($cart);
+
+    if ( isLoggedIn() ) {
+      $order->user = $_SESSION['logged_user'];
+    }
 
     R::store($order);
     header('Location: ' . HOST . 'ordercreated');
