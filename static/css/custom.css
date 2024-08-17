@@ -308,7 +308,8 @@ a.logo-link:hover {
   padding: 20px;
   margin-top: 30px;
   margin-bottom: 20px;
-  border: 1px solid #7E9BBD;
+  border: 1px solid #7e9bbd;
+  border-radius: 6px;
 }
 
 .form-group-wrapper__header {

@@ -102,7 +102,13 @@
                     </dl>
                   <?php endif; ?>
 
-                  <?php if ( !empty($user->phone) ) : ?>
+                  <!-- Видно только владельцу профиля -->
+                  <?php 
+                   if ( isset($_SESSION['logged_user']) && 
+                        $_SESSION['logged_user']['id'] === $user['id'] && 
+                        !empty($user->phone) 
+                      ) : 
+                  ?>
                     <dl class="definition">
                       <dt class="definition__term">
                         Номер телефона
@@ -112,7 +118,12 @@
                       </dd>
                     </dl>
                   <?php endif; ?>
-                  <?php if (!empty($user->address) ) : ?>
+                  <?php 
+                    if ( isset($_SESSION['logged_user']) && 
+                         $_SESSION['logged_user']['id'] === $user['id'] && 
+                         !empty($user->address) 
+                        ) : 
+                  ?>
                     <dl class="definition">
                       <dt class="definition__term">
                         Адрес доставки заказов
@@ -122,6 +133,7 @@
                       </dd>
                     </dl>
                   <?php endif; ?>
+                  <!-- // Видно только владельцу профиля -->
                 </div>
                 <!-- Кнопка редактирования профиля -->
                 <?php include ROOT . "templates/profile/_parts/button-edit-profile.tpl"; ?>
