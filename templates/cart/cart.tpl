@@ -37,7 +37,7 @@
           <?php include ROOT . "templates/components/errors.tpl"; ?>
           <?php include ROOT . "templates/components/success.tpl"; ?>
 
-          <h1 class="page-shopping-cart__main-title">Ваша корзина пуста</h1>
+          <h1 class="page-shopping-cart__main-title">Корзина пуста</h1>
           <a href="<?php echo HOST;?>shop" class="page-shopping-cart__delete">Добавить товары</a>
         <?php endif;?>
 			</section>

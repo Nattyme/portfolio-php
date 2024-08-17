@@ -39,7 +39,21 @@ if (isset($_POST['submit'])) {
       $order->user = $_SESSION['logged_user'];
     }
 
+    // Сохраняем заказ
     R::store($order);
+
+    // Очищаем корзину
+    if ( isLoggedIn() ) {
+
+      $_SESSION['cart'] = array();
+      $_SESSION['logged_user']->cart = '';
+      R::store($_SESSION['logged_user']);
+    } else {
+
+      setcookie('cart', '', time() - 3600);
+    }
+
+
     header('Location: ' . HOST . 'ordercreated');
     exit();
 
