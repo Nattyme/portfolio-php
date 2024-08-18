@@ -33,19 +33,41 @@ if( isset($_POST['login']) ) {
 
         $_SESSION['cart'] = json_decode($_SESSION['logged_user']['cart'], true);
 
-        if ( isset($_COOKIE['cart']) && !empty($_COOKIE['cart'])) {
-          $cartTemp = json_decode($_COOKIE['cart'], true);
-          foreach ($cartTemp as $key => $value) {
-            if (isset($_SESSION['cart'][$key])) {
-              $_SESSION['cart'][$key] += $value;
+        // Работа с корзиной
+        // Действия:
+        // 1. Достать корзину из БД
+        // 2. Совместить ее с COOKIES, если они есть
+        // 3. Сохранить полученную корзину в БД
+        // 4. Сохранить полученную корзину в сессию
+        // 5. Очистить корзину COOKIE
+        $temp_cart = array();
+        if ($user->cart) { $temp_cart = json_decode($user->cart, true); }
+
+        // Если есть корзина COOKIE, то переносим ее данные в БД $temp_cart 
+        if ( isset($_COOKIE['cart']) && !empty($_COOKIE['cart']) ) {
+          $cookie_cart = json_decode($_COOKIE['cart'], true);
+
+          foreach ( $cookie_cart as $key => $value) {
+            if ( isset($temp_cart[$key]) ) {
+              $temp_cart[$key] += $value;
             } else {
-              $_SESSION['cart'][$key] = $value;
+              $temp_cart[$key] = $value;
             }
           }
-          // Очищаем корзину COOKIE
-          setcookie('cart', '', time() - 3600);
         }
 
+        // Очищаем корзину в COOKIE
+        setcookie('cart', '', time() - 3600);
+
+        // Сохраняем корзину в БД - JSON
+        $user->cart = json_encode($temp_cart);
+
+        // Обновляем пользователя в БД
+        R::store($user);
+
+        // Обновляем корзину в сессии
+        $_SESSION['cart'] = $temp_cart;
+        
         $_SESSION['success'][] = ['title' => 'Вы успешно вошли на сайт. Рады снова видеть вас'];
 
         header('Location: ' . HOST . 'profile');
