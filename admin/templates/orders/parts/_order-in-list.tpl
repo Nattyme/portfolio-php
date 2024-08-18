@@ -6,18 +6,28 @@
     <?php if ($order['timestamp']) { echo rus_date('j F Y G:i', $order['timestamp']); } ?>
   </td>
   <td>
-    <a href="<?php echo HOST;?>profile/<?php echo $order['user_id'];?>">
-      <?php echo $order['name'] . ' ' . $order['surname'];  ?>
+    <a href="<?php echo HOST . 'admin/order?id=' . $order['id'];?>">
+      <?php echo $order['name'] . '&nbsp;' . $order['surname'];  ?>
     </a>
   </td>
   <td>
-    <?php echo $order['email'];  ?>
+    <a href="<?php echo HOST . 'admin/order?id=' . $order['id'];?>">
+      <?php echo $order['email']; ?>
+    </a>
   </td>
   <td>
-    <?php echo $order['status'];  ?>
+    <a href="<?php echo HOST . 'admin/order?id=' . $order['id'];?>">
+      <?php echo $order['status']; ?>
+    </a>
   </td>
   <td>
-    <?php echo $order['paid'];  ?>
+    <?php 
+      if ( $order['paid']) {
+        echo 'Оплачен';
+      } else {
+        echo 'Не оплачен';
+      }
+    ?>
   </td>
   <td>
     <?php echo $order['price'];?>
