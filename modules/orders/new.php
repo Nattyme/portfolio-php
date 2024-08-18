@@ -24,21 +24,39 @@ if (isset($_POST['submit'])) {
   // Если массив ошибок пуст
   if ( empty($_SESSION['errors'])) {
     $order = R::dispense('orders');
-
     $order->name = htmlentities(trim($_POST['name']));
     $order->surname = htmlentities(trim($_POST['surname']));
-
     $order->email = filter_var(htmlentities(trim($_POST['email'])), FILTER_VALIDATE_EMAIL);
     $order->phone = trim($_POST['phone']);
-
-    $order->address = htmlentities(trim($_POST['message']));
+    $order->address = htmlentities(trim($_POST['address']));
+    $order->timestamp = time();
+    $order->status = 'new';
+    $order->paid = false;
 
     $order->cart = json_encode($cart);
 
-    if ( isLoggedIn() ) {
-      $order->user = $_SESSION['logged_user'];
+    if ( isLoggedIn() ) { $order->user = $_SESSION['logged_user']; }
+
+    $order_cart = array();
+    $total_price = 0;
+
+    foreach ($cart as $key => $value) {
+      $current_item = array();
+
+      $current_item['id'] = $key;
+      $current_item['amout'] = $value;
+
+      $product = R::load('products', $key); 
+      $current_item['title'] = $product['title'];
+      $current_item['price'] = $product['price'];
+      
+      $total_price = $total_price + ( $product['price'] * $value );
+
+      $order_cart[] = $current_item;
     }
 
+    $order->price = $total_price;
+    $order->cart = json_encode($order_cart);
     // Сохраняем заказ
     R::store($order);
 
