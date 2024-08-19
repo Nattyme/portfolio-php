@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
       $current_item = array();
 
       $current_item['id'] = $key;
-      $current_item['amout'] = $value;
+      $current_item['amount'] = $value;
 
       $product = R::load('products', $key); 
       $current_item['title'] = $product['title'];

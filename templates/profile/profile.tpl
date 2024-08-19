@@ -141,7 +141,19 @@
 				</div>
 			</div>
 		</div>
-    <?php include ROOT . "templates/profile/_parts/user-comments.tpl";?>
+    <?php 
+
+      // Выводим заказы пользователя (если есть)
+      if ( isset($orders) && !empty($orders) ) { 
+        include ROOT . 'templates/profile/_parts/user-orders.tpl'; 
+      }
+
+      // Выводим комментарии пользователя (если есть)
+      if ( isset($comments) && !empty($comments) ) { 
+        include ROOT . 'templates/profile/_parts/user-comments.tpl'; 
+      }
+      
+    ?>
   <?php endif; ?>
   <!--// Если пользователь НАЙДЕН -->
 </main>

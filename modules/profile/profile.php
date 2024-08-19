@@ -1,7 +1,4 @@
 <?php 
-  $pageTitle = "Профиль пользователя";
-  $pageClass = "profile-page";
-  
   function getUserComments($userId) {
     $sqlQuery = 'SELECT
                         comments.id, comments.text, comments.post, comments.user, comments.timestamp,
@@ -35,6 +32,9 @@
       $userNotLoggedIn = true;
     }
   }
+
+  $pageTitle = "Профиль пользователя";
+  $pageClass = "profile-page";
 
   include ROOT . 'templates/page-parts/_head.tpl';
   include ROOT . 'templates/_parts/_header.tpl';

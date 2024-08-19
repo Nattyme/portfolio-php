@@ -38,7 +38,7 @@
           <tr>
             <th>Общая стоимость</th>
             <td>
-              <?php echo number_format($order['price'], 2, ',', ' ') . ' руб.';?>
+              <?php echo format_price($order['price']);?> руб.
             </td>
           </tr>   
           <tr>
@@ -70,7 +70,7 @@
               <td><?php echo $product['title'];?></td>
 
               <td>
-                <?php echo number_format($product['price'], 2, ',', ' ') ;?>
+                <?php echo format_price($product['price']);?> 
               </td>
 
               <td><?php echo $product['amount'];?></td>

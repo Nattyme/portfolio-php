@@ -21,7 +21,7 @@
               </div>
               <div class="page-shopping-cart__name"><a href="<?php echo HOST . "shop/" . $product['id'];?>"><?php echo $product['title'];?></a></div>
               <div class="page-shopping-cart__id"><?php echo $cart[$product['id']];?></div>
-              <div class="page-shopping-cart__money"><?php echo $product['price'];?> руб.</div>
+              <div class="page-shopping-cart__money"><?php echo format_price($product['price']);?> руб.</div>
               <a href="<?php echo HOST . 'removefromcart?id=' . $product['id'];?>" class="page-shopping-cart__delete">
                 <div> <span class="leftright"></span><span class="rightleft"> </span></div>
               </a>
@@ -29,7 +29,7 @@
           <?php endforeach; ?>
           <div class="page-shopping-cart__row-down">
             <div class="page-shopping-cart__id"><?php echo num_decline(array_sum($cart), ['единица', 'единицы', 'единиц'], true);?></div>
-            <div class="page-shopping-cart__money"><?php echo $cartTotalPrice;?> руб.</div>
+            <div class="page-shopping-cart__money"><?php echo format_price($cartTotalPrice);?> руб.</div>
           </div>
           <a class="page-shopping-cart__button" href="<?php HOST;?>neworder">Перейти к оформлению заказа</a>
         <?php else : ?>

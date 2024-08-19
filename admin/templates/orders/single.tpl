@@ -4,8 +4,17 @@
     <?php include ROOT . 'admin/templates/components/errors.tpl'; ?>
     <?php include ROOT . 'admin/templates/components/success.tpl'; ?>
 
-    <div class="admin-form__item">
+    <div class="admin-form__item d-flex justify-content-between">
       <h2 class="heading">Заказ N <?php echo $order['id'];?></h2>
+
+      <div class="admin-form__item buttons">
+        <a class="secondary-button" href="<?php echo HOST;?>admin/orders">
+          Назад к списку заказов
+        </a>
+        <a href="<?php echo HOST . "admin/order-delete?id={$order['id']}" ;?>" class="primary-button primary-button--red">
+          Удалить
+        </a>
+      </div>
     </div>
 
     <!-- table order info -->
@@ -38,7 +47,9 @@
 
         <tr>
           <th>Общая стоимость</th>
-          <td><?php echo number_format($order['price'], 2, ',', ' ');?> руб.</td>
+          <td>
+            <?php echo format_price($order['price']);?> руб.
+          </td>
         </tr>
 
         <tr>
@@ -69,13 +80,13 @@
         <?php foreach($products as $product) : ?>
           <tr>
             <td>
-              <img src="<?php echo HOST . 'usercontent/products/' . $productsDB[$product['id']]['cover_small'];?>" alt="<?php echo $product['id'] ;?>">
+              <img src="<?php echo HOST . 'usercontent/products/' . $productsDB[$product['id']]['cover_small'];?>" alt="<?php echo $product['title'] ;?>">
             </td>
             <td><?php echo $product['id'];?></td>
             <td><?php echo $product['title'];?></td>
 
             <td>
-              <?php echo number_format($product['price'], 2, ',', ' ') ;?>
+              <?php echo format_price($product['price']);?>
             </td>
 
             <td><?php echo $product['amount'];?></td>

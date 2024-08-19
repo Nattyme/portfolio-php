@@ -18,6 +18,6 @@
     ?>
   </td>
   <td>
-    <?php echo number_format($order['price'], 2, ',', ' ') . ' руб.';?>
+    <?php echo format_price($order['price']);?> руб.
   </td>
 </tr>

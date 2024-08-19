@@ -6,7 +6,7 @@ if ( !isset($_GET['id']) || empty($_GET['id'])) {
 }
 
 // Если пользователь не зашел в профиль - выходим
-if ( isLoggedIn() ) {
+if ( !isLoggedIn() ) {
   header('Location: ' . HOST . 'profile');
   exit();
 }
@@ -29,7 +29,7 @@ foreach ( $products as $product) {
 }
 
 // Получаем все товары с id массива $ids из таблицы 'products'
-$productsDB = findLike('products', ['id' => $ids])
+$productsDB = R::findLike('products', ['id' => $ids]);
 
 $pageTitle = "Заказ от";
 $pageClass = "profile-page";

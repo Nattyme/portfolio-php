@@ -8,7 +8,6 @@ $products = json_decode($order['cart'], true);
 
 // Создаем массив из id всех товаров корзины
 foreach ($products as $product) { $ids[] = $product['id'];}
-print_r($ids);
 
 // Получаем продукты с id из массива $ids из БД 
 $productsDB = R::findLike('products', ['id' => $ids]);
