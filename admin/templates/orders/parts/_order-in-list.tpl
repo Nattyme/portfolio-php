@@ -31,7 +31,7 @@
   </td>
   <td>
     <a href="<?php echo HOST . 'admin/order?id=' . $order['id'];?>">
-      <?php echo $order['price'] ? number_format($order['price'], 2, ',', ' ') . ' руб.' : 'Нет данных'?>
+      <?php echo $order['price'] ? number_format($order['price'], 2, ',', ' ') : number_format($order['price'], 2, ',', ' ')  . ' руб.' : 'Нет данных'?>
     </a>
   </td>
   <td>
