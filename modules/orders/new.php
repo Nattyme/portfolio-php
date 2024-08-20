@@ -58,21 +58,20 @@ if (isset($_POST['submit'])) {
     $order->price = $total_price;
     $order->cart = json_encode($order_cart);
     // Сохраняем заказ
-    R::store($order);
+    $new_order_id = R::store($order);
 
     // Очищаем корзину
     if ( isLoggedIn() ) {
-
       $_SESSION['cart'] = array();
       $_SESSION['logged_user']->cart = '';
-      R::store($_SESSION['logged_user']);
-    } else {
 
+      R::store($_SESSION['logged_user']);
+
+    } else {
       setcookie('cart', '', time() - 3600);
     }
 
-
-    header('Location: ' . HOST . 'ordercreated');
+    header('Location: ' . HOST . 'ordercreated?id=' . $new_order_id);
     exit();
 
   }

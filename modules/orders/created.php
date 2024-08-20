@@ -1,5 +1,6 @@
 <?php 
 $pageTitle = "Заказ оформлен!";
+$new_order_id = $_GET['id'];
 
 // Подключение шаблонов страницы
 include ROOT . "templates/page-parts/_head.tpl";

@@ -4,9 +4,9 @@
             <div class="order-placed__title">
                 <h2 class="section-title">Заказ успешно оформлен!</h2>
             </div>
-            <form class="text-center" name="order-placed" action="./payment-method.html">
-                <button class="primary-button">Выбрать способ оплаты </button>
-            </form>
+            <div class="text-center">
+              <a href="<?php echo HOST . 'orderselectpayment?id=' . $new_order_id;?>" class="primary-button">Выбрать способ оплаты</a>
+            </div>
         </div>
     </div>
 </main>
