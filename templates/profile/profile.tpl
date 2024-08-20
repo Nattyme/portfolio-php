@@ -27,7 +27,7 @@
   
   <!-- Если пользователь НАЙДЕН -->
   <?php else : ?>
-    <div class="section">
+    <section class="section">
 			<div class="container">
 				<div class="section__title">
 					<h2 class="heading">Профиль пользователя </h2>
@@ -140,7 +140,7 @@
           <?php endif; ?>
 				</div>
 			</div>
-		</div>
+		</section>
     <?php 
 
       // Выводим заказы пользователя (если есть)

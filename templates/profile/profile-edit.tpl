@@ -1,19 +1,19 @@
 <main class="page-profile">
   <?php if ( $user['id'] === 0) : ?>
-    <div class="section">
-			<div class="container">
-				<div class="section__title">
-					<h2 class="heading mb-25">Профиль пользователя</h2>
-          <p>Чтобы посмотреть свой профиль
-            <a href="<?php echo HOST; ?>login">войдите</a>
-            либо
-            <a href="<?php echo HOST; ?>registration">зарегистрируйтесь</a>
-          </p>
-				</div>
-			</div>
-		</div>
+  <section class="section">
+    <div class="container">
+      <div class="section__title">
+        <h2 class="heading mb-25">Профиль пользователя</h2>
+        <p>Чтобы посмотреть свой профиль
+          <a href="<?php echo HOST; ?>login">войдите</a>
+          либо
+          <a href="<?php echo HOST; ?>registration">зарегистрируйтесь</a>
+        </p>
+      </div>
+    </div>
+  </section>
   <?php else: ?>
-  <div class="section">
+  <section class="section">
     <div class="section__title">
       <div class="container">
         <h2 class="heading">Редактировать профиль </h2>
@@ -158,8 +158,7 @@
           </form>
        
       </div>
-
     </div>
-  </div>
+  </section>
   <?php endif; ?>
 </main>

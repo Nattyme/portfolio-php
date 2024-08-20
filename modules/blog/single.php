@@ -35,15 +35,10 @@ $relatedPosts = get_related_posts($post['title']);
 
 $pageTitle = "Запись в блоге - {$post['title']}";
 // Подключение шаблонов страницы
-ob_start();
-include ROOT . "templates/blog/single-post.tpl";
-$content = ob_get_contents();
-ob_end_clean();
-
 include ROOT . "templates/page-parts/_head.tpl";
 include ROOT . "templates/_parts/_header.tpl";
 
-include ROOT . "templates/blog/index.tpl";
+include ROOT . "templates/blog/single.tpl";
 
 include ROOT . "templates/_parts/_footer.tpl";
 include ROOT . "templates/page-parts/_foot.tpl";

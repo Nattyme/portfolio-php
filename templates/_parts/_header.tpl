@@ -5,7 +5,7 @@
 
 <header class="section-header">
   <div class="section-header__content">
-    <a class="logo-link" href="<?php HOST;?>">
+    <a class="logo-link" href="<?php echo HOST;?>">
       <h2 class="section-header__content-title"><?php echo $settings['site_title'];?></h2>
       <p class="section-header__content-subtitle"><?php echo $settings['site_slogan'];?></p>
     </a>

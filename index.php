@@ -76,7 +76,7 @@ switch ($uriModule) {
     if ( isset($uriGet) && $uriGet === 'cat' && !empty($uriGetParam) ) {
       require ROOT . 'modules/blog/categories.php';
     } else if ( isset($uriGet) ) {
-      require ROOT . 'modules/blog/single-post.php';
+      require ROOT . 'modules/blog/single.php';
     } else {
       require ROOT . 'modules/blog/all.php';
     }
@@ -116,6 +116,10 @@ switch ($uriModule) {
 
   case 'ordercreated':
     require ROOT . 'modules/orders/created.php';
+    break;
+
+  case 'orderselectpayment':
+    require ROOT . 'modules/orders/selectpayment.php';
     break;
 
   default: 

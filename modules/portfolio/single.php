@@ -29,15 +29,10 @@ foreach ($postsId as $index => $value) {
 
 $pageTitle = "Проект в портфолио - {$project['title']}";
 // Подключение шаблонов страницы
-ob_start();
-include ROOT . "templates/portfolio/single.tpl";
-$content = ob_get_contents();
-ob_end_clean();
-
 include ROOT . "templates/page-parts/_head.tpl";
 include ROOT . "templates/_parts/_header.tpl";
 
-include ROOT . "templates/portfolio/index.tpl";
+include ROOT . "templates/portfolio/single.tpl";
 
 include ROOT . "templates/_parts/_footer.tpl";
 include ROOT . "templates/page-parts/_foot.tpl";

@@ -1,4 +1,4 @@
-<div class="section bg-grey">
+<section class="section bg-grey">
   <div class="container">
     <div class="section__title">
       <h2 class="heading">Комментарии пользователя </h2>
@@ -15,4 +15,4 @@
       </div>
     </div>
   </div>
-</div>
+</section>

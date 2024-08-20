@@ -1,12 +1,12 @@
 <main class="page-contacts">
-  <div class="section-about-contacts">
+  <section class="section-about-contacts">
     <div class="container">
       <div class="row">
         <?php include "templates/contacts/_parts/_about.tpl"; ?>
         <?php include "templates/contacts/_parts/_services.tpl"; ?>
       </div>
     </div>
-  </div>
+  </section>
   <section class="page-contacts__feedback">
     <div class="container">
       <div class="row">

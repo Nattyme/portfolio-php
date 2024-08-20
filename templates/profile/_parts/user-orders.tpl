@@ -1,5 +1,5 @@
 <!-- Заказы пользователя -->
-<div class="section bg-grey">
+<section class="section bg-grey">
   <div class="container">
 
     <div class="section__title">
@@ -35,4 +35,4 @@
     <!--//  products -->
 
   </div>
-</div>
+</section>
