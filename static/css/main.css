@@ -3506,12 +3506,18 @@ body {
   font-size: 16px;
   font-weight: 700;
   line-height: 1;
+
+  transition: all 0.2s ease-in;
 }
 
 .primary-button:hover,
-.primary-button:focus {
+.primary-button:focus,
+a.primary-button:hover,
+a.primary-button:focus {
   outline: none;
   background: #7E9BBD;
+  text-decoration: none;
+  color: #fff;
 }
 
 .primary-button:active {
@@ -3563,6 +3569,8 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 400;
+
+  transition: all 0.2s ease-in;
 }
 
 .secondary-button:hover,

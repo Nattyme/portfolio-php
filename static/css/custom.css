@@ -39,10 +39,6 @@ html {
   background-color: #c93535;
 }
 
-.primary-button--red:hover {
-  text-decoration: none;
-}
-
 .icon-delete {
   display: inline-block;
 }
@@ -381,6 +377,32 @@ a.logo-link:hover {
   width: 100px;
 }
 
+/* Payment methods*/
+.payment-methods {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.payment-yookassa, a.payment-yookassa {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+
+  padding: 20px;
+
+  box-shadow:  0px 0px 15px #b7d8e6;
+  border-radius: 8px;
+
+  color: #000;
+  text-decoration: none;
+
+  transition: all 0.2s ease-in;
+}
+
+.payment-yookassa:hover, a.payment-yookassa:hover {
+  box-shadow: 0px 0px 35px #9ac4d7;
+
+}
 
 
 
