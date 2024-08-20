@@ -19,7 +19,7 @@
                 <a href="<?php echo HOST . "shop/cat/" . $product['cat'];?>" class="badge badge--light badge--link"><?php echo $product['cat_title'];?></a>
               <?php endif; ?>
             </div>
-            <div class="page-product__price"><?php echo $product['price'];?> руб.</div>
+            <div class="page-product__price"><?php echo format_price($product['price']);?> руб.</div>
             <a class="page-product__button primary-button" href="<?php echo HOST;?>addtocart?id=<?php echo $product['id'];?>">В корзину</a>
             <div class="page-product-text">
               <?php echo $product['content'];?>

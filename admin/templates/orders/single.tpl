@@ -86,7 +86,7 @@
             <td><?php echo $product['title'];?></td>
 
             <td>
-              <?php echo format_price($product['price']);?>
+              <?php echo format_price($product['price']);?> руб.
             </td>
 
             <td><?php echo $product['amount'];?></td>

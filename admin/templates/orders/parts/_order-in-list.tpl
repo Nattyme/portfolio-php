@@ -26,7 +26,7 @@
     ?>
   </td>
   <td>
-    <?php echo $order['price'] ? number_format($order['price'], 2, ',', ' ') : number_format(0, 2, ',', ' ')  . ' руб.'?>
+    <?php echo format_price($order['price']); ?> руб.
   </td>
   <td>
     <a href="<?php echo HOST . "admin/order-delete?id={$order['id']}" ;?>" class="icon-delete"></a>

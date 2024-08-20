@@ -39,7 +39,7 @@
                   ?>
                 </td>
                 <td><?php echo $cartCount;?> шт.</td>
-                <td><?php echo $cartTotalPrice; ?> руб.</td>
+                <td><?php echo format_price($cartTotalPrice); ?> руб.</td>
               </tr>
           
 

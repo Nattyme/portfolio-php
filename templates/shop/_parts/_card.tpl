@@ -14,7 +14,9 @@
     <?php echo $product['title'];?>
   </div>
   <div class="card-product-row">
-    <div class="card-product__price"> <span><?php echo $product['price'];?> руб.</span></div>
+    <div class="card-product__price">
+      <span><?php echo format_price($product['price']);?> руб.</span>
+    </div>
     <a href="<?php echo HOST . 'shop/' . $product['id'];?>" class="card-product__button">
       <div class="watch-button">Смотреть</div>
     </a>
