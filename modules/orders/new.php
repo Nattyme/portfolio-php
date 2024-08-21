@@ -35,6 +35,7 @@ if (isset($_POST['submit'])) {
 
     $order->cart = json_encode($cart);
 
+    // Если пользователь вошел в профиль
     if ( isLoggedIn() ) { $order->user = $_SESSION['logged_user']; }
 
     $order_cart = array();

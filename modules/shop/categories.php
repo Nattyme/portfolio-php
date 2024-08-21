@@ -2,8 +2,6 @@
 $category = R::load('categories_shop', $uriGetParam);
 $pageTitle = "Категория: {$category['title']}";
 
-$pagination = pagination(6, 'products', ['cat = ? ', [$uriGetParam]]);
-
 $sqlQuery = 'SELECT
                 products.id, products.title, products.content, products.cover, products.cover_small,
                 products.timestamp, products.edit_time, products.cat, products.price,
@@ -13,6 +11,10 @@ $sqlQuery = 'SELECT
              WHERE `cat` = ?';
 
 $products = R::getAll($sqlQuery, [$uriGetParam]);
+$pagination = pagination(6, 'products', ['cat = ? ', [$uriGetParam]]);
+
+// print_r($products);
+// die();
 // Подключение шаблонов страницы
 include ROOT . "templates/page-parts/_head.tpl";
 include ROOT . "templates/_parts/_header.tpl";

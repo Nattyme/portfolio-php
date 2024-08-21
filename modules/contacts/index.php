@@ -2,10 +2,12 @@
 $settingsContacts = R::find('settings', ' section LIKE ? ', ['contacts']); // Получаем массив с нужными настройками
 
 $contacts = []; // Создаем массив кот. наполним
-
+// print_r($settingsContacts);
 foreach ($settingsContacts as $key => $value) {
   $contacts[$value['name']] = $value['value'];
 }
+print_r($contacts);
+die();
 
 if (isset($_POST['submit'])) {
 // Проверка если вся поля пустые

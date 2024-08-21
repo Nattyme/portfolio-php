@@ -323,6 +323,10 @@ a.logo-link:hover {
   position: relative;
 }
 
+.card-product__button .watch-button  {
+  transition: all 0.2s ease-in;
+}
+
 .card-product__button::before {
   z-index: 1;
   position: absolute;

@@ -10,6 +10,10 @@ $sqlQuery = 'SELECT
              WHERE posts.id = ? LIMIT 1';
 
 $post = R::getRow($sqlQuery, [$uriGet]);
+if (!$post) {
+  header('Location: ' . HOST . 'blog');
+  exit();
+};
 
 // Кнопки назад и вперед
 $postsId = R::getCol('SELECT id FROM posts');

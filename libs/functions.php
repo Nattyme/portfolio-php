@@ -118,9 +118,11 @@ function rus_date () {
 
 // pagination (6, 'posts'); pagination (6, 'posts', [' cat = ? ', [4] ]);
 function pagination ($results_per_page, $type, $params = NULL) {
-  if ( empty($params)) {
+  if ( empty($params) ) {
     $number_of_results = R::count($type);
-  } else {
+  } 
+
+  else {
     $number_of_results = R::count($type, $params[0], $params[1]); // Вернет кол-во постов
   }
 
@@ -129,7 +131,7 @@ function pagination ($results_per_page, $type, $params = NULL) {
   $number_of_pages = ceil($number_of_results / $results_per_page); // ceil округляет число в бол. сторону
 
   // Определяем текущий номер запрашиваемой страницы 
-  if ( !isset($_GET['page'])) {
+  if ( !isset($_GET['page']) || empty($_GET['page'])) {
     $page_number = 1;
   } else {
     $page_number = intval($_GET['page']); // 2ая стр. пагинации
@@ -145,7 +147,7 @@ function pagination ($results_per_page, $type, $params = NULL) {
 
   // Формируем подстроку для sql запроса
   $sql_page_limit = "LIMIT {$starting_limit_number}, {$results_per_page}";
-  
+
   // Результирующий массив с параметрами
   $result['number_of_pages'] = $number_of_pages;
   $result['page_number'] = $page_number;
