@@ -3,7 +3,6 @@ $pagination = pagination(6, 'products');
 $productsDB = R::find('products', 'ORDER BY id DESC ' . $pagination['sql_page_limit']);
 
 $products = array();
-
 foreach ($productsDB as $current_product) {
   $categories = R::find('categories_shop'); 
   $product['id'] = $current_product->id;

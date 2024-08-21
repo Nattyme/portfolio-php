@@ -1,6 +1,7 @@
 <?php
 //Запрос постов в БД с сортировкой id по убыванию
 $cats = R::find('categories', 'ORDER BY id DESC'); 
+
 $pageTitle = "Категории - все записи";
 
 ob_start();

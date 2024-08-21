@@ -20,7 +20,7 @@
           <tr>
             <td><?php echo $cat['id'];?></td>
             <td>
-              <a href="<?php echo HOST; ?>admin/category-shop-edit?id=<?php echo $cat['id'];?>">
+              <a class="link-to-page" href="<?php echo HOST; ?>admin/category-shop-edit?id=<?php echo $cat['id'];?>">
                 <?php echo $cat['title'];?>
               </a>
             </td>

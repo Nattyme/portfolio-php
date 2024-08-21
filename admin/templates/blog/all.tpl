@@ -20,7 +20,9 @@
           <tr>
             <td><?php echo $post['id']; ?></td>
             <td>
-              <a href="<?php echo HOST . "admin/"; ?>post-edit?id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a>
+              <a class="link-to-page" href="<?php echo HOST . "admin/"; ?>post-edit?id=<?php echo $post['id']; ?>">
+                <?php echo $post['title']; ?>
+              </a>
             </td>
             <td>
               <a href="<?php echo HOST . "admin/";?>post-delete?id=<?php echo $post['id'];?>" class="icon-delete"></a>

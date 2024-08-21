@@ -27,7 +27,7 @@
               <?php echo $message['id'];?>
             </td>
             <td>
-              <a href="<?php echo HOST;?>admin/message?id=<?php echo $message['id'];?>">
+              <a class="link-to-page" href="<?php echo HOST;?>admin/message?id=<?php echo $message['id'];?>">
                 <?php echo $message['name'];?>
               </a>
             </td>
@@ -35,9 +35,7 @@
               <?php echo $message['email'];?>
             </td>
             <td>
-              <a href="<?php echo HOST;?>admin/message?id=<?php echo $message['id'];?>">
-                <?php echo $message['message'];?>
-              </a>
+               <?php echo $message['message'];?>
             </td>
             <td>
               <?php echo rus_date("j. m. Y. H:i", $message['timestamp']); ?>
