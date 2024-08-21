@@ -151,7 +151,7 @@ switch ($uriModule) {
     break;
 
   case 'comments':
-    require ROOT . "admin/modules/comments/comments.php";
+    require ROOT . "admin/modules/comments/all.php";
     break;
 
   case 'settings':

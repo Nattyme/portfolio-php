@@ -9,9 +9,9 @@ if ( isset($_SESSION['login']) && $_SESSION['login'] === 1) {
     }
 
     // Проверка на текст комментария
-    if (    !isset($_POST['comment']) || 
-            empty(trim($_POST['comment'])) || 
-            mb_strlen(trim($_POST['comment'])) < 3 
+    if (  !isset($_POST['comment']) || 
+          empty(trim($_POST['comment'])) || 
+          mb_strlen(trim($_POST['comment'])) < 3 
         ) 
     {
       $_SESSION['errors'][] = ['title' => 'Комментарий не может быть пустым'];
@@ -24,6 +24,7 @@ if ( isset($_SESSION['login']) && $_SESSION['login'] === 1) {
       $comment->post = $_POST['id'];
       $comment->user = $_SESSION['logged_user']['id'];
       $comment->timestamp = time();
+      $comment->status = 'new';
       R::store($comment);
 
       header('Location: ' . HOST . "blog/" . $_POST['id'] . '#comments');
