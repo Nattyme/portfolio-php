@@ -4,7 +4,7 @@
     <?php include ROOT . "admin/templates/components/success.tpl"; ?>
 
     <div class="admin-form__item d-flex justify-content-between mb-20">
-      <h2 class="heading">Сообщения</h2>
+      <h2 class="heading">Комментарии</h2>
     </div>
 
     <table class="table">
@@ -12,39 +12,31 @@
         <tr>
           <th>ID</th>
           <th>Отправитель</th>
-          <th>Email</th>
           <th>Текст</th>
           <th>Время</th>
-          <th>Файл</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($messages as $message) : ?>
+        <?php foreach ($comments as $comment) : ?>
 
-          <tr <?php echo $message['status'] === 'new' ? 'class="message-new"' : NULL;?>>
+          <tr <?php echo $comment['status'] === 'new' ? 'class="message-new"' : NULL;?>>
             <td>
-              <?php echo $message['id'];?>
+              <?php echo $comment['id'];?>
             </td>
             <td>
-              <a class="link-to-page" href="<?php echo HOST;?>admin/message?id=<?php echo $message['id'];?>">
-                <?php echo $message['name'];?>
+              <a class="link-to-page" href="<?php echo HOST;?>admin/comment?id=<?php echo $comment['id'];?>">
+                <?php echo !empty($comment['name']) ? $comment['name'] . ' ' . $comment['surname'] : "Аноним";?>
               </a>
             </td>
             <td>
-              <?php echo $message['email'];?>
+               <?php echo $comment['text'];?>
             </td>
             <td>
-               <?php echo $message['message'];?>
+              <?php echo rus_date("j. m. Y. H:i", $comment['timestamp']); ?>
             </td>
             <td>
-              <?php echo rus_date("j. m. Y. H:i", $message['timestamp']); ?>
-            </td>
-            <td>
-              <a target="_blank" href="<?php echo HOST . 'usercontent/contact-form/' . $message['fileNameSrc'];?>"><?php echo $message['fileNameOriginal']; ?></a>
-            </td>
-            <td>
-              <a href="<?php echo HOST . "admin/";?>messages?action=delete&id=<?php echo $message['id'];?>" class="icon-delete"></a>
+              <a href="<?php echo HOST . "admin/";?>comments?action=delete&id=<?php echo $comment['id'];?>" class="icon-delete"></a>
             </td>
           </tr>
         <?php endforeach; ?> 

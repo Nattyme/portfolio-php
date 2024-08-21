@@ -2,30 +2,30 @@
 if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']) ) {
    // Проверка запроса на удаление
   // admin/messages?action=delete&id=7
-  $message = R::load('messages', $_GET['id']);
-  
-  // Удаление файла
-  if ( !empty($message['file_name_src']) ) {
+  $comment = R::load('comments', $_GET['id']);
 
-    // Удадить файлы с сервера
-    $fileFolderLocation = ROOT . 'usercontent/contact-form/';
-    unlink($fileFolderLocation . $message->file_name_src);
-    
-    $_SESSION['success'][] = ['title' => 'Сообщение было успешно удалено.'];
-  }
-
-  R::trash($message);
+  R::trash($comment);
 }
 
 // Запрос постов в БД с сортировкой id по убыванию
-$messages = R::find('messages', 'ORDER BY id DESC'); 
+// $comments = R::find('comments', 'ORDER BY id DESC'); 
 
-$pageTitle = "Сообщения - все записи";
+
+$sqlQuery = 'SELECT
+                    users.id, users.name, users.surname, users.cover_small,
+                    comments.id, comments.text, comments.user, comments.timestamp, comments.status
+              FROM `users`
+              LEFT JOIN `comments` ON users.id = comments.user';
+$comments = R::getAll($sqlQuery);
+
+
+
+$pageTitle = "Комментарии - все записи";
 $pageClass = "admin-page";
 
 // Шаблон страницы
 ob_start();
-include ROOT . "admin/templates/messages/all.tpl";
+include ROOT . "admin/templates/comments/all.tpl";
 $content = ob_get_contents();
 ob_end_clean();
 

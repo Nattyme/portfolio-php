@@ -1,7 +1,7 @@
 <?php 
   function getUserComments($userId) {
     $sqlQuery = 'SELECT
-                        comments.id, comments.text, comments.post, comments.user, comments.timestamp,
+                        comments.id, comments.text, comments.post, comments.user, comments.timestamp, 
                         posts.title
                  FROM `comments`
                  LEFT JOIN `posts` ON comments.post = posts.id
