@@ -2,19 +2,25 @@
 $category = R::load('categories_shop', $uriGetParam);
 $pageTitle = "Категория: {$category['title']}";
 
-$sqlQuery = 'SELECT
-                products.id, products.title, products.content, products.cover, products.cover_small,
-                products.timestamp, products.edit_time, products.cat, products.price,
-                categories_shop.title AS cat_title
-             FROM `products`
-             LEFT JOIN `categories_shop` ON products.cat = categories_shop.id
-             WHERE `cat` = ?';
-
-$products = R::getAll($sqlQuery, [$uriGetParam]);
 $pagination = pagination(6, 'products', ['cat = ? ', [$uriGetParam]]);
+$productsDB = R::findLike('products', ['cat' => [$uriGetParam]], 'ORDER BY id DESC ' . $pagination['sql_page_limit']); 
 
-// print_r($products);
-// die();
+$products = array();
+foreach ($productsDB as $current_product) {
+  $categories = R::find('categories_shop'); 
+  $product['id'] = $current_product->id;
+  $product['title'] = $current_product->title;
+  $product['cat'] = $current_product->cat;
+  $product['cover_small'] = $current_product->cover_small;
+  $product['price'] =$current_product->price;
+  if ($current_product['cat'] === $categories[$current_product['cat']]['id']) {
+    $current_product['cat'] = $categories[$current_product['cat']]['title'];
+  }
+  $product['cat_title'] = $current_product['cat'];
+  $products [] = $product;
+}
+
+
 // Подключение шаблонов страницы
 include ROOT . "templates/page-parts/_head.tpl";
 include ROOT . "templates/_parts/_header.tpl";
