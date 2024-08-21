@@ -11,6 +11,7 @@
       <thead>
         <tr>
           <th>ID</th>
+          <th>Аватар</th>
           <th>Отправитель</th>
           <th>Текст</th>
           <th>Время</th>
@@ -24,6 +25,28 @@
             <td>
               <?php echo $comment['id'];?>
             </td>
+
+
+            <td>
+              <div class="comment__avatar">
+                <div class="avatar-small">
+
+                <?php if ( !empty($comment['avatar_small'])) : ?>
+                  <img src="<?php echo HOST . 'usercontent/avatars/' . $comment['avatar_small'];?>" alt="Аватарка" />
+                <?php else : ?>
+                  <div class="avatar-small">
+                    <img src="<?php echo HOST;?>usercontent/avatars/no-avatar.svg" alt="Аватарка" />
+                  </div>
+                <?php endif; ?>
+
+                </div>
+              </div>
+            </td>
+
+
+
+
+
             <td>
               <a class="link-to-page" href="<?php echo HOST;?>admin/comment?id=<?php echo $comment['id'];?>">
                 <?php echo !empty($comment['name']) ? $comment['name'] . ' ' . $comment['surname'] : "Аноним";?>

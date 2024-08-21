@@ -12,7 +12,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']) 
 
 
 $sqlQuery = 'SELECT
-                    users.id, users.name, users.surname, users.cover_small,
+                    users.id, users.name, users.surname, users.avatar_small,
                     comments.id, comments.text, comments.user, comments.timestamp, comments.status
               FROM `users`
               LEFT JOIN `comments` ON users.id = comments.user';
