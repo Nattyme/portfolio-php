@@ -1,4 +1,5 @@
 <?php
+// Получаем сообщение
 $message = R::load('messages', $_GET['id']); 
 
 if ($message['status'] === 'new') {

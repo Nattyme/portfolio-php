@@ -1,7 +1,12 @@
 <?php
-
 // Получаем заказ
 $order = R::load('orders', $_GET['id']); 
+
+if ($order['status'] === 'new') {
+  $order->status = 'in progress';
+  R::store($order);
+  $ordersNewCounter = R::count('orders', ' status = ?', ['new']);
+}
 
 // Получаем массив продуктов из JSON формата
 $products = json_decode($order['cart'], true);
