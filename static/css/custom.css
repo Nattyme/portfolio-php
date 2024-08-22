@@ -244,7 +244,8 @@ a.control-panel__title-wrapper {
   background-color: rgba(126, 202, 192, 0.1);
 }
 
-.table tbody tr .icon-delete {
+.table tbody tr .icon-delete,
+.table tbody tr .link-above-others {
   position: relative;
   z-index: 11;
 }

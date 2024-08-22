@@ -12,13 +12,15 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']) 
 
 
 $sqlQuery = 'SELECT
-                    users.id, users.name, users.surname, users.avatar_small,
-                    comments.id, comments.text, comments.user, comments.timestamp, comments.status
+                    users.id AS user_id, users.name, users.surname, users.avatar_small,
+                    comments.id, comments.text, comments.user, comments.timestamp, 
+                    comments.status, comments.post,
+                    posts.title, posts.id AS post_id
               FROM `users`
-              LEFT JOIN `comments` ON users.id = comments.user';
+              LEFT JOIN `comments` ON users.id = comments.user
+              LEFT JOIN `posts` ON comments.post = posts.id
+              ORDER BY comments.id DESC';
 $comments = R::getAll($sqlQuery);
-
-
 
 $pageTitle = "Комментарии - все записи";
 $pageClass = "admin-page";
