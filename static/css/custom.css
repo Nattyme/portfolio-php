@@ -409,5 +409,13 @@ a.logo-link:hover {
 
 }
 
+/* tabs */
+.tab__block {
+  display: none;
+}
+
+.tab__block.active {
+  display: block;
+}
 
 
