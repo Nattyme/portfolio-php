@@ -1,5 +1,38 @@
 <h3 class="admin-section-title">Секция "Статус"</h3>
 
+<div class="admin-form__item" data-control="tab">
+  <!-- Навигация -->
+  <div class="tab__nav" data-control="tab-nav">
+    <button type="button" class="tab__nav-button active" data-control="tab-button" title="Перейти в редактирование текст на кнопке статуса">Текст на кнопке</button>
+    <button type="button" class="tab__nav-button" data-control="tab-button" title="Перейти в редактирование текста статуса справа">Текст справа</button>
+    <button type="button" class="tab__nav-button" data-control="tab-button" title="Перейти в редактирование ссылки статуса">Ссылка</button>
+  </div>
+  <!-- Навигация -->
+
+  <!-- Блоки с контентом -->
+  <div class="admin-form__item">
+    <div class="tab__content" data-control="tab-content">
+      <div class="tab__block active" data-control="tab-block">
+        <label class="input__label">
+          <input name="status_label" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['status_label'] ?>" />
+        </label>
+      </div>
+      <div class="tab__block" data-control="tab-block">
+        <label class="input__label">
+          <input name="status_text" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['status_text'] ?>" />
+        </label>
+      </div>
+      <div class="tab__block" data-control="tab-block">
+        <label class="input__label">
+          <input name="status_link" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['status_link'] ?>" />
+        </label>
+      </div>
+    
+    </div>
+  </div>
+  <!--// Блоки с контентом -->
+</div>
+
 <div class="admin-form__item">
   <label class="checkbox__item">
       <input
@@ -12,23 +45,3 @@
   </label>
 </div>
 
-<div class="admin-form__item">
-  <label class="input__label">
-      Текст на кнопке
-      <input name="status_label" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['status_label'] ?>" />
-  </label>
-</div>
-
-<div class="admin-form__item">
-  <label class="input__label">
-      Текст справа
-      <input name="status_text" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['status_text'] ?>" />
-  </label>
-</div>
-
-<div class="admin-form__item">
-  <label class="input__label">
-      Ссылка
-      <input name="status_link" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['status_link'] ?>" />
-  </label>
-</div>

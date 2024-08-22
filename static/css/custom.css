@@ -433,7 +433,7 @@ a.logo-link:hover {
   font-weight: 700;
   font-size: 16px;
   line-height: 1;
-  color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.3);
 
   transition: all 0.2s ease;
 }
@@ -468,18 +468,8 @@ a.logo-link:hover {
   outline: none;
 }
 
-.admin-form__item {
-}
-.tab__content {
-}
 .tab__block {
   background-color: #fff;
-}
-.input__label {
-}
-.input {
-}
-.input--width-label {
 }
 
 
