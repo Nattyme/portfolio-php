@@ -1,113 +1,54 @@
 <h3 class="admin-section-title">Социальные ссылки</h3>
 
-<!-- Навигация -->
-<div class="admin-form__item tab" data-control="tab">
+<div class="admin-form__item" data-control="tab">
+  <!-- Навигация -->
   <div class="tab__nav" data-control="tab-nav">
-    <button type="button" class="tab__nav-button" data-control="tab-button">Youtube</button>
-    <button type="button" class="tab__nav-button" data-control="tab-button">Instagram</button>
-    <button type="button" class="tab__nav-button" data-control="tab-button">Facebook</button>
-    <button type="button" class="tab__nav-button" data-control="tab-button">Вконтакте</button>
-    <button type="button" class="tab__nav-button" data-control="tab-button">LinkedIn</button>
-    <button type="button" class="tab__nav-button" data-control="tab-button">GitHub</button>
+    <button type="button" class="tab__nav-button active" data-control="tab-button" title="Перейти в редактирование ссылки на профиль youtube">Youtube</button>
+    <button type="button" class="tab__nav-button" data-control="tab-button" title="Перейти в редактирование ссылки на профиль instagram">Instagram</button>
+    <button type="button" class="tab__nav-button" data-control="tab-button" title="Перейти в редактирование ссылки на профиль facebook">Facebook</button>
+    <button type="button" class="tab__nav-button" data-control="tab-button" title="Перейти в редактирование ссылки на профиль vkontakte">Вконтакте</button>
+    <button type="button" class="tab__nav-button" data-control="tab-button" title="Перейти в редактирование ссылки на профиль linkedin">LinkedIn</button>
+    <button type="button" class="tab__nav-button" data-control="tab-button" title="Перейти в редактирование ссылки на профиль github">GitHub</button>
   </div>
+  <!-- Навигация -->
 
   <!-- Блоки с контентом -->
   <div class="admin-form__item">
     <div class="tab__content" data-control="tab-content">
-      <div class="tab__block" data-control="tab-block">
+      <div class="tab__block active" data-control="tab-block">
         <label class="input__label">
-          Youtube
-          <input name="youtube" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['youtube'] ?>" />
+          <input name="youtube" class="input input--width-label" type="text" placeholder="Введите ссылку на профиль youtube" value="<?= $settings['youtube'] ?>" />
         </label>
       </div>
       <div class="tab__block" data-control="tab-block">
         <label class="input__label">
-            Instagram
-            <input name="instagram" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['instagram'] ?>" />
+            <input name="instagram" class="input input--width-label" type="text" placeholder="Введите ссылку на профиль instagram" value="<?= $settings['instagram'] ?>" />
         </label>
       </div>
       <div class="tab__block" data-control="tab-block">
         <label class="input__label">
-          Facebook
-          <input name="facebook" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['facebook'] ?>" />
+          <input name="facebook" class="input input--width-label" type="text" placeholder="Введите ссылку на профиль facebook" value="<?= $settings['facebook'] ?>" />
         </label>
       </div>
       <div class="tab__block" data-control="tab-block">
         <label class="input__label">
-          Вконтакте
-          <input name="vkontakte" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['vkontakte'] ?>" />
+          <input name="vkontakte" class="input input--width-label" type="text" placeholder="Введите ссылку на профиль vkontakte" value="<?= $settings['vkontakte'] ?>" />
         </label>
       </div>
       <div class="tab__block" data-control="tab-block">
         <label class="input__label">
-          LinkedIn
-          <input name="linkedin" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['linkedin'] ?>" />
+          <input name="linkedin" class="input input--width-label" type="text" placeholder="Введите ссылку на профиль linkedin" value="<?= $settings['linkedin'] ?>" />
         </label>
       </div>
       <div class="tab__block" data-control="tab-block">
         <label class="input__label">
-          GitHub
-          <input name="github" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['github'] ?>" />
+          <input name="github" class="input input--width-label" type="text" placeholder="Введите ссылку на профиль github" value="<?= $settings['github'] ?>" />
         </label>
       </div>
     </div>
   </div>
   <!--// Блоки с контентом -->
 </div>
-<!--// Навигация -->
-<div class="admin-form__item tab" data-control="tab">
-  <div class="tab__nav" data-control="tab-nav">
-    <button type="button" class="tab__nav-button" data-control="tab-button">Youtube</button>
-    <button type="button" class="tab__nav-button" data-control="tab-button">Instagram</button>
-    <button type="button" class="tab__nav-button" data-control="tab-button">Facebook</button>
-    <button type="button" class="tab__nav-button" data-control="tab-button">Вконтакте</button>
-    <button type="button" class="tab__nav-button" data-control="tab-button">LinkedIn</button>
-    <button type="button" class="tab__nav-button" data-control="tab-button">GitHub</button>
-  </div>
 
-  <!-- Блоки с контентом -->
-  <div class="admin-form__item">
-    <div class="tab__content" data-control="tab-content">
-      <div class="tab__block" data-control="tab-block">
-        <label class="input__label">
-          Youtube
-          <input name="youtube" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['youtube'] ?>" />
-        </label>
-      </div>
-      <div class="tab__block" data-control="tab-block">
-        <label class="input__label">
-            Instagram
-            <input name="instagram" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['instagram'] ?>" />
-        </label>
-      </div>
-      <div class="tab__block" data-control="tab-block">
-        <label class="input__label">
-          Facebook
-          <input name="facebook" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['facebook'] ?>" />
-        </label>
-      </div>
-      <div class="tab__block" data-control="tab-block">
-        <label class="input__label">
-          Вконтакте
-          <input name="vkontakte" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['vkontakte'] ?>" />
-        </label>
-      </div>
-      <div class="tab__block" data-control="tab-block">
-        <label class="input__label">
-          LinkedIn
-          <input name="linkedin" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['linkedin'] ?>" />
-        </label>
-      </div>
-      <div class="tab__block" data-control="tab-block">
-        <label class="input__label">
-          GitHub
-          <input name="github" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['github'] ?>" />
-        </label>
-      </div>
-    </div>
-  </div>
-  <!--// Блоки с контентом -->
-</div>
-<!--// Навигация -->
 
 
