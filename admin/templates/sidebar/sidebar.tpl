@@ -4,7 +4,7 @@ $messages = R::find('messages', 'ORDER BY id DESC');
 <div class="admin-page__left-panel">
   <div class="control-panel">
     <div class="control-panel__container">
-      <a href="<?php echo HOST;?>" class="control-panel__title-wrapper">
+      <a href="<?php echo HOST;?>" class="control-panel__title-wrapper" title="Перейти на главную страницу сайта">
         <h2 class="control-panel__title">Digital Nomad</h2>
         <p class="control-panel__subtitle">панель управления</p>
       </a>

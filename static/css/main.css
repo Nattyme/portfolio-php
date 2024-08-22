@@ -2024,21 +2024,6 @@ body {
   position: relative;
 }
 
-.admin-panel__comments::before {
-  content: attr(data-number);
-  position: absolute;
-  top: 0;
-  left: 50%;
-  -webkit-transform: translate(0%, -50%);
-      -ms-transform: translate(0%, -50%);
-          transform: translate(0%, -50%);
-  padding: 4px;
-  font-size: 12px;
-  text-align: center;
-  background: #c90000;
-  border-radius: 50%;
-  font-family: "Montserrat", sans-serif;
-}
 
 .admin-panel__block-button {
   font-family: "Montserrat", sans-serif;
