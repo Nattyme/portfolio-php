@@ -23,7 +23,7 @@
             name="site_title"
             class="input input--width-label"
             type="text"
-            placeholder="Заголовок секции" value="<?= $settings['site_title'] ?>" 
+            placeholder="Введите название сайте" value="<?= $settings['site_title'] ?>" 
           />
         </label>
       </div>
@@ -33,7 +33,7 @@
             name="site_slogan"
             class="input input--width-label"
             type="text"
-            placeholder="Заголовок секции"
+            placeholder="Введите слоган сайта"
             value="<?= $settings['site_slogan'] ?>"
           />
         </label>

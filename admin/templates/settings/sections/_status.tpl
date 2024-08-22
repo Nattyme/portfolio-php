@@ -23,19 +23,28 @@
     <div class="tab__content" data-control="tab-content">
       <div class="tab__block active" data-control="tab-block">
         <label class="input__label">
-          <input name="status_label" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['status_label'] ?>" />
+          <input name="status_label" class="input input--width-label" 
+                 type="text" placeholder="Введите текст кнопки статуса" 
+                 value="<?= $settings['status_label'] ?>"
+          />
         </label>
       </div>
       
       <div class="tab__block" data-control="tab-block">
         <label class="input__label">
-          <input name="status_text" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['status_text'] ?>" />
+          <input name="status_text" class="input input--width-label" 
+                 type="text" placeholder="Введите текст статуса справа" 
+                 value="<?= $settings['status_text'] ?>" 
+          />
         </label>
       </div>
 
       <div class="tab__block" data-control="tab-block">
         <label class="input__label">
-          <input name="status_link" class="input input--width-label" type="text" placeholder="Заголовок секции" value="<?= $settings['status_link'] ?>" />
+          <input name="status_link" class="input input--width-label" 
+                 type="text" placeholder="Введите ссылку статуса" 
+                 value="<?= $settings['status_link'] ?>" 
+          />
         </label>
       </div>
     
