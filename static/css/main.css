@@ -3039,28 +3039,43 @@ body {
   margin: 0;
   padding: 0;
   list-style-type: none;
+
+  transition: all 0.2s ease-in;
+}
+
+.nav__list:hover .nav__list-item {
+  opacity: 0.3;
+}
+
+.nav__list .nav__list-item:hover {
+  opacity: 1;
 }
 
 .nav__list-item {
   margin: 0;
   padding: 0;
+  transition: all 0.2s ease-in;
 }
 
 .nav__list-item:not(:last-child) {
-  margin-right: 60px;
+  /* margin-right: 60px; */
 }
 
 .nav__list-item-link {
+  padding: 30px;
+  margin-top: -10px;
+  margin-bottom: -10px;
   position: relative;
+
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.3;
   text-transform: uppercase;
-  color: #000000;
-  -webkit-transition: color 0.2s ease-in;
-  -o-transition: color 0.2s ease-in;
-  transition: color 0.2s ease-in;
+  color: #000;
+  -webkit-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .nav__list-item-link::before,
@@ -3072,17 +3087,17 @@ body {
   width: 0;
   background-color: #000;
 
-  transition: width 0.3s ease-in;
+  transition: width 0.3s ease;
 }
 
 .nav__list-item-link::before {
   left: 0;
-  top: -10px;
+  top: 10px;
 }
 
 .nav__list-item-link::after {
   right: 0;
-  bottom: -10px;
+  bottom: 10px;
 }
 
 .nav__list-item-link:hover::before,
