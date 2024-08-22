@@ -12,51 +12,92 @@
       <h2 class="heading">Редактировать главную страницу</h2>
     </div>
 
-    <!-- About -->
+    <!-- Обо мне -->
     <h3 class="admin-section-title">Обо мне</h3>
-    <div class="admin-form__item">
-      <label class="input__label">
-        Заголовок
-        <input name="about_title" 
-               class="input input--width-label" 
-               type="text" 
-               placeholder="Заголовок секции" 
-               value="<?php echo $main['about_title']; ?>"
-        />
-      </label>
-    </div>
-    <div class="admin-form__item">
-      <label class="textarea__label mb-15" name="editor">
-        Содержимое поста 
-      </label>
-      <textarea name="about_text" class="textarea textarea--width-label" placeholder="Введите текст" id="about_text">
-        <?php echo $main['about_text'] ;?>
-      </textarea>
-    </div>
-    <!--// About -->
+    <div class="admin-form__item" data-control="tab">
+      <!-- Навигация -->
+      <div class="tab__nav" data-control="tab-nav">
+        <button type="button" class="tab__nav-button active" data-control="tab-button" 
+                title="Перейти к редактированию заголовка страницы обо мне">
+                Заголовок
+        </button>
+        <button type="button" class="tab__nav-button" data-control="tab-button" 
+                title="Перейти к редактированию содержимого страницы обо мне">
+                Содержимое поста 
+        </button>
+      </div>
+      <!-- Навигация -->
 
-    <!-- Services -->
+      <!-- Блоки с контентом -->
+      <div class="admin-form__item">
+        <div class="tab__content" data-control="tab-content">
+          <div class="tab__block active" data-control="tab-block">
+            <label class="input__label">
+              <input name="about_title" 
+                     class="input input--width-label" 
+                     type="text" 
+                     placeholder="Введите заголовок страницы 'Обо мне' " 
+                     value="<?php echo $main['about_title']; ?>"
+              />
+            </label>
+          </div>
+          <div class="tab__block" data-control="tab-block">
+            <label class="textarea__label mb-15" name="editor"></label>
+            <textarea name="about_text" class="textarea textarea--width-label" 
+                      placeholder="Введите текст для страницы 'Обо мне'" id="about_text">
+              <?php echo $main['about_text'] ;?>
+            </textarea>
+          </div>
+        
+        </div>
+      </div>
+      <!--// Блоки с контентом -->
+    </div>
+    <!--// Обо мне -->
+
+    <!-- Услуги -->
     <h3 class="admin-section-title">Услуги</h3>
-    <div class="admin-form__item">
-      <label class="input__label">
-        Заголовок
-        <input name="services_title" 
-               class="input input--width-label" 
-               type="text" 
-               placeholder="Заголовок секции" 
-               value="<?php echo $main['services_title']; ?>"
-        />
-      </label>
+    <div class="admin-form__item" data-control="tab">
+      <!-- Навигация -->
+      <div class="tab__nav" data-control="tab-nav">
+        <button type="button" class="tab__nav-button active" data-control="tab-button" 
+                title="Перейти к редактированию заголовка страницы услуги">
+                Заголовок
+        </button>
+        <button type="button" class="tab__nav-button" data-control="tab-button" 
+                title="Перейти к редактированию содержимого страницы услуги">
+                Содержимое поста 
+        </button>
+      </div>
+      <!-- Навигация -->
+
+      <!-- Блоки с контентом -->
+      <div class="admin-form__item">
+        <div class="tab__content" data-control="tab-content">
+          <div class="tab__block active" data-control="tab-block">
+            <label class="input__label">
+              <input name="services_title" 
+                     class="input input--width-label" 
+                     type="text" 
+                     placeholder="Введите заголовок страницы 'Услуги'" 
+                     value="<?php echo $main['services_title']; ?>"
+              />
+            </label>
+          </div>
+          <div class="tab__block" data-control="tab-block">
+            <label class="textarea__label mb-15" name="editor"></label>
+            <textarea name="services_text" class="textarea textarea--width-label" 
+                      placeholder="Введите текст" id="services_text">
+              <?php echo $main['services_text'] ;?>
+            </textarea>
+            </textarea>
+          </div>
+        
+        </div>
+      </div>
+      <!--// Блоки с контентом -->
     </div>
-    <div class="admin-form__item">
-      <label class="textarea__label mb-15" name="editor">
-        Содержимое поста 
-      </label>
-      <textarea name="services_text" class="textarea textarea--width-label" placeholder="Введите текст" id="services_text">
-        <?php echo $main['services_text'] ;?>
-      </textarea>
-    </div>
-    <!--// Services -->
+    <!--// Услуги -->
 
     <!-- Фото главной страницы -->
     <div class="admin-form__item">
