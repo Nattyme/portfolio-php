@@ -25,6 +25,10 @@
               <div class="admin-panel__message-icon">
                 <?php echo $messagesNewCounter;?>
               </div>
+            <?php else : ?>
+              <div class="admin-panel__message-icon">
+                <?php echo '&hellip;';?>
+              </div>
             <?php endif;?>
           </div>
           <div class="span">Сообщение</div>
@@ -40,6 +44,10 @@
               <div class="admin-panel__message-icon">
                 <?php echo $ordersNewCounter;?>
               </div>
+            <?php else : ?>
+              <div class="admin-panel__message-icon">
+                <?php echo '&hellip;';?>
+              </div>
             <?php endif;?>
           </div>
           <div class="span">Заказы</div>
@@ -54,9 +62,9 @@
                 <div class="admin-panel__message-icon">
                   <?php echo $commentsNewCounter;?>
                 </div>
-              <?php elseif ($commentsNewCounter > 9) : ?>
+              <?php else : ?>
                 <div class="admin-panel__message-icon">
-                  <?php echo '..';?>
+                  <?php echo '&hellip;';?>
                 </div>
               <?php endif;?>
           </div>
