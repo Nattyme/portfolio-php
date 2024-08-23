@@ -3077,12 +3077,12 @@ body {
 
 .nav__list-item-link::before {
   left: 0;
-  top: 10px;
+  top: 0;
 }
 
 .nav__list-item-link::after {
   right: 0;
-  bottom: 10px;
+  bottom: 0;
 }
 
 .nav__list-item-link:hover::before,
