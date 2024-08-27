@@ -1,0 +1,33 @@
+// base
+@import "./base/reset";
+@import "./base/vars";
+@import "./base/base";
+@import "./base/utils";
+@import "./base/bootstrap";
+@import "./base/custom";
+
+/* Blocks */
+@import './blocks/_buttons.scss';
+@import './blocks/_card-product.scss';
+@import './blocks/_cart.scss';
+@import './blocks/_comments.scss';
+@import './blocks/_components.scss';
+@import './blocks/_input.scss';
+@import './blocks/_order-form.scss';
+@import './blocks/_order-placed.scss';
+@import './blocks/_order-registration.scss';
+@import './blocks/_order-table.scss';
+@import './blocks/_page-product.scss';
+@import './blocks/_shop.scss';
+@import './blocks/_sub-nav.scss';
+@import './blocks/_tabs.scss';
+
+/* Sections */
+@import './sections/_admin-panel.scss';
+@import './sections/_authorization.scss';
+@import './sections/_blog.scss';
+@import './sections/_dashboard.scss';
+@import './sections/_profile.scss';
+@import './sections/_section-header.scss';
+@import './sections/_shop.scss';
+

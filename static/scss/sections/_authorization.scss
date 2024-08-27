@@ -1,0 +1,17 @@
+/* .... Authorization .... */
+.authorization-page__header {
+  text-align: center;
+}
+
+.authorization-page__header > * {
+  opacity: inherit;
+}
+
+.authorization-page__header a {
+  transition: all 0.1s ease-in;
+}
+
+.authorization-page__header a:hover {
+  text-decoration: none;
+  opacity: 0.7;
+}

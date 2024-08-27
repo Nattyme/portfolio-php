@@ -1,0 +1,28 @@
+/* Watch button*/
+.watch-button {
+  display: inline-block;
+  padding: 13px 20px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1647ed;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 3px solid rgba(126, 155, 189, 0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.watch-button:hover {
+  text-decoration: none;
+  color: #1647ed;
+}
+
+.primary-button--red {
+  background-color: #c93535;
+}
+
+.icon-delete {
+  display: inline-block;
+}

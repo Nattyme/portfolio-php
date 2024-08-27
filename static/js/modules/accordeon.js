@@ -5,7 +5,7 @@ function accordeon() {
     button.addEventListener('click', showContent);
   });
 
-  function showContent() {
+  function showContent(e) {
     this.nextElementSibling.classList.toggle('hidden');
   };
  

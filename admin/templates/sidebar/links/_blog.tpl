@@ -7,7 +7,8 @@
   </a>
   <ul class="control-panel__list hidden">
     <li class="control-panel__list-item">
-      <a class="control-panel__list-link control-panel__inner-link control-panel__inner-link--active" href="#">
+      <a class="control-panel__list-link control-panel__inner-link control-panel__inner-link--active" 
+         href="<?php HOST;?>post-new">
         <div class="control-panel__list-img-wrapper">
           <img class="control-panel__list-img" src="<?php echo HOST . 'static/img/control-panel/corner.svg';?>" alt="icon" />
         </div>
@@ -15,7 +16,7 @@
       </a>
     </li>
     <li class="control-panel__list-item">
-      <a class="control-panel__list-link control-panel__inner-link" href="#">
+      <a class="control-panel__list-link control-panel__inner-link" href="<?php echo HOST;?>admin/blog">
         <div class="control-panel__list-img-wrapper">
           <img class="control-panel__list-img" src="<?php echo HOST . 'static/img/control-panel/corner.svg';?>" alt="icon" />
         </div>
@@ -25,5 +26,5 @@
   </ul>
 </li>
 
-<?php /* href="<?php echo HOST;?>admin/blog */; ?>
+
    

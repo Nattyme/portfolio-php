@@ -1,0 +1,39 @@
+html {
+  height: 100%;
+}
+
+.sticky-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.enter-or-reg {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: auto;
+  min-height: 180px;
+}
+
+.flex-row-gap {
+  row-gap: 20px;
+}
+
+.main-page {
+  padding-bottom: 0 !important;
+}
+
+.main-page .section-header {
+  background-color: #fff;
+}
+
+.main-page__posts-cards {
+  padding-bottom: 90px;
+}
+
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 130%;
+}

@@ -1,0 +1,9 @@
+.badge {
+  transition: all 0.2s ease-in;
+}
+
+.badge--link:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: rgb(255, 115, 0);
+}
