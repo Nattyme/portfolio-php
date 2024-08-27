@@ -7,7 +7,7 @@
 
   <div class="card-product__img">
     <img src=<?php echo HOST . 'usercontent/products/' . $product['cover_small'];?> 
-          alt="<?php echo $product['title'];?>" 
+         alt="<?php echo $product['title'];?>" 
     />
   </div>
   <div class="card-product__title">

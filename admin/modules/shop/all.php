@@ -1,6 +1,6 @@
 <?php
-$pagination = pagination(8, 'products');
-$products = R::find('products');
+$pagination = pagination(6, 'products');
+$products = R::find('products', "ORDER BY id DESC {$pagination['sql_page_limit']}");
 
 $pageTitle = "Магазин - все товары";
 $pageClass = "admin-page";
