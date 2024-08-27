@@ -1,6 +1,6 @@
 <?php 
 require_once ROOT . "./libs/functions.php";
-//Одиночный пост, показываем отдельную страницу блога
+// Показываем отдельную страницу товара
 $sqlQuery = 'SELECT
                 products.id, products.title, products.content, products.cover, products.timestamp, 
                 products.edit_time, products.cat, products.price,
@@ -10,15 +10,6 @@ $sqlQuery = 'SELECT
              WHERE products.id = ? LIMIT 1';
 
 $product = R::getRow($sqlQuery, [$uriGet]);
-
-// // Кнопки назад и вперед
-// $productsId = R::getCol('SELECT id FROM products');
-// foreach ($productsId as $index => $value) {
-//   if ( $post['id'] == $value ) {
-//     $prevId = array_key_exists($index + 1, $productsId) ? $productsId[$index + 1] : NULL;
-//     $nextId = array_key_exists($index - 1, $productsId) ? $productsId[$index - 1] : NULL;
-//   }
-// }
 
 // // Комментарии
 // $sqlQueryComments = 'SELECT 

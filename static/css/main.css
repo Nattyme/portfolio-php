@@ -8083,11 +8083,26 @@ a.logo-link:hover {
   margin-right: 0;
 }
 
+.nav__list {
+  align-items: center;
+}
+
 .nav__list-item {
   position: relative;
   z-index: 9;
   padding-bottom: 20px;
   margin-bottom: -20px;
+}
+
+.nav__list-item-link.nav__list-item-link--dropdown {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+
+.nav__list-item__icon {
+  transition: transform 0.4s ease;
 }
 
 .nav__list-item__sub-nav {
@@ -8106,6 +8121,10 @@ a.logo-link:hover {
   opacity: 1;
   transform: translate(0, 0%);
   box-shadow: 0px 10px 20px 0px #7e9bbd;
+}
+
+.nav__list-item:hover .nav__list-item__icon {
+  transform: rotate(-180deg);
 }
 
 .sub-nav {
