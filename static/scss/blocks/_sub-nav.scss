@@ -27,6 +27,7 @@
   display: grid;
   padding: 10px 15px;
   background-color: #fff;
+  // background-color: rgba(126, 155, 189, 0.9);
   font-size: 16px;
   transition: color 0.1s ease-in;
 }
@@ -36,10 +37,10 @@
   padding-top: 8px;
   padding-bottom: 8px;
 
-  color: #000;
+  color: #7e9bbd;
 
   &:hover {
-   opacity: 0.8;
+   color: #000;
    transform: translateX(3%);
   }
 }

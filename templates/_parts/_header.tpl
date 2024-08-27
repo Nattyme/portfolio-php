@@ -13,7 +13,22 @@
       <ul class="nav__list">
         <li class="nav__list-item"><a class="nav__list-item-link" href="<?php echo HOST;?>main" title="Перейти на главную страницу">Главная</a></li>
         <li class="nav__list-item"><a class="nav__list-item-link" href="<?php echo HOST;?>portfolio" title="Перейти в раздел портфолио">Портфолио</a></li>
-        <li class="nav__list-item"><a class="nav__list-item-link" href="<?php echo HOST;?>blog" title="Перейти в блог">Блог</a></li>
+        <li class="nav__list-item">
+          <a class="nav__list-item-link" href="<?php echo HOST;?>blog" title="Перейти в блог">
+            Блог
+          </a>
+          <div class="nav__list-item__sub-nav">
+            <ul class="sub-nav">
+              <?php foreach ($category_post as $category) : ?>
+                <li class="sub-nav__item">
+                  <a href="<?php echo HOST . 'blog/cat/' . $category['id']; ?>" class="sub-nav__link">
+                    <?php echo $category['title'];?>
+                  </a>
+                </li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+        </li>
         <li class="nav__list-item">
           <a class="nav__list-item-link nav__list-item-link--dropdown" href="<?php echo HOST;?>shop" title="Перейти в магазин">
             Магазин

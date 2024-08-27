@@ -5,7 +5,7 @@
   <?php include ROOT . "admin/templates/components/success.tpl"; ?>
 
   <div class="admin-form_item d-flex justify-content-between mb-20">
-      <h1>Админ панель</h1>
+    <h2 class="heading">Админ панель</h2>
   </div>
 
   <div class="dashboard">

@@ -13,7 +13,7 @@ if( isset($_POST['submit']) ) {
   R::trash($product);
   
   $_SESSION['success'][] = ['title' => 'Товар был успешно удалён.'];
-  header('Location: ' . HOST . 'admin/blog');
+  header('Location: ' . HOST . 'admin/shop');
   exit();
 }
 
