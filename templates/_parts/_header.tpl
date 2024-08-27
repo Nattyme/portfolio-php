@@ -20,15 +20,13 @@
           </a>
           <div class="nav__list-item__sub-nav">
             <ul class="sub-nav">
-              <li class="sub-nav__item">
-                <a href="#!" class="sub-nav__link">Ноутбуки</a>
-              </li>
-              <li class="sub-nav__item">
-                <a href="#!" class="sub-nav__link">Смартфоны</a>
-              </li>
-              <li class="sub-nav__item">
-                <a href="#!" class="sub-nav__link">Часы</a>
-              </li>
+              <?php foreach ($category_shop as $category) : ?>
+                <li class="sub-nav__item">
+                  <a href="<?php echo HOST . 'shop/cat/' . $category['id']; ?>" class="sub-nav__link">
+                    <?php echo $category['title'];?>
+                  </a>
+                </li>
+              <?php endforeach; ?>
             </ul>
           </div>
         </li>

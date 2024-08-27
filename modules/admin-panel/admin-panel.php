@@ -10,3 +10,6 @@ $ordersDisplayLimit = 99;
 // Комментарии
 $commentsNewCounter = R::count('comments', ' status = ?', ['new']);
 $commentsDisplayLimit = 99; 
+
+// Категории товаров
+$category_shop = R::find('categories_shop');
