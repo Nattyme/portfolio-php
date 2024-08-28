@@ -22,13 +22,16 @@
       </label>
     </div>
     <div class="admin-form__item">
-      <label class="input__label">
-        Марка товара 
-        <input name="brand" 
-               class="input input--width-label" 
-               type="text" 
-               value="<?php echo $product['brand']; ?>"
-        />
+      <label class="select-label">
+        Выберите марку товара
+        <select class="select" name="brand">
+          <?php foreach ($brands as $brand) : ?>
+            <option 
+              <?php echo $product['brand'] === $brand['id']  ? 'selected' : '';?>
+              value="<?php echo $brand['id'];?>"><?php echo $brand['title'];?>
+            </option>
+          <?php endforeach; ?>
+        </select>
       </label>
     </div>
     <div class="admin-form__item">
@@ -41,18 +44,18 @@
         />
       </label>
     </div>
-    <!-- <div class="admin-form__item">
+    <div class="admin-form__item">
       <label class="select-label">Выберите категорию 
         <select class="select" name="cat">
-          <?php /* foreach ($cats as $cat) : ?>
+          <?php foreach ($cats as $cat) : ?>
             <option 
-              <?php echo $post['cat'] == $cat['id'] ? 'selected' : '';?> 
+              <?php echo $product['cat'] == $cat['id'] ? 'selected' : '';?> 
               value=<?php echo $cat['id'];?>><?php echo $cat['title'];?>
             </option>
-          <?php endforeach; */ ?>
+          <?php endforeach; ?>
         </select>
       </label>
-    </div> -->
+    </div>
     <div class="admin-form__item">
       <label class="textarea__label mb-15" name="editor">
         Описание товара 

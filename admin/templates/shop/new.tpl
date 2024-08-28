@@ -16,9 +16,13 @@
       </label>
     </div>
     <div class="admin-form__item">
-      <label class="input__label">
-        Введите марку товара
-        <input name="brand" class="input input--width-label" type="text"/>
+      <label class="select-label">
+        Выберите марку товара
+        <select class="select" name="brand">
+          <?php foreach ($brands as $brand) : ?>
+            <option value="<?php echo $brand['id'];?>"><?php echo $brand['title'];?></option>
+          <?php endforeach; ?>
+        </select>
       </label>
     </div>
     <div class="admin-form__item">
