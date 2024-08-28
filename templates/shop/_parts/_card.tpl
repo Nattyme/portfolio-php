@@ -5,9 +5,10 @@
       <?php echo $product['cat_title'];?>
     </a>
   <?php endif; ?>
-  <?php if (!empty($product['brand'])) : ?>
-    <a href="<?php echo HOST . "shop/cat/" . $product['cat'];?>" class="badge badge--light  badge--link">
-      <?php echo $product['brand'];?>
+
+  <?php if (!empty($product['brand_title'])) : ?>
+    <a href="<?php echo HOST . "shop/cat/" . $product['cat'];?>" class="badge badge--light badge--link">
+      <?php echo $product['brand_title'];?>
     </a>
   <?php endif; ?>
   </div>

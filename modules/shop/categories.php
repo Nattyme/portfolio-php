@@ -8,17 +8,26 @@ $productsDB = R::findLike('products', ['cat' => [$uriGetParam]], 'ORDER BY id DE
 $products = array();
 foreach ($productsDB as $current_product) {
   $categories = R::find('categories_shop'); 
+  $brands = R::find('brands');
+
   $product['id'] = $current_product->id;
   $product['title'] = $current_product->title;
   $product['cat'] = $current_product->cat;
+  $product['brand'] = $current_product->brand;
   $product['cover_small'] = $current_product->cover_small;
   $product['price'] =$current_product->price;
   if ($current_product['cat'] === $categories[$current_product['cat']]['id']) {
     $current_product['cat'] = $categories[$current_product['cat']]['title'];
   }
+
+  if ($current_product['brand'] === $brands[$current_product['brand']]['id']) {
+    $current_product['brand'] = $brands[$current_product['brand']]['title'];
+  }
   $product['cat_title'] = $current_product['cat'];
+  $product['brand_title'] = $current_product['brand'];
   $products [] = $product;
 }
+
 
 // Подключение шаблонов страницы
 include ROOT . "templates/page-parts/_head.tpl";
