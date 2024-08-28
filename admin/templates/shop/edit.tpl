@@ -23,6 +23,16 @@
     </div>
     <div class="admin-form__item">
       <label class="input__label">
+        Марка товара 
+        <input name="brand" 
+               class="input input--width-label" 
+               type="text" 
+               value="<?php echo $product['brand']; ?>"
+        />
+      </label>
+    </div>
+    <div class="admin-form__item">
+      <label class="input__label">
         Цена товара 
         <input name="price" 
                class="input input--width-label" 

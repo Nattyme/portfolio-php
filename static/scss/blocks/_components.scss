@@ -2,6 +2,10 @@
   transition: all 0.2s ease-in;
 }
 
+.badge--light {
+  background-color: #7e9bbd;
+}
+
 .badge--link:hover {
   text-decoration: none;
   color: #fff;

@@ -1,9 +1,16 @@
 <div class="card-product">
+  <div class="badges">
   <?php if (!empty($product['cat'])) : ?>
     <a href="<?php echo HOST . "shop/cat/" . $product['cat'];?>" class="badge badge--light badge--link">
       <?php echo $product['cat_title'];?>
     </a>
   <?php endif; ?>
+  <?php if (!empty($product['brand'])) : ?>
+    <a href="<?php echo HOST . "shop/cat/" . $product['cat'];?>" class="badge badge--link">
+      <?php echo $product['brand'];?>
+    </a>
+  <?php endif; ?>
+  </div>
 
   <div class="card-product__img">
     <img src=<?php echo HOST . 'usercontent/products/' . $product['cover_small'];?> 

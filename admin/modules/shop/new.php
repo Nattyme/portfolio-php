@@ -18,6 +18,7 @@ if( isset($_POST['submit']) ) {
   if ( empty($_SESSION['errors']) ) {
     $product = R::dispense('products');
     $product->title = $_POST['title'];
+    $product->brand = $_POST['brand'];
     $product->price = $_POST['price'];
     $product->content = $_POST['content'];
     $product->cat = $_POST['cat'];

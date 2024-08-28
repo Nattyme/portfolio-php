@@ -21,6 +21,7 @@ if( isset($_POST['submit'])) {
   if ( empty($_SESSION['errors'])) {
     $product = R::load('products', $_GET['id']);
     $product->title = $_POST['title'];
+    $product->brand = $_POST['brand'];
     $product->price = $_POST['price'];
     $product->content = $_POST['content'];
     $product->editTime = time();

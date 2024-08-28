@@ -1,0 +1,25 @@
+.post-about-skills ul {
+  padding: 0;
+  padding-left: 15px;
+  list-style: none;
+  font-family: 'Playfair Display', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+.post-about-skills li {
+position: relative;
+margin-bottom: 5px;
+}
+
+.post-about-skills li::before {
+content: "";
+position: absolute;
+top: 14px;
+left: -14px;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background-color: #000000;
+}

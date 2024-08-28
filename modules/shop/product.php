@@ -3,7 +3,7 @@ require_once ROOT . "./libs/functions.php";
 // Показываем отдельную страницу товара
 $sqlQuery = 'SELECT
                 products.id, products.title, products.content, products.cover, products.timestamp, 
-                products.edit_time, products.cat, products.price,
+                products.brand, products.edit_time, products.cat, products.price,
                 categories_shop.title AS cat_title
              FROM `products`
              LEFT JOIN `categories_shop` ON products.cat = categories_shop.id

@@ -7,6 +7,7 @@ foreach ($productsDB as $current_product) {
   $categories = R::find('categories_shop'); 
   $product['id'] = $current_product->id;
   $product['title'] = $current_product->title;
+  $product['brand'] = $current_product->brand;
   $product['cat'] = $current_product->cat;
   $product['cover_small'] = $current_product->cover_small;
   $product['price'] =$current_product->price;
