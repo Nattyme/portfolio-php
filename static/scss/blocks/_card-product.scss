@@ -8,6 +8,8 @@
   -webkit-box-shadow: 0px 10px 40px rgba(126, 155, 189, 0.3);
   box-shadow: 0px 10px 40px rgba(126, 155, 189, 0.3);
   cursor: pointer;
+
+  transition: box-shadow 0.2s ease-in-out;
 }
 
 .card-product__img img {
@@ -42,6 +44,7 @@
 
 .card-product:hover {
   text-decoration: none;
+  box-shadow: 0px 10px 20px 0px #7e9bbd;
 }
 
 .card-product-row {

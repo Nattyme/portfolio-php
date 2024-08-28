@@ -7332,6 +7332,7 @@ a.logo-link:hover {
   background-color: #ffffff;
   box-shadow: 0px 10px 40px rgba(126, 155, 189, 0.3);
   cursor: pointer;
+  transition: box-shadow 0.2s ease-in-out;
 }
 
 .card-product__img img {
@@ -7364,6 +7365,7 @@ a.logo-link:hover {
 
 .card-product:hover {
   text-decoration: none;
+  box-shadow: 0px 10px 20px 0px #7e9bbd;
 }
 
 .card-product-row {
@@ -7981,7 +7983,6 @@ a.logo-link:hover {
 
 .sub-nav {
   display: grid;
-  padding: 10px 15px;
   background-color: #fff;
   font-size: 16px;
   transition: color 0.1s ease-in;
@@ -7993,8 +7994,7 @@ a.logo-link:hover {
 
 .sub-nav__link {
   display: flex;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 15px 20px;
   color: #7e9bbd;
 }
 .sub-nav__link:hover {
@@ -8007,15 +8007,14 @@ a.logo-link:hover {
   width: 140px;
   pointer-events: none;
   position: absolute;
+  z-index: 99;
   left: 100%;
   top: 0;
-  transform: translate(-10%, 0%);
+  transform: translate(-20%, 0%);
   transition: all 0.2s ease-in;
 }
 
 .sub-nav-inner {
-  padding: 10px 15px;
-  margin-top: -10px;
   margin-bottom: -10px;
   display: grid;
   background-color: #fff;
@@ -8023,16 +8022,16 @@ a.logo-link:hover {
   transition: color 0.1s ease-in;
 }
 
-.sub-nav__item:hover .sub-nav__dropdown-menu {
+.sub-nav__item:hover .sub-nav__dropdown-menu,
+.sub-nav__dropdown-menu:hover .sub-nav__dropdown-menu {
   pointer-events: all;
   opacity: 1;
-  transform: translate(10%, 0%);
+  transform: translate(0%, 0%);
 }
 
 .sub-nav-inner__link {
   display: flex;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 15px 15px 15px 30px;
   color: #7e9bbd;
 }
 .sub-nav-inner__link:hover {

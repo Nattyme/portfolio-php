@@ -1,6 +1,6 @@
-<?php foreach ($category_post as $category) : ?>
+<?php foreach ($category_shop as $category) : ?>
   <li class="sub-nav__item">
-    <a href="<?php echo HOST . 'blog/cat/' . $category['id']; ?>" class="sub-nav__link">
+    <a href="<?php echo HOST . 'shop/cat/' . $category['id']; ?>" class="sub-nav__link">
       <?php echo $category['title'];?>
     </a>
     <div class="sub-nav__dropdown-menu">
