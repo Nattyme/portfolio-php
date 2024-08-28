@@ -1,5 +1,7 @@
 <?php
 $cats = R::find('categories_shop', 'ORDER BY title ASC'); 
+$brands = R::find('brands', 'ORDER BY title ASC'); 
+
 if( isset($_POST['submit']) ) {
   // Проверка на заполненность названия
   if( trim($_POST['title']) == '' ) {
