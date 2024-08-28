@@ -50,6 +50,10 @@
   transition: color 0.1s ease-in;
 }
 
+.sub-nav__item {
+  position: relative;
+}
+
 .sub-nav__link {
   display: flex;
   padding-top: 10px;

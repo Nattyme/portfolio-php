@@ -22,13 +22,7 @@
           </a>
           <div class="nav__list-item__sub-nav">
             <ul class="sub-nav">
-              <?php foreach ($category_post as $category) : ?>
-                <li class="sub-nav__item">
-                  <a href="<?php echo HOST . 'blog/cat/' . $category['id']; ?>" class="sub-nav__link">
-                    <?php echo $category['title'];?>
-                  </a>
-                </li>
-              <?php endforeach; ?>
+              <?php include ROOT . "templates/_parts/sub-nav/_blog.tpl"; ?>
             </ul>
           </div>
         </li>
@@ -41,13 +35,7 @@
           </a>
           <div class="nav__list-item__sub-nav">
             <ul class="sub-nav">
-              <?php foreach ($category_shop as $category) : ?>
-                <li class="sub-nav__item">
-                  <a href="<?php echo HOST . 'shop/cat/' . $category['id']; ?>" class="sub-nav__link">
-                    <?php echo $category['title'];?>
-                  </a>
-                </li>
-              <?php endforeach; ?>
+              <?php include ROOT . "templates/_parts/sub-nav/_shop.tpl"; ?>
             </ul>
           </div>
         </li>

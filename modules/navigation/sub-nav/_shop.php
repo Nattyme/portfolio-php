@@ -16,3 +16,6 @@ foreach ($category_shopDB as $category) {
     $category_shop[] = ['id' => $categoryCurrent['cat'], 'title' => $categoryCurrent['title']];
   }
 }
+
+
+// Бренды, отображающиеся в выпадающем списке у каждой категории
