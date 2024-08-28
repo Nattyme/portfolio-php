@@ -1,6 +1,6 @@
 <?php
 //Запрос брендов в БД с сортировкой id по убыванию
-$cats = R::find('brands', 'ORDER BY id DESC'); 
+$brands = R::find('brands', 'ORDER BY id DESC'); 
 
 $pageTitle = "Бренды - все записи";
 

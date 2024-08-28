@@ -1,11 +1,11 @@
 <?php
-$cat = R::load('brands', $_GET['id']); 
+$brand = R::load('brands', $_GET['id']); 
 
 if ( isset($_POST['submit']) ) {
   R::trash($brand); 
   
   $_SESSION['success'][] = ['title' => 'Бренд был успешно удален.'];
-  header('Location: ' . HOST . 'admin/brands');
+  header('Location: ' . HOST . 'admin/brand');
   exit();
 }
 

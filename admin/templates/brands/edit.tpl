@@ -3,9 +3,9 @@
   <?php include ROOT . "admin/templates/components/errors.tpl"; ?>
   <?php include ROOT . "admin/templates/components/success.tpl"; ?>
 
-  <form class="admin-form" method="POST" action="<?php echo HOST;?>admin/category-edit?id=<?php echo $cat['id']; ?>">
+  <form class="admin-form" method="POST" action="<?php echo HOST;?>admin/brand-edit?id=<?php echo $brand['id']; ?>">
     <div class="admin-form__item">
-      <h2 class="heading">Редактировать категорию</h2>
+      <h2 class="heading">Редактировать бренд</h2>
     </div>
     <div class="admin-form__item">
       <label class="input__label">
@@ -14,8 +14,8 @@
           name="title" 
           class="input input--width-label" 
           type="text" 
-          placeholder="Заголовок категории" 
-          value="<?php echo $cat['title'];?>"
+          placeholder="Заголовок бренда" 
+          value="<?php echo $brand['title'];?>"
         />
       </label>
     </div>
@@ -24,7 +24,7 @@
       <button name="submit" value="submit" class="primary-button" type="submit">
         Сохранить изменения
       </button>
-      <a class="secondary-button" href="<?php echo HOST;?>admin/category">Отмена</a>
+      <a class="secondary-button" href="<?php echo HOST;?>admin/brand">Отмена</a>
     </div>
   </form>
 </div>

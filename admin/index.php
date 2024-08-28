@@ -56,6 +56,22 @@ switch ($uriModule) {
   case 'category-delete':
     require ROOT . "admin/modules/categories/delete.php";
     break;
+    // ::::::::::::: BRANDS :::::::::::::::::::
+  case 'brand':
+    require ROOT . "admin/modules/brands/all.php";
+    break;
+
+  case 'brand-new':
+    require ROOT . "admin/modules/brands/new.php";
+    break;
+
+  case 'brand-edit':
+    require ROOT . "admin/modules/brands/edit.php";
+    break;
+
+  case 'brand-delete':
+    require ROOT . "admin/modules/brands/delete.php";
+    break;
   // ::::::::::::: PORTFOLIO :::::::::::::::::::
   case 'portfolio':
     require ROOT . "admin/modules/portfolio/all.php";

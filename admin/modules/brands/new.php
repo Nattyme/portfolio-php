@@ -12,7 +12,7 @@ if( isset($_POST['submit']) ) {
     R::store($brand);
 
     $_SESSION['success'][] = ['title' => 'Бренд был успешно создан'];
-    header('Location: ' . HOST . 'admin/brands');
+    header('Location: ' . HOST . 'admin/brand');
     exit();
   }
 }

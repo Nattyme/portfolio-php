@@ -25,5 +25,21 @@
         Товары на редактировании
       </a>
     </li>
+    <li class="control-panel__list-item">
+      <a class="control-panel__list-link control-panel__inner-link" href="<?php echo HOST;?>admin/brand" title="Перейти на страницу редактирования брендов товаров">
+        <div class="control-panel__list-img-wrapper">
+          <img class="control-panel__list-img" src="<?php echo HOST;?>static/img/control-panel/corner.svg" alt="icon" />
+        </div>
+        Бренды товаров
+      </a>
+    </li>
+    <li class="control-panel__list-item">
+      <a class="control-panel__list-link control-panel__inner-link" href="<?php echo HOST;?>admin/category-shop" title="Перейти на страницу редактирования категорий товаров">
+        <div class="control-panel__list-img-wrapper">
+          <img class="control-panel__list-img" src="<?php echo HOST;?>static/img/control-panel/corner.svg" alt="icon" />
+        </div>
+        Категории товаров
+      </a>
+    </li>
   </ul>
 </li>
