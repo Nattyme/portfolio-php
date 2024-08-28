@@ -89,6 +89,8 @@ switch ($uriModule) {
   case 'shop':
     if ( isset($uriGet) && $uriGet === 'cat' && !empty($uriGetParam) ) {
       require ROOT . 'modules/shop/categories.php';
+    } else if ( isset($uriGet) && $uriGet === 'brand' && !empty($uriGetParam) ) {
+      require ROOT . 'modules/shop/brands.php';
     } else if ( isset($uriGet) ) {
       require ROOT . 'modules/shop/product.php';
     } else {
