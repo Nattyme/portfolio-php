@@ -10,10 +10,6 @@
   cursor: pointer;
 }
 
-.card-product:hover {
-  text-decoration: none;
-}
-
 .card-product__img img {
   margin-bottom: 20px;
   width: 290px;
@@ -41,7 +37,11 @@
 .card-product__title:hover {
   color: #000000;
   -webkit-text-decoration: solid;
-          text-decoration: solid;
+  text-decoration: solid;
+}
+
+.card-product:hover {
+  text-decoration: none;
 }
 
 .card-product-row {
@@ -91,6 +91,17 @@
   display: flex;
   column-gap: 20px;
   justify-content: space-between;
+}
+
+.card-product .badges .badge:not(.badge--light) {
+  opacity: 0;
+  transform: translateX(-10%);
+  transition: all 0.3s ease-in;
+}
+
+.card-product:hover .badges .badge:not(.badge--light) {
+  opacity: 1;
+  transform: translateX(0%);
 }
 
 .card-product__button .watch-button  {
