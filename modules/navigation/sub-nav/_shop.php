@@ -1,21 +1,14 @@
 <?php
 // Категории товаров, отображающиеся в выпадающем меню "Магазин"
-$category_shopDB = R::find('categories_shop');
+$sqlQueryCatDB = 'SELECT 
+                  DISTINCT c.id, c.title 
+                  FROM `categories_shop` AS c
+                  INNER JOIN `products` AS p
+                  ON c.id = p.cat';
 
-$sqlQuery = 'SELECT
-                categories_shop.id, categories_shop.title,
-                products.cat
-             FROM `categories_shop`
-             LEFT JOIN `products` ON categories_shop.id = products.cat
-             WHERE categories_shop.id = ? LIMIT 1';
+$category_shop = R::getAll($sqlQueryCatDB);
+// $cats_brands = R::getAll($sqlQueryCatDB, [3]);
 
-$category_shop = array();
-foreach ($category_shopDB as $category) {
-  $categoryCurrent = R::getRow($sqlQuery, [$category['id']]);
-  if (!empty($categoryCurrent['cat'])) {
-    $category_shop[] = ['id' => $categoryCurrent['cat'], 'title' => $categoryCurrent['title']];
-  }
-}
 
 
 // Бренды, отображающиеся в выпадающем списке у каждой категории

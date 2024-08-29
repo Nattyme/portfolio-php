@@ -1,4 +1,18 @@
 <?php 
+// $sqlQuery = 'SELECT
+//                      p.id as product_id, p.cat, p.title as product_title,
+//                      c.id as cat_id, c.title as cat_title,
+//                      b.id as brand_id, b.title as brand_title
+//               FROM `categories_shop` AS c
+//               INNER JOIN `products` AS p
+//               ON c.id = p.cat
+//               INNER JOIN `brands` AS b
+//               ON p.brand = b.id';
+// $productsDB = R::getAll($sqlQuery);
+// $pagination = pagination(6, $productsDB);
+// $products = R::getAll($sqlQuery . 'ORDER BY id DESC' . $pagination['sql_page_limit']);
+
+
 $pagination = pagination(6, 'products');
 $productsDB = R::find('products', 'ORDER BY id DESC ' . $pagination['sql_page_limit']);
 
