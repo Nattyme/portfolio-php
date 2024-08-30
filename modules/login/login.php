@@ -32,7 +32,7 @@ if( isset($_POST['login']) ) {
         $_SESSION['role'] = $user->role;
 
         $_SESSION['cart'] = json_decode($_SESSION['logged_user']['cart'], true);
-
+        $_SESSION['fav_list'] = json_decode($_SESSION['logged_user']['fav_list'], true);
         // Работа с корзиной
         // Действия:
         // 1. Достать корзину из БД
@@ -41,7 +41,10 @@ if( isset($_POST['login']) ) {
         // 4. Сохранить полученную корзину в сессию
         // 5. Очистить корзину COOKIE
         $temp_cart = array();
+        $temp_fav_list = array();
+
         if ($user->cart) { $temp_cart = json_decode($user->cart, true); }
+        if ($user->fav_list) { $temp_fav_list = json_decode($user->fav_list, true); }
 
         // Если есть корзина COOKIE, то переносим ее данные в БД $temp_cart 
         if ( isset($_COOKIE['cart']) && !empty($_COOKIE['cart']) ) {
@@ -56,17 +59,36 @@ if( isset($_POST['login']) ) {
           }
         }
 
+        // Если есть избранное в  COOKIE, то переносим эти данные в БД $temp_fav_list 
+        if ( isset($_COOKIE['fav_list']) && !empty($_COOKIE['fav_list']) ) {
+          $cookie_fav_list = json_decode($_COOKIE['fav_list'], true);
+
+          foreach ( $cookie_fav_list as $key => $value) {
+            if ( isset($temp_fav_list[$key]) ) {
+              $temp_fav_list[$key] += $value;
+            } else {
+              $temp_fav_list[$key] = $value;
+            }
+          }
+        }
+
         // Очищаем корзину в COOKIE
-        setcookie('cart', '', time() - 3600);
+        setcookie('fav_list', '', time() - 3600);
 
         // Сохраняем корзину в БД - JSON
         $user->cart = json_encode($temp_cart);
+
+        // Сохраняем избранное в БД - JSON
+        $user->fav_list = json_encode($temp_fav_list);
 
         // Обновляем пользователя в БД
         R::store($user);
 
         // Обновляем корзину в сессии
         $_SESSION['cart'] = $temp_cart;
+
+        // Обновляем избранное в сессии
+        $_SESSION['fav_list'] = $temp_fav_list;
         
         $_SESSION['success'][] = ['title' => 'Вы успешно вошли на сайт. Рады снова видеть вас'];
 

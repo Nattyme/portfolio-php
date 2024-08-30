@@ -460,13 +460,19 @@ function format_price ($price) {
 
 function isFav_list ($productId) {
   $result = false;
-  if (isset($_COOKIE['fav_list'])) {
+  if (isset($_COOKIE['fav_list']) && !empty($_COOKIE['fav_list'])) {
     // Получаем избранные товары из COOKIE
     $fav_list = json_decode($_COOKIE['fav_list'], true);
     if (isset($fav_list[$productId])) {
       $result = true;
     }
-  } 
+  } else if (isset($_SESSION['fav_list']) && !empty($_SESSION['fav_list'])) {
+    // Получаем избранные товары из сессии
+    $fav_list = $_SESSION['fav_list'];
+    if (isset($fav_list[$productId])) {
+      $result = true;
+    }
+  }
   return $result;
 }
 

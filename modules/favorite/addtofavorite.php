@@ -1,36 +1,44 @@
 <?php
 
 // Ползователь выполнил вход в профиль
-// if ( isLoggedIn() ) {
-//   // Находим пользователя в БД по id
-//   $user = R::load('users', $_SESSION['logged_user']['id']);
+if ( isLoggedIn() ) {
+  // Находим пользователя в БД по id
+  $user = R::load('users', $_SESSION['logged_user']['id']);
 
-//   // Получаем корзину из БД
-//   $cart = json_decode($user->cart, true);
+  // Получаем избранное из БД
+  $fav_list  = json_decode($user->fav_list , true);
 
-//   // Добавляем товар в корзину
-//   if(isset( $cart[$_GET['id']] )) {
+  // Добавляем товар в избранное
+  if(isset( $fav_list[$_GET['id']] )) {
 
-//     // Если товар уже есть в корзине - увеличиваем кол-во на 1
-//     $cart[$_GET['id']] = $cart[$_GET['id']] + 1; 
-//   } else {
+  // Если товар уже есть в избранном - удаляем
+  unset($fav_list[$_GET['id']]);
 
-//     // Формируем корзину в ассоциативный массив
-//     $cart[$_GET['id']] = 1;
-//   }
+  // Превращаем избранное в json строку
+  $user->fav_list = json_encode($fav_list);
 
-//   // Превращаем корзину в json строку
-//   $user->cart = json_encode($cart);
+  // Обноваляем пользователя в БД
+  R::store($user);
 
-//   // Обновляем состояние корзины в сессии
-//   $_SESSION['cart'] = $cart;
+  // Обновляем состояние корзины в сессии
+  $_SESSION['fav_list'] = $fav_list;
 
-//   // Обноваляем пользователя в БД
-//   R::store($user);
+  } else {
 
-//   // Сообщение о добавлении товара
-//   $_SESSION['success'][] = ['title' => 'Товар добавлен в корзину.'];
-// }
+    // Формируем корзину в ассоциативный массив
+    $fav_list[$_GET['id']] = 1;
+  }
+
+  // Превращаем корзину в json строку
+  $user->fav_list = json_encode($fav_list);
+
+  // Обновляем состояние корзины в сессии
+  $_SESSION['fav_list'] = $fav_list;
+
+  // Обноваляем пользователя в БД
+  R::store($user);
+
+}
 
 // Пользователь НЕ вошел в профиль
 if ( !isLoggedIn() ) {

@@ -1,4 +1,5 @@
 <?php 
+
 // $sqlQuery = 'SELECT
 //                      p.id as product_id, p.cat, p.title as product_title,
 //                      c.id as cat_id, c.title as cat_title,
