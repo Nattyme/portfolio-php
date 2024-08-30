@@ -4,18 +4,18 @@
       <?php echo $category['title'];?>
     </a>
     <div class="sub-nav__dropdown-menu">
-      <ul class="sub-nav-inner">
-        <li class="sub-nav-inner__item">
-          <a href="<?php echo HOST . 'blog/cat/' . $category['id']; ?>" class="sub-nav-inner__link">
-            Бренд 1
-          </a>
-        </li>
-        <li class="sub-nav-inner__item">
-          <a href="<?php echo HOST . 'blog/cat/' . $category['id']; ?>" class="sub-nav-inner__link">
-            Бренд 2
-          </a>
-        </li>
-      </ul> 
+  
+      <ul class="sub-nav-inner"> 
+        <?php foreach ($brandsArray[$category['id']] as $brand) : ?>
+            <li class="sub-nav-inner__item">
+              <a href="<?php echo HOST . 'blog/cat/' . $category['id']; ?>" class="sub-nav-inner__link">
+                <?php echo $brand;?>
+              </a>
+            </li>
+          <?php endforeach; ?>
+       
+        </ul> 
+   
     </div>
   </li>
 <?php endforeach; ?>
