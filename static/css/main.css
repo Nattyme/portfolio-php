@@ -7254,7 +7254,7 @@ a.primary-button:focus {
   line-height: 1;
   transition: all 0.2s ease-in;
   display: inline-block;
-  background-color: #fff;
+  background-color: transparent;
   color: #000;
 }
 .button-favorite .icon-favorite {
@@ -7266,10 +7266,6 @@ a.primary-button:focus {
 .button-favorite .icon-favorite.active {
   fill: rgb(197, 19, 78);
   stroke: rgb(197, 19, 78);
-}
-.button-favorite:hover {
-  background-color: #fff;
-  color: #000;
 }
 .button-favorite:hover .icon-favorite {
   fill: rgb(197, 19, 78);
@@ -7690,6 +7686,11 @@ a.logo-link:hover {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.badges + .badges {
+  margin-top: 30px;
+  justify-content: flex-end;
 }
 
 .badge {

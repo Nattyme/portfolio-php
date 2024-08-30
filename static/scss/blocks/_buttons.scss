@@ -40,7 +40,7 @@
 
   display: inline-block;
 
-  background-color: #fff;
+  background-color: transparent;
   color: #000;
 
   .icon-favorite {
@@ -56,13 +56,10 @@
     stroke: rgb(197, 19, 78);
   }
   
-  &:hover {
-    background-color: #fff;
-    color: #000;
-    .icon-favorite {
-      fill: rgb(197, 19, 78);
-      stroke: rgb(197, 19, 78);
-    }
+  &:hover .icon-favorite {
+    fill: rgb(197, 19, 78);
+    stroke: rgb(197, 19, 78);
+    
   }
 }
 
