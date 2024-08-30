@@ -19,8 +19,51 @@
   color: #1647ed;
 }
 
+.primary-button {
+  display: inline-block;
+}
+
 .primary-button--red {
   background-color: #c93535;
+}
+
+.button-favorite {
+  border-radius: 6px;
+  
+  padding: 13px 20px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+
+  transition: all 0.2s ease-in;
+
+  display: inline-block;
+
+  background-color: #fff;
+  color: #000;
+
+  .icon-favorite {
+    fill: white;
+    stroke: #0C0C0C;
+    stroke-width: 2;
+
+    transition: all 0.2s ease-in;
+  }
+
+  .icon-favorite.active {
+    fill: rgb(197, 19, 78);
+    stroke: rgb(197, 19, 78);
+  }
+  
+  &:hover {
+    background-color: #fff;
+    color: #000;
+    .icon-favorite {
+      fill: rgb(197, 19, 78);
+      stroke: rgb(197, 19, 78);
+    }
+  }
 }
 
 .icon-delete {

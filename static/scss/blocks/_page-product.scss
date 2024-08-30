@@ -44,8 +44,10 @@
 }
 
 .page-product__button {
-  display: inline-block;
   margin-bottom: 53px;
+
+  display: flex;
+  column-gap: 10px;
 }
 
 .page-product__button:hover {
@@ -53,10 +55,6 @@
   text-decoration: none;
 }
 
-.page-product__button a:hover {
-  text-decoration: none;
-  color: #fff;
-}
 
 .page-product-text {
   font-family: "Playfair Display", serif;
