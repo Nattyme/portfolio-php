@@ -101,7 +101,7 @@
     <div class="admin-panel__block-list">
     </div>
     <div class="admin-panel__block-list">
-      <a href="<?php echo HOST;?>favorite" class="admin-panel__link"  title="Избранные товары">
+      <a href="<?php echo HOST;?>favorite" class="admin-panel__link" title="Избранные товары">
           Избранное
           <?php echo !empty($fav_listCount) ? '(' . $fav_listCount . ')' : NULL; ?>
       </a>

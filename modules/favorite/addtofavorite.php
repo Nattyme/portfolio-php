@@ -57,9 +57,6 @@ if ( !isLoggedIn() ) {
 
   // 4. Сохранение избранного в COOKIE
   setcookie('fav_list', json_encode($fav_list), time() + 60 * 60 * 24 * 30);
-
-  // 5. Сообщение о добавлении товара
-  $_SESSION['success'][] = ['title' => 'Товар добавлен в избранное.'];
 }
 
 

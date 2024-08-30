@@ -42,24 +42,24 @@
 
   background-color: transparent;
   color: #000;
+}
 
-  .icon-favorite {
-    fill: white;
-    stroke: #0C0C0C;
-    stroke-width: 2;
+.icon-favorite {
+  fill: white;
+  stroke: #0C0C0C;
+  stroke-width: 2;
 
-    transition: all 0.2s ease-in;
-  }
+  transition: all 0.2s ease-in;
+}
 
-  .icon-favorite.active {
-    fill: rgb(197, 19, 78);
-    stroke: transparent;
-  }
-  
-  &:hover .icon-favorite {
-    fill: rgb(197, 19, 78);
-    stroke: transparent;
-  }
+.button-favorite:hover .icon-favorite {
+  fill: rgb(197, 19, 78);
+  stroke: rgb(197, 19, 78);
+}
+
+.button-favorite.active .icon-favorite {
+  fill: rgb(197, 19, 78);
+  stroke: rgb(197, 19, 78);
 }
 
 .icon-delete {

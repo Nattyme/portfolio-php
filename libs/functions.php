@@ -458,6 +458,18 @@ function format_price ($price) {
   return number_format($price, 0, ',', ' ');
 }
 
+function isFav_list ($productId) {
+  $result = false;
+  if (isset($_COOKIE['fav_list'])) {
+    // Получаем избранные товары из COOKIE
+    $fav_list = json_decode($_COOKIE['fav_list'], true);
+    if (isset($fav_list[$productId])) {
+      $result = true;
+    }
+  } 
+  return $result;
+}
+
 
 
 

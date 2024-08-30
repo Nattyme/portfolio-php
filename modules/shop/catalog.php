@@ -12,7 +12,6 @@
 // $pagination = pagination(6, $productsDB);
 // $products = R::getAll($sqlQuery . 'ORDER BY id DESC' . $pagination['sql_page_limit']);
 
-
 $pagination = pagination(6, 'products');
 $productsDB = R::find('products', 'ORDER BY id DESC ' . $pagination['sql_page_limit']);
 

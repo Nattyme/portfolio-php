@@ -7257,19 +7257,22 @@ a.primary-button:focus {
   background-color: transparent;
   color: #000;
 }
-.button-favorite .icon-favorite {
+
+.icon-favorite {
   fill: white;
   stroke: #0C0C0C;
   stroke-width: 2;
   transition: all 0.2s ease-in;
 }
-.button-favorite .icon-favorite.active {
-  fill: rgb(197, 19, 78);
-  stroke: transparent;
-}
+
 .button-favorite:hover .icon-favorite {
   fill: rgb(197, 19, 78);
-  stroke: transparent;
+  stroke: rgb(197, 19, 78);
+}
+
+.button-favorite.active .icon-favorite {
+  fill: rgb(197, 19, 78);
+  stroke: rgb(197, 19, 78);
 }
 
 .icon-delete {

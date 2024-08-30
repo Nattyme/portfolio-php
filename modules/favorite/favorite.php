@@ -1,4 +1,5 @@
 <?php
+
 // Ползователь выполнил вход в профиль
 // if ( isLoggedIn() ) {
 //   // Находим пользователя в БД по id
@@ -55,9 +56,6 @@ if ( !isLoggedIn() ) {
 
   // 4. Сохранение избранного в COOKIE
   setcookie('fav_list', json_encode($fav_list), time() + 60 * 60 * 24 * 30);
-
-  // 5. Сообщение о добавлении товара
-  $_SESSION['success'][] = ['title' => 'Товар добавлен в избранное.'];
 }
 
 header('Location: ' . HOST . 'shop/' . $_GET['id']);
