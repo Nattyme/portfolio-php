@@ -8,7 +8,7 @@
       <ul class="sub-nav-inner"> 
         <?php foreach ($brandsArray[$category['id']] as $brand) : ?>
             <li class="sub-nav-inner__item">
-              <a href="<?php echo HOST . 'blog/cat/' . $category['id']; ?>" class="sub-nav-inner__link">
+              <a href="<?php echo HOST . 'shop/cat/' . $category['id'];?>" class="sub-nav-inner__link">
                 <?php echo $brand;?>
               </a>
             </li>

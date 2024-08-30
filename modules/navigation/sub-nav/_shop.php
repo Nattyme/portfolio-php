@@ -15,29 +15,31 @@ $sqlQueryBrandsDB = 'SELECT
                   INNER JOIN `products` AS p
                   ON c.id = p.cat
                   INNER JOIN `brands` AS b
-                  ON b.id = p.brand';
+                  ON b.id = p.brand
+                  ORDER BY p.brand ASC';
 $catsBrands = R::getAll($sqlQueryBrandsDB);
 $catsBrandsArray = array();
 
 foreach($catsBrands as $key => $value) {
- 
-  // $catBrands = $new[$value['cat_id']]['cat_brands'];
   if (!array_key_exists($value['cat_id'], $catsBrandsArray)) {
-    $catsBrandsArray[$value['cat_id']] = ['cat_title' => $value['cat_title']];
-    $catsBrandsArray[$value['cat_id']]['cat_brands'] = [$value['brand_title']];
+    $catsBrandsArray[$value['cat_id']] = ['cat_title' => $value['cat_title'], 'cat_brands' => [$value['brand_id'] => $value['brand_title']]];
   } else {
     if (!in_array($value['brand_title'], $catsBrandsArray[$value['cat_id']]['cat_brands'])) {
-      array_push($catsBrandsArray[$value['cat_id']]['cat_brands'], $value['brand_title']);
+      // $catsBrandsArray[$value['cat_id']]['cat_brands'] = array_merge($catsBrandsArray[$value['cat_id']]['cat_brands'], [$value['brand_id'] => $value['brand_title']]);
+      $catsBrandsArray[$value['cat_id']]['cat_brands'][$value['brand_id']] = $value['brand_title'];
     }
   }
+
 }
-// print_r($catsBrandsArray);
-// die();
+
+
 $brandsArray = array();
 
 foreach($catsBrandsArray as $key => $value) {
   $brandsArray[$key] = $value['cat_brands'];
 }
+
+
 
 
 
