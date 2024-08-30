@@ -7,7 +7,7 @@
   <?php endif; ?>
 
   <?php if (!empty($product['brand_title'])) : ?>
-    <a href="<?php echo HOST . 'shop/cat/' . $product['brand'];?>" class="badge badge--light badge--link">
+    <a href="<?php echo HOST . 'shop/brand/' . $product['brand'];?>" class="badge badge--light badge--link">
       <?php echo $product['brand_title'];?>
     </a>
   <?php endif; ?>

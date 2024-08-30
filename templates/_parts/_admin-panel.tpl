@@ -101,10 +101,15 @@
     <div class="admin-panel__block-list">
     </div>
     <div class="admin-panel__block-list">
+      <a href="<?php echo HOST;?>favorite" class="admin-panel__link"  title="Избранные товары">
+          Избранное
+          <?php echo !empty($fav_listCount) ? '(' . $fav_listCount . ')' : NULL; ?>
+      </a>
       <a href="<?php echo HOST; ?>cart" class="admin-panel__link" title="Перейти в корзину">
         Корзина 
         <?php echo !empty($cartCount) ? '(' . $cartCount . ')' : NULL; ?>
       </a>
+     
       <a href="<?php echo HOST; ?>login" class="admin-panel__block-button" title="Выйти из текущего профиля">Вход</a>
     </div>
 

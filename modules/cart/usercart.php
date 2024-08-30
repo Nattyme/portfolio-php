@@ -1,13 +1,13 @@
 <?php
-// Определяем корзину
-$cart = array();
-if ( isLoggedIn() && isset($_SESSION['cart'])) {
-  $cart = $_SESSION['cart'];
-} else if ( isset($_COOKIE['cart']) && !empty($_COOKIE['cart']) ) {
-  $cart = json_decode($_COOKIE['cart'], true);
+// Определяем избранное
+$fav_list = array();
+if ( isLoggedIn() && isset($_SESSION['fav_list'])) {
+  // $cart = $_SESSION['cart'];
+} else if ( isset($_COOKIE['fav_list']) && !empty($_COOKIE['fav_list']) ) {
+  $fav_list = json_decode($_COOKIE['fav_list'], true);
 }
 
-// Определяем счетчик товаров в корзине
-$cartCount = array_sum($cart);
+// Определяем счетчик товаров в избранном
+$fav_listCount = array_sum($fav_list);
 
 

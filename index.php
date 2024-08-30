@@ -124,6 +124,15 @@ switch ($uriModule) {
   case 'orderselectpayment':
     require ROOT . 'modules/orders/selectpayment.php';
     break;
+  
+  // ::::::::::::: FAVORITE :::::::::::::::::::
+  case 'favorite':
+    require ROOT . 'modules/favorite/favorite.php';
+    break;
+
+  case 'addtofavorite':
+    require ROOT . 'modules/favorite/addtofavorite.php';
+    break;
 
   default: 
     require ROOT . 'modules/main/index.php';

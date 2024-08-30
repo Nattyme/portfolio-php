@@ -27,8 +27,6 @@ foreach ($productsDB as $current_product) {
   $product['brand_title'] = $current_product['brand'];
   $products [] = $product;
 }
-print_r($products);
-die();
 
 // Подключение шаблонов страницы
 include ROOT . "templates/page-parts/_head.tpl";

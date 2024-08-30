@@ -53,13 +53,12 @@
 
   .icon-favorite.active {
     fill: rgb(197, 19, 78);
-    stroke: rgb(197, 19, 78);
+    stroke: transparent;
   }
   
   &:hover .icon-favorite {
     fill: rgb(197, 19, 78);
-    stroke: rgb(197, 19, 78);
-    
+    stroke: transparent;
   }
 }
 
