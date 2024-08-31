@@ -216,3 +216,9 @@
   /* or 36px */
   text-align: center;
 }
+
+.page-shopping-cart__buttons {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}

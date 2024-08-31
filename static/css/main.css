@@ -7679,6 +7679,13 @@ a.logo-link:hover {
   text-align: center;
 }
 
+.page-shopping-cart__buttons {
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  align-items: center;
+}
+
 .comment__date {
   flex-shrink: 0;
 }
