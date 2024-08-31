@@ -10,17 +10,15 @@
     <div class="page-blog__posts">
 
       <?php foreach($posts as $post) : ?>
-        <div class="card-post">
+        <a href="<?php echo HOST . "blog/{$post['id']}"?>" class="card-post">
           <div class="card-post__img">
-            <a href="<?php echo HOST . "blog/{$post['id']}"?>">
-              <img src="<?php echo HOST;?>usercontent/blog/<?php echo empty($post['coverSmall']) ? "290-no-photo.jpg" : $post['coverSmall'];?>" 
-                   alt="<?php echo $post['title'];?>"/>
-            </a>
+            <img src="<?php echo HOST;?>usercontent/blog/<?php echo empty($post['coverSmall']) ? "290-no-photo.jpg" : $post['coverSmall'];?>" 
+                  alt="<?php echo $post['title'];?>"/>
           </div>
           <h4 class="card-post__title">
-            <a href="<?php echo HOST . "blog/{$post['id']}"?>"><?php echo $post['title'];?></a>
+            <?php echo $post['title'];?>
           </h4>
-        </div>
+        </a>
       <?php endforeach; ?>
 
     </div>

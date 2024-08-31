@@ -88,11 +88,15 @@
   border-radius: 50%;
   background-color: #7e9bbd;
   
-  transition: transform 0.2s ease-in;
+  transition: all 0.2s ease-in;
 
   svg {
     width: 25px;
     height: 25px;
     fill: #fff;
+  }
+
+  &:hover {
+    background-color: rgb(255, 115, 0);
   }
 }
