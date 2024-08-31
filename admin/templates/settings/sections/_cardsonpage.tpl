@@ -25,43 +25,26 @@
     <div class="tab__content" data-control="tab-content">
       <div class="tab__block active" data-control="tab-block">
         <label class="input__label">
-          <input name="card_shop" class="input input--width-label" type="text" placeholder="Введите количество продуктов на странице магазина" value="" />
+          <input name="card_on_page_shop" class="input input--width-label" type="text" 
+                 placeholder="Введите количество продуктов на странице магазина" value="<?php echo $settings['card_on_page_shop'];?>" />
         </label>
       </div>
 
       <div class="tab__block" data-control="tab-block">
         <label class="input__label">
-            <input name="card_blog" class="input input--width-label" type="text" placeholder="Введите количество постов на странице блога" value="" />
+            <input name="card_on_page_blog" class="input input--width-label" type="text" 
+                   placeholder="Введите количество постов на странице блога" value="<?php echo $settings['card_on_page_blog'];?>" />
         </label>
       </div>
 
       <div class="tab__block" data-control="tab-block">
         <label class="input__label">
-          <input name="card_portfolio" class="input input--width-label" type="text" placeholder="Введите количество проектов на странице в портфолио" value="" />
+          <input name="card_on_page_portfolio" class="input input--width-label" type="text" 
+                 placeholder="Введите количество проектов на странице в портфолио" value="<?php echo $settings['card_on_page_portfolio'];?>" />
         </label>
       </div>
 
-      <div class="tab__block" data-control="tab-block">
-        <label class="input__label">
-          <input name="vkontakte" class="input input--width-label" type="text" placeholder="Введите ссылку на профиль vkontakte" value="<?= $settings['vkontakte'] ?>" />
-        </label>
-      </div>
-
-      <div class="tab__block" data-control="tab-block">
-        <label class="input__label">
-          <input name="linkedin" class="input input--width-label" type="text" placeholder="Введите ссылку на профиль linkedin" value="<?= $settings['linkedin'] ?>" />
-        </label>
-      </div>
-      
-      <div class="tab__block" data-control="tab-block">
-        <label class="input__label">
-          <input name="github" class="input input--width-label" type="text" placeholder="Введите ссылку на профиль github" value="<?= $settings['github'] ?>" />
-        </label>
-      </div>
     </div>
   </div>
   <!--// Блоки с контентом -->
 </div>
-
-
-

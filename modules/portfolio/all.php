@@ -1,5 +1,5 @@
 <?php 
-$pagination = pagination(6, 'portfolio');
+$pagination = pagination($settings['card_on_page_portfolio'], 'portfolio');
 $projects = R::find('portfolio', "ORDER BY id DESC {$pagination['sql_page_limit']}");
 
 $pageTitle = "Портфолио - все записи";

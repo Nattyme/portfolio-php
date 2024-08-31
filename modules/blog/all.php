@@ -1,5 +1,5 @@
 <?php 
-$pagination = pagination(6, 'posts');
+$pagination = pagination($settings['card_on_page_blog'], 'posts');
 
 // Делаем запрос в БД для получения постов
 $posts = R::find('posts', "ORDER BY id DESC {$pagination['sql_page_limit']}");

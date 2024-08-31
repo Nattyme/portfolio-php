@@ -10,6 +10,21 @@ if ( isset($_POST['submit'])) {
     $_SESSION['errors'][] = ['title' => 'Заполните поле "Копирайт первая строка'];
   } 
 
+  // Проверка на заполненность кол-ва карточек в магазине
+  if( trim($_POST['card_on_page_shop']) == '' ||  $_POST['card_on_page_shop'] <= 0) {
+    $_SESSION['errors'][] = ['title' => 'Количество товаров в магазине должно быть больше "0" '];
+  } 
+
+   // Проверка на заполненность кол-ва постов в блоге
+  if( trim($_POST['card_on_page_blog']) == '' ||  $_POST['card_on_page_blog'] <= 0) {
+    $_SESSION['errors'][] = ['title' => 'Количество постов в блоге должно быть больше "0" '];
+  } 
+
+  // Проверка на заполненность кол-ва проектов в портфолио
+  if( trim($_POST['card_on_page_portfolio']) == '' ||  $_POST['card_on_page_portfolio'] <= 0) {
+    $_SESSION['errors'][] = ['title' => 'Количество проектов в портфолио должно быть больше "0" '];
+  } 
+
   // Если нет ошибок
   if ( empty($_SESSION['errors'])) {
     function trimElement ($item) {
@@ -36,6 +51,10 @@ if ( isset($_POST['submit'])) {
     $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['vkontakte'], 'vkontakte']);
     $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['linkedin'], 'linkedin']);
     $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['github'], 'github']);
+
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['card_on_page_shop'], 'card_on_page_shop']);
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['card_on_page_blog'], 'card_on_page_blog']);
+    $res[] = R::exec('UPDATE `settings` SET VALUE = ? WHERE name = ? ', [$_POST['card_on_page_portfolio'], 'card_on_page_portfolio']);
 
     $fail = false;
     // Если в массиве вернулось значение пустого массива  - ошибка
