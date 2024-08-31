@@ -30,7 +30,7 @@
 .button-favorite {
   border-radius: 6px;
   
-  padding: 13px 20px;
+  padding: 5px 5px;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 700;
@@ -60,6 +60,11 @@
 .button-favorite.active .icon-favorite {
   fill: rgb(197, 19, 78);
   stroke: rgb(197, 19, 78);
+}
+
+.button-favorite.badge-card {
+  right: 15px;
+  top: 40px;
 }
 
 .icon-delete {

@@ -10,6 +10,15 @@
   cursor: pointer;
 
   transition: box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    text-decoration: none;
+    box-shadow: 0px 10px 20px 0px #7e9bbd;
+  }
+
+  &:hover  .watch-button {
+    color: #1647ed;
+  }
 }
 
 .card-product__img img {
@@ -34,17 +43,6 @@
   transition: .2s ease-in;
   overflow: hidden;
   z-index: 4;
-}
-
-.card-product__title:hover {
-  color: #000000;
-  -webkit-text-decoration: solid;
-  text-decoration: solid;
-}
-
-.card-product:hover {
-  text-decoration: none;
-  box-shadow: 0px 10px 20px 0px #7e9bbd;
 }
 
 .card-product-row {
@@ -85,31 +83,6 @@
   height: 100%;
 }
 
-.card-product .badges {
-  width: 100%;
-  z-index: 2;
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: flex;
-  column-gap: 20px;
-  justify-content: space-between;
-}
-
-.card-product .badges .badge:not(.badge--light) {
-  opacity: 0;
-  transform: translateX(-10%);
-  transition: all 0.3s ease-in;
-}
-
-.card-product:hover .badges .badge:not(.badge--light) {
-  opacity: 1;
-  transform: translateX(0%);
-}
-
-.card-product__button .watch-button  {
-  transition: all 0.2s ease-in;
-}
 .card-product__button::before {
   position: absolute;
   content: "";
@@ -117,14 +90,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-}
-
-.badge--light {
-  background-color: #7e9bbd;
-}
-
-.card-product {
-  position: relative;
 }
 
 .card-product__button .watch-button  {
@@ -139,6 +104,3 @@
   height: 100%;
 }
 
-.card-product__button:hover .watch-button {
-  color: #1647ed;
-}

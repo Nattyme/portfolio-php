@@ -11,6 +11,31 @@
   background-color: #7e9bbd;
 }
 
+.badge-card {
+  position: absolute;
+  z-index: 9;
+  top: 0;
+}
+
+.badge-card--left {
+  left: 0;
+}
+
+.badge-card--right {
+  right: 0;
+}
+
+.badge-card.badge-card--left {
+  opacity: 0;
+  transform: translateX(-10%);
+  transition: all 0.3s ease-in;
+}
+
+.card-product:hover .badge-card.badge-card--left {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
 .badge--link:hover {
   text-decoration: none;
   color: #fff;
