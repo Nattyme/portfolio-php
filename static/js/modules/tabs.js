@@ -1,7 +1,6 @@
 function tabs() {
   const tabs = document.querySelectorAll('[data-control="tab"]');
-  
-  
+
   tabs.forEach( function (tab) {
     const tabButtons = tab.querySelectorAll('[data-control="tab-button"]');
     const tabBlocks = tab.querySelectorAll('[data-control="tab-block"]');

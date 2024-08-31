@@ -70,3 +70,29 @@
 .icon-delete {
   display: inline-block;
 }
+
+.backtop-btn {
+  z-index: 100;
+
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #7e9bbd;
+  
+  transition: transform 0.2s ease-in;
+
+  svg {
+    width: 25px;
+    height: 25px;
+    fill: #fff;
+  }
+}
