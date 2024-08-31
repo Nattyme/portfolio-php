@@ -68,7 +68,7 @@ if ( !isLoggedIn() ) {
 }
 
 
-header('Location: ' . HOST . 'shop');
+header('Location: ' . HOST . 'favorite');
 exit();
 
 
