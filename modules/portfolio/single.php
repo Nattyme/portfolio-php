@@ -24,9 +24,6 @@ foreach ($postsId as $index => $value) {
 
 // $comments = R::getAll( $sqlQueryComments, [$post['id']] );
 
-// Вывод похожих постов
-// $relatedPosts = get_related_posts($post['title']);
-
 $pageTitle = "Проект в портфолио - {$project['title']}";
 // Подключение шаблонов страницы
 include ROOT . "templates/page-parts/_head.tpl";

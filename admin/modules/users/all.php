@@ -1,6 +1,7 @@
 <?php
 //Запрос постов в БД с сортировкой id по убыванию
 $users = R::find('users', 'ORDER BY id DESC'); 
+
 $pageTitle = "Пользователи - все записи";
 $pageClass = "admin-page";
 
