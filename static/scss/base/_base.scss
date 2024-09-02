@@ -19,8 +19,12 @@ html {
   row-gap: 20px;
 }
 
-.main-page {
-  padding-bottom: 0 !important;
+.main {
+  width: 600px;
+  padding: 50px 25px 0 25px;
+  margin: 0 auto;
+  background-color: #e6d641;
+  text-align: center;
 }
 
 .main-page .section-header {

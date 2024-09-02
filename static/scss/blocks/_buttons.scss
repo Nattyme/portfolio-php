@@ -100,3 +100,25 @@
     background-color: rgb(255, 115, 0);
   }
 }
+
+.delete-button {
+  border: none;
+  border-radius: 57px;
+  background: #C93535;
+  outline: none;
+  padding: 5px 10px;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+
+  &:hover, &:focus {
+    outline: none;
+    background: #E81F1F;
+  }
+
+  &:active {
+    background: #A01717;
+  }
+}

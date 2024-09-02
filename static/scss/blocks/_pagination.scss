@@ -1,3 +1,28 @@
 .post-pagination__button--forward {
   margin-left: auto;
 }
+
+.pagination-button {
+  display: inline-block;
+  line-height: 1;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 3px;
+  background: #EAEFF2;
+  padding: 12px 20px;
+  color: #000000;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.pagination-button:hover,
+.pagination-button:focus {
+  background: #DDE8F6;
+  text-decoration: none;
+  color: #000000;
+}
+
+.pagination-button:active {
+  background: #C3CFDE;
+}

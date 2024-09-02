@@ -23,3 +23,56 @@ height: 8px;
 border-radius: 50%;
 background-color: #000000;
 }
+
+.section-about-contacts {
+  padding: 60px 0;
+  background: #F5F7FA;
+}
+
+.section-about-contacts__content {
+  margin-right: 48px;
+}
+
+.section-about-main {
+  background: #F5F7FA;
+  padding: 60px 0;
+}
+
+.section-about-main__img img {
+  display: block;
+  width: 520px;
+  height: 415px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 50px;
+  background: #C4C4C4;
+  -webkit-box-shadow: 0px 10px 40px rgba(126, 155, 189, 0.3);
+          box-shadow: 0px 10px 40px rgba(126, 155, 189, 0.3);
+  border-radius: 4px;
+}
+
+.section-about-main__content {
+  margin-bottom: 35px;
+}
+
+.section-about {
+  padding: 60px 0;
+}
+
+.section-about__title {
+  text-align: center;
+  padding-bottom: 59px;
+}
+
+.section-about__avatar .avatar-big {
+  margin-left: auto;
+  margin-right: 30px;
+}
+
+.section-about__content {
+  margin-left: 30px;
+}
+
+.section-about__content .post-about-me {
+  margin-bottom: 35px;
+}

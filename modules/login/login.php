@@ -30,8 +30,9 @@ if( isset($_POST['login']) ) {
         $_SESSION['logged_user'] = $user;
         $_SESSION['login'] = 1;
         $_SESSION['role'] = $user->role;
-
+        
         $_SESSION['cart'] = json_decode($_SESSION['logged_user']['cart'], true);
+        
         $_SESSION['fav_list'] = json_decode($_SESSION['logged_user']['fav_list'], true);
         // Работа с корзиной
         // Действия:

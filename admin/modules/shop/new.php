@@ -46,6 +46,11 @@ if( isset($_POST['submit']) ) {
       }
 
     }
+
+    R::store($product);
+    $_SESSION['success'][] = ['title' => 'Товар успешно добавлен'];
+    header('Location: ' . HOST . 'admin/shop');
+    exit();
   }
 }
 

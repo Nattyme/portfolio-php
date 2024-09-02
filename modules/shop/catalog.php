@@ -27,10 +27,11 @@ foreach ($productsDB as $current_product) {
   $product['cat'] = $current_product->cat;
   $product['cover_small'] = $current_product->cover_small;
   $product['price'] =$current_product->price;
-  if ($current_product['cat'] === $categories[$current_product['cat']]['id']) {
+  if (isset($current_product['cat']) && !empty($current_product['cat']) && $current_product['cat'] === $categories[$current_product['cat']]['id']) {
     $current_product['cat'] = $categories[$current_product['cat']]['title'];
   }
-  if ($current_product['brand'] === $brands[$current_product['brand']]['id']) {
+  if (  isset($current_product['brand']) 
+        && !empty($current_product['brand']) && $current_product['brand'] === $brands[$current_product['brand']]['id']) {
     $current_product['brand'] = $brands[$current_product['brand']]['title'];
   }
   $product['cat_title'] = $current_product['cat'];

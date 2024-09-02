@@ -1,11 +1,11 @@
 <div class="card-product">
-  <?php if (!empty($product['cat'])) : ?>
+  <?php if (isset($product['cat']) && !empty($product['cat'])) : ?>
     <a href="<?php echo HOST . "shop/cat/" . $product['cat'];?>" class="badge badge--link badge-card badge-card--left">
       <?php echo $product['cat_title'];?>
     </a>
   <?php endif; ?>
 
-  <?php if (!empty($product['brand_title'])) : ?>
+  <?php if (isset($product['brand_title']) && !empty($product['brand_title'])) : ?>
     <a href="<?php echo HOST . 'shop/brand/' . $product['brand'];?>" class="badge badge--link badge--light badge-card badge-card--right">
       <?php echo $product['brand_title'];?>
     </a>
