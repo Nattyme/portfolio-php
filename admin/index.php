@@ -170,6 +170,10 @@ switch ($uriModule) {
     require ROOT . "admin/modules/comments/all.php";
     break;
 
+  case 'comment':
+    require ROOT . "admin/modules/comments/single.php";
+    break;
+
   case 'settings':
     require ROOT . "admin/modules/settings/settings.php";
     break;
