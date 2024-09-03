@@ -13,8 +13,8 @@ $sqlQuery = 'SELECT
 
 $comment = R::getRow($sqlQuery, [$_GET['id']]);
 
-
 if ($comment['status'] === 'new') {
+  $comment = R::load('comments', $comment['id']);
   $comment->status = NULL;
   R::store($comment);
   $commentsNewCounter = R::count('comments', ' status = ?', ['new']);

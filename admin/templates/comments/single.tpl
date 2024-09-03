@@ -3,7 +3,7 @@
   <?php include ROOT . "admin/templates/components/errors.tpl"; ?>
   <?php include ROOT . "admin/templates/components/success.tpl"; ?>
 
-  <form class="admin-form" method="POST" action="<?php echo HOST;?>admin/comment?id=<?php echo $mcomment['id']; ?>">
+  <form class="admin-form" method="POST" action="<?php echo HOST;?>admin/comment?id=<?php echo $comment['id']; ?>">
     <div class="admin-form__item admin-form__item--flex">
       <h2 class="heading">Комментарий №<?php echo $_GET['id'];?></h2>
       <div class="admin-form__date">
