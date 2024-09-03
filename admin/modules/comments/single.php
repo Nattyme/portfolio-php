@@ -1,12 +1,27 @@
 <?php
 // Получаем комментарий
-$comment = R::load('comments', $_GET['id']); 
+$sqlQuery = 'SELECT 
+                p.id as post_id, p.title as post_title,
+                u.id as user_id, u.name as user_name, u.surname as user_surname, u.email as user_email,
+                c.id, c.user, c.post, c.text, c.timestamp, c.status
+              FROM `posts` AS p
+              INNER JOIN `comments` AS c
+              ON c.post = p.id
+              INNER JOIN `users` AS u
+              ON c.user = u.id
+              WHERE c.id = ?';
+
+$comment = R::getRow($sqlQuery, [$_GET['id']]);
+
 
 if ($comment['status'] === 'new') {
   $comment->status = NULL;
   R::store($comment);
   $commentsNewCounter = R::count('comments', ' status = ?', ['new']);
 }
+
+
+
 
 $pageTitle = "Комментарий";
 $pageClass = "admin-page";

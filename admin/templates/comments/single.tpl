@@ -17,22 +17,38 @@
       <label class="input__label mb-10">
         Имя отправителя
       </label>
-      <p><?php echo $comment['user']; ?></p>
+      <p><?php echo $comment['user_name']; ?></p>
+    </div>
+
+    <div class="admin-form__item">
+      <label class="input__label mb-10">
+        Имя отправителя
+      </label>
+      <p><?php echo $comment['user_surname']; ?></p>
     </div>
 
     <div class="admin-form__item">
       <label class="input__label mb-10">
         Email отправителя
       </label>
-      <p><?php echo $comment['email']; ?></p>
+      <p><?php echo $comment['user_email']; ?></p>
     </div>
 
     <div class="admin-form__item">
       <label class="input__label mb-10">
-        Текст сообщения
+        Текст комментария
       </label>
       <p>
         <?php echo $comment['text']; ?>
+      </p>
+    </div>
+
+    <div class="admin-form__item">
+      <label class="input__label mb-10">
+        К записи
+      </label>
+      <p>
+        <?php echo $comment['post_title']; ?>
       </p>
     </div>
 
