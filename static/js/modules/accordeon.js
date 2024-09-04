@@ -6,6 +6,7 @@ function accordeon() {
   });
 
   function showContent(e) {
+    e.preventDefault();
     this.nextElementSibling.classList.toggle('hidden');
   };
  

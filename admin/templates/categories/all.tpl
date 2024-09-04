@@ -5,7 +5,7 @@
 
     <div class="admin-form__item d-flex justify-content-between mb-20">
       <h2 class="heading">Категории</h2>
-      <a class="secondary-button" href="<?php HOST;?>category-new">Создать новую категорию</a>
+      <a class="secondary-button" href="<?php HOST;?>category-new?<?php echo $currentCat; ?>">Создать новую категорию</a>
     </div>
     <table class="table">
       <thead>

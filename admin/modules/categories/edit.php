@@ -9,7 +9,7 @@ if( isset($_POST['submit'])) {
   if ( empty($_SESSION['errors'])) {
     $cat = R::load('categories', $_GET['id']);
     $cat->title = $_POST['title'];
-
+  
     R::store($cat);
     
     $_SESSION['success'][] = ['title' => 'Категория успешно обновлена.'];
@@ -18,6 +18,9 @@ if( isset($_POST['submit'])) {
 
 // Запрос постов в БД с сортировкой id по убыванию
 $cat = R::load('categories', $_GET['id']); 
+
+// Перезаписываем текущую категорию данными из БД - чтобы не подставился id из $_GET
+$currentCat = $cat['section'];
 
 $pageTitle = "Категории. Редактировать категорию {$cat['title']}";
 

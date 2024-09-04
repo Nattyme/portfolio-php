@@ -1,14 +1,13 @@
 <?php
-//Запрос брендов в БД с сортировкой id по убыванию
-$catsArray = R::find('categories', ' section LIKE ? ', ['blog']);
+// Узнаем категорию по GET запросу
+$catsArray = R::find('categories', ' section LIKE ? ', [$currentCat]);
 
-$cats = [];
+// Составляем массив категории блога
 foreach ($catsArray as $key => $value) {
   $cats[] = ['id' => $value['id'], 'title' => $value['title']];
-}
+}  
 
-$cats = R::find('categories', 'ORDER BY id DESC'); 
-
+$cats = R::find('categories', ' section LIKE ? ', [$currentCat]); 
 
 $pageTitle = "Категории - все записи";
 

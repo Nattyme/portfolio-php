@@ -1,5 +1,5 @@
 <li class="control-panel__list-item">
-  <a class="control-panel__list-link" 
+  <a href="?shop" class="control-panel__list-link" 
      title="Перейти страницу редактирования магазина"
      data-name="accordeon-title">
     <div class="control-panel__list-img-wrapper">
@@ -43,7 +43,7 @@
       </a>
     </li>
     <li class="control-panel__list-item">
-      <a class="control-panel__list-link control-panel__inner-link" href="<?php echo HOST;?>admin/category-shop" title="Перейти на страницу редактирования категорий товаров">
+      <a class="control-panel__list-link control-panel__inner-link" href="<?php echo HOST;?>admin/category?shop" title="Перейти на страницу редактирования категорий товаров">
         <div class="control-panel__list-img-wrapper">
           <img class="control-panel__list-img" src="<?php echo HOST;?>static/img/control-panel/corner.svg" alt="icon" />
         </div>

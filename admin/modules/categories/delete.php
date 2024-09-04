@@ -5,7 +5,7 @@ if ( isset($_POST['submit']) ) {
   R::trash($cat); 
   
   $_SESSION['success'][] = ['title' => 'Категория была успешно удалена.'];
-  header('Location: ' . HOST . 'admin/category');
+  header('Location: ' . HOST . 'admin/category?blog');
   exit();
 }
 
