@@ -59,7 +59,7 @@ function getUriGetParam () {
 function getCurrentSection () {
   $uri = $_SERVER['REQUEST_URI'];
   $uriArr = explode('?', $uri); // Разбиваем запрос по сиволу '?', чтобы получить GET запрос
-  $uri = $uriArr[1]; //  /admin/blog?id=15 => /admin/blog
+  $uri = isset($uriArr[1]) ? $uriArr[1] : trim($uriArr[0], "/");
   $currentSection = $uri;
   return $currentSection;
 }

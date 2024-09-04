@@ -1,5 +1,6 @@
 <?php 
-$category = R::load('categories_shop', $uriGetParam);
+$category = R::load('categories', $uriGetParam);
+
 $pageTitle = "Категория: {$category['title']}";
 
 $pagination = pagination(6, 'products', ['cat = ? ', [$uriGetParam]]);

@@ -1,5 +1,6 @@
 <?php 
 require_once ROOT . "./libs/functions.php";
+
 // Показываем отдельную страницу товара
 $sqlQuery = 'SELECT
                 products.id, products.title, products.content, products.cover, products.timestamp, 

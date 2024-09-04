@@ -1,4 +1,6 @@
 <?php 
+require_once ROOT . "./libs/functions.php";
+
 
 // $sqlQuery = 'SELECT
 //                      p.id as product_id, p.cat, p.title as product_title,
@@ -18,7 +20,14 @@ $productsDB = R::find('products', 'ORDER BY id DESC ' . $pagination['sql_page_li
 
 $products = array();
 foreach ($productsDB as $current_product) {
-  $categories = R::find('categories_shop');
+  // Получаем  текущую секцию для записи в БД
+  $currentSection = getCurrentSection ();
+
+  // Узнаем категорию по GET запросу
+  $categories = R::find('categories', ' section LIKE ? ', [$currentSection]);
+
+  
+  // $categories = R::find('categories');
   $brands = R::find('brands');
   
   $product['id'] = $current_product->id;
