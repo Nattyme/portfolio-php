@@ -7,6 +7,7 @@ if( isset($_POST['submit']) ) {
 
   if ( empty($_SESSION['errors'])) {
     $cat = R::dispense('categories');
+    $cat->section = 'blog';
     $cat->title = $_POST['title'];
 
     R::store($cat);
