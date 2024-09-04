@@ -11,7 +11,11 @@ if( isset($_POST['submit'])) {
     $cat->title = $_POST['title'];
 
     R::store($cat);
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> 4a02176d853c5b005c94930e85052a5dd998d251
     $_SESSION['success'][] = ['title' => 'Категория успешно обновлена.'];
   }
 }

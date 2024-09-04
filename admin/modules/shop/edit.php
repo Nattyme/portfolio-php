@@ -22,6 +22,10 @@ if( isset($_POST['submit'])) {
   if ( empty($_SESSION['errors'])) {
     $product = R::load('products', $_GET['id']);
     $product->title = $_POST['title'];
+<<<<<<< HEAD
+    $product->cat = $_POST['cat'];
+=======
+>>>>>>> 4a02176d853c5b005c94930e85052a5dd998d251
     $product->brand = $_POST['brand'];
     $product->price = $_POST['price'];
     $product->content = $_POST['content'];
