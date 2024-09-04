@@ -1,11 +1,16 @@
 <?php
 $cat = R::load('categories', $_GET['id']); 
 
+// Получаем  текущую секцию для записи в БД
+$currentSection = getCurrentSection ();
+
 if ( isset($_POST['submit']) ) {
+  // Перезапиываем текущую секцию данными из БД 
+  $currentSection = $cat['section'];
   R::trash($cat); 
   
   $_SESSION['success'][] = ['title' => 'Категория была успешно удалена.'];
-  header('Location: ' . HOST . 'admin/category?blog');
+  header('Location: ' . HOST . 'admin/category?' . $currentSection);
   exit();
 }
 

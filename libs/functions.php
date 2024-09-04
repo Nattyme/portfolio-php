@@ -55,6 +55,15 @@ function getUriGetParam () {
   return $uriGet; // ['blog/cat/5'] => 5
 }
 
+// Определение текущей категории
+function getCurrentSection () {
+  $uri = $_SERVER['REQUEST_URI'];
+  $uriArr = explode('?', $uri); // Разбиваем запрос по сиволу '?', чтобы получить GET запрос
+  $uri = $uriArr[1]; //  /admin/blog?id=15 => /admin/blog
+  $currentSection = $uri;
+  return $currentSection;
+}
+
 // Форматируем дату
 function rus_date () {
   // Перевод

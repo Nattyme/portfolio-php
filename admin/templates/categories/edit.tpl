@@ -24,7 +24,7 @@
       <button name="submit" value="submit" class="primary-button" type="submit">
         Сохранить изменения
       </button>
-      <a class="secondary-button" href="<?php echo HOST;?>admin/category?<?php echo $currentCat;?>">Отмена</a>
+      <a class="secondary-button" href="<?php echo HOST;?>admin/category?<?php echo $currentSection;?>">Отмена</a>
     </div>
   </form>
 </div>

@@ -1,6 +1,7 @@
 <?php
-// print_r($currentCat);
-// die();
+// Получаем  текущую секцию для записи в БД
+$currentSection = getCurrentSection ();
+
 if( isset($_POST['submit']) ) {
   // Проверка на заполненность названия
   if( trim($_POST['title']) == '' ) {
@@ -9,12 +10,12 @@ if( isset($_POST['submit']) ) {
 
   if ( empty($_SESSION['errors'])) {
     $cat = R::dispense('categories');
-    $cat->section = $currentCat;
+    $cat->section = $currentSection;
     $cat->title = $_POST['title'];
     R::store($cat);
     
     $_SESSION['success'][] = ['title' => 'Категория была успешно создана'];
-    header('Location: ' . HOST . 'admin/category?' . $currentCat);
+    header('Location: ' . HOST . 'admin/category?' . $currentSection);
     exit();
   }
 }
