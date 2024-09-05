@@ -2,7 +2,7 @@
 // Получаем  текущую секцию для записи в БД
 $currentSection = getCurrentSection ();
 
-// Узнаем категорию по GET запросу
+// Получаем строки с категориями текущей секции
 $catsArray = R::find('categories', ' section LIKE ? ', [$currentSection]);
 
 // Составляем массив категории блога

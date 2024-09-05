@@ -1,5 +1,16 @@
 <?php
-$cats = R::find('categories_shop', 'ORDER BY title ASC'); 
+$product = R::load('products', $_GET['id']);
+
+// Находим категории, относящиеся к секции shop
+$catsArray = R::find('categories', ' section LIKE ? ', ['shop']);
+
+// Создаем массив категорий shop
+$cats = [];
+foreach ($catsArray as $key => $value) {
+  $cats[] = ['id' => $value['id'], 'title' => $value['title'], 'section' => $value['section']];
+}
+
+// $cats = R::find('categories_shop', 'ORDER BY title ASC'); 
 $brands = R::find('brands', 'ORDER BY title ASC');
 
 if( isset($_POST['submit'])) {
@@ -78,7 +89,7 @@ if( isset($_POST['submit'])) {
   }
 }
 
-$product = R::load('products', $_GET['id']);
+
 
 $pageTitle = "Магазин. Редактировать товар ";
 $pageClass = "admin-page";

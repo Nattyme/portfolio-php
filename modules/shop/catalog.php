@@ -25,9 +25,7 @@ foreach ($productsDB as $current_product) {
 
   // Узнаем категорию по GET запросу
   $categories = R::find('categories', ' section LIKE ? ', [$currentSection]);
-
   
-  // $categories = R::find('categories');
   $brands = R::find('brands');
   
   $product['id'] = $current_product->id;

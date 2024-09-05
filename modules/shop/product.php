@@ -5,10 +5,10 @@ require_once ROOT . "./libs/functions.php";
 $sqlQuery = 'SELECT
                 products.id, products.title, products.content, products.cover, products.timestamp, 
                 products.brand, products.edit_time, products.cat, products.price, products.brand,
-                categories_shop.title AS cat_title,
+                categories.title AS cat_title,
                 brands.title AS brand_title
              FROM `products`
-             LEFT JOIN `categories_shop` ON products.cat = categories_shop.id
+             LEFT JOIN `categories` ON products.cat = categories.id
              LEFT JOIN `brands` ON products.brand = brands.id
              WHERE products.id = ? LIMIT 1';
 

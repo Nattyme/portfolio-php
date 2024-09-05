@@ -22,7 +22,7 @@
           <tr>
             <td><?php echo $product['id']; ?></td>
             <td>
-              <a href="<?php echo HOST . "admin/"; ?>shop-edit?id=<?php echo $product['id']; ?>"><?php echo $product['title']; ?></a>
+              <a class="link-to-page" href="<?php echo HOST . "admin/"; ?>shop-edit?id=<?php echo $product['id']; ?>"><?php echo $product['title']; ?></a>
             </td>
             <td>
               <?php echo rus_date("j. m. Y. в H:i", $product['timestamp']); ?>
