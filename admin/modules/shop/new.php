@@ -1,17 +1,14 @@
 <?php
-// Получаем  текущую секцию для записи в БД
-$currentSection = getCurrentSection ();
+// Находим категории, относящиеся к секции shop
+$catsArray = R::find('categories', ' section LIKE ? ', ['shop']);
 
-// Получаем строки с категориями текущей секции
-$catsArray = R::find('categories', ' section LIKE ? ', [$currentSection]);
-
-// Составляем массив категории блога
+// Создаем массив для категорий shop
+$cats = [];
 foreach ($catsArray as $key => $value) {
-  $cats[] = ['id' => $value['id'], 'title' => $value['title']];
-}  
+  $cats[] = ['id' => $value['id'], 'title' => $value['title'], 'section' => $value['section']];
+}
 
-$cats = R::find('categories', ' section LIKE ? ORDER BY title ASC', [$currentSection]); 
-// $cats = R::find('categories', 'ORDER BY title ASC'); 
+// Получаем бренды
 $brands = R::find('brands', 'ORDER BY title ASC'); 
 
 if( isset($_POST['submit']) ) {
