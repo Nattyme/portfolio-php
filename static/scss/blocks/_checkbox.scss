@@ -1,0 +1,31 @@
+.checkbox__title {
+  display: block;
+  margin: 0;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.checkbox__item {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.checkbox__item + .checkbox__item {
+  margin-top: 10px;
+}
+
+.checkbox__btn {
+  margin-right: 10px;
+}
+
+.checkbox__label {
+  font-weight: 400;
+}
