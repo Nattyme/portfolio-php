@@ -38,10 +38,10 @@
       </tbody>
     </table>
     
-    <div class="admin-form__item pt-40">
+    <!-- <div class="admin-form__item pt-40">
       <div class="section-pagination">
           <?php include ROOT . "admin/templates/_parts/pagination/_pagination.tpl"; ?>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>

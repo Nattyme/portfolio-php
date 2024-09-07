@@ -2,7 +2,7 @@
 // Категории товаров, отображающиеся в выпадающем меню "Магазин"
 $sqlQueryCatDB = 'SELECT 
                   DISTINCT c.id, c.title 
-                  FROM `categories_shop` AS c
+                  FROM `categories` AS c
                   INNER JOIN `products` AS p
                   ON c.id = p.cat';
 

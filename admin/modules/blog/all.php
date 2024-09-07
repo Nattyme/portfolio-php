@@ -1,5 +1,5 @@
 <?php
-$pagination = pagination(8, 'posts');
+// $pagination = pagination(8, 'posts');
 
 //Запрос постов в БД с сортировкой id по убыванию
 $posts = R::find('posts', "ORDER BY id DESC {$pagination['sql_page_limit']}");

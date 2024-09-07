@@ -1,5 +1,7 @@
 <?php
-// Получаем  текущую секцию для записи в БД
+// $pagination = pagination(8, 'posts');
+
+// Получаем  текущую секцию 
 $currentSection = getCurrentSection ();
 
 // Получаем строки с категориями текущей секции

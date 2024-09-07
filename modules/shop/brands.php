@@ -5,9 +5,13 @@ $pageTitle = "Категория: {$brand['title']}";
 $pagination = pagination(6, 'products', ['brand = ? ', [$uriGetParam]]);
 
 $productsDB = R::findLike('products', ['brand' => [$uriGetParam]], 'ORDER BY id DESC ' . $pagination['sql_page_limit']); 
+// print_r($productsDB);
+// die();
 $products = array();
 foreach ($productsDB as $current_product) {
-  $categories = R::find('categories_shop'); 
+  // Получаем строки с категориями магазина
+  $categories = R::find('categories', ' section LIKE ? ', ['shop']);
+ 
   $brands = R::find('brands');
 
   $product['id'] = $current_product->id;
@@ -15,7 +19,8 @@ foreach ($productsDB as $current_product) {
   $product['cat'] = $current_product->cat;
   $product['brand'] = $current_product->brand;
   $product['cover_small'] = $current_product->cover_small;
-  $product['price'] =$current_product->price;
+  $product['price'] = $current_product->price;
+  
   if ($current_product['cat'] === $categories[$current_product['cat']]['id']) {
     $current_product['cat'] = $categories[$current_product['cat']]['title'];
   }
