@@ -33,9 +33,9 @@ foreach($catsBrands as $key => $value) {
   }
 }
 // $brandsArray = array();
-print_r($catsArray);
-print_r($brandsArray);
-die();
+// print_r($catsArray);
+// print_r($brandsArray);
+// die();
 
 
 
