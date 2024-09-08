@@ -5,20 +5,7 @@
     </a>
     <div class="sub-nav__dropdown-menu">
   
-      <ul class="sub-nav-inner"> 
-        <?php foreach ($brandsArray as $brandKey => $brand) : ?>
-          <?php if ($brandKey === $catKey) : ?>
-            <li class="sub-nav-inner__item">
-              <?php foreach ($brand as $brandId => $brandTitle) : ?>
-                <a href="<?php echo HOST . 'shop/cat/' . $catKey;?>" class="sub-nav-inner__link">
-                  <?php echo ($brandTitle); ?>
-                </a>
-              <?php endforeach; ?>
-            </li>
-          <?php endif;?>
-        <?php endforeach; ?>
-       
-        </ul> 
+      <?php include ROOT . "templates/_parts/sub-nav/_dropdown-menu.tpl"; ?>
    
     </div>
   </li>
