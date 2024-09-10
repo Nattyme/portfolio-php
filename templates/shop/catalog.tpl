@@ -11,7 +11,7 @@
               endforeach;
           ?>
 				</div>
-        <?php include ROOT . "templates/_parts/pagination/_pagination.tpl"; ?>
+        <?php include ROOT . 'templates/_parts/pagination/_pagination.tpl'; ?>
 			</section>
 		</div>
 	</main>

@@ -94,6 +94,9 @@ switch ($uriModule) {
     } else if ( isset($uriGet) && $uriGet === 'brand' && !empty($uriGetParam) ) {
       require ROOT . 'modules/shop/brands.php';
     } else if ( isset($uriGet) ) {
+    } else if ( isset($uriGet) && $uriGet === 'subcat' && empty($uriGetParam) ) {
+      require ROOT . 'modules/shop/subcat.php';
+    } else if ( isset($uriGet) ) {
       require ROOT . 'modules/shop/product.php';
     } else {
       require ROOT . 'modules/shop/catalog.php';

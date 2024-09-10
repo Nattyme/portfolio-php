@@ -1,49 +1,35 @@
 <?php 
 require_once ROOT . "./libs/functions.php";
 
-
-// $sqlQuery = 'SELECT
-//                      p.id as product_id, p.cat, p.title as product_title,
-//                      c.id as cat_id, c.title as cat_title,
-//                      b.id as brand_id, b.title as brand_title
-//               FROM `categories_shop` AS c
-//               INNER JOIN `products` AS p
-//               ON c.id = p.cat
-//               INNER JOIN `brands` AS b
-//               ON p.brand = b.id';
-// $productsDB = R::getAll($sqlQuery);
-// $pagination = pagination(6, $productsDB);
-// $products = R::getAll($sqlQuery . 'ORDER BY id DESC' . $pagination['sql_page_limit']);
-
 $pagination = pagination($settings['card_on_page_shop'], 'products');
 $productsDB = R::find('products', 'ORDER BY id DESC ' . $pagination['sql_page_limit']);
 
 $products = array();
 foreach ($productsDB as $current_product) {
-  // Получаем  текущую секцию для записи в БД
-  $currentSection = getCurrentSection ();
+    // Получаем  текущую секцию для записи в БД
+    $currentSection = getCurrentSection ();
 
-  // Узнаем категорию по GET запросу
-  $categories = R::find('categories', ' section LIKE ? ', [$currentSection]);
-  
-  $brands = R::find('brands');
-  
-  $product['id'] = $current_product->id;
-  $product['title'] = $current_product->title;
-  $product['brand'] = $current_product->brand;
-  $product['cat'] = $current_product->cat;
-  $product['cover_small'] = $current_product->cover_small;
-  $product['price'] =$current_product->price;
-  if (isset($current_product['cat']) && !empty($current_product['cat']) && $current_product['cat'] === $categories[$current_product['cat']]['id']) {
-    $current_product['cat'] = $categories[$current_product['cat']]['title'];
-  }
-  if (  isset($current_product['brand']) 
-        && !empty($current_product['brand']) && $current_product['brand'] === $brands[$current_product['brand']]['id']) {
-    $current_product['brand'] = $brands[$current_product['brand']]['title'];
-  }
-  $product['cat_title'] = $current_product['cat'];
-  $product['brand_title'] = $current_product['brand'];
-  $products [] = $product;
+    // Узнаем категорию по GET запросу
+    $categories = R::find('categories', ' section LIKE ? ', [$currentSection]);
+    
+    $brands = R::find('brands');
+    
+    $product['id'] = $current_product->id;
+    $product['title'] = $current_product->title;
+    $product['brand'] = $current_product->brand;
+    $product['cat'] = $current_product->cat;
+    $product['cover_small'] = $current_product->cover_small;
+    $product['price'] =$current_product->price;
+    if (isset($current_product['cat']) && !empty($current_product['cat']) && $current_product['cat'] === $categories[$current_product['cat']]['id']) {
+      $current_product['cat'] = $categories[$current_product['cat']]['title'];
+    }
+    if (  isset($current_product['brand']) 
+          && !empty($current_product['brand']) && $current_product['brand'] === $brands[$current_product['brand']]['id']) {
+      $current_product['brand'] = $brands[$current_product['brand']]['title'];
+    }
+    $product['cat_title'] = $current_product['cat'];
+    $product['brand_title'] = $current_product['brand'];
+    $products [] = $product;
 }
 
 $pageTitle = "Каталог товаров";

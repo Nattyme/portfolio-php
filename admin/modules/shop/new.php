@@ -34,7 +34,7 @@ if( isset($_POST['submit']) ) {
     $product->content = $_POST['content'];
     $product->cat = $_POST['cat'];
     $product->timestamp = time();
-
+    $product->subcat = $_POST['cat'] . $_POST['brand'];
     // Если передано изображение - уменьшаем, сохраняем, записываем в БД
     if ( isset($_FILES['cover']['name']) && $_FILES['cover']['tmp_name'] !== '') {
       //Если передано изображение - уменьшаем, сохраняем файлы в папку
