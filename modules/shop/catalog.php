@@ -7,7 +7,7 @@ $productsDB = R::find('products', 'ORDER BY id DESC ' . $pagination['sql_page_li
 $products = array();
 foreach ($productsDB as $current_product) {
     // Получаем  текущую секцию для записи в БД
-    $currentSection = getCurrentSection ();
+    $currentSection = $uriModule;
 
     // Узнаем категорию по GET запросу
     $categories = R::find('categories', ' section LIKE ? ', [$currentSection]);
