@@ -25,8 +25,8 @@ foreach($catsBrands as $key => $value) {
   if (!array_key_exists($value['cat_id'], $catsArray) ) {
     $catsArray[$value['cat_id']] = ['cat_title' => $value['cat_title']];
     $brandsArray[$value['cat_id']] = [$value['brand_id'] => $value['brand_title']]; 
-    $currentProductsArray[$value['cat_id']][$value['brand_id']][$value['product_id']] = ['title' => $value['product_title'], 
-                                                'subcat' => $value['subcat'], 'cover' => $value['product_cover'], 'price' => $value['product_price'], 
+    $currentProductsArray[$value['cat_id']][$value['brand_id']][$value['product_id']] = ['subcat' => $value['subcat'], 'title' => $value['product_title'], 
+                                                'cover' => $value['product_cover'], 'price' => $value['product_price'], 
                                                 'brand_title' => $value['brand_title']];
   } else {
     if (!array_key_exists($value['brand_id'], $brandsArray)) {

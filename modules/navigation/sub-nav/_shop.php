@@ -1,13 +1,4 @@
 <?php
-// Категории товаров, отображающиеся в выпадающем меню "Магазин"
-// $sqlQueryCatDB = 'SELECT 
-//                   DISTINCT c.id, c.title 
-//                   FROM `categories` AS c
-//                   INNER JOIN `products` AS p
-//                   ON c.id = p.cat';
-
-// $category_shop = R::getAll($sqlQueryCatDB);
-
 // Бренды, отображающиеся в выпадающем списке у каждой категории
 $sqlQueryBrandsDB = 'SELECT 
                   c.id as cat_id, c.title as cat_title, 
@@ -21,30 +12,18 @@ $sqlQueryBrandsDB = 'SELECT
                   ON b.id = p.brand
                   ORDER BY p.brand ASC';
 $catsBrands = R::getAll($sqlQueryBrandsDB);
-// print_r($catsBrands);
-// die();
+
 $catsArray = array();
 $brandsArray = array();
-$currentProductsArray = array();
+$subcat = array();
 
 foreach($catsBrands as $key => $value) {
   if (!array_key_exists($value['cat_id'], $catsArray) ) {
     $catsArray[$value['cat_id']] = ['cat_title' => $value['cat_title']];
-    $brandsArray[$value['cat_id']] = [$value['brand_id'] => $value['brand_title']]; 
-    $currentProductsArray[$value['cat_id']][$value['brand_id']][$value['product_id']] = ['title' => $value['product_title'], 
-                                                'cover' => $value['product_cover'], 'price' => $value['product_price'], 
-                                                'brand_title' => $value['brand_title']];
+    $brandsArray[$value['cat_id']] = [$value['brand_title'] => $value['subcat']]; 
   } else {
-    if (!array_key_exists($value['brand_id'], $brandsArray)) {
-      $brandsArray[$value['cat_id']][$value['brand_id']] = $value['brand_title']; 
-      $currentProductsArray[$value['cat_id']][$value['brand_id']][$value['product_id']] = ['title' => $value['product_title'], 
-                                                'cover' => $value['product_cover'], 'price' => $value['product_price'],
-                                                'brand_title' => $value['brand_title']];
+    if (!array_key_exists($value['brand_title'], $brandsArray)) {
+      $brandsArray[$value['cat_id']][$value['brand_title']] = $value['subcat']; 
     } 
   }
 }
-
-// Загружаем продукты выбранной категории и выбранного бренда
-
-// $brandsArray = array();
-// print_r($catsArray);
