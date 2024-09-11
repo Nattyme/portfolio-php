@@ -1,7 +1,6 @@
 <?php
 $product = R::load('products', $_GET['id']); 
 
-
 if( isset($_POST['submit']) ) {
   //Удаление обложки
   if ( !empty($product['cover']) ) {

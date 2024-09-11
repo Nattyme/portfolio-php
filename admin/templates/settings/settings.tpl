@@ -11,6 +11,7 @@
     <?php include ROOT . 'admin/templates/settings/sections/_general.tpl' ?>
     <?php include ROOT . 'admin/templates/settings/sections/_copyright.tpl' ?>
     <?php include ROOT . 'admin/templates/settings/sections/_status.tpl' ?>
+    <?php include ROOT . 'admin/templates/settings/sections/_skill-box.tpl' ?>
     <?php include ROOT . 'admin/templates/settings/sections/_socials.tpl' ?>
     <?php include ROOT . 'admin/templates/settings/sections/_cardsonpage.tpl' ?>
 

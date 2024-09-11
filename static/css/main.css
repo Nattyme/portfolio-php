@@ -4160,6 +4160,16 @@ a.logo-link:hover {
   margin-top: 10px;
 }
 
+.skill-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.skill-box .checkbox__item + .checkbox__item {
+  margin-top: 0;
+}
+
 /* Order form */
 .order-form__row {
   display: flex;
