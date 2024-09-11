@@ -1,43 +1,37 @@
 <?php
-echo 'hey';
-// $pagination = pagination($settings['card_on_page_shop'], 'products');
-// $productsDB = R::find('products', 'ORDER BY id DESC ' . $pagination['sql_page_limit']);
+require_once ROOT . "./libs/functions.php";
+
+$pagination = pagination($settings['card_on_page_shop'], 'products', [' subcat = ? ', [$uriGetParam]]);
+$productsDB = R::findLike('products', ['subcat' => [$uriGetParam]], 'ORDER BY id DESC ' . $pagination['sql_page_limit']); 
 
 $products = array();
-// Бренды, отображающиеся в выпадающем списке у каждой категории
-$sqlQueryBrandsDB = 'SELECT 
-                  c.id as cat_id, c.title as cat_title, 
-                  p.subcat, p.id as product_id, p.title as product_title, p.cover_small as product_cover, p.price as product_price,
-                  b.id as brand_id, b.title as brand_title
-                  FROM `categories` AS c 
-                  INNER JOIN `products` AS p
-                  ON c.id = p.cat
-                  INNER JOIN `brands` AS b
-                  ON b.id = p.brand
-                  ORDER BY p.brand ASC';
-$catsBrands = R::getAll($sqlQueryBrandsDB);
+foreach ($productsDB as $current_product) {
+  // Получаем  текущую секцию для записи в БД
+  $currentSection = $uriModule;
 
-$catsArray = array();
-$brandsArray = array();
-$currentProductsArray = array();
+  // Узнаем категорию по GET запросу
+  $categories = R::find('categories', ' section LIKE ? ', [$currentSection]);
 
-foreach($catsBrands as $key => $value) {
-  if (!array_key_exists($value['cat_id'], $catsArray) ) {
-    $catsArray[$value['cat_id']] = ['cat_title' => $value['cat_title']];
-    $brandsArray[$value['cat_id']] = [$value['brand_id'] => $value['brand_title']]; 
-    $currentProductsArray[$value['cat_id']][$value['brand_id']][$value['product_id']] = ['subcat' => $value['subcat'], 'title' => $value['product_title'], 
-                                                'cover' => $value['product_cover'], 'price' => $value['product_price'], 
-                                                'brand_title' => $value['brand_title']];
-  } else {
-    if (!array_key_exists($value['brand_id'], $brandsArray)) {
-      $brandsArray[$value['cat_id']][$value['brand_id']] = $value['brand_title']; 
-      $currentProductsArray[$value['cat_id']][$value['brand_id']][$value['product_id']] = ['title' => $value['product_title'], 
-                                                'cover' => $value['product_cover'], 'price' => $value['product_price'],
-                                                'subcat' => $value['subcat'],
-                                                'brand_title' => $value['brand_title']];
-    } 
-  }
-
+  $brands = R::find('brands');
+  if(intval($current_product['subcat']) === $uriGetParam) {
+    $product['id'] = $current_product->id;
+    $product['title'] = $current_product->title;
+    $product['brand'] = $current_product->brand;
+    $product['cat'] = $current_product->cat;
+    $product['cover_small'] = $current_product->cover_small;
+    $product['price'] =$current_product->price;
+    if (isset($current_product['cat']) && !empty($current_product['cat']) && $current_product['cat'] === $categories[$current_product['cat']]['id']) {
+      $current_product['cat'] = $categories[$current_product['cat']]['title'];
+    }
+    if ( isset($current_product['brand']) 
+          && !empty($current_product['brand']) && $current_product['brand'] === $brands[$current_product['brand']]['id']) {
+      $current_product['brand'] = $brands[$current_product['brand']]['title'];
+    }
+    $product['cat_title'] = $current_product['cat'];
+    $product['brand_title'] = $current_product['brand'];
+    
+    $products[] = $product;
+  } 
 }
 
 $pageTitle = "Каталог товаров";
