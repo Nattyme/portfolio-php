@@ -23,6 +23,10 @@
             <option value="<?php echo $brand['id'];?>"><?php echo $brand['title'];?></option>
           <?php endforeach; ?>
         </select>
+       
+        <!-- <div class="select-label__arrow">
+          <img src="https://portfolio-php/static/img/icons/arrow-down.svg" alt="Стрелка раскрывающегося списка категорий">
+        </div> -->
       </label>
     </div>
     <div class="admin-form__item d-flex justify-content-between mb-20">

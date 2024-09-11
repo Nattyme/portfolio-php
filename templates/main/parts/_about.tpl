@@ -15,8 +15,9 @@
           <div class="post-about-skills">
             <h4 class="post-about-skills__title"><?php echo $main['services_title'];?></h4>
             <?php echo $main['services_text'];?>
-          </div>
+          </div> 
         </div>
+        <?php include ROOT . 'templates/main/parts/_skill-box.tpl'; ?>
       </div>
     </div>
   </div>
