@@ -14,15 +14,20 @@ foreach ($productsDB as $current_product) {
     
     $brands = R::find('brands');
     
+    // Заполняем массив product даными о нужном продукте
     $product['id'] = $current_product->id;
     $product['title'] = $current_product->title;
     $product['brand'] = $current_product->brand;
     $product['cat'] = $current_product->cat;
     $product['cover_small'] = $current_product->cover_small;
     $product['price'] =$current_product->price;
+
+    // Получчаем название категории текущего продука по ID категории
     if (isset($current_product['cat']) && !empty($current_product['cat']) && $current_product['cat'] === $categories[$current_product['cat']]['id']) {
       $current_product['cat'] = $categories[$current_product['cat']]['title'];
     }
+
+    // Получчаем название бренда текущего продука по ID бренда
     if (  isset($current_product['brand']) 
           && !empty($current_product['brand']) && $current_product['brand'] === $brands[$current_product['brand']]['id']) {
       $current_product['brand'] = $brands[$current_product['brand']]['title'];

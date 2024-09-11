@@ -25,6 +25,9 @@
       </label>
     </div>
     <div class="admin-form__item">
+      <a class="secondary-button" href="<?php HOST;?>category-new?blog">Создать новую категорию</a>
+    </div>
+    <div class="admin-form__item">
       <label class="textarea__label mb-15" name="editor">
         Содержимое поста 
       </label>

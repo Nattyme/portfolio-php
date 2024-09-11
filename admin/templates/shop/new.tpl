@@ -25,6 +25,9 @@
         </select>
       </label>
     </div>
+    <div class="admin-form__item d-flex justify-content-between mb-20">
+      <a class="secondary-button" href="<?php HOST;?>brand-new">Создать новый бренд</a>
+    </div>
     <div class="admin-form__item">
       <label class="input__label">
         Цена товара
@@ -39,6 +42,9 @@
           <?php endforeach; ?>
         </select>
       </label>
+    </div>
+    <div class="admin-form__item">
+      <a class="secondary-button" href="<?php HOST;?>category-new?shop">Создать новую категорию</a>
     </div>
     <div class="admin-form__item">
       <label class="textarea__label mb-15" name="editor">
