@@ -5,6 +5,10 @@ define('DB_NAME', 'project');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 
+// Yookassa settings
+define('SHOP_ID', '456967');
+define('SECRET_KEY', 'test_NhEQAfcEMhED_WHSeUKrBwfKUtSAOknwYgf-TbSTho4');
+
 if( isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
   $protocol = 'https://';
 } else {
