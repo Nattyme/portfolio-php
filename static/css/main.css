@@ -4100,6 +4100,12 @@ a.logo-link:hover {
   overflow: hidden;
 }
 
+.loader-wrappper {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 20px;
+}
+
 .input-text {
   width: 100%;
   padding: 13px 0px 13px 20px;

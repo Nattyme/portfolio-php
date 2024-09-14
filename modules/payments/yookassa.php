@@ -18,7 +18,7 @@ try {
         ),
         'confirmation' => array(
             'type' => 'redirect',
-            'return_url' => HOST . 'shop',
+            'return_url' => HOST . 'paymentyookassareturn',
         ),
         'capture' => true,
         'description' => 'Заказ №' . $_SESSION['order']['id'],
@@ -38,6 +38,9 @@ $paymentDB->order_id = $_SESSION['order']['id'];
 $paymentDB->price = $_SESSION['order']['price'];
 $paymentDB->status = 'pending';
 $paymentDB->timestamp = time();
+$_SESSION['payment']['id'] = R::store($paymentDB);
+
+// Сохраняем yookassa ID  в сессию
 $_SESSION['payment']['id'] = R::store($paymentDB);
 
 // var_dump($payment);
