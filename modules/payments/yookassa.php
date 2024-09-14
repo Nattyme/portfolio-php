@@ -32,6 +32,14 @@ try {
     $response = $e;
 }
 
+$paymentDB = R::dispense('payments');
+$paymentDB->payment = $payment['id'];
+$paymentDB->order_id = $_SESSION['order']['id'];
+$paymentDB->price = $_SESSION['order']['price'];
+$paymentDB->status = 'pending';
+$paymentDB->timestamp = time();
+$_SESSION['payment']['id'] = R::store($paymentDB);
+
 // var_dump($payment);
 // Перенаправляем пользователя на форму оплаты
 header('Location: ' .  $confirmationUrl);
