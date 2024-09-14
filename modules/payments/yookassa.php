@@ -13,7 +13,7 @@ try {
   $payment = $client->createPayment(
     array(
         'amount' => array(
-            'value' => 100.0,
+            'value' => $_SESSION['order']['price'],
             'currency' => 'RUB',
         ),
         'confirmation' => array(
@@ -21,7 +21,7 @@ try {
             'return_url' => HOST . 'shop',
         ),
         'capture' => true,
-        'description' => 'Заказ №1',
+        'description' => 'Заказ №' . $_SESSION['order']['id'],
     ),
     uniqid('', true)
   );
