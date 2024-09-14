@@ -1,9 +1,13 @@
 <?php
 require_once ROOT . "./libs/functions.php";
 
+// print_r(gettype($uriGet));
+// print_r($productsDB);
+// die();
 $pagination = pagination($settings['card_on_page_shop'], 'products', [' subcat = ? ', [$uriGetParam]]);
 $productsDB = R::findLike('products', ['subcat' => [$uriGetParam]], 'ORDER BY id DESC ' . $pagination['sql_page_limit']); 
-
+// print_r($productsDB);
+// die();
 $products = array();
 foreach ($productsDB as $current_product) {
   // Получаем  текущую секцию для записи в БД
@@ -13,7 +17,7 @@ foreach ($productsDB as $current_product) {
   $categories = R::find('categories', ' section LIKE ? ', [$currentSection]);
 
   $brands = R::find('brands');
-  if(intval($current_product['subcat']) === $uriGetParam) {
+  if($current_product['subcat'] === $uriGetParam) {
     $product['id'] = $current_product->id;
     $product['title'] = $current_product->title;
     $product['brand'] = $current_product->brand;

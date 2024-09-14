@@ -16,7 +16,9 @@
   margin-bottom: -10px;
 
   display: grid;
-  background-color: #fff;
+  // background-color: #fff;
+
+  background-color: #879bb2;
 
   font-size: 16px;
   transition: color 0.1s ease-in;
@@ -34,11 +36,11 @@
   display: flex;
   padding: 15px 15px 15px 30px;
 
-
-  color: #7e9bbd;
+  color: #fff;
+  // color: #7e9bbd;
 
   &:hover {
-   color: #000;
+  //  color: #000;
    transform: translateX(3%);
   }
 }

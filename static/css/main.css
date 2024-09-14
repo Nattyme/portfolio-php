@@ -4521,15 +4521,16 @@ a.logo-link:hover {
 
 .sub-nav__item {
   position: relative;
+  background-color: #7e9bbd;
 }
 
 .sub-nav__link {
   display: flex;
   padding: 15px 20px;
-  color: #7e9bbd;
+  color: #fff;
+  background-color: #7e9bbd;
 }
 .sub-nav__link:hover {
-  color: #000;
   transform: translateX(3%);
 }
 
@@ -4548,7 +4549,7 @@ a.logo-link:hover {
 .sub-nav-inner {
   margin-bottom: -10px;
   display: grid;
-  background-color: #fff;
+  background-color: #879bb2;
   font-size: 16px;
   transition: color 0.1s ease-in;
 }
@@ -4563,10 +4564,9 @@ a.logo-link:hover {
 .sub-nav-inner__link {
   display: flex;
   padding: 15px 15px 15px 30px;
-  color: #7e9bbd;
+  color: #fff;
 }
 .sub-nav-inner__link:hover {
-  color: #000;
   transform: translateX(3%);
 }
 

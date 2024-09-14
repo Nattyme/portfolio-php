@@ -15,12 +15,13 @@ $catsBrands = R::getAll($sqlQueryBrandsDB);
 
 $catsArray = array();
 $brandsArray = array();
-$subcat = array();
+// $subcat = array();
 
 foreach($catsBrands as $key => $value) {
   if (!array_key_exists($value['cat_id'], $catsArray) ) {
-    $catsArray[$value['cat_id']] = ['cat_title' => $value['cat_title']];
+    $catsArray[$value['cat_id']] = ['cat_title' =>  $value['cat_title']];
     $brandsArray[$value['cat_id']] = [$value['brand_title'] => $value['subcat']]; 
+  
   } else {
     if (!array_key_exists($value['brand_title'], $brandsArray)) {
       $brandsArray[$value['cat_id']][$value['brand_title']] = $value['subcat']; 

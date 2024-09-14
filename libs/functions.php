@@ -51,7 +51,14 @@ function getUriGetParam () {
   $uri = explode('?', $uri); // ['blog/cat/5', 'id=20']
   $uri = $uri[0];// ['blog/cat/5']
   $uriArr = explode('/', $uri); // ['blog', 'cat', '5']
-  $uriGet = isset($uriArr[2]) ? intval($uriArr[2]) : null; 
+  if ( isset($uriArr[2]) && !is_string($uriArr[2])) {
+    intval($uriArr[2]);
+  } else if (isset($uriArr[2]) && is_string($uriArr[2])) {
+    $uriGet = $uriArr[2];
+  } else {
+    $uriGet = NULL;
+  }
+  // $uriGet = isset($uriArr[2]) ? $uriArr[2] : null; 
   return $uriGet; // ['blog/cat/5'] => 5
 }
 

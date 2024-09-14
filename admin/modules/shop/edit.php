@@ -33,7 +33,7 @@ if( isset($_POST['submit'])) {
     $product->title = $_POST['title'];
     $product->cat = $_POST['cat'];
     $product->brand = $_POST['brand'];
-    $product->subcat = $_POST['cat'] . $_POST['brand'];
+    $product->subcat = $_POST['cat'] . '-' . $_POST['brand'];
     $product->price = $_POST['price'];
     $product->content = $_POST['content'];
     $product->editTime = time();

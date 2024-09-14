@@ -50,16 +50,18 @@
 
 .sub-nav__item {
   position: relative;
+  background-color: #7e9bbd;
 }
 
 .sub-nav__link {
   display: flex;
   padding: 15px 20px;
 
-  color: #7e9bbd;
-
+  // color: #7e9bbd;
+  color: #fff;
+  background-color: #7e9bbd;
   &:hover {
-   color: #000;
+  //  color: #000;
    transform: translateX(3%);
   }
 }
