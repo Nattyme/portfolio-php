@@ -1,9 +1,6 @@
 <?php
 $pageTitle = 'Результат оплаты заказа';
 
-// Yookassa ID платежа
-$paymentId = $_SESSION['payment']['yookassaid'];
-
 // Импортируйте нужные классы
 use YooKassa\Client;
 
@@ -14,7 +11,7 @@ $client->setAuth(SHOP_ID, SECRET_KEY);
 
 // Получение информации о магазине
 try {
-  $payment = $client->getPaymentInfo($paymentId);
+  $payment = $client->getPaymentInfo($_SESSION['payment']['yookassaid']);
 } catch (\Exception $e) {
     $response = $e;
 }
@@ -54,7 +51,7 @@ switch($payment['status']) {
 }
 
 R::store($order);
-$payment['status'] = 'succeeded';
+
 // Обновление страницы в ожидании платежа
 if ($payment['status'] === 'pending' || $payment['status'] === 'waiting_for_capture') {
   header('Refresh: 5');
