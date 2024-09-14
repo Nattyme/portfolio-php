@@ -54,6 +54,11 @@ switch($payment['status']) {
 }
 
 R::store($order);
+$payment['status'] = 'succeeded';
+// Обновление страницы в ожидании платежа
+if ($payment['status'] === 'pending' || $payment['status'] === 'waiting_for_capture') {
+  header('Refresh: 5');
+}
 
 /*
 Страница возврата
