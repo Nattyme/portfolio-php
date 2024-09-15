@@ -79,7 +79,11 @@
     <button name="postEdit" value="postEdit" class="primary-button" type="submit">
       Сохранить изменения
     </button>
-    <a class="secondary-button" href="<?php echo HOST;?>admin/portfolio">Отмена</a>
+    <?php if (isset($_POST['postEdit'])) : ?>
+      <a class="secondary-button" href="<?php echo HOST;?>admin/portfolio" title="Вернуться к списку проектов">К списку проектов</a>
+    <?php else : ?>
+      <a class="secondary-button" href="<?php echo HOST;?>admin/portfolio" title="Отмена">Отмена</a>
+    <?php endif; ?>
   </div>
 </form>
 </div>

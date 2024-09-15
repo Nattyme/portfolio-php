@@ -65,7 +65,11 @@
 
     <div class="admin-form__item buttons">
       <button name="postEdit" value="postEdit" class="primary-button" type="submit">Сохранить изменения</button>
-      <a class="secondary-button" href="<?php echo HOST;?>admin/blog">Отмена</a>
+      <?php if (isset($_POST['postEdit'])) : ?>
+        <a class="secondary-button" href="<?php echo HOST;?>admin/blog" title="К списку записей">К списку записей</a>
+      <?php else : ?>
+        <a class="secondary-button" href="<?php echo HOST;?>admin/blog" title="Отмена">Отмена</a>
+      <?php endif; ?>
     </div>
   </form>
 </div>

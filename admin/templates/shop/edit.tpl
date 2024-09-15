@@ -87,7 +87,11 @@
 
     <div class="admin-form__item buttons">
       <button name="submit" value="submit" class="primary-button" type="submit">Сохранить изменения</button>
-      <a class="secondary-button" href="<?php echo HOST;?>admin/shop">Отмена</a>
+      <?php if (isset($_POST['submit'])) : ?>
+        <a class="secondary-button" href="<?php echo HOST;?>admin/shop" title="Вернуться к списку товаров">К списку товаров</a>
+      <?php else : ?>
+        <a class="secondary-button" href="<?php echo HOST;?>admin/shop" title="Отмена">Отмена</a>
+      <?php endif; ?>
     </div>
   </form>
 </div>

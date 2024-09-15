@@ -24,7 +24,11 @@
       <button name="submit" value="submit" class="primary-button" type="submit">
         Сохранить изменения
       </button>
-      <a class="secondary-button" href="<?php echo HOST;?>admin/category?<?php echo $currentSection;?>">Отмена</a>
+      <?php if (isset($_POST['postEdit'])) : ?>
+        <a class="secondary-button" href="<?php echo HOST;?>admin/category?<?php echo $currentSection;?>" title="К списку категорий">К списку категорий</a>
+      <?php else : ?>
+        <a class="secondary-button" href="<?php echo HOST;?>admin/category?<?php echo $currentSection;?>" title="Отмена">Отмена</a>
+      <?php endif; ?>
     </div>
   </form>
 </div>
