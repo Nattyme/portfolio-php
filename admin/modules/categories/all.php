@@ -16,6 +16,7 @@ $cats = R::find('categories', ' section LIKE ? ', [$currentSection]);
 
 
 $pageTitle = "Категории - все записи";
+$pageClass = "admin-page";
 
 ob_start();
 include ROOT . "admin/templates/categories/all.tpl";

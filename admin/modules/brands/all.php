@@ -3,6 +3,7 @@
 $brands = R::find('brands', 'ORDER BY id DESC'); 
 
 $pageTitle = "Бренды - все записи";
+$pageClass = "admin-page";
 
 ob_start();
 include ROOT . "admin/templates/brands/all.tpl";

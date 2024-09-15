@@ -21,6 +21,7 @@ if( isset($_POST['submit']) ) {
 }
 
 $pageTitle = "Категории - новая запись";
+$pageClass = "admin-page";
 
 ob_start();
 include ROOT . "admin/templates/categories/new.tpl";

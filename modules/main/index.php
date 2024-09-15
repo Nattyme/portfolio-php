@@ -12,7 +12,6 @@
   $projects = R::find('portfolio', "ORDER BY timestamp DESC LIMIT 0, 4");
 
   $pageTitle = "Главная страница";
-  $pageClass = "main-page";
 
   include ROOT . "templates/page-parts/_head.tpl";
   include ROOT . "templates/_parts/_header.tpl";

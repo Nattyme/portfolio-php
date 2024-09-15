@@ -24,6 +24,7 @@ $cat = R::load('categories', $_GET['id']);
 $currentSection = $cat['section'];
 
 $pageTitle = "Категории. Редактировать категорию {$cat['title']}";
+$pageClass = "admin-page";
 
 ob_start();
 include ROOT . "admin/templates/categories/edit.tpl";
