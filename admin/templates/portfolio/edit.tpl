@@ -24,15 +24,19 @@
       <?php echo $project['about'] ;?>
     </textarea>
   </div>
-  <div class="admin-form__item admin-form__item--details">
+  <div class="admin-form__item">
     <label class="input__label input__label--details">
       Время работы над проектом:
       <input name="deadline" class="input input--width-label" type="text" placeholder="Ведите время" value="<?php echo $project['deadline'] ;?>"/>
     </label>
+  </div>
+  <div class="admin-form__item">
     <label class="input__label input__label--details">
       Страниц сверстано:
       <input name="pages" class="input input--width-label" type="text" placeholder="Введите количество" value="<?php echo $project['pages'] ;?>"/>
     </label>
+  </div>
+  <div class="admin-form__item">
     <label class="input__label input__label--details">
       Бюджет проекта:
       <input name="budget" class="input input--width-label" type="text" placeholder="Введите сумму" value="<?php echo $project['budget'] ;?>"/>

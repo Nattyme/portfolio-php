@@ -1,35 +1,43 @@
 <?php 
 $category = R::load('categories', $uriGetParam);
 
-$pageTitle = "Категория: {$category['title']}";
+if ($category) {
+  $pageTitle = "Категория: {$category['title']}";
 
-$pagination = pagination(6, 'products', ['cat = ? ', [$uriGetParam]]);
+  $pagination = pagination(6, 'products', ['cat = ? ', [$uriGetParam]]);
 
-$productsDB = R::findLike('products', ['cat' => [$uriGetParam]], 'ORDER BY id DESC ' . $pagination['sql_page_limit']); 
-$products = array();
-foreach ($productsDB as $current_product) {
-  // Получаем строки с категориями магазина
-  $categories = R::find('categories', ' section LIKE ? ', ['shop']);
-  
-  $brands = R::find('brands');
+  $productsDB = R::findLike('products', ['cat' => [$uriGetParam]], 'ORDER BY id DESC ' . $pagination['sql_page_limit']); 
 
-  $product['id'] = $current_product->id;
-  $product['title'] = $current_product->title;
-  $product['cat'] = $current_product->cat;
-  $product['brand'] = $current_product->brand;
-  $product['cover_small'] = $current_product->cover_small;
-  $product['price'] =$current_product->price;
-  if ($current_product['cat'] === $categories[$current_product['cat']]['id']) {
-    $current_product['cat'] = $categories[$current_product['cat']]['title'];
+  $products = array();
+  foreach ($productsDB as $current_product) {
+    // Получаем строки с категориями магазина
+    $categories = R::find('categories', ' section LIKE ? ', ['shop']);
+    
+    $brands = R::find('brands');
+
+    $product['id'] = $current_product->id;
+    $product['title'] = $current_product->title;
+    $product['cat'] = $current_product->cat;
+    $product['brand'] = $current_product->brand;
+    $product['cover_small'] = $current_product->cover_small;
+    $product['price'] =$current_product->price;
+    if ($current_product['cat'] === $categories[$current_product['cat']]['id']) {
+      $current_product['cat'] = $categories[$current_product['cat']]['title'];
+    }
+
+    if ($current_product['brand'] === $brands[$current_product['brand']]['id']) {
+      $current_product['brand'] = $brands[$current_product['brand']]['title'];
+    }
+    $product['cat_title'] = $current_product['cat'];
+    $product['brand_title'] = $current_product['brand'];
+    $products [] = $product;
   }
-
-  if ($current_product['brand'] === $brands[$current_product['brand']]['id']) {
-    $current_product['brand'] = $brands[$current_product['brand']]['title'];
-  }
-  $product['cat_title'] = $current_product['cat'];
-  $product['brand_title'] = $current_product['brand'];
-  $products [] = $product;
+} else {
+  header('Location: ' . HOST . 'shop');
+  exit();
 }
+
+
 
 
 // Подключение шаблонов страницы
