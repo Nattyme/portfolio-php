@@ -1,0 +1,58 @@
+.badge {
+  padding: 5px 10px;
+  height: 26px;
+  background: #000000;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 120%;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.badges + .badges {
+  margin-top: 30px;
+  justify-content: flex-end;
+}
+
+.badge {
+  transition: all 0.2s ease-in;
+}
+
+.badge--light {
+  background-color: #7e9bbd;
+}
+
+.badge-card {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+}
+
+.badge-card--left {
+  left: 0;
+}
+
+.badge-card--right {
+  right: 0;
+}
+
+.badge-card.badge-card--left {
+  opacity: 0;
+  transform: translateX(-10%);
+  transition: all 0.3s ease-in;
+}
+
+.badge--link:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: rgb(255, 115, 0);
+}
+
+.card-product:hover .badge-card.badge-card--left {
+  opacity: 1;
+  transform: translateX(0%);
+}
+

@@ -12,21 +12,22 @@
         <div class="card-project">
           <div class="card-project__img-wrapper">
             <img src="<?php echo HOST . 'usercontent/portfolio/' . $project['cover_small'];?>" alt="Архитектурное бюро John Doe и партнеры. Сайт под ключ" />
-            <div class="card-project__technology">HTML, CSS, wordpress</div>
+            <div class="card-project__technology">
+                <?php if (!empty($project['cat'])) : ?>
+                  <a href="<?php echo HOST . "shop/cat/" . $project['cat'];?>" class="badge badge--link badge-card badge-card--left"><?php echo $project['cat'];?></a>
+                <?php endif; ?>
+            </div>
+                <?php if (!empty($project['cat'])) : ?>
+                  <a href="<?php echo HOST . "shop/cat/" . $project['cat'];?>" class="badge badge--link badge-card badge-card--кшпре"><?php echo $project['cat'];?></a>
+                <?php endif; ?>
+             
+            
           </div>
           <h4 class="card-project__title">
             <a class="card-project__link" href="<?php echo HOST . 'portfolio/'. $project['id'];?>">
                 <?php echo $project['title'];?>
             </a>
           </h4>
-          <div class="badges">
-              <?php if (!empty($project['cat'])) : ?>
-                <a href="<?php echo HOST . "shop/cat/" . $project['cat'];?>" class="badge badge--light badge--link"><?php echo $project['cat'];?></a>
-              <?php endif; ?>
-              <!-- <?php if (!empty($product['brand'])) : ?>
-                <a href="<?php echo HOST . "shop/brand/" . $product['brand'];?>" class="badge badge--link"><?php echo $product['brand_title'];?></a>
-              <?php endif; ?> -->
-          </div>
         </div>
       <?php endforeach; ?>
       
