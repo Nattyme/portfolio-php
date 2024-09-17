@@ -10,7 +10,7 @@ if( isset($_POST['submit'])) {
     $technology = R::load('technologies', $_GET['id']);
     $technology->title = $_POST['title'];
 
-    R::store($brand);
+    R::store($technology);
 
     $_SESSION['success'][] = ['title' => 'Технология успешно обновлена.'];
   }

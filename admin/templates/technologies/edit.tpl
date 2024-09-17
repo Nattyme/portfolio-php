@@ -3,7 +3,7 @@
   <?php include ROOT . "admin/templates/components/errors.tpl"; ?>
   <?php include ROOT . "admin/templates/components/success.tpl"; ?>
 
-  <form class="admin-form" method="POST" action="<?php echo HOST;?>admin/techngology-edit?id=<?php echo $techngology['id']; ?>">
+  <form class="admin-form" method="POST" action="<?php echo HOST;?>admin/technology-edit?id=<?php echo $technology['id']; ?>">
     <div class="admin-form__item">
       <h2 class="heading">Редактировать технологию</h2>
     </div>
@@ -15,7 +15,7 @@
           class="input input--width-label" 
           type="text" 
           placeholder="Заголовок бренда" 
-          value="<?php echo $techngology['title'];?>"
+          value="<?php echo $technology['title'];?>"
         />
       </label>
     </div>
@@ -25,9 +25,9 @@
         Сохранить изменения
       </button>
       <?php if (isset($_POST['postEdit'])) : ?>
-        <a class="secondary-button" href="<?php echo HOST;?>admin/techngology" title="К списку технологий">К списку технологий</a>
+        <a class="secondary-button" href="<?php echo HOST;?>admin/technology" title="К списку технологий">К списку технологий</a>
       <?php else : ?>
-        <a class="secondary-button" href="<?php echo HOST;?>admin/techngology" title="Отмена">Отмена</a>
+        <a class="secondary-button" href="<?php echo HOST;?>admin/technology" title="Отмена">Отмена</a>
       <?php endif; ?>
     </div>
   </form>
