@@ -24,6 +24,8 @@
       </select>
     </label>
   </div>
+  <?php include ROOT . "admin/templates/portfolio/parts/_skill-box.tpl"; ?>
+
   <div class="admin-form__item">
     <a class="secondary-button" href="<?php HOST;?>category-new?portfolio">Создать новую категорию</a>
   </div>
@@ -51,8 +53,6 @@
       <input name="budget" class="input input--width-label" type="text" placeholder="Введите сумму" />
     </label>
   </div>
-
-  <?php include ROOT . "admin/templates/portfolio/parts/_skill-box.tpl"; ?>
  
   <div class="admin-form__item">
     <label class="input__label">

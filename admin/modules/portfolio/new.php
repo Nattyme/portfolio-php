@@ -2,6 +2,9 @@
 // Находим категории, относящиеся к секции portfolio
 $catsArray = R::find('categories', ' section LIKE ? ORDER BY title ASC', ['portfolio']);
 
+// Формируем массив технологий
+$technologies = R::find('technologies');
+
 // Создаем массив для категорий portfolio
 $cats = [];
 foreach ($catsArray as $key => $value) {
