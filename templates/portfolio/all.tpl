@@ -14,11 +14,11 @@
             <img src="<?php echo HOST . 'usercontent/portfolio/' . $project['cover_small'];?>" alt="Архитектурное бюро John Doe и партнеры. Сайт под ключ" />
             <div class="card-project__technology">
                 <?php if (!empty($project['cat'])) : ?>
-                  <a href="<?php echo HOST . "shop/cat/" . $project['cat'];?>" class="badge badge--link badge-card badge-card--left"><?php echo $project['cat'];?></a>
+                  <a href="<?php echo HOST . "portfolio/cat/" . $project['cat'];?>" class="badge badge--link badge-card badge-card--left"><?php echo $project['cat'];?></a>
                 <?php endif; ?>
             </div>
                 <?php if (!empty($project['cat'])) : ?>
-                  <a href="<?php echo HOST . "shop/cat/" . $project['cat'];?>" class="badge badge--link badge-card badge-card--кшпре"><?php echo $project['cat'];?></a>
+                  <a href="<?php echo HOST . "portfolio/cat/" . $project['cat'];?>" class="badge badge--link badge-card badge-card--кшпре"><?php echo $project['cat'];?></a>
                 <?php endif; ?>
              
             

@@ -10,7 +10,7 @@ if ($category) {
 
   $projects = array();
   foreach ( $projectsDB as $current_project) {
-    // Получаем строки с категориями магазина
+    // Получаем строки с категориями портфолио
     $categories = R::find('categories', ' section LIKE ? ', ['portfolio']);
     
     // $brands = R::find('brands');
@@ -20,7 +20,7 @@ if ($category) {
     $project['cat'] = $current_project->cat;
     $project['brand'] = $current_project->brand;
     $project['cover_small'] = $current_project->cover_small;
-    $project['price'] =$current_project->price;
+   
     if ($current_project['cat'] === $categories[$current_project['cat']]['id']) {
       $current_projectt['cat'] = $categories[$current_project['cat']]['title'];
     }
@@ -38,11 +38,12 @@ if ($category) {
 }
 
 
-
+print_r($projects);
+die();
 
 // Подключение шаблонов страницы
 include ROOT . "templates/page-parts/_head.tpl";
 include ROOT . "templates/_parts/_header.tpl";
-include ROOT . "templates/shop/catalog.tpl";
+include ROOT . "templates/portfolio/all.tpl";
 include ROOT . "templates/_parts/_footer.tpl";
 include ROOT . "templates/page-parts/_foot.tpl";
