@@ -12,7 +12,19 @@
     <nav class="nav">
       <ul class="nav__list">
         <li class="nav__list-item"><a class="nav__list-item-link" href="<?php echo HOST;?>main" title="Перейти на главную страницу">Главная</a></li>
-        <li class="nav__list-item"><a class="nav__list-item-link" href="<?php echo HOST;?>portfolio" title="Перейти в раздел портфолио">Портфолио</a></li>
+        <li class="nav__list-item">
+          <a class="nav__list-item-link nav__list-item-link--dropdown" href="<?php echo HOST;?>portfolio" title="Перейти в раздел портфолио">
+            Портфолио
+            <div class="nav__list-item__icon">
+              <img src="<?php echo HOST . 'static/img/icons/arrow-down.svg';?>" alt="Стрелка раскрывающегося меню">
+            </div>
+          </a>
+          <div class="nav__list-item__sub-nav">
+            <ul class="sub-nav">
+              <?php include ROOT . "templates/_parts/sub-nav/_portfolio.tpl"; ?>
+            </ul>
+          </div>
+        </li>
         <li class="nav__list-item"> 
           <a class="nav__list-item-link nav__list-item-link--dropdown" href="<?php echo HOST;?>blog" title="Перейти в блог">
             Блог

@@ -21,13 +21,16 @@
 
 .nav__list-item__sub-nav {
     opacity: 0;
-    width: 140px;
-    pointer-events: none;
+    width: 100%;
+
     position: absolute;
     left: 0;
     top: 100%;
     transform: translate(0%, -10%);
     transition: all 0.2s ease-in;
+
+    text-align: left;
+    pointer-events: none;
 }
 
 .nav__list-item:hover .nav__list-item__sub-nav {
@@ -57,11 +60,9 @@
   display: flex;
   padding: 15px 20px;
 
-  // color: #7e9bbd;
   color: #fff;
   background-color: #7e9bbd;
   &:hover {
-  //  color: #000;
    transform: translateX(3%);
   }
 }
