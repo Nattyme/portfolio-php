@@ -4,7 +4,7 @@
       <h1 class="heading"><?php echo $project['title'];?></h1>
       <div class="page-project__info">
         <div class="page-project__date"><?php echo rus_date("j F Y", $project['timestamp']); ?></div>
-        <a href="#!" class="badge">работы</a>
+        <a href="#!" class="badge badge--link"><?php echo $project['cat_title'];?></a>
       </div>
     </div>
     <div class="page-project__preview"><img src="<?php echo HOST .'usercontent/portfolio/' . $project['cover'];?>" alt="Верстка и frontend для интернет магазина" /></div>

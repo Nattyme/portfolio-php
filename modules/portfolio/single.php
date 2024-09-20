@@ -1,9 +1,25 @@
 <?php 
 require_once ROOT . "./libs/functions.php";
 
-// Одиночный пост, показываем отдельную страницу блога
-$sqlQuery = 'SELECT * FROM `portfolio` WHERE portfolio.id = ? LIMIT 1';
+// Показываем отдельную страницу проекта
+$sqlQuery = 'SELECT  
+              p.id, p.title, p.cat, p.about, p.deadline, p.pages, p.budget, p.link, p.timestamp, p.tools, p.cover,
+              c.title AS cat_title
+             FROM `portfolio` as p
+             LEFT JOIN `categories` as c ON p.cat = c.id
+             WHERE p.id = ? LIMIT 1';
 $project = R::getRow($sqlQuery, [$uriGet]);
+
+
+// $sqlQuery = 'SELECT
+//                 products.id, products.title, products.content, products.cover, products.timestamp, 
+//                 products.brand, products.edit_time, products.cat, products.price, products.brand,
+//                 categories.title AS cat_title,
+//                 brands.title AS brand_title
+//              FROM `products`
+//              LEFT JOIN `categories` ON products.cat = categories.id
+//              LEFT JOIN `brands` ON products.brand = brands.id
+//              WHERE products.id = ? LIMIT 1';
 
 // Кнопки назад и вперед
 $postsId = R::getCol('SELECT id FROM `portfolio`');
