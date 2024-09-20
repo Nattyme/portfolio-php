@@ -18,17 +18,18 @@ if ($category) {
     $project['id'] = $current_project->id;
     $project['title'] = $current_project->title;
     $project['cat'] = $current_project->cat;
+    $project['cat_id'] = $current_project->cat;
     $project['brand'] = $current_project->brand;
     $project['cover_small'] = $current_project->cover_small;
    
     if ($current_project['cat'] === $categories[$current_project['cat']]['id']) {
-      $current_projectt['cat'] = $categories[$current_project['cat']]['title'];
+      $current_project['cat'] = $categories[$current_project['cat']]['title'];
     }
 
     // if ($current_product['brand'] === $brands[$current_product['brand']]['id']) {
     //   $current_product['brand'] = $brands[$current_product['brand']]['title'];
     // }
-    $project['cat_title'] = $current_project['cat'];
+    $project['cat'] = $current_project['cat'];
     // $project['brand_title'] = $current_product['brand'];
     $projects [] = $project;
   }
@@ -36,10 +37,6 @@ if ($category) {
   header('Location: ' . HOST . 'portfolio');
   exit();
 }
-
-
-print_r($projects);
-die();
 
 // Подключение шаблонов страницы
 include ROOT . "templates/page-parts/_head.tpl";
