@@ -9,6 +9,19 @@ if( isset($_POST['submit']) ) {
     $technology = R::dispense('technologies');
     $technology->title = $_POST['title'];
 
+     // Если передано изображение - уменьшаем, сохраняем, записываем в БД
+    if ( isset($_FILES['cover']['name']) && $_FILES['cover']['tmp_name'] !== '') {
+      //Если передано изображение - уменьшаем, сохраняем файлы в папку
+      $coverFileName = saveUploadedImgNoCrop ('cover', [68, 68], 12, 'technology', [68, 68]);
+
+      // Если новое изображение успешно загружено 
+      if ($coverFileName) {
+        // Записываем имя файлов в БД
+        $project->cover = $coverFileName[0];
+        $project->coverSmall = $coverFileName[1];
+      }
+    }
+
     R::store($technology);
 
     $_SESSION['success'][] = ['title' => 'Технология была успешно создана'];

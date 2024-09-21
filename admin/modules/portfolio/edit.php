@@ -95,7 +95,7 @@ $technologies = R::find('technologies');
 // Формируем массив выбранных технологий
 $currentTechnologies = json_decode($project['tools'], true);
 
-$pageTitle = "Блог. Редактировать пост {$project['title']}";
+$pageTitle = "Портфолио. Редактировать проект {$project['title']}";
 $pageClass = "admin-page";
 // Центральный шаблон для модуля
 ob_start();

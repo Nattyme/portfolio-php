@@ -14,6 +14,18 @@
       </label>
     </div>
 
+    <div class="admin-form__item">
+      <div class="block-upload">
+        <div class="block-upload__description">
+          <div class="block-upload__title">Добавить изображение</div>
+          <p>Формат jpg или png, рекомендуемая ширина 68px и больше, высота от 68px и более. Вес до 2Мб.</p>
+          <div class="block-upload__file-wrapper">
+            <input name="cover" class="file-button" type="file">
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="admin-form__item buttons">
       <button name="submit" value="submit" class="primary-button" type="submit">
         Создать

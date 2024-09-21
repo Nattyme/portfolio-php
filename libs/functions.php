@@ -230,6 +230,7 @@ function saveUploadedImg($inputFileName, $minSize, $maxFileSizeMb, $folderName, 
       $imgFolderLocation = ROOT . "usercontent/{$folderName}/";
 
       $db_file_name = rand(100000000000,999999999999) . "." . $fileExt;
+    
       $filePathFullSize = $imgFolderLocation . $db_file_name;
       $filePathSmallSize = $imgFolderLocation . $smallSize[0] . '-' . $db_file_name;
 
@@ -245,6 +246,7 @@ function saveUploadedImg($inputFileName, $minSize, $maxFileSizeMb, $folderName, 
       }
 
       return [$db_file_name, $smallSize[0] . '-' . $db_file_name,];
+      
     }
   }
 }
@@ -345,7 +347,7 @@ function saveUploadedFile($inputFileName, $maxFileSizeMb, $folderName) {
     }
 
     // 2.2 Проверка на формат файла
-    if (!preg_match("/\.(gif|jpg|jpeg|png|pdf|zip|rar|doc|docx)$/i", $fileName)) {
+    if (!preg_match("/\.(gif|jpg|jpeg|png|pdf|zip|rar|doc|docx|svg)$/i", $fileName)) {
       $_SESSION['errors'][] = [
         'title'=> 'Недопустимый формат файла',
         'desc'=> '<p>Файл должен быть в формате gif, jpg, jpeg,png, pdf, zip, rar, doc или docx</p>'
@@ -399,6 +401,8 @@ function num_decline( $number, $titles, $show_number = false ){
 
 	return ( $show_number ? "$number " : '' ) . $titles[ $title_index ];
 }
+
+
 
 // Вывод похожих постов
 function get_related_posts ($postTitle) {
