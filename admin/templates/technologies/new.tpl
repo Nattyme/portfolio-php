@@ -3,7 +3,7 @@
   <?php include ROOT . "admin/templates/components/errors.tpl"; ?>
   <?php include ROOT . "admin/templates/components/success.tpl"; ?>
 
-  <form class="admin-form" method="POST" action="<?php echo HOST;?>admin/technology-new">
+  <form enctype="multipart/form-data" class="admin-form" method="POST" action="<?php echo HOST;?>admin/technology-new">
     <div class="admin-form__item">
       <h2 class="heading">Новая технология</h2>
     </div>

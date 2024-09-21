@@ -9,16 +9,21 @@ if( isset($_POST['submit']) ) {
     $technology = R::dispense('technologies');
     $technology->title = $_POST['title'];
 
-     // Если передано изображение - уменьшаем, сохраняем, записываем в БД
+    // Если передано изображение - уменьшаем, сохраняем, записываем в БД
     if ( isset($_FILES['cover']['name']) && $_FILES['cover']['tmp_name'] !== '') {
       //Если передано изображение - уменьшаем, сохраняем файлы в папку
-      $coverFileName = saveUploadedImgNoCrop ('cover', [68, 68], 12, 'technology', [68, 68]);
+      $coverFileName = saveUploadedFile('cover', 12, 'technology');
 
       // Если новое изображение успешно загружено 
       if ($coverFileName) {
+        $coverFolderLocation = ROOT . 'usercontent/products/';
+        // Если есть старое изображение - удаляем 
+        if (file_exists($coverFolderLocation . $technology->cover) && !empty($technology->cover)) {
+          unlink($coverFolderLocation . $technology->cover);
+        }
+
         // Записываем имя файлов в БД
-        $project->cover = $coverFileName[0];
-        $project->coverSmall = $coverFileName[1];
+        $technology->cover = $coverFileName[0];
       }
     }
 
