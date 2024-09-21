@@ -13,7 +13,7 @@
         </div>
         <?php foreach( $products as $product) : ?>
           <div class="page-shopping-cart__row">
-            <a class="button-favorite <?php echo isFav_list($product['id']) ? 'active' : '';?>" 
+            <a class="link-above-others button-favorite <?php echo isFav_list($product['id']) ? 'active' : '';?>" 
                     href="<?php echo HOST;?>addtofavorite?id=<?php echo $product['id'];?>"
                 >
                   <svg class="icon-favorite" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -21,15 +21,16 @@
                   </svg>
             </a>
             <div class="page-shopping-cart__img">
-              <a href="<?php echo HOST . "shop/" . $product['id'];?>">
-                <img src="<?php echo HOST .'usercontent/products/' . $product['cover_small'];?>" alt="productName" />
+              <img src="<?php echo HOST .'usercontent/products/' . $product['cover_small'];?>" alt="productName" />
+            </div>
+            <div class="page-shopping-cart__name">
+              <a class="link-to-page" href="<?php echo HOST . "shop/" . $product['id'];?>"><?php echo $product['title'];?>
               </a>
             </div>
-            <div class="page-shopping-cart__name"><a href="<?php echo HOST . "shop/" . $product['id'];?>"><?php echo $product['title'];?></a></div>
             <div class="page-shopping-cart__money"><?php echo format_price($product['price']);?> руб.</div>
          
             <div class="page-shopping-cart__buttons">
-              <a class="primary-button" href="<?php echo HOST;?>addtocart?id=<?php echo $product['id'];?>">В корзину</a>                      
+              <a class="primary-button link-above-others" href="<?php echo HOST;?>addtocart?id=<?php echo $product['id'];?>">В корзину</a>                      
             </div>
       
           </div>

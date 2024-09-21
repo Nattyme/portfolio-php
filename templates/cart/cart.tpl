@@ -15,15 +15,16 @@
         <?php foreach( $products as $product) : ?>
           <div class="page-shopping-cart__row">
             <div class="page-shopping-cart__img">
-              <a href="<?php echo HOST . "shop/" . $product['id'];?>">
-                <img src="<?php echo HOST .'usercontent/products/' . $product['cover_small'];?>" alt="productName" />
+              <img src="<?php echo HOST .'usercontent/products/' . $product['cover_small'];?>" alt="productName" />
+            </div>
+            <div class="page-shopping-cart__name">
+              <a class="link-to-page" href="<?php echo HOST . "shop/" . $product['id'];?>"><?php echo $product['title'];?>
               </a>
             </div>
-            <div class="page-shopping-cart__name"><a href="<?php echo HOST . "shop/" . $product['id'];?>"><?php echo $product['title'];?></a></div>
             <div class="page-shopping-cart__id"><?php echo $cart[$product['id']];?></div>
             <div class="page-shopping-cart__money"><?php echo format_price($product['price']);?> руб.</div>
-            <a href="<?php echo HOST . 'removefromcart?id=' . $product['id'];?>" class="page-shopping-cart__delete">
-              <div> <span class="leftright"></span><span class="rightleft"> </span></div>
+            <a class="link-above-others page-shopping-cart__delete" href="<?php echo HOST . 'removefromcart?id=' . $product['id'];?>">
+              <div class="cross-wrapper"> <span class="leftright"></span><span class="rightleft"> </span></div>
             </a>
           </div>
         <?php endforeach; ?>
