@@ -28,7 +28,31 @@
     <a class="secondary-button" href="<?php HOST;?>category-new?portfolio">Создать новую категорию</a>
   </div>
 
-  <?php include ROOT . "admin/templates/portfolio/parts/_technologies.tpl"; ?>
+  <div class="admin-form__item">
+  
+  <label class="checkbox__title">
+    Заполните технологии проекта:
+  </label>
+  <div class="checkbox__row">
+    <?php foreach($technologies as $technology) : ?>
+      <label class="checkbox__item">
+          <input
+              class="checkbox__btn"
+              type="checkbox"
+              name="<?php echo $technology['id'];?>"
+              value="<?php echo $technology['title'];?>"
+          >
+          <span class="checkbox__label"><strong><?php echo $technology['title'];?></strong></span>
+      </label>
+    <?php endforeach;?>
+  
+  </div>
+  
+</div>
+
+<div class="admin-form__item">
+  <a class="secondary-button" href="<?php HOST;?>technology-new">Создать новую технологию</a>
+</div>
   
   <div class="admin-form__item">
     <label class="textarea__label mb-15" name="editor">

@@ -32,7 +32,7 @@ if( isset($_POST['postEdit'])) {
     $project->deadline = $_POST['deadline'];
     $project->pages = $_POST['pages'];
     $project->budget = $_POST['budget'];
-    $project->tools = $_POST['tools'];
+    $project->tools = json_encode($tools);
     $project->link = $_POST['link'];
     $project->editTime = time();
     // print_r($project);
@@ -88,6 +88,12 @@ if( isset($_POST['postEdit'])) {
 }
 
 $project = R::load('portfolio', $_GET['id']);
+
+//Запрос технологий в БД с сортировкой id по убыванию
+$technologies = R::find('technologies'); 
+
+// Формируем массив выбранных технологий
+$currentTechnologies = json_decode($project['tools'], true);
 
 $pageTitle = "Блог. Редактировать пост {$project['title']}";
 $pageClass = "admin-page";

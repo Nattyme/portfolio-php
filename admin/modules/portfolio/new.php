@@ -8,7 +8,6 @@ $catsArray = R::find('categories', ' section LIKE ? ORDER BY title ASC', ['portf
 
 // Формируем массив технологий
 $technologies = R::find('technologies');
-
 // Создаем массив для категорий portfolio
 $cats = [];
 foreach ($catsArray as $key => $value) {
@@ -26,10 +25,6 @@ if( isset($_POST['postSubmit']) ) {
     $_SESSION['errors'][] = ['title' => 'Заполните содержимое проекта'];
   } 
 
-  if( trim($_POST['tools']) == '' ) {
-    $_SESSION['errors'][] = ['title' => 'Заполните технологии проекта'];
-  } 
-
   if ( empty($_SESSION['errors'])) {
     $project = R::dispense('portfolio');
     $project->title = $_POST['title'];
@@ -38,9 +33,18 @@ if( isset($_POST['postSubmit']) ) {
     $project->deadline = $_POST['deadline'];
     $project->pages = $_POST['pages'];
     $project->budget = $_POST['budget'];
-    $project->tools = $_POST['tools'];
     $project->link = $_POST['link'];
     $project->timestamp = time();
+
+    $tools = array();
+    foreach ($technologies as $key => $value) {
+      if(isset($_POST[$value['id']])) {
+        $tools[] = ['id' => $value['id'], 'title' => $value['title']];
+      }
+    }
+   
+    $project->tools = json_encode($tools);
+
 
     // Если передано изображение - уменьшаем, сохраняем, записываем в БД
     if ( isset($_FILES['cover']['name']) && $_FILES['cover']['tmp_name'] !== '') {
@@ -54,7 +58,7 @@ if( isset($_POST['postSubmit']) ) {
         $project->coverSmall = $coverFileName[1];
       }
     }
-
+ 
     R::store($project);
 
     $_SESSION['success'][] = ['title' => 'Проект успешно добавлен'];

@@ -55,14 +55,36 @@
       <input name="budget" class="input input--width-label" type="text" placeholder="Введите сумму" value="<?php echo $project['budget'] ;?>"/>
     </label>
   </div>
+
   <div class="admin-form__item">
-    <label class="textarea__label mb-15" name="editor">
-      Заполните технологии проекта
+  
+    <label class="checkbox__title">
+      Заполните технологии проекта:
     </label>
-    <textarea name="tools" class="textarea textarea--width-label" placeholder="Перечислите технололгии" id="tools">
-        <?php echo $project['tools'] ;?>"
-    </textarea>
+    <div class="checkbox__row">
+      <?php foreach($technologies as $technology) : ?>
+        <label class="checkbox__item">
+            <input
+                class="checkbox__btn"
+                type="checkbox"
+                name="<?php echo $technology['id'];?>"
+                value="<?php echo $technology['title'];?>"
+                <?php foreach($currentTechnologies as $currentTech) : ?>
+                  <?php echo isset($currentTech) &&  $technology['id'] === $currentTech['id'] ? 'checked' : NULL;  ?>
+                <?php endforeach;?>
+            >
+            <span class="checkbox__label"><strong><?php echo $technology['title'];?></strong></span>
+        </label>
+      <?php endforeach;?>
+    
+    </div>
+  
   </div>
+
+<div class="admin-form__item">
+  <a class="secondary-button" href="<?php HOST;?>technology-new">Создать новую технологию</a>
+</div>
+
   <div class="admin-form__item">
     <label class="input__label">
       Ссылка на проект проекта

@@ -3,7 +3,7 @@
 $currentSection = getCurrentSection ();
 $_SESSION['currentSection'] = $currentSection;
 
-//Запрос брендов в БД с сортировкой id по убыванию
+//Запрос технологий в БД с сортировкой id по убыванию
 $technologies = R::find('technologies', 'ORDER BY id DESC'); 
 
 $pageTitle = "Технологии - все записи";
