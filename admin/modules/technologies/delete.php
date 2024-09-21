@@ -1,11 +1,11 @@
 <?php
-$technologies = R::load('technologies', $_GET['id']); 
+$technology = R::load('technologies', $_GET['id']); 
 
 if ( isset($_POST['submit']) ) {
   R::trash($technology); 
   
   $_SESSION['success'][] = ['title' => 'Технология успешно удалена.'];
-  header('Location: ' . HOST . 'admin/technologies');
+  header('Location: ' . HOST . 'admin/technology');
   exit();
 }
 

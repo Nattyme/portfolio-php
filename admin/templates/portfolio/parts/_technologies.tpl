@@ -63,3 +63,7 @@
   
 </div>
 
+<div class="admin-form__item">
+  <a class="secondary-button" href="<?php HOST;?>technology-new">Создать новую технологию</a>
+</div>
+

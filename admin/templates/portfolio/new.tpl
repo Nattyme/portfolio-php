@@ -24,11 +24,12 @@
       </select>
     </label>
   </div>
-  <?php include ROOT . "admin/templates/portfolio/parts/_skill-box.tpl"; ?>
-
   <div class="admin-form__item">
     <a class="secondary-button" href="<?php HOST;?>category-new?portfolio">Создать новую категорию</a>
   </div>
+
+  <?php include ROOT . "admin/templates/portfolio/parts/_technologies.tpl"; ?>
+  
   <div class="admin-form__item">
     <label class="textarea__label mb-15" name="editor">
       Описание проекта

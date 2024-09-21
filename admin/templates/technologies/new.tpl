@@ -18,7 +18,8 @@
       <button name="submit" value="submit" class="primary-button" type="submit">
         Создать
       </button>
-      <a class="secondary-button" href="<?php echo HOST;?>admin/technology">Отмена</a>
+      <?php $link = isset($_SESSION['currentSection']) && $_SESSION['currentSection'] === 'admin/project-new' ? 'admin/project-new' : 'admin/technology';?>
+      <a class="secondary-button" href="<?php echo HOST . $link;?>">Отмена</a>
     </div>
   </form>
 </div>
