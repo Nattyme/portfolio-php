@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: MySQL-5.7
--- Время создания: Июл 31 2024 г., 13:38
+-- Время создания: Сен 22 2024 г., 23:22
 -- Версия сервера: 5.7.44
 -- Версия PHP: 7.4.33
 
@@ -24,11 +24,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `brands`
+--
+
+CREATE TABLE `brands` (
+  `id` int(11) NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `brands`
+--
+
+INSERT INTO `brands` (`id`, `title`) VALUES
+(1, 'Apple'),
+(3, 'Sumsung'),
+(4, 'Sony'),
+(5, ' Huawei'),
+(6, 'Xiaomi');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `categories`
 --
 
 CREATE TABLE `categories` (
   `id` int(11) UNSIGNED NOT NULL,
+  `section` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
@@ -36,14 +59,24 @@ CREATE TABLE `categories` (
 -- Дамп данных таблицы `categories`
 --
 
-INSERT INTO `categories` (`id`, `title`) VALUES
-(1, 'Книги'),
-(2, 'Фильмы'),
-(3, 'Фотографии'),
-(4, 'Художники'),
-(5, 'Интересное'),
-(6, 'Спорт'),
-(7, 'Наука');
+INSERT INTO `categories` (`id`, `section`, `title`) VALUES
+(1, 'blog', 'Книги'),
+(2, 'blog', 'Фильмы'),
+(3, 'blog', 'Фотографии'),
+(4, 'blog', 'Художники'),
+(5, 'blog', 'Интересное'),
+(6, 'blog', 'Спорт'),
+(7, 'shop', 'Ноутбуки'),
+(8, 'shop', 'Смартфоны'),
+(9, 'shop', 'Часы'),
+(10, 'shop', 'Планшеты'),
+(11, 'shop', 'Мониторы'),
+(12, 'blog', 'Технологии'),
+(14, 'blog', 'Наука'),
+(15, 'portfolio', 'Учебный проект'),
+(16, 'portfolio', 'Интернет-магазин'),
+(17, 'portfolio', 'Многостраничный сайт'),
+(18, 'portfolio', 'Лендинг');
 
 -- --------------------------------------------------------
 
@@ -56,23 +89,23 @@ CREATE TABLE `comments` (
   `text` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `post` int(11) UNSIGNED DEFAULT NULL,
   `user` int(11) UNSIGNED DEFAULT NULL,
-  `timestamp` int(11) UNSIGNED DEFAULT NULL
+  `timestamp` int(11) UNSIGNED DEFAULT NULL,
+  `status` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Дамп данных таблицы `comments`
 --
 
-INSERT INTO `comments` (`id`, `text`, `post`, `user`, `timestamp`) VALUES
-(1, 'Хорошая статья!', 25, 2, 1722183682),
-(2, 'Комментарий от анонима к посту №26', 26, 2, 1722187674),
-(3, 'Комментарий от админа к посту №26', 26, 1, 1722187716),
-(4, 'Комментарий к посту №25 от пользователя без имени', 25, 3, 1722187823),
-(5, 'Комментарий к посту №25 от пользователя без фамилии', 25, 4, 1722187873),
-(6, 'Еще один комментарий', 17, 1, 1722194366),
-(7, 'Привет всем!\r\n', 26, 1, 1722195314),
-(8, 'Комментарий от меня!', 26, 2, 1722195374),
-(9, 'Еще прокомментирую', 26, 2, 1722241813);
+INSERT INTO `comments` (`id`, `text`, `post`, `user`, `timestamp`, `status`) VALUES
+(1, 'Хорошая статья!', 25, 2, 1722183682, 'new'),
+(2, 'Комментарий от анонима к посту №26', 26, 2, 1722187674, 'new'),
+(3, 'Комментарий от админа к посту №26', 26, 1, 1722187716, 'new'),
+(4, 'Комментарий к посту №25 от пользователя без имени', 25, 3, 1722187823, 'new'),
+(5, 'Комментарий к посту №25 от пользователя без фамилии', 25, 4, 1722187873, 'new'),
+(6, 'Еще один комментарий', 17, 1, 1722194366, 'new'),
+(7, 'Привет всем!\r\n', 26, 1, 1722195314, NULL),
+(10, 'Красивая картина!', 30, 1, 1724273913, NULL);
 
 -- --------------------------------------------------------
 
@@ -87,15 +120,126 @@ CREATE TABLE `messages` (
   `message` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `timestamp` int(11) UNSIGNED DEFAULT NULL,
   `file_name_src` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `file_name_original` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
+  `file_name_original` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `status` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Дамп данных таблицы `messages`
 --
 
-INSERT INTO `messages` (`id`, `email`, `name`, `message`, `timestamp`, `file_name_src`, `file_name_original`) VALUES
-(1, 'test@yandex.ru', 'Natasha', 'Привет!', 1722352871, NULL, NULL);
+INSERT INTO `messages` (`id`, `email`, `name`, `message`, `timestamp`, `file_name_src`, `file_name_original`, `status`) VALUES
+(1, 'info@mail.ru', 'Пользователь', 'Сообщение тестовое, номер 1', 1724270618, NULL, NULL, 'new'),
+(2, 'info2@mail.ru', 'Пользователь 2', 'Сообщение тестовое, номер 2', 1724270638, NULL, NULL, 'new'),
+(3, 'info2@mail.ru', 'Пользователь 2', 'Сообщение тестовое, номер 2', 1724270651, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `surname` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `phone` double DEFAULT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `cart` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `user_id` int(11) UNSIGNED DEFAULT NULL,
+  `timestamp` int(11) UNSIGNED DEFAULT NULL,
+  `status` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `paid` tinyint(1) UNSIGNED DEFAULT NULL,
+  `price` int(11) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Дамп данных таблицы `orders`
+--
+
+INSERT INTO `orders` (`id`, `name`, `surname`, `email`, `phone`, `address`, `cart`, `user_id`, `timestamp`, `status`, `paid`, `price`) VALUES
+(5, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":8,\"amount\":1,\"title\":\"Mac mini\",\"price\":\"162000\"},{\"id\":5,\"amount\":1,\"title\":\"iPad\",\"price\":\"46000\"}]', 1, 1724007384, 'new', 0, 208000),
+(6, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":9,\"amount\":1,\"title\":\"Mac Pro\",\"price\":\"312000\"},{\"id\":10,\"amount\":1,\"title\":\"Mac mini2\",\"price\":\"60000\"}]', 1, 1724062971, 'new', 0, 372000),
+(7, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":8,\"amount\":2,\"title\":\"Mac mini\",\"price\":\"162000\"}]', 1, 1724140946, 'new', 0, 324000),
+(8, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":5,\"amount\":1,\"title\":\"iPad\",\"price\":\"46000\"}]', 1, 1724141098, 'new', 0, 46000),
+(9, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":9,\"amount\":1,\"title\":\"Mac Pro\",\"price\":\"312000\"},{\"id\":7,\"amount\":1,\"title\":\"MacBook\",\"price\":\"130000\"}]', 1, 1724141330, 'new', 0, 442000),
+(10, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":7,\"amount\":1,\"title\":\"MacBook\",\"price\":\"130000\"}]', 1, 1724142919, 'new', 0, 130000),
+(11, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":9,\"amount\":1,\"title\":\"Mac Pro\",\"price\":\"312000\"}]', 1, 1724155054, 'in progress', 0, 312000),
+(12, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":12,\"amount\":1,\"title\":\"MacBook2\",\"price\":\"60000\"}]', 1, 1724679996, 'in progress', 0, 60000),
+(13, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":15,\"amount\":18,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d Xiaomi Mi 8 SE.\",\"price\":\"45000\"},{\"id\":8,\"amount\":1,\"title\":\"Mac mini\",\"price\":\"162000\"}]', 1, 1726140704, 'new', 0, 972000),
+(14, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":7,\"amount\":1,\"title\":\"MacBook\",\"price\":\"130000\"}]', 1, 1726227339, 'new', 0, 130000),
+(15, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":16,\"amount\":1,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d Xiaomi Redmi 2 Prime\",\"price\":\"60000\"}]', 1, 1726235703, 'new', 0, 60000),
+(16, 'Elena', 'Truman', 'info@yandex.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":15,\"amount\":1,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d Xiaomi Mi 8 SE.\",\"price\":\"45000\"}]', NULL, 1726288472, 'new', 0, 45000),
+(17, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":12,\"amount\":1,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d N3\",\"price\":\"50000\"}]', 1, 1726290236, 'new', 0, 50000),
+(18, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":16,\"amount\":1,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d Xiaomi Redmi 2 Prime\",\"price\":\"60000\"}]', 1, 1726300759, 'new', 0, 60000),
+(19, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":16,\"amount\":1,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d Xiaomi Redmi 2 Prime\",\"price\":\"60000\"}]', 1, 1726319531, 'new', 0, 60000),
+(20, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":7,\"amount\":1,\"title\":\"MacBook\",\"price\":\"130000\"}]', 1, 1726320767, 'new', 0, 130000),
+(22, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":16,\"amount\":1,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d Xiaomi Redmi 2 Prime\",\"price\":\"60000\"}]', 1, 1726322929, 'new', 0, 60000),
+(23, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":15,\"amount\":1,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d Xiaomi Mi 8 SE.\",\"price\":\"45000\"}]', 1, 1726326258, 'canceled', 0, 45000);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `payments`
+--
+
+CREATE TABLE `payments` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `payment` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `order_id` int(11) UNSIGNED DEFAULT NULL,
+  `price` int(11) UNSIGNED DEFAULT NULL,
+  `status` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `timestamp` int(11) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Дамп данных таблицы `payments`
+--
+
+INSERT INTO `payments` (`id`, `payment`, `order_id`, `price`, `status`, `timestamp`) VALUES
+(1, '2e772d6c-000f-5000-9000-1ce45ecbeb62', 14, 130000, 'pending', 1726290347),
+(2, '2e775621-000f-5000-9000-196d18c99fb5', 18, 60000, 'pending', 1726300767),
+(3, '2e779f74-000f-5000-a000-1de232cfa57a', 19, 60000, 'pending', 1726319539),
+(4, '2e779f74-000f-5000-8000-17fa56177e12', 19, 60000, 'pending', 1726319539),
+(5, '2e77a44b-000f-5000-8000-1e4bbd3ad174', 20, 130000, 'succeeded', 1726320778),
+(7, '2e77acbb-000f-5000-9000-126d875c2144', 22, 60000, 'pending', 1726322938),
+(8, '2e77ad1f-000f-5000-9000-13295038f8b2', 22, 60000, 'pending', 1726323038),
+(9, '2e77b2ce-000f-5000-a000-15136d881d11', 22, 60000, 'pending', 1726324492),
+(10, '2e77b9b8-000f-5000-9000-113820d34a68', 23, 45000, 'canceled', 1726326262);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `portfolio`
+--
+
+CREATE TABLE `portfolio` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `cat` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `about` text COLLATE utf8mb4_unicode_520_ci,
+  `deadline` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `pages` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `budget` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `technology` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `link` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `timestamp` int(11) UNSIGNED DEFAULT NULL,
+  `edit_time` int(11) UNSIGNED DEFAULT NULL,
+  `cover_small` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `cover` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Дамп данных таблицы `portfolio`
+--
+
+INSERT INTO `portfolio` (`id`, `title`, `cat`, `about`, `deadline`, `pages`, `budget`, `technology`, `link`, `timestamp`, `edit_time`, `cover_small`, `cover`) VALUES
+(1, 'Верстка и frontend для интернет магазина', '16', '<p>Сделана верстка и фронтэнд для интернет магазина мебели. Сверстано более 50-ти страниц. Сделаны все эффекты и интерактив. В работе использованы препроцессоры pug и less. Интерактив написан на JavaScript. Весь проект протестирован на своместимость, начиная с IE9. Для старых браузеров использован подход Graceful Degradation.</p>\r\n\r\n<p>Проект сделан в срок. Заказчик доволен. Сайт запущен, работает и уже радует покупками посетителей и владельцев бизнеса.</p>\r\n', '6 недель', '52 страницы', '60 000 рублей', '[{\"id\":\"1\",\"title\":\"HTML5\"},{\"id\":\"2\",\"title\":\"CSS3\"},{\"id\":\"5\",\"title\":\"SCSS\"}]', 'quantum-store.ru', 1722527361, 1726495800, '500-547904248283.jpg', '547904248283.jpg'),
+(11, 'Верстка “Форест тревел”', '17', '<p>Многостраничный сайт для туристического агенства &quot;Forest Travel&quot;.</p>\r\n\r\n<p>Работа выполнена по макету Figma. В проекте использовались: flex, scss, js, pixel perfect, favicons, open graph. Реализована форма обратной связи со стилизованными чекбоксами и радиокнопками. Добавлена мобильная адаптация &ldquo;desktop-first&rdquo;, мобильная навигация, оптимизация графики.</p>\r\n\r\n<p>&nbsp;</p>\r\n', '3 недели', '5', 'учебный проект', '[{\"id\":\"1\",\"title\":\"HTML5\"},{\"id\":\"2\",\"title\":\"CSS3\"},{\"id\":\"5\",\"title\":\"SCSS\"}]', 'https://nattyme.github.io/forest-travel/', 1722542965, 1726495782, '500-486820426799.jpg', '486820426799.jpg'),
+(12, 'Верстка лендинга  “Юнит”', '18', '<p>Верстка лендинга для таск-менеджера &ldquo;Юнит&rdquo; &ndash; учебный проект.<br />\r\nРабота выполнена по макету Figma. В проекте использовались: flex, bem-naming, scss, js, jquery.<br />\r\nДобавлена мобильная адаптация &ldquo;desktop-first&rdquo; и оптимизация графики. Функционал слайдера<br />\r\nреализован через подключение плагина owl-carousel</p>\r\n', '2 недели', '1', 'учебный проект.', '[{\"id\":\"1\",\"title\":\"HTML5\"},{\"id\":\"2\",\"title\":\"CSS3\"},{\"id\":\"5\",\"title\":\"SCSS\"}]', 'https://nattyme.github.io/unit/', 1722543533, 1726999306, '500-891296452022.jpg', '891296452022.jpg'),
+(13, 'Верстка лендинга “Портфолио верстальщика”', '18', '<p>Работа выполнена по макету Figma. В проекте использовались: flex, sticky footer, bem-naming, svg sprite, scss, js, php, jquery, pixel perfect, favicons, open graph. Реализована форма обратной связи с отправкой данных. Добавлена мобильная адаптация &ldquo;desktop-first&rdquo;, мобильная навигация. К галереи проектов подключены плагины fancybox и mixitup. Есть возможность сортировки работ по категориям, просмотр макета, переход на сайт проекта. Реализован блок timeline с возможностью добавления и удаления отдельных задач. Добавлены AOX анимации для секци</p>\r\n', '2 недели', '1', 'учебный проект.', '[{\"id\":\"1\",\"title\":\"HTML5\"},{\"id\":\"2\",\"title\":\"CSS3\"},{\"id\":\"5\",\"title\":\"SCSS\"}]', 'https://nattyme.github.io/portfolio/', 1722543822, 1727013487, '500-200949409181.jpg', '200949409181.jpg'),
+(15, 'Amid', '16', '<p>Описание проекта</p>\r\n', '', '', '', '[{\"id\":\"3\",\"title\":\"JS\"}]', '', 1726934538, 1727036327, '500-776219269356.jpg', '776219269356.jpg');
 
 -- --------------------------------------------------------
 
@@ -137,7 +281,48 @@ INSERT INTO `posts` (`id`, `title`, `content`, `timestamp`, `cover`, `cover_smal
 (26, 'Художник Геннадий Григорьевич Голобоков (1935 - 1978)', '<p><strong>Геннадий Григорьевич Голобоков (1935 - 1978) </strong>- советский художник, основатель направления &quot;психологической фантастики&quot; в живописи.<br />\r\n<br />\r\n<img alt=\"Земная белка, 1973 г.\" src=\"https://portfolio-php/usercontent/editor-uploads/881028769675.jpg\" style=\"float:left; height:235px; margin:10px; width:320px\" />Родился 16 февраля 1935 году в селе Малая Быковка Балаковского района. С детства увлекался астрономией, очень любил рисовать, играл на скрипке, на гармошке. И еще была у него одна страсть &ndash; он мечтал стать&nbsp;астрономом. Когда он учился в 4 классе, то сам сконструировал телескоп по схеме, забирался на крышу и проводил там свои первые наблюдения. У мальчика была мечта работать в настоящей обсерватории. Позже познакомился с работами Циолковского, которые очень его вдохновили.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"https://portfolio-php/usercontent/editor-uploads/710528828343.jpg\" style=\"float:right; height:335px; margin:10px 20px; width:500px\" /></p>\r\n\r\n<p>Но в 16 лет юноша получил страшную травму - нырнув с крутого берега балаковской реки Линевки, ударился головой о песок, и вследствие перелома позвоночника оказался обездвиженным. В первое время стихи и рисование были лишь одним из средств избавления от физической и душевной боли. Но позже приходит решение, что нужно учиться. Геннадий подает документы в Московский заочный институт искусств имени Н.К. Крупской, но из приемной комиссии ему поступает сообщение о необходимости очного присутствия на вступительных экзаменах. Но абитуриент не сдается и посылает письмо со своими рисунками вице-президенту Академии художеств СССР В.А. Серову, который впоследствии ходатайствует о приеме Геннадия в университет.</p>\r\n\r\n<p><br />\r\n<img alt=\"\" src=\"https://portfolio-php/usercontent/editor-uploads/362402926450.jpg\" style=\"float:left; height:621px; margin-left:20px; margin-right:20px; width:370px\" />С <strong>1958</strong> года художник начинает активно участвовать во Всесоюзных выставках самодеятельных художников, с условием, чтобы никто не знал о его болезни.<br />\r\nВ <strong>1973</strong> году на Международной выставке научно-фантастической живописи <em>&laquo;Космос завтрашнего дня&raquo; </em>Геннадий знакомится с космонавтом Алексеем Леоновым, который являлся председателем жюри этого конкурса, и получает из его рук диплом I степени. Одну за другой получает он первые премии в конкурсах: <em>&laquo;Мир завтрашнего дня&raquo;, &laquo;Мир 2000 года&raquo;, &laquo;Сибирь завтра&raquo;, &laquo;Время &ndash; Пространство &ndash; Человек&raquo;.</em><br />\r\nРаботы Геннадия на фантастическую тему начинают экспонироваться на различных выставках научно-фантастической живописи во многих городах нашей страны и за рубежом, а именно: в Праге, Будапеште, Братиславе, Лиссабоне, Улан-Баторе, на Мадагаскаре и Лаосе. А две его картины были приобретены и находятся теперь в центре космонавтики в Хьюстоне в Америке.<br />\r\nРаботы Геннадия Голобокова публиковались в журнале @<em>Техника &ndash; молодежи</em>&quot;:</p>\r\n', 1722019129, '360238113214.jpg', '290-360238113214.jpg', 1722283483, '4'),
 (29, 'Галактика M106', '<h2>Общие сведения</h2>\r\n\r\n<p>Галактика M106 (др. названия: NGC 4258, ZWG 243.67, UGC 7353) &ndash; спиральная галактика, которая находится в&nbsp;<a href=\"http://spacegid.com/sozvezdie-gonchie-psyi.html\" target=\"_blank\">созвездии Гончие Псы</a>. Расположена на расстоянии около 23,7 миллионов световых лет (7 млн парсек) от Земли.</p>\r\n\r\n<p>Данную спиральную галактику обнаружил французский астроном Пьер Мешен в 1781-м году, позже Шарль Мессье внес ее в&nbsp;<a href=\"http://spacegid.com/katalog-messe\" target=\"_blank\">свой каталог</a>&nbsp;под номером 106.</p>\r\n\r\n<h2>Структура и особенности</h2>\r\n\r\n<p>Данная спиральная галактика содержит 400 миллиардов звезд, имеет диаметр в 135&nbsp;000 световых лет и удаляется от нас со скоростью 448 км/с.&nbsp;Предположительно, соседняя галактика NGC 4217 является спутником галактики M106.</p>\r\n\r\n<p>Отличительной особенностью галактики Мессье 106 является ее необычная структура. Прежде всего недавние наблюдения галактики показали, что она имеет не два, как предполагалось ранее, а четыре спиральные рукава. Два из этих рукавов в видимом диапазоне практически незаметны, однако отлично наблюдаются в рентгеновском и радио диапазонах. В отличие от двух видимых рукавов, эти два состоят не из звезд, а из пыли и газа, также их происхождение остается под вопросом.</p>\r\n\r\n<p>Одной из наиболее вероятных причин образования этих рукавов, является повышенная активность ядра галактики, которое быстро выбрасывает материю от центра к периферии, образуя так называемые джеты. В поддержку этого предположения служит более прямая форма невидимых рукавов, в отличие от видимых.</p>\r\n\r\n<h2>Галактическое ядро</h2>\r\n\r\n<p>Галактическое ядро спиральной галактики Мессье 106 содержит сверхмассивную черную дыру с диаметром 0,63 световых года и массой в 36 миллионов масс Солнца, что в девять раз больше массы в центре Млечного Пути. Наблюдение эмиссионных линий и рентгеновских лучей свидетельствуют о том, что часть галактики буквально падает в центральную сверхмассивную черную дыру.</p>\r\n\r\n<h2>Мазер в M106</h2>\r\n\r\n<p>Спиральная галактика Мессье 106 относится к так называемым мазерным галактиками. Принцип работы мазера во многом схож с лазером, и отличается тем, что объект излучает не в видимом диапазоне, а в микроволновом. Так впервые расстояние к объекту измерили при помощи мегамазерного кольца, которое имеет фиолетовый оттенок. Примечательно, что данное кольцо во многом состоит из молекулярного водяного газа, который и выступает в роли мазера.</p>\r\n\r\n<p>Благодаря тому, что астрономам удалось при помощи мазера независимо определить расстояние к спиральной галактике M106, в их арсенале появился новый космический якорь.</p>\r\n', 1722082355, '864717428154.jpg', '290-864717428154.jpg', 1722109876, '3'),
 (30, 'Художник Маркус Веспер ', '<p>Немецкий художник <strong>Маркус Веспер (Markus Vesper)</strong> рисует на стыке нескольких жанров - фантастики, фэнтези и ужасов.&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"https://portfolio-php/usercontent/editor-uploads/766063488447.jpg\" style=\"float:right; height:188px; margin-left:10px; margin-right:10px; width:250px\" /></p>\r\n\r\n<p>Первые впечатления Маркус получил в детстве от дизайна виниловых пластинок в отцовской коллекции, где было много прогрессивного рока и хеви-метала. После изучения графического дизайна в колледже Бремена, Маркус увлёкся живописью.</p>\r\n\r\n<p>Профессионал наверняка сразу отметит, что эмоциональной живописи Маркуса не достаёт академизма, и будет прав. Маркус сам научился рисовать акрилом и с 2006 года перешёл на фриланс, рисуя обложки для дисков, пластинок и книг.</p>\r\n\r\n<p><br />\r\n<img alt=\"\" src=\"https://portfolio-php/usercontent/editor-uploads/473365786487.jpg\" style=\"float:left; height:257px; margin:10px; width:300px\" />Сегодня Маркус живёт в деревушке под Гамбургом и черпает вдохновение в природе. Больше работ художника вы найдёте на его сайте (<a href=\"https://vk.com/away.php?to=http%3A%2F%2Fwww.markusvesper.de%2Fenglish%2Findexeng.html&amp;post=16450489_8880&amp;cc_key=&amp;track_code=\" target=\"_blank\">http://www.markusvesper.de/english/indexeng.html</a>).</p>\r\n\r\n<p><br />\r\n&nbsp;</p>\r\n', 1722249657, '520706037574.jpg', '290-520706037574.jpg', 1722282502, '4'),
-(31, 'Художник Мариуш Левандовский (1960 г.р.)', '<p>Когда сквозь липкий туман начинают проступать рваные остовы не то кораблей, не то живых существ, а тусклый свет освещает<img alt=\"\" src=\"https://portfolio-php/usercontent/editor-uploads/934770228919.jpg\" style=\"float:right; height:333px; margin-left:10px; margin-right:10px; width:450px\" /> вознёсшиеся к небесам мрачные стены и гигантские фигуры без лиц, кажется, пора просыпаться. Но просто сказать, а сделать&nbsp;сложно: картины этого художника будут вам сниться снова и снова.<br />\r\nСовременный польский художник <strong>Мариуш Левандовский (Mariusz Lewandowski, 1960 г.р.) </strong>творит на стыке сюрреализма, фэнтези и фантастики. Знатоки сочтут его достойным продолжателем дела легендарного Здзислава Бексиньского (<a href=\"https://vk.com/wall-40397546_28177\">https://vk.com/wall-40397546_28177</a>), но у творчества Левандовского есть и свои отличительные черты.</p>\r\n\r\n<p>Мариуш с детства был неравнодушен к живописи, но никакого образования в этой сфере не получил. Вместо этого на протяжение многих лет он оттачивал мастерство под руководством двух учителей.<br />\r\n<br />\r\n<img alt=\"\" src=\"https://portfolio-php/usercontent/editor-uploads/993037788617.jpg\" style=\"float:left; height:280px; margin-left:10px; margin-right:10px; width:400px\" />&quot;<em>Моими главными преподавателями были Рембрандт, который учил меня работать со светом, и Здзислав Бексиньский, подтолкнувший меня к мысли, что в искусстве нет границ</em>&quot;.<br />\r\n<br />\r\nКартины Левандовского часто украшают обложки музыкальных альбомов метал-групп. Сам художник признаётся в интервью, что не знает, почему музыкантов привлекают его сюжеты, но в его картинах и в этом жанре определённо есть общие элементы. Среди групп, иллюстрированных Мариушем, - Bell Witch, Mizmor, Fuming Mouth, Sepulcher, Eremit, Psycroptic, Cardiac Rupture, Rogga Johansson. Я до этого не слышал ни одной, но обложки стоящие.<br />\r\n<br />\r\nУ Мариуша есть повторяющиеся элементы: пустынный горный ландшафт, летающие подлодки, гниющий металл, исполинские корабли, поросшие странными растениями. В этих сюжетах меня привлекла инаковость, непохожесть на всё земное. Как если бы нам дали возможность взглянуть глазком на рутину могущественной инопланетной цивилизации лавкрафтианского толка, занятой перемалыванием бытия, вознесением хаоса, сворачиванием материи и другими важными делами.<br />\r\n<br />\r\nВ этих красках даже привычные космические объекты - звёзды и чёрные дыры - навевают тревожные мысли, как бы проговаривая: &quot;<em>Люди - чужаки в космосе, ветхая плоть и слабый разум</em>&quot;.<br />\r\n<br />\r\nВ настоящее время Мариуш Левандовский живет и работает в небольшом городке на севере Польши и продолжает создавать свои величественные миры, чья глубина измеряется лишь тем, насколько вы сами отважитесь заглянуть.<img alt=\"\" src=\"https://portfolio-php/usercontent/editor-uploads/529179132930.jpg\" style=\"float:right; height:274px; margin:20px 10px; width:400px\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&quot;<em>Мне кажется, что самая важная тема в моих картинах - это человек, а точнее его хрупкость и незначительность для окружающей вселенной. &lt;...&gt; Я просто хочу показать, что наша галактика, не говоря уже о нашей Земле и о нас, - всего лишь пылинка в мрачных глубинах космоса</em>&quot;.</p>\r\n', 1722280095, '252459752584.jpg', '290-252459752584.jpg', 1722281730, '4');
+(31, 'Художник Мариуш Левандовский (1960 г.р.)', '<p>Когда сквозь липкий туман начинают проступать рваные остовы не то кораблей, не то живых существ, а тусклый свет освещает<img alt=\"\" src=\"https://portfolio-php/usercontent/editor-uploads/934770228919.jpg\" style=\"float:right; height:333px; margin-left:10px; margin-right:10px; width:450px\" /> вознёсшиеся к небесам мрачные стены и гигантские фигуры без лиц, кажется, пора просыпаться. Но просто сказать, а сделать&nbsp;сложно: картины этого художника будут вам сниться снова и снова.<br />\r\nСовременный польский художник <strong>Мариуш Левандовский (Mariusz Lewandowski, 1960 г.р.) </strong>творит на стыке сюрреализма, фэнтези и фантастики. Знатоки сочтут его достойным продолжателем дела легендарного Здзислава Бексиньского (<a href=\"https://vk.com/wall-40397546_28177\">https://vk.com/wall-40397546_28177</a>), но у творчества Левандовского есть и свои отличительные черты.</p>\r\n\r\n<p>Мариуш с детства был неравнодушен к живописи, но никакого образования в этой сфере не получил. Вместо этого на протяжение многих лет он оттачивал мастерство под руководством двух учителей.<br />\r\n<br />\r\n<img alt=\"\" src=\"https://portfolio-php/usercontent/editor-uploads/993037788617.jpg\" style=\"float:left; height:280px; margin-left:10px; margin-right:10px; width:400px\" />&quot;<em>Моими главными преподавателями были Рембрандт, который учил меня работать со светом, и Здзислав Бексиньский, подтолкнувший меня к мысли, что в искусстве нет границ</em>&quot;.<br />\r\n<br />\r\nКартины Левандовского часто украшают обложки музыкальных альбомов метал-групп. Сам художник признаётся в интервью, что не знает, почему музыкантов привлекают его сюжеты, но в его картинах и в этом жанре определённо есть общие элементы. Среди групп, иллюстрированных Мариушем, - Bell Witch, Mizmor, Fuming Mouth, Sepulcher, Eremit, Psycroptic, Cardiac Rupture, Rogga Johansson. Я до этого не слышал ни одной, но обложки стоящие.<br />\r\n<br />\r\nУ Мариуша есть повторяющиеся элементы: пустынный горный ландшафт, летающие подлодки, гниющий металл, исполинские корабли, поросшие странными растениями. В этих сюжетах меня привлекла инаковость, непохожесть на всё земное. Как если бы нам дали возможность взглянуть глазком на рутину могущественной инопланетной цивилизации лавкрафтианского толка, занятой перемалыванием бытия, вознесением хаоса, сворачиванием материи и другими важными делами.<br />\r\n<br />\r\nВ этих красках даже привычные космические объекты - звёзды и чёрные дыры - навевают тревожные мысли, как бы проговаривая: &quot;<em>Люди - чужаки в космосе, ветхая плоть и слабый разум</em>&quot;.<br />\r\n<br />\r\nВ настоящее время Мариуш Левандовский живет и работает в небольшом городке на севере Польши и продолжает создавать свои величественные миры, чья глубина измеряется лишь тем, насколько вы сами отважитесь заглянуть.<img alt=\"\" src=\"https://portfolio-php/usercontent/editor-uploads/529179132930.jpg\" style=\"float:right; height:274px; margin:20px 10px; width:400px\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&quot;<em>Мне кажется, что самая важная тема в моих картинах - это человек, а точнее его хрупкость и незначительность для окружающей вселенной. &lt;...&gt; Я просто хочу показать, что наша галактика, не говоря уже о нашей Земле и о нас, - всего лишь пылинка в мрачных глубинах космоса</em>&quot;.</p>\r\n', 1722280095, '252459752584.jpg', '290-252459752584.jpg', 1726436381, '4');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `products`
+--
+
+CREATE TABLE `products` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `price` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `content` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timestamp` int(11) UNSIGNED DEFAULT NULL,
+  `cover` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cover_small` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `edit_time` int(11) UNSIGNED DEFAULT NULL,
+  `cat` int(11) DEFAULT NULL,
+  `brand` int(11) DEFAULT NULL,
+  `subcat` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `products`
+--
+
+INSERT INTO `products` (`id`, `title`, `price`, `content`, `timestamp`, `cover`, `cover_small`, `edit_time`, `cat`, `brand`, `subcat`) VALUES
+(1, 'iMac 2020', '110000', '<p>Описание товара.</p>\r\n', 1618383613, '410940478302.jpg', '290-410940478302.jpg', 1618475021, 7, 1, '7-1'),
+(4, 'Apple watch', '19000', '<p>Описание товара.</p>\r\n', 1618478187, '804810753105.jpg', '290-804810753105.jpg', NULL, 9, 1, '9-1'),
+(5, 'iPad', '46000', '<p>Описание товара.</p>\r\n', 1618478206, '884059120255.jpg', '290-884059120255.jpg', 1725400400, 10, 1, '10-1'),
+(6, 'iPhone XR', '42000', '<p>Описание товара</p>\r\n', 1618478235, '577756795485.jpg', '290-577756795485.jpg', 1725400411, 8, 1, '8-1'),
+(7, 'MacBook', '130000', '<p>Описание товара</p>\r\n', 1618478258, '517840615918.jpg', '290-517840615918.jpg', NULL, 7, 1, '7-1'),
+(8, 'Mac mini', '162000', '<p>Описание товара</p>\r\n', 1618478293, '925056621964.jpg', '290-925056621964.jpg', 1725553527, 11, 1, '11-1'),
+(9, 'Mac Pro', '312000', '<p>Описание товара.</p>\r\n', 1618478317, '683423481277.jpg', '290-683423481277.jpg', 1725400673, 7, 1, '7-1'),
+(10, 'Смартфон А25', '60000', '<p>Описание товара</p>\r\n', 1725553873, '209890540240.jpg', '290-209890540240.jpg', NULL, 8, 3, '8-3'),
+(12, 'Смартфон N3', '50000', '<p>Описание товара</p>\r\n', 1725830640, '447743932273.jpeg', '290-447743932273.jpeg', NULL, 8, 4, '8-4'),
+(13, 'Часы', '60000', '<p>Описание товара</p>\r\n', 1725968405, '954620018879.jpeg', '290-954620018879.jpeg', NULL, 9, 5, '9-5'),
+(14, 'Часы', '60000', '<p>Описание&nbsp;товара</p>\r\n', 1725968748, '704417483238.jpeg', '290-704417483238.jpeg', 1725968896, 9, 5, '9-5'),
+(15, 'Смартфон Xiaomi Mi 8 SE.', '45000', '<p>Описание товара</p>\r\n', 1726048219, '157938146898.jpg', '290-157938146898.jpg', NULL, 8, 6, '8-6'),
+(16, 'Смартфон Xiaomi Redmi 2 Prime', '60000', '<p>Описание товара</p>\r\n', 1726048351, '657012683489.jpg', '290-657012683489.jpg', NULL, 8, 6, '8-6'),
+(17, 'Смартфон Xiaomi mi 5 64gb', '45000', '<p>Описание товара.</p>\r\n', 1726049770, '972187282862.jpg', '290-972187282862.jpg', 1726436588, 8, 6, '8-6'),
+(18, 'Новый товар', '99000', '<p>Описание</p>\r\n', 1726349722, '667278286131.jpg', '290-667278286131.jpg', 1726436660, 7, 5, '7-5');
 
 -- --------------------------------------------------------
 
@@ -162,7 +347,61 @@ INSERT INTO `settings` (`id`, `section`, `name`, `value`) VALUES
 (3, 'contacts', 'services_title', 'НАПРАВЛЕНИЯ, КОТОРЫМИ Я ЗАНИМАЮСЬ'),
 (4, 'contacts', 'services_text', '<ul>\r\n	<li>Верстка сайтов</li>\r\n	<li>Frontend</li>\r\n	<li>UI/UX дизайн</li>\r\n</ul>'),
 (5, 'contacts', 'contacts_title', 'Контакты'),
-(6, 'contacts', 'contacts_text', '<p><strong>Email:&nbsp;</strong><a href=\"mailto:hi@digitalnomad.pro\">hi@digitalnomad.pro</a></p>\r\n\r\n<p><strong>Мобильный:&nbsp;</strong><a href=\"tel:+79055557788\">+7 (905) 555-77-88</a></p>\r\n\r\n<p><strong>Адрес:</strong> Москва, Пресненская набережная, д. 6, стр. 2</p>');
+(6, 'contacts', 'contacts_text', '<p><strong>Email:&nbsp;</strong><a href=\"mailto:hi@digitalnomad.pro\">hi@digitalnomad.pro</a></p>\r\n\r\n<p><strong>Мобильный:&nbsp;</strong><a href=\"tel:+79055557788\">+7 (905) 555-77-88</a></p>\r\n\r\n<p><strong>Адрес:</strong> Москва, Пресненская набережная, д. 6, стр. 2</p>'),
+(12, 'settings', 'site_title', 'Digital Freelancer'),
+(13, 'settings', 'site_slogan', 'CАЙТ IT СПЕЦИАЛИСТА'),
+(14, 'settings', 'copyright_name', 'Балашова Наталья Евгеньевна'),
+(15, 'settings', 'copyright_year', 'Создано в WebCademy.ru в августе в 2024 году.'),
+(16, 'settings', 'status_on', 'on'),
+(17, 'settings', 'status_label', 'Свободен для новых проектов и предложений'),
+(18, 'settings', 'status_text', 'Рассматриваю предложения по верстке и frontend разработке. Подробности по ссылке'),
+(19, 'settings', 'status_link', 'https://portfolio-php/contacts'),
+(20, 'settings', 'youtube', ''),
+(21, 'settings', 'instagram', ''),
+(22, 'settings', 'facebook', 'facebook'),
+(23, 'settings', 'vkontakte', ''),
+(24, 'settings', 'linkedin', ''),
+(25, 'settings', 'github', 'https://github.com/Nattyme'),
+(26, 'main', 'about_title', 'ОБО МНЕ'),
+(27, 'main', 'about_text', 'Занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты. Этот сайт я сделал в рамках обучения в школе онлайн обучения WebCademy. Чуть позже я обновлю в нём свой контент. А пока посмотрите, как тут всё классно!'),
+(28, 'main', 'services_title', 'ЧЕМ МОГУ БЫТЬ ПОЛЕЗЕН'),
+(29, 'main', 'services_text', 'Верстка сайтов\r\nFrontend\r\nUI/UX дизайн'),
+(30, 'main', 'main_img', 'section-about-main.jpg'),
+(31, 'settings', 'card_on_page_shop', '6'),
+(32, 'settings', 'card_on_page_blog', '6'),
+(33, 'settings', 'card_on_page_portfolio', '6'),
+(34, 'settings', 'design_on', 'on'),
+(35, 'settings', 'html_on', 'on'),
+(36, 'settings', 'css_on', 'on'),
+(37, 'settings', 'js_on', 'on'),
+(38, 'settings', 'php_on', 'on'),
+(39, 'settings', 'wp_on', 'on');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `technologies`
+--
+
+CREATE TABLE `technologies` (
+  `id` int(11) NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cover` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `technologies`
+--
+
+INSERT INTO `technologies` (`id`, `title`, `cover`) VALUES
+(1, 'HTML5', '146002389584.svg'),
+(2, 'CSS3', '849767541828.svg'),
+(3, 'JS', '134271036670.svg'),
+(4, 'PHP', '185272082854.svg'),
+(5, 'SCSS', '704586773827.svg'),
+(6, 'GULP', '139078596662.svg'),
+(9, 'Wordpress', '943076803076.svg'),
+(10, 'ui', '717390874494.svg');
 
 -- --------------------------------------------------------
 
@@ -179,23 +418,32 @@ CREATE TABLE `users` (
   `surname` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `country` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `city` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `avatar` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `avatar_small` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
+  `avatar_small` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `cart` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `fav_list` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `role`, `password`, `name`, `surname`, `country`, `city`, `avatar`, `avatar_small`) VALUES
-(1, 'admin@admin.ru', 'admin', '$2y$10$IiSmDheUvylEHj/RBDRNsuqUmP8OauwUnflZEhgNjQ4AMDThCZe5G', 'Admin', 'Adminovich', 'Administration', 'Adminsk', '469208219037.jpg', '48-469208219037.jpg'),
-(2, 'user@user.ru', 'user', '$2y$10$XyrFYMDxYc4Hq1TeXzcMUuEDtFRkvuMBJd3fQ7/z5SFjuNvZcnZ5K', NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 'user2@user.ru', 'user', '$2y$10$TGTVnS../maLZ3BZljWPZuAw7OWyNyjqlMLQPH6nRfW/iWKZ3fMou', 'Tim', 'Truman', '', 'London', '452873397769.jpg', '48-452873397769.jpg'),
-(4, 'user3@user.ru', 'user', '$2y$10$hdJfkQsYXK1lqq0K6Ke1pOYs/rv5RQRFQZqBZhIL90RK.ndNBTOca', 'Toshia', '', 'Japan', 'Fukuoka', '556771686812.jpg', '48-556771686812.jpg');
+INSERT INTO `users` (`id`, `email`, `role`, `password`, `name`, `surname`, `country`, `city`, `phone`, `address`, `avatar`, `avatar_small`, `cart`, `fav_list`) VALUES
+(1, 'admin@admin.ru', 'admin', '$2y$10$IiSmDheUvylEHj/RBDRNsuqUmP8OauwUnflZEhgNjQ4AMDThCZe5G', 'Admin', 'Adminovich', 'Administration', 'Adminsk', '+792577760741', 'BERGAME, VIA GEREMIA BONOMELLI 15', '469208219037.jpg', '48-469208219037.jpg', '{\"17\":1}', '{\"15\":1,\"11\":1,\"17\":1,\"18\":1}'),
+(2, 'user@user.ru', 'user', '$2y$10$XyrFYMDxYc4Hq1TeXzcMUuEDtFRkvuMBJd3fQ7/z5SFjuNvZcnZ5K', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '[]', '[]'),
+(3, 'user2@user.ru', 'user', '$2y$10$TGTVnS../maLZ3BZljWPZuAw7OWyNyjqlMLQPH6nRfW/iWKZ3fMou', 'Tim', 'Truman', '', 'London', '+792577760755', 'г.Москва, ул.Тверская 23', '452873397769.jpg', '48-452873397769.jpg', '{\"16\":1,\"15\":1}', '[]');
 
 --
 -- Индексы сохранённых таблиц
 --
+
+--
+-- Индексы таблицы `brands`
+--
+ALTER TABLE `brands`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `categories`
@@ -216,15 +464,47 @@ ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `index_foreignkey_orders_user` (`user_id`);
+
+--
+-- Индексы таблицы `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `index_foreignkey_payments_order` (`order_id`);
+
+--
+-- Индексы таблицы `portfolio`
+--
+ALTER TABLE `portfolio`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `settings`
 --
 ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `technologies`
+--
+ALTER TABLE `technologies`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -238,22 +518,46 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `brands`
+--
+ALTER TABLE `brands`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT для таблицы `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT для таблицы `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT для таблицы `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT для таблицы `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT для таблицы `portfolio`
+--
+ALTER TABLE `portfolio`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT для таблицы `posts`
@@ -262,16 +566,38 @@ ALTER TABLE `posts`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
+-- AUTO_INCREMENT для таблицы `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
 -- AUTO_INCREMENT для таблицы `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
+-- AUTO_INCREMENT для таблицы `technologies`
+--
+ALTER TABLE `technologies`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Ограничения внешнего ключа сохраненных таблиц
+--
+
+--
+-- Ограничения внешнего ключа таблицы `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `c_fk_orders_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
