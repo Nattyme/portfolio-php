@@ -29,6 +29,15 @@
             <input name="cover" class="file-button" type="file">
           </div>
         </div>
+        <?php if (!empty($technology->cover)) : ?>
+          <div class="block-upload__img mb-15">
+            <img src="<?php echo HOST . 'usercontent/technology/' . $technology['cover'];?>" alt="Загрузка картинки" />
+          </div>
+          <label class="checkbox__item mt-15">
+            <input class="checkbox__btn" type="checkbox" name="delete-cover">
+            <span class="checkbox__label">Удалить обложку</span>
+          </label>
+        <?php endif; ?>
       </div>
     </div>
 

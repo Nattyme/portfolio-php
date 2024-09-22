@@ -69,9 +69,9 @@
                 type="checkbox"
                 name="<?php echo $technology['id'];?>"
                 value="<?php echo $technology['title'];?>"
-                <?php foreach($currentTechnologies as $currentTech) : ?>
-                  <?php echo isset($currentTech) &&  $technology['id'] === $currentTech['id'] ? 'checked' : NULL;  ?>
-                <?php endforeach;?>
+                <?php foreach($currentTechnologies as $currentTech) {
+                  echo isset($currentTech) &&  $technology['id'] === $currentTech['id'] ? 'checked' : NULL; 
+                } ?>
             >
             <span class="checkbox__label"><strong><?php echo $technology['title'];?></strong></span>
         </label>

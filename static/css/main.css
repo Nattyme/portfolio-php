@@ -4131,6 +4131,11 @@ a.logo-link:hover {
   padding: 0 0 20px;
 }
 
+.block-upload__img img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .input-text {
   width: 100%;
   padding: 13px 0px 13px 20px;

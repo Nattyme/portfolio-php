@@ -27,8 +27,6 @@ if( isset($_POST['submit']) ) {
       }
     }
 
-    R::store($technology);
-
     $_SESSION['success'][] = ['title' => 'Технология была успешно создана'];
     header('Location: ' . HOST . 'admin/technology');
     exit();

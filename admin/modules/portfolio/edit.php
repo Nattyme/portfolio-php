@@ -1,4 +1,5 @@
 <?php
+
 // Находим категории, относящиеся к секции portfolio
 $catsArray = R::find('categories', ' section LIKE ? ORDER BY title ASC', ['portfolio']);
 
@@ -7,6 +8,11 @@ $cats = [];
 foreach ($catsArray as $key => $value) {
   $cats[] = ['id' => $value['id'], 'title' => $value['title'], 'section' => $value['section']];
 }
+
+$project = R::load('portfolio', $_GET['id']);
+
+//Запрос технологий в БД с сортировкой id по убыванию
+$technologies = R::find('technologies'); 
 
 if( isset($_POST['postEdit'])) {
   // Проверка на заполненность названия
@@ -19,10 +25,19 @@ if( isset($_POST['postEdit'])) {
     $_SESSION['errors'][] = ['title' => 'Заполните содержимое проекта'];
   } 
 
-  if( trim($_POST['tools']) == '' ) {
-    $_SESSION['errors'][] = ['title' => 'Заполните технологии проекта'];
-  } 
+  $currentTechnologies = array();
+  
+  // Проверка на заполненность технологий
+  foreach ($technologies as $key => $value) {
+    if(isset($_POST[$value['id']])) {
+      $currentTechnologies[] = ['id' => $value['id'], 'title' => $value['title']];
+    } 
+  }
 
+  if ( empty( $currentTechnologies) ) {
+    $_SESSION['errors'][] = ['title' => 'Укажите технологии проекта'];
+  }
+ 
   // Если нет ошибок
   if ( empty($_SESSION['errors'])) {
     $project = R::load('portfolio', $_GET['id']);
@@ -32,11 +47,10 @@ if( isset($_POST['postEdit'])) {
     $project->deadline = $_POST['deadline'];
     $project->pages = $_POST['pages'];
     $project->budget = $_POST['budget'];
-    $project->tools = json_encode($tools);
+    $project->technology = json_encode($currentTechnologies);
     $project->link = $_POST['link'];
     $project->editTime = time();
-    // print_r($project);
-    // die();
+    
     // Если передано изображение - уменьшаем, сохраняем, записываем в БД
     if( isset($_FILES['cover']['name']) && $_FILES['cover']['tmp_name'] !== '') {
       //Если передано изображение - уменьшаем, сохраняем файлы в папку, получаем название файлов изображений
@@ -87,13 +101,9 @@ if( isset($_POST['postEdit'])) {
   }
 }
 
-$project = R::load('portfolio', $_GET['id']);
-
-//Запрос технологий в БД с сортировкой id по убыванию
-$technologies = R::find('technologies'); 
-
 // Формируем массив выбранных технологий
-$currentTechnologies = json_decode($project['tools'], true);
+$currentTechnologies = json_decode($project['technology'], true);
+
 
 $pageTitle = "Портфолио. Редактировать проект {$project['title']}";
 $pageClass = "admin-page";

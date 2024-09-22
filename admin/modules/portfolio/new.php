@@ -8,6 +8,7 @@ $catsArray = R::find('categories', ' section LIKE ? ORDER BY title ASC', ['portf
 
 // Формируем массив технологий
 $technologies = R::find('technologies');
+
 // Создаем массив для категорий portfolio
 $cats = [];
 foreach ($catsArray as $key => $value) {
@@ -36,14 +37,14 @@ if( isset($_POST['postSubmit']) ) {
     $project->link = $_POST['link'];
     $project->timestamp = time();
 
-    $tools = array();
+    $currentTechnologies = array();
     foreach ($technologies as $key => $value) {
       if(isset($_POST[$value['id']])) {
-        $tools[] = ['id' => $value['id'], 'title' => $value['title']];
+        $currentTechnologies[] = ['id' => $value['id'], 'title' => $value['title']];
       }
     }
    
-    $project->tools = json_encode($tools);
+    $project->technology = json_encode($currentTechnologies);
 
 
     // Если передано изображение - уменьшаем, сохраняем, записываем в БД
