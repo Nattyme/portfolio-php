@@ -9,6 +9,7 @@ $sqlQuery = 'SELECT
              LEFT JOIN `categories` as c ON p.cat = c.id
              WHERE p.id = ? LIMIT 1';
 $project = R::getRow($sqlQuery, [$uriGet]);
+$technologies = json_decode($project['technology'], true);
 
 // $sqlQuery = 'SELECT
 //                 products.id, products.title, products.content, products.cover, products.timestamp, 

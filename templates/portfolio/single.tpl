@@ -10,6 +10,7 @@
     <div class="page-project__preview">
       <img src="<?php echo HOST;?>usercontent/portfolio/<?php echo empty($project['cover']) ? "no-photo.jpg" : $project['cover'];?>" 
         alt="<?php echo $project['title'];?>"/>
+    </div>
     <div class="page-project__content">
       <div class="row">
         <div class="col-md-6">
@@ -28,7 +29,11 @@
         <div class="col-md-6">
           <div class="page-project__content-item">
             <h4 class="heading">Технологии </h4>
-            <?php echo $project['tools'];?>
+            <ul>
+            <?php foreach($technologies as $technology) : ?>
+							<li><?php echo $technology['title']; ?></li>
+            <?php endforeach; ?>
+            </ul>
           </div>
           <div class="page-project__content-item">
             <h4 class="heading">Ссылка на проект </h4>
