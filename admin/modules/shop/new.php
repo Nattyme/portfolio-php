@@ -1,4 +1,8 @@
 <?php
+// Получаем  текущую секцию 
+$currentSection = getCurrentSection ();
+$_SESSION['currentSection'] = $currentSection;
+
 // Находим категории, относящиеся к секции shop
 $catsArray = R::find('categories', ' section LIKE ? ORDER BY title ASC', ['shop']);
 

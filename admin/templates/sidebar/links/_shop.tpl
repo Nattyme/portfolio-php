@@ -39,7 +39,7 @@
         <div class="control-panel__list-img-wrapper">
           <img class="control-panel__list-img" src="<?php echo HOST;?>static/img/control-panel/corner.svg" alt="icon" />
         </div>
-        Бренды товаров
+        Все бренды
       </a>
     </li>
     <li class="control-panel__list-item">
@@ -47,7 +47,7 @@
         <div class="control-panel__list-img-wrapper">
           <img class="control-panel__list-img" src="<?php echo HOST;?>static/img/control-panel/corner.svg" alt="icon" />
         </div>
-        Категории товаров
+        Все категории
       </a>
     </li>
   </ul>

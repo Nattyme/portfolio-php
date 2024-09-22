@@ -24,8 +24,8 @@ foreach ($projectsDB as $current_project) {
     $project['tools'] = $current_project->tools;
     $project['cover_small'] = $current_project->cover_small;
     // $project['price'] =$current_project->price
-    print_r($project['technology']);
-    die();
+    // print_r($project['technology']);
+    // die();
     // Получаем название категории текущего продука по ID категории
     if (isset($current_project['cat']) && !empty($current_project['cat']) && $current_project['cat'] === $categories[$current_project['cat']]['id']) {
       $current_project['cat'] = $categories[$current_project['cat']]['title'];

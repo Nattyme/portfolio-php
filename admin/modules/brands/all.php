@@ -1,4 +1,8 @@
 <?php
+// Получаем  текущую секцию 
+$currentSection = getCurrentSection ();
+$_SESSION['currentSection'] = $currentSection;
+
 //Запрос брендов в БД с сортировкой id по убыванию
 $brands = R::find('brands', 'ORDER BY id DESC'); 
 

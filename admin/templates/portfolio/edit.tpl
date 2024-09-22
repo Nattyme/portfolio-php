@@ -40,13 +40,13 @@
   <div class="admin-form__item">
     <label class="input__label input__label--details">
       Время работы над проектом:
-      <input name="deadline" class="input input--width-label" type="text" placeholder="Ведите время" value="<?php echo $project['deadline'] ;?>"/>
+      <input name="deadline" class="input input--width-label" type="text" placeholder="Введите время" value="<?php echo $project['deadline'] ;?>"/>
     </label>
   </div>
   <div class="admin-form__item">
     <label class="input__label input__label--details">
       Страниц сверстано:
-      <input name="pages" class="input input--width-label" type="text" placeholder="Введите количество" value="<?php echo $project['pages'] ;?>"/>
+      <input name="pages" class="input input--width-label" type="number" placeholder="Введите количество" value="<?php echo $project['pages'] ;?>"/>
     </label>
   </div>
   <div class="admin-form__item">
@@ -87,7 +87,7 @@
 
   <div class="admin-form__item">
     <label class="input__label">
-      Ссылка на проект проекта
+      Ссылка на проект
       <input name="link" class="input input--width-label" type="text" placeholder="Введите ссылку" value="<?php echo $project['link'] ;?>"/>
     </label>
   </div>

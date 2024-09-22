@@ -1,5 +1,5 @@
 <?php
-// Получаем  текущую секцию для записи в БД
+// Получаем  текущую секцию
 $currentSection = getCurrentSection ();
 
 if( isset($_POST['submit']) ) {

@@ -9,8 +9,8 @@
     </div>
     <div class="admin-form__item">
       <label class="input__label">
-        Введите название категории
-        <input name="title" class="input input--width-label" type="text" placeholder="Заголовок категории" />
+        Введите название бренда
+        <input name="title" class="input input--width-label" type="text" placeholder="Заголовок бренда" />
       </label>
     </div>
 
@@ -18,7 +18,9 @@
       <button name="submit" value="submit" class="primary-button" type="submit">
         Создать
       </button>
-      <a class="secondary-button" href="<?php echo HOST;?>admin/brand">Отмена</a>
+      <!-- <a class="secondary-button" href="<?php echo HOST;?>admin/brand">Отмена</a> -->
+      <?php $link = isset($_SESSION['currentSection']) && $_SESSION['currentSection'] === 'admin/shop-new' ? 'admin/shop-new' : 'admin/brand'?>
+      <a class="secondary-button" href="<?php echo HOST . $link;?>">Отмена</a>
     </div>
   </form>
 </div>

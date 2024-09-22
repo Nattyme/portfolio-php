@@ -69,7 +69,7 @@
   <div class="admin-form__item ">
     <label class="input__label input__label--details">
       Страниц сверстано:
-      <input name="pages" class="input input--width-label" type="text" placeholder="Введите количество" />
+      <input name="pages" class="input input--width-label" type="number" placeholder="Введите количество" />
     </label>
   </div>
   <div class="admin-form__item">

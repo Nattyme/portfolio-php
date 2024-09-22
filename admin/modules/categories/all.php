@@ -3,6 +3,7 @@
 // Получаем  текущую секцию и записываем в сессию
 $currentSection = getCurrentSection ();
 $_SESSION['currentSection'] = $currentSection;
+
 // Получаем  текущую секцию 
 $currentSection = getCurrentSection ();
 

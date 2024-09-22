@@ -16,15 +16,74 @@ foreach ($catsArray as $key => $value) {
 }
 
 if( isset($_POST['postSubmit']) ) {
-  // Проверка на заполненность названия
+
+  // Проверки на заполненность названия
   if( trim($_POST['title']) == '' ) {
     $_SESSION['errors'][] = ['title' => 'Введите заголовок проекта'];
-  } 
+  } else {
 
-  // Проверка на заполненность содержимого
+    // Проверка на текстовый формат
+    if( ctype_digit($_POST['title'])) {
+      $_SESSION['errors'][] = ['title' => 'Поле "Название проекта" заполняется в текстовом формате'];
+    }
+  }
+
+  // Проверка на заполненность описания
   if( trim($_POST['about']) == '' ) {
-    $_SESSION['errors'][] = ['title' => 'Заполните содержимое проекта'];
-  } 
+    $_SESSION['errors'][] = ['title' => 'Поле "Описание проекта" не может быть пустым'];
+  } else {
+
+    // Проверка на текстовый формат
+    // if( ctype_digit($_POST['about'])) {
+    //   $_SESSION['errors'][] = ['title' => 'Заполните описание проекта в текстовом формате'];
+    // }
+  }
+
+  // Проверка на заполненность кол-ва страниц
+  if( trim($_POST['pages']) == '' ) {
+    $_SESSION['errors'][] = ['title' => 'Поле "Страниц свёрстано" не может быть пустым'];
+  } else {
+
+    // Проверка на цифровой формат страниц
+    if( !ctype_digit($_POST['pages'])) {
+      $_SESSION['errors'][] = ['title' => 'Поле "Страниц свёрстано" заполняется в цифровом формате'];
+    } 
+
+  }
+
+  // Проверка на заполненность времени проекта
+  if( trim($_POST['deadline']) == '' ) {
+    $_SESSION['errors'][] = ['title' => 'Поле "Время работы над проектом" не может быть пустым'];
+  }
+
+  // Проверка на заполненность бюджета проекта
+  if( trim($_POST['budget']) == '' ) {
+    $_SESSION['errors'][] = ['title' => 'Поле "Бюджет проекта" не может быть пустым'];
+  }
+
+  // Проверка на заполненность ссылки проекта 
+  if( trim($_POST['link']) == '' ) {
+    $_SESSION['errors'][] = ['title' => 'Поле "Ссылка на проект" не может быть пустым'];
+  } else {
+
+    // Валидация ссылки
+    if( !filter_var(trim($_POST['link']), FILTER_VALIDATE_URL) ) {
+      $_SESSION['errors'][] = ['title' => 'Указан неверный формат ссылки'];
+    }
+
+  }
+
+  $currentTechnologies = array();
+
+  foreach ($technologies as $key => $value) {
+    if(isset($_POST[$value['id']])) {
+      $currentTechnologies[] = ['id' => $value['id'], 'title' => $value['title']];
+    }
+  }
+
+  if ( empty( $currentTechnologies) ) {
+    $_SESSION['errors'][] = ['title' => 'Укажите технологии проекта'];
+  }
 
   if ( empty($_SESSION['errors'])) {
     $project = R::dispense('portfolio');
@@ -37,12 +96,7 @@ if( isset($_POST['postSubmit']) ) {
     $project->link = $_POST['link'];
     $project->timestamp = time();
 
-    $currentTechnologies = array();
-    foreach ($technologies as $key => $value) {
-      if(isset($_POST[$value['id']])) {
-        $currentTechnologies[] = ['id' => $value['id'], 'title' => $value['title']];
-      }
-    }
+    
    
     $project->technology = json_encode($currentTechnologies);
 
