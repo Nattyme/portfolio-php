@@ -1,4 +1,5 @@
 <?php
+
 if( isset($_POST['submit']) ) {
   // Проверка на заполненность названия
   if( trim($_POST['title']) == '' ) {
@@ -12,8 +13,15 @@ if( isset($_POST['submit']) ) {
     R::store($brand);
 
     $_SESSION['success'][] = ['title' => 'Бренд был успешно создан'];
-    header('Location: ' . HOST . 'admin/brand');
-    exit();
+
+    if ( isset($_SESSION['currentSection']) && $_SESSION['currentSection'] === 'admin/shop-new') {
+      header('Location: ' . HOST . 'admin/shop-new');
+      exit();
+    } else {
+      header('Location: ' . HOST . 'admin/brand');
+      exit();
+    }
+    
   }
 }
 

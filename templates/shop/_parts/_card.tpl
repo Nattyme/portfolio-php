@@ -19,9 +19,8 @@
     </a>
 
   <div class="card-product__img">
-    <img src=<?php echo HOST . 'usercontent/products/' . $product['cover_small'];?> 
-         alt="<?php echo $product['title'];?>" 
-    />
+    <img src="<?php echo HOST;?>usercontent/products/<?php echo empty($product['cover_small']) ? "290-no-photo.jpg" : $product['cover_small'];?>" 
+         alt="<?php echo $product['title'];?>"/>
   </div>
   <div class="card-product__title">
     <?php echo $product['title'];?>

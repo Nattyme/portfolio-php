@@ -11,7 +11,8 @@
       <?php foreach ( $projects as $project) : ?>
         <div class="card-project">
           <div class="card-project__img-wrapper">
-            <img src="<?php echo HOST . 'usercontent/portfolio/' . $project['cover_small'];?>" alt="Архитектурное бюро John Doe и партнеры. Сайт под ключ" />
+            <img src="<?php echo HOST;?>usercontent/portfolio/<?php echo empty($project['cover_small']) ? 'no-photo-small.jpg' : $project['cover_small'];?>" 
+                alt="<?php echo $project['title'];?>"/>
             <div class="card-project__technology">
                 <?php /* if (!empty($project['cat_id'])) : ?>
                   <a href="<?php echo HOST . "portfolio/cat/" . $project['cat_id'];?>" class="badge badge--link badge-card badge-card--left"><?php echo $project['cat'];?></a>

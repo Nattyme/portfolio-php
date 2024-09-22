@@ -7,9 +7,8 @@
         <div class="page-product__row">
           <div class="page-product__col">
             <div class="page-product__img">
-              <img src="<?php echo HOST . 'usercontent/products/' . $product['cover'];?>" 
-                    alt="<?php echo $product['title'];?>"
-              />
+              <img src="<?php echo HOST;?>usercontent/products/<?php echo empty($product['cover']) ? "no-photo.jpg" : $product['cover'];?>" 
+                  alt="<?php echo $product['title'];?>"/>
             </div>
           </div>
           <div class="page-product__col">

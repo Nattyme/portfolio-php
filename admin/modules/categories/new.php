@@ -15,8 +15,21 @@ if( isset($_POST['submit']) ) {
     R::store($cat);
     
     $_SESSION['success'][] = ['title' => 'Категория была успешно создана'];
-    header('Location: ' . HOST . 'admin/category?' . $currentSection);
-    exit();
+
+    if ( isset($_SESSION['currentSection']) && $_SESSION['currentSection'] === 'admin/shop-new') {
+      header('Location: ' . HOST . 'admin/shop-new');
+      exit();
+    } else if (isset($_SESSION['currentSection']) && $_SESSION['currentSection'] === 'admin/post-new') {
+      header('Location: ' . HOST . 'admin/post-new');
+      exit();
+    } else if (isset($_SESSION['currentSection']) && $_SESSION['currentSection'] === 'admin/project-new') {
+      header('Location: ' . HOST . 'admin/project-new');
+      exit();
+    } 
+    else {
+      header('Location: ' . HOST . 'admin/category?' . $currentSection);
+      exit();
+    }
   }
 }
 

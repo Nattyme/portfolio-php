@@ -7,7 +7,9 @@
         <a href="<?php echo HOST . "portfolio/cat/" . $project['cat_id'];?>" class="badge badge--link"><?php echo $project['cat_title'];?></a>
       </div>
     </div>
-    <div class="page-project__preview"><img src="<?php echo HOST .'usercontent/portfolio/' . $project['cover'];?>" alt="Верстка и frontend для интернет магазина" /></div>
+    <div class="page-project__preview">
+      <img src="<?php echo HOST;?>usercontent/portfolio/<?php echo empty($project['cover']) ? "no-photo.jpg" : $project['cover'];?>" 
+        alt="<?php echo $project['title'];?>"/>
     <div class="page-project__content">
       <div class="row">
         <div class="col-md-6">
