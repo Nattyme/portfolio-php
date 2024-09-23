@@ -9,7 +9,11 @@
   line-height: 120%;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: #fff;
+  
+  a {
+    color: #fff;
+  }
 }
 
 .badges + .badges {
@@ -32,10 +36,12 @@
 }
 
 .badge-card--left {
+  right: unset;
   left: 0;
 }
 
 .badge-card--right {
+  left: unset;
   right: 0;
 }
 
@@ -45,13 +51,36 @@
   transition: all 0.3s ease-in;
 }
 
+.card-project__img-wrapper .badge-card.badge-card--left {
+  opacity: 1;
+  transform: unset;
+}
+
+.card-project__img-wrapper .badge-card.badge-card--left {
+  opacity: 1;
+  transform: unset;
+}
+
+.card-project__img-wrapper .badge-card.badge-card--left {
+  opacity: 1;
+  transform: unset;
+}
+
+.card-project__img-wrapper .badge-card.badge-card--right {
+  opacity: 0;
+  transform: translateX(25%);
+  transition: all 0.3s ease-in;
+}
+
+
 .badge--link:hover {
   text-decoration: none;
   color: #fff;
   background-color: rgb(255, 115, 0);
 }
 
-.card-product:hover .badge-card.badge-card--left {
+.card-product:hover .badge-card.badge-card--left,
+.card-project:hover .badge-card.badge-card--right {
   opacity: 1;
   transform: translateX(0%);
 }
