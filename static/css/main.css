@@ -4758,7 +4758,7 @@ a.logo-link:hover {
 
 .card-project__img-wrapper .badge-card.badge-card--right {
   opacity: 0;
-  transform: translateX(25%);
+  transform: translateX(5%);
   transition: all 0.3s ease-in;
 }
 
