@@ -17,9 +17,15 @@
             <?php if (!empty($project['technology'])) : ?>
               <div class="badge badge--link badge-card badge-card--left">
                 <?php foreach ($project['technology'] as $key => $value) : ?>
+                  <?php if($key === array_key_last($project['technology'])) : ?>
                     <a href="<?php echo HOST . "portfolio/cat/" . $value['id'];?>">
-                      <?php echo $key === array_key_last($project['technology']) ? $value['title'] . '.' : $value['title'] . ', ';?>
+                      <?php echo $value['title'] . '.';?>
                     </a>
+                  <?php else : ?>
+                    <a href="<?php echo HOST . "portfolio/cat/" . $value['id'];?>">
+                      <?php echo $value['title'] . ', ';?>
+                    </a>
+                  <?php endif; ?>
                 <?php endforeach; ?>
               </div>
             <?php endif; ?>
