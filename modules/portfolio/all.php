@@ -27,7 +27,6 @@ foreach ($projectsDB as $current_project) {
 
     $project['cat'] = $current_project->cat;
     $project['cat_id'] = $current_project->cat;
-    $project['tools'] = $current_project->tools;
     $project['cover_small'] = $current_project->cover_small;
     // $project['price'] =$current_project->price
     // print_r($project['technology']);

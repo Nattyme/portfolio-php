@@ -13,13 +13,21 @@ if ($category) {
     // Получаем строки с категориями портфолио
     $categories = R::find('categories', ' section LIKE ? ', ['portfolio']);
     
-    // $brands = R::find('brands');
+    //Запрос технологий в БД с сортировкой id по убыванию
+    $technologies = R::find('technologies', 'ORDER BY id DESC'); 
 
     $project['id'] = $current_project->id;
     $project['title'] = $current_project->title;
+
+    $project['technology'] = json_decode($current_project->technology, true);
+
+    if (count($project['technology']) > 3) {
+     shuffle($project['technology']);
+     $project['technology'] = array_slice($project['technology'], 1, 3);
+    }
+
     $project['cat'] = $current_project->cat;
     $project['cat_id'] = $current_project->cat;
-    $project['brand'] = $current_project->brand;
     $project['cover_small'] = $current_project->cover_small;
    
     if ($current_project['cat'] === $categories[$current_project['cat']]['id']) {
