@@ -27,4 +27,11 @@
   z-index: 11;
 }
 
+.special-link {
+  transition: color 0.2s ease-in;
+  &:hover {
+    color: #000;
+  }
+}
+
 

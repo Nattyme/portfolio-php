@@ -2,8 +2,8 @@
 @import "./base/reset";
 @import "./base/vars";
 @import "./base/base";
-@import "./base/utils";
 @import "./base/bootstrap";
+@import "./base/utils";
 
 /* Blocks */
 @import './blocks/_buttons.scss';
@@ -31,6 +31,7 @@
 @import './blocks/_tabs.scss';
 @import './blocks/_avatar.scss';
 @import './blocks/_badge.scss';
+@import './blocks/_section-status.scss';
 @import './blocks/_checkbox.scss';
 @import './blocks/_comment.scss';
 @import './blocks/_definition.scss';

@@ -5,7 +5,6 @@
 
     <div class="admin-form__item d-flex justify-content-between mb-20">
       <h2 class="heading">Пользователи</h2>
-      <!-- <a class="secondary-button" href="<?php HOST;?>user-new">Создать нового пользователя</a> -->
     </div>
     <table class="table">
       <thead>
@@ -55,8 +54,5 @@
         <?php endforeach; ?>
       </tbody>
     </table>
-    <div class="admin-form__item pt-40">
-      
-    </div>
   </div>
 </div>

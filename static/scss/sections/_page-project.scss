@@ -101,7 +101,13 @@
   text-decoration: none;
 }
 
-/* ------------------------------------ */
+.page-project__link {
+  transition: all 0.2s ease-in;
+  &:hover {
+    color: #000;
+  }
+  
+}
 
 .page-project__project-pagination {
   margin: 0 auto 60px;

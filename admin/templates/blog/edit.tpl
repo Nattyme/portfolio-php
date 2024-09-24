@@ -27,7 +27,7 @@
         <select class="select" name="cat">
           <?php foreach ($cats as $cat) : ?>
             <option 
-              <?php echo $project['cat'] == $cat['id'] ? 'selected' : '';?> 
+              <?php echo $post['cat'] == $cat['id'] ? 'selected' : '';?> 
               value=<?php echo $cat['id'];?>><?php echo $cat['title'];?>
             </option>
           <?php endforeach; ?>

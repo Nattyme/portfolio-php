@@ -8,6 +8,7 @@
     Блог
   </a>
   <ul class="control-panel__list hidden">
+    <!-- Добавить пост -->
     <li class="control-panel__list-item">
       <a class="control-panel__list-link control-panel__inner-link control-panel__inner-link--active" 
          href="<?php HOST;?>post-new">
@@ -17,7 +18,9 @@
         Добавить пост
       </a>
     </li>
-    
+    <!--// Добавить пост -->
+
+    <!-- Все записи -->
     <li class="control-panel__list-item">
       <a class="control-panel__list-link control-panel__inner-link" href="<?php echo HOST;?>admin/blog">
         <div class="control-panel__list-img-wrapper">
@@ -26,7 +29,9 @@
         Все записи
       </a>
     </li>
-    
+    <!--// Все записи -->
+
+    <!-- Все категории -->
     <li class="control-panel__list-item">
       <a class="control-panel__list-link control-panel__inner-link" href="<?php echo HOST;?>admin/category?blog" title="Перейти на страницу редактирования категорий публикаций">
         <div class="control-panel__list-img-wrapper">
@@ -35,6 +40,7 @@
         Все категории
       </a>
     </li>
+    <!--// Все категории -->
   </ul>
 </li>
 

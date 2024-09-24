@@ -12,7 +12,9 @@
     <div class="admin-form__item">
       <label class="input__label">
         Введите название товара
-        <input name="title" class="input input--width-label" type="text"/>
+        <input name="title" class="input input--width-label" type="text"
+               value="<?php echo isset($_POST['title']) ? $_POST['title'] : ''; ?>"
+        />
       </label>
     </div>
     <div class="admin-form__item">
@@ -23,10 +25,6 @@
             <option value="<?php echo $brand['id'];?>"><?php echo $brand['title'];?></option>
           <?php endforeach; ?>
         </select>
-       
-        <!-- <div class="select-label__arrow">
-          <img src="https://portfolio-php/static/img/icons/arrow-down.svg" alt="Стрелка раскрывающегося списка категорий">
-        </div> -->
       </label>
     </div>
     <div class="admin-form__item d-flex justify-content-between mb-20">
@@ -35,7 +33,9 @@
     <div class="admin-form__item">
       <label class="input__label">
         Цена товара
-        <input name="price" class="input input--width-label" type="text"/>
+        <input name="price" class="input input--width-label" type="text"
+               value="<?php echo isset($_POST['price']) ? $_POST['price'] : ''; ?>"
+        />
       </label>
     </div>
     <div class="admin-form__item">
@@ -54,7 +54,9 @@
       <label class="textarea__label mb-15" name="editor">
         Описание товара
       </label>
-      <textarea name="content" class="textarea textarea--width-label" id="editor"></textarea>
+      <textarea name="content" class="textarea textarea--width-label" id="editor">
+        <?php echo isset($_POST['content']) ? $_POST['content'] : ''; ?>"
+      </textarea>
     </div>
     <div class="admin-form__item">
       <div class="block-upload">

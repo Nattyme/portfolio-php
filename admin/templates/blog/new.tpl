@@ -12,7 +12,9 @@
     <div class="admin-form__item">
       <label class="input__label">
         Введите название записи 
-        <input name="title" class="input input--width-label" type="text" placeholder="Заголовок поста" />
+        <input name="title" class="input input--width-label" type="text" placeholder="Заголовок поста" 
+               value="<?php echo isset($_POST['title']) ? $_POST['title'] : ''; ?>"
+        />
       </label>
     </div>
     <div class="admin-form__item">
@@ -31,7 +33,9 @@
       <label class="textarea__label mb-15" name="editor">
         Содержимое поста 
       </label>
-      <textarea name="content" class="textarea textarea--width-label" placeholder="Введите текст" id="editor"></textarea>
+      <textarea name="content" class="textarea textarea--width-label mt-10" placeholder="Введите текст" id="editor">
+          <?php echo isset($_POST['content']) ? $_POST['content'] : ''; ?>
+      </textarea>
     </div>
     <div class="admin-form__item">
       <div class="block-upload">

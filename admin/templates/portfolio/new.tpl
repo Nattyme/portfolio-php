@@ -12,7 +12,9 @@
   <div class="admin-form__item">
     <label class="input__label">
       Введите название проекта
-      <input name="title" class="input input--width-label" type="text" placeholder="Введите название" />
+      <input name="title" class="input input--width-label" type="text" placeholder="Введите название" 
+             value="<?php echo isset($_POST['title']) ? $_POST['title'] : ''; ?>"
+      />
     </label>
   </div>
   <div class="admin-form__item">
@@ -58,31 +60,41 @@
     <label class="textarea__label mb-15" name="editor">
       Описание проекта
     </label>
-    <textarea name="about" class="textarea textarea--width-label" placeholder="Введите описание" id="editor"></textarea>
+    <textarea name="about" class="textarea textarea--width-label" placeholder="Введите описание" id="editor">
+        <?php echo isset($_POST['about']) ? $_POST['about'] : ''; ?>
+    </textarea>
   </div>
   <div class="admin-form__item ">
     <label class="input__label">
       Время работы над проектом:
-      <input name="deadline" class="input input--width-label" type="text" placeholder="Ведите время" />
+      <input name="deadline" class="input input--width-label" type="text" placeholder="Ведите время" 
+             value="<?php echo isset($_POST['deadline']) ? $_POST['deadline'] : ''; ?>"
+      />
     </label>
   </div>
   <div class="admin-form__item ">
     <label class="input__label input__label--details">
       Страниц сверстано:
-      <input name="pages" class="input input--width-label" type="number" placeholder="Введите количество" />
+      <input name="pages" class="input input--width-label" type="number" placeholder="Введите количество" 
+             value="<?php echo isset($_POST['pages']) ? $_POST['pages'] : ''; ?>"
+      />
     </label>
   </div>
   <div class="admin-form__item">
     <label class="input__label input__label--details">
       Бюджет проекта:
-      <input name="budget" class="input input--width-label" type="text" placeholder="Введите сумму" />
+      <input name="budget" class="input input--width-label" type="text" placeholder="Введите сумму" 
+             value="<?php echo isset($_POST['budget']) ? $_POST['budget'] : ''; ?>"
+      />
     </label>
   </div>
  
   <div class="admin-form__item">
     <label class="input__label">
       Ссылка на проект проекта
-      <input name="link" class="input input--width-label" type="text" placeholder="Введите ссылку" />
+      <input name="link" class="input input--width-label" type="text" placeholder="Введите ссылку" 
+             value="<?php echo isset($_POST['link']) ? $_POST['link'] : ''; ?>"
+      />
     </label>
   </div>
  

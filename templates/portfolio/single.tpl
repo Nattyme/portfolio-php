@@ -31,13 +31,20 @@
             <h4 class="heading">Технологии </h4>
             <ul>
             <?php foreach($technologies as $technology) : ?>
-							<li><?php echo $technology['title']; ?></li>
+							<li>
+                <a class="page-project__link" href="<?php echo HOST . 'portfolio/technology/' . $technology['id'];?>">
+                  <?php echo $technology['title']; ?>
+                </a>
+              </li>
             <?php endforeach; ?>
             </ul>
           </div>
           <div class="page-project__content-item">
             <h4 class="heading">Ссылка на проект </h4>
-            <p class="special-link"><a href="<?php echo OUTLINK . $project['link'];?>"><?php echo $project['link'];?></a></p>
+            <p><a class="special-link" href="<?php echo OUTLINK . $project['link'];?>">
+              <?php echo $project['link'];?>
+            </a>
+          </p>
           </div>
         </div>
       </div>

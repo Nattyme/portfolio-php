@@ -8,6 +8,8 @@
     Портфолио
   </a>
   <ul class="control-panel__list hidden">
+
+    <!-- Добавить новый проект -->
     <li class="control-panel__list-item">
       <a class="control-panel__list-link control-panel__inner-link control-panel__inner-link--active" 
          href="<?php HOST;?>project-new">
@@ -17,7 +19,9 @@
         Добавить новый проект
       </a>
     </li>
+    <!--// Добавить новый проект -->
     
+    <!-- Все проекты -->
     <li class="control-panel__list-item">
       <a class="control-panel__list-link control-panel__inner-link" href="<?php echo HOST;?>admin/portfolio" 
          title="Открыть список всех проектов порфолио">
@@ -27,7 +31,9 @@
         Все проекты
       </a>
     </li>
-    
+    <!--// Все проекты -->
+
+    <!-- Все категории -->
     <li class="control-panel__list-item">
       <a class="control-panel__list-link control-panel__inner-link" 
          href="<?php echo HOST;?>admin/category?portfolio" 
@@ -38,7 +44,9 @@
         Все категории
       </a>
     </li>
+    <!--// Все категории -->
 
+    <!-- Все технологии -->
     <li class="control-panel__list-item">
       <a class="control-panel__list-link control-panel__inner-link" href="<?php echo HOST;?>admin/technology" title="Перейти на страницу редактирования технологии">
         <div class="control-panel__list-img-wrapper">
@@ -47,6 +55,7 @@
         Все технологии
       </a>
     </li>
+    <!--// Все технологии -->
   </ul>
 </li>
 

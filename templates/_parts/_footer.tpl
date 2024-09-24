@@ -5,7 +5,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col section-footer__copyright">
-					<p><?php echo $settings['copyright_name'];?></p>
+					<p>&copy;&nbsp;<?php echo $settings['copyright_name'];?></p>
 					<p><?php echo $settings['copyright_year'];?></p>
 				</div>
 				<div class="col section-social-icons">
