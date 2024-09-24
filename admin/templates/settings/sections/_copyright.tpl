@@ -21,7 +21,7 @@
         <label class="input__label">
           <input name="copyright_name" class="input input--width-label" 
                  type="text" placeholder="Введите текст первой строки копирайта" 
-                 value="<?= $settings['copyright_name'] ?>" 
+                 value="<?php echo isset($_POST['copyright_name']) ? $_POST['copyright_name'] : $settings['copyright_name']; ?>" 
           />
         </label>
       </div>
@@ -30,7 +30,7 @@
         <label class="input__label">
           <input name="copyright_year" class="input input--width-label" 
                  type="text" placeholder="Введите текст второй строки копирайта" 
-                 value="<?= $settings['copyright_year'] ?>"
+                 value="<?php echo isset($_POST['copyright_year']) ? $_POST['copyright_year'] : $settings['copyright_year']; ?>" 
           />
         </label>
       </div>

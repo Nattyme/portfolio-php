@@ -25,7 +25,7 @@
         <label class="input__label">
           <input name="status_label" class="input input--width-label" 
                  type="text" placeholder="Введите текст кнопки статуса" 
-                 value="<?= $settings['status_label'] ?>"
+                 value="<?php echo isset($_POST['status_label']) ? $_POST['status_label'] : $settings['status_label']; ?>" 
           />
         </label>
       </div>
@@ -34,7 +34,7 @@
         <label class="input__label">
           <input name="status_text" class="input input--width-label" 
                  type="text" placeholder="Введите текст статуса справа" 
-                 value="<?= $settings['status_text'] ?>" 
+                 value="<?php echo isset($_POST['status_text']) ? $_POST['status_text'] : $settings['status_text']; ?>" 
           />
         </label>
       </div>
@@ -43,7 +43,7 @@
         <label class="input__label">
           <input name="status_link" class="input input--width-label" 
                  type="text" placeholder="Введите ссылку статуса" 
-                 value="<?= $settings['status_link'] ?>" 
+                 value="<?php echo isset($_POST['status_link']) ? $_POST['status_link'] : $settings['status_link'];?>" 
           />
         </label>
       </div>

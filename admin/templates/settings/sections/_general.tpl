@@ -23,7 +23,8 @@
             name="site_title"
             class="input input--width-label"
             type="text"
-            placeholder="Введите название сайте" value="<?= $settings['site_title'] ?>" 
+            placeholder="Введите название сайте" 
+            value="<?php echo isset($_POST['site_title']) ? $_POST['site_title'] : $settings['site_title']; ?>" 
           />
         </label>
       </div>
@@ -34,7 +35,7 @@
             class="input input--width-label"
             type="text"
             placeholder="Введите слоган сайта"
-            value="<?= $settings['site_slogan'] ?>"
+            value="<?php echo isset($_POST['site_slogan']) ? $_POST['site_slogan'] : $settings['site_slogan']; ?>" 
           />
         </label>
       </div>
