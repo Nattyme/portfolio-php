@@ -5829,12 +5829,12 @@ a.control-panel__title-wrapper {
 
 .page-shopping-cart__name a {
   display: inline-block;
-  color: #000000;
+  color: #000;
+  transition: all 0.2s ease-in;
 }
 
 .page-shopping-cart__name a:hover {
-  color: #000000;
-  text-decoration: underline;
+  color: red;
   transition: 0.5s;
 }
 

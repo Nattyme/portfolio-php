@@ -10,14 +10,14 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']) 
 $pagination = pagination(8, 'comments');
 
 $sqlQuery = 'SELECT
-                    users.id AS user_id, users.name, users.surname, users.avatar_small,
-                    comments.id, comments.text, comments.user, comments.timestamp, 
-                    comments.status, comments.post,
-                    posts.title, posts.id AS post_id
-              FROM `users`
-              LEFT JOIN `comments` ON users.id = comments.user
-              LEFT JOIN `posts` ON comments.post = posts.id
-              ORDER BY comments.id DESC';
+                    u.id AS user_id, u.name, u.surname, u.avatar_small,
+                    c.id, c.text, c.user, c.timestamp, 
+                    c.status, c.post,
+                    p.title, p.id AS post_id
+              FROM `users` as u
+              LEFT JOIN `comments` as c ON u.id = c.user
+              LEFT JOIN `posts` as p ON c.post = p.id
+              ORDER BY c.id DESC';
               
 $comments = R::getAll($sqlQuery);
 

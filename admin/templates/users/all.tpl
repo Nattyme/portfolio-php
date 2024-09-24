@@ -12,7 +12,6 @@
           <th>ID</th>
           <th>Имя</th>
           <th>Эл. почта</th>
-          <th>Зарегестрирован</th>
           <th>Комментарии</th>
           <th>Роль</th>
           <th></th>
@@ -23,29 +22,18 @@
           <tr>
             <td><?php echo $user['id'];?></td>
             <td>
-              <a href="<?php echo HOST; ?>profile-edit/<?php echo $user['id'];?>">
-                <?php echo $user['name'];?>
+              <a class="link-to-page" href="<?php echo HOST; ?>profile/<?php echo $user['id'];?>">
+                <?php echo isset($user['name']) ? $user['name'] : 'Аноним' ;?>
               </a>
             </td>
             <td>
-              <a href="<?php echo HOST; ?>profile-edit?id=<?php echo $user['id'];?>">
                 <?php echo $user['email'];?>
-              </a>
             </td>
             <td>
-              <a href="<?php echo HOST; ?>admin/profile-edit?id=<?php echo $user['id'];?>">
-                <?php echo rus_date("d. m. Y. H:i", $user['timestamp']);?>
-              </a>
+                <?php echo $user['comments'];?>
             </td>
             <td>
-              <a href="<?php echo HOST; ?>admin/profile-edit?id=<?php echo $user['id'];?>">
-                <?php echo 'комментарии';?>
-              </a>
-            </td>
-            <td>
-              <a href="<?php echo HOST; ?>admin/profile-edit?id=<?php echo $user['id'];?>">
-                <?php echo $user['role'];?>
-              </a>
+              <?php echo $user['role'];?>
             </td>
             <td>
               <a href="<?php echo HOST;?>admin/user-delete?id=<?php echo $user['id'];?>" class="icon-delete"></a>
@@ -54,5 +42,13 @@
         <?php endforeach; ?>
       </tbody>
     </table>
+
+    <!-- Пагинация -->
+    <div class="admin-form__item pt-40">
+      <div class="section-pagination">
+          <?php include ROOT . "admin/templates/_parts/pagination/_pagination.tpl"; ?>
+      </div>
+    </div>
+    <!--// Пагинация -->
   </div>
 </div>
