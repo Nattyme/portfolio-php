@@ -3857,6 +3857,28 @@ a.primary-button:focus {
   color: #000;
 }
 
+@keyframes arrowMove {
+  0% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(115%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes borderGradient {
+  0% {
+    background-position: 0% 100%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
 a.logo-link {
   text-decoration: none;
   display: block;
@@ -4788,21 +4810,29 @@ a.logo-link:hover {
   transform: translateX(0%);
 }
 
-@keyframes arrowMove {
-  from {
-    transform: 100%;
-  }
-  50% {
-    transform: 140%;
-  }
-  to {
-    transform: 100%;
-  }
+.section-status {
+  position: relative;
 }
+.section-status:hover {
+  border-color: transparent;
+}
+
+.section-status:hover .section-status-text::after {
+  animation: arrowMove 0.8s ease-in infinite;
+}
+
 .section-status:hover::after {
-  animation-name: arrowMove;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
+  content: "";
+  background: linear-gradient(45deg, #fff 48.9%, #1647ED 49%);
+  background-size: 300% 300%;
+  border-radius: 10px;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  height: calc(100% + 4px);
+  width: calc(100% + 3px);
+  z-index: -1;
+  animation: borderGradient 8s linear both infinite;
 }
 
 .checkbox__row {
