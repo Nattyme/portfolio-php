@@ -1,10 +1,13 @@
 <?php
 // Получаем  текущую секцию 
-$currentSection = getCurrentSection ();
+$currentSection = getCurrentSection();
 $_SESSION['currentSection'] = $currentSection;
 
+// Подключаем пагинацию
+$pagination = pagination(5, 'brands');
+
 //Запрос брендов в БД с сортировкой id по убыванию
-$brands = R::find('brands', 'ORDER BY id DESC'); 
+$brands = R::find('brands', "ORDER BY id DESC {$pagination['sql_page_limit']}"); 
 
 $pageTitle = "Бренды - все записи";
 $pageClass = "admin-page";

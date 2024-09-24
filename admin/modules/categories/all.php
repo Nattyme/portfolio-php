@@ -1,14 +1,20 @@
 <?php
-// $pagination = pagination(8, 'posts');
 // Получаем  текущую секцию и записываем в сессию
 $currentSection = getCurrentSection ();
 $_SESSION['currentSection'] = $currentSection;
 
 // Получаем  текущую секцию 
-$currentSection = getCurrentSection ();
+$currentSection = getCurrentSection();
 
-// Получаем строки с категориями текущей секции
+// Получаем строки с категориями текущей секции 
+// Проблема - не получается применить ограничение по пагинации sql_limit и сортировку по убыванию
+// $catsArray = R::find('categories', ' section LIKE ? ', [$currentSection]);
 $catsArray = R::find('categories', ' section LIKE ? ', [$currentSection]);
+
+// Подключаем пагинацию
+// Проблема - при переходе на другую страницу текущая секция в сессии перезаписывается на page= , пагинация не работает
+$pagination = pagination(5, 'categories', [' section LIKE ? ', [$currentSection]]);
+
 
 // Составляем массив категории блога
 foreach ($catsArray as $key => $value) {

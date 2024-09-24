@@ -67,6 +67,8 @@ switch ($uriModule) {
   case 'portfolio':
     if ( isset($uriGet) && $uriGet === 'cat' && !empty($uriGetParam) ) {
       require ROOT . 'modules/portfolio/categories.php';
+    } else if ( isset($uriGet) && $uriGet === 'technology' && !empty($uriGetParam) ) {
+      require ROOT . 'modules/portfolio/technologies.php';
     } else if ( isset($uriGet) ) {
       require ROOT . 'modules/portfolio/single.php';
     } else {

@@ -10,6 +10,7 @@ if( isset($_POST['postDelete']) ) {
     unlink($avatarFolderLocation . $user->avatarSmall);
   }
 
+  // Удаляем пользователя
   R::trash($user);
   
   $_SESSION['success'][] = ['title' => 'Пользователь был успешно удалён.'];

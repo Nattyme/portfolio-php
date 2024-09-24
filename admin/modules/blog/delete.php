@@ -4,6 +4,7 @@ $post = R::load('posts', $_GET['id']);
 if( isset($_POST['postDelete']) ) {
   // Удаление обложки
   if ( !empty($post['cover']) ) {
+
     // Удадить файлы обложки с сервера
     $coverFolderLocation = ROOT . 'usercontent/blog/';
     unlink($coverFolderLocation . $post->cover);
@@ -19,6 +20,7 @@ if( isset($_POST['postDelete']) ) {
 
 $pageTitle = "Блог - удалить пост";
 $pageClass = "admin-page";
+
 // Центральный шаблон для модуля
 ob_start();
 include ROOT . "admin/templates/blog/delete.tpl";

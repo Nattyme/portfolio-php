@@ -20,9 +20,6 @@ if ($comment['status'] === 'new') {
   $commentsNewCounter = R::count('comments', ' status = ?', ['new']);
 }
 
-
-
-
 $pageTitle = "Комментарий";
 $pageClass = "admin-page";
 ob_start();

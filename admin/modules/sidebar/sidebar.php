@@ -1,6 +1,4 @@
 <?php
-// require_once ROOT . './libs/functions.php';
-
 // Сообщения
 $messagesNewCounter = R::count('messages', ' status = ?', ['new']);
 

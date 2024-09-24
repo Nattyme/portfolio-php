@@ -1,7 +1,6 @@
 <?php 
 require_once ROOT . "./libs/functions.php";
 $pagination = pagination($settings['card_on_page_portfolio'], 'portfolio');
-
 $projectsDB = R::find('portfolio', 'ORDER BY id DESC ' . $pagination['sql_page_limit']);
 
 $projects = array();

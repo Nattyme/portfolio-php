@@ -13,6 +13,7 @@ foreach ($catsArray as $key => $value) {
 }
 
 if( isset($_POST['postSubmit']) ) {
+  
   // Проверка на заполненность названия
   if( trim($_POST['title']) == '' ) {
     $_SESSION['errors'][] = ['title' => 'Введите заголовок поста'];

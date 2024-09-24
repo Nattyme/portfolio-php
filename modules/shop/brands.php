@@ -5,8 +5,7 @@ $pageTitle = "Категория: {$brand['title']}";
 $pagination = pagination(6, 'products', ['brand = ? ', [$uriGetParam]]);
 
 $productsDB = R::findLike('products', ['brand' => [$uriGetParam]], 'ORDER BY id DESC ' . $pagination['sql_page_limit']); 
-// print_r($productsDB);
-// die();
+
 $products = array();
 foreach ($productsDB as $current_product) {
   // Получаем строки с категориями магазина

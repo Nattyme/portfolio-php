@@ -1,6 +1,6 @@
 <?php
 // Получаем  текущую секцию 
-$currentSection = getCurrentSection ();
+$currentSection = getCurrentSection();
 $_SESSION['currentSection'] = $currentSection;
 
 // Находим категории, относящиеся к секции portfolio
@@ -96,10 +96,7 @@ if( isset($_POST['postSubmit']) ) {
     $project->link = $_POST['link'];
     $project->timestamp = time();
 
-    
-   
     $project->technology = json_encode($currentTechnologies);
-
 
     // Если передано изображение - уменьшаем, сохраняем, записываем в БД
     if ( isset($_FILES['cover']['name']) && $_FILES['cover']['tmp_name'] !== '') {

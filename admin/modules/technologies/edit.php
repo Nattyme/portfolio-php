@@ -28,6 +28,7 @@ if( isset($_POST['submit'])) {
       }
     }
 
+    // Сохраняем изменения
     R::store($technology);
 
     $_SESSION['success'][] = ['title' => 'Технология успешно обновлена.'];

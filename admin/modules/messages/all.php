@@ -1,7 +1,6 @@
 <?php
 if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']) ) {
-   // Проверка запроса на удаление
-  // admin/messages?action=delete&id=7
+  // Проверка запроса на удаление
   $message = R::load('messages', $_GET['id']);
   
   // Удаление файла

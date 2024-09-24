@@ -1,6 +1,6 @@
 <?php
 // Получаем  текущую секцию
-$currentSection = getCurrentSection ();
+$currentSection = getCurrentSection();
 
 if( isset($_POST['submit']) ) {
   // Проверка на заполненность названия

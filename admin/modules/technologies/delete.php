@@ -1,6 +1,8 @@
 <?php
+// Получаем все технологии
 $technology = R::load('technologies', $_GET['id']); 
 
+// Удаляем технологию при отправке формы
 if ( isset($_POST['submit']) ) {
   R::trash($technology); 
   

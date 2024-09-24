@@ -18,11 +18,11 @@
               <div class="badge badge--link badge-card badge-card--left">
                 <?php foreach ($project['technology'] as $key => $value) : ?>
                   <?php if($key === array_key_last($project['technology'])) : ?>
-                    <a href="<?php echo HOST . "portfolio/cat/" . $value['id'];?>">
+                    <a href="<?php echo HOST . "portfolio/technology/" . $value['id'];?>">
                       <?php echo $value['title'] . '.';?>
                     </a>
                   <?php else : ?>
-                    <a href="<?php echo HOST . "portfolio/cat/" . $value['id'];?>">
+                    <a href="<?php echo HOST . "portfolio/technology/" . $value['id'];?>">
                       <?php echo $value['title'] . ', ';?>
                     </a>
                   <?php endif; ?>

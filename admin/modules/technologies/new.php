@@ -5,6 +5,7 @@ if( isset($_POST['submit']) ) {
     $_SESSION['errors'][] = ['title' => 'Введите заголовок технологии'];
   } 
 
+  // Если нет ошибок
   if ( empty($_SESSION['errors'])) {
     $technology = R::dispense('technologies');
     $technology->title = $_POST['title'];

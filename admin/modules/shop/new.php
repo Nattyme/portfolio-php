@@ -1,6 +1,6 @@
 <?php
 // Получаем  текущую секцию 
-$currentSection = getCurrentSection ();
+$currentSection = getCurrentSection();
 $_SESSION['currentSection'] = $currentSection;
 
 // Находим категории, относящиеся к секции shop
