@@ -8,10 +8,9 @@
       <div class="col-6">
         <div class="card-project">
           <div class="card-project__img-wrapper">
-            <a href="<?php echo HOST . 'portfolio/'. $project['id'];?>">
-              <img src="<?php echo HOST . 'usercontent/portfolio/' . $project['coverSmall'];?>" alt="Архитектурное бюро John Doe и партнеры. Сайт под ключ" />
-              <div class="card-project__technology">HTML, CSS, wordpress</div>
-            </a></div>
+            <img src="<?php echo HOST;?>usercontent/portfolio/<?php echo empty($project['cover_small']) ? 'no-photo-small.jpg' : $project['cover_small'];?>" 
+                alt="<?php echo $project['title'];?>"/>
+        </div>
           <h4 class="card-project__title">
             <a href="<?php echo HOST . 'portfolio/'. $project['id'];?>">
               <?php echo $project['title'];?>

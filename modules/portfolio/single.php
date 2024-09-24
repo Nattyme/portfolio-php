@@ -11,16 +11,6 @@ $sqlQuery = 'SELECT
 $project = R::getRow($sqlQuery, [$uriGet]);
 $technologies = json_decode($project['technology'], true);
 
-// $sqlQuery = 'SELECT
-//                 products.id, products.title, products.content, products.cover, products.timestamp, 
-//                 products.brand, products.edit_time, products.cat, products.price, products.brand,
-//                 categories.title AS cat_title,
-//                 brands.title AS brand_title
-//              FROM `products`
-//              LEFT JOIN `categories` ON products.cat = categories.id
-//              LEFT JOIN `brands` ON products.brand = brands.id
-//              WHERE products.id = ? LIMIT 1';
-
 // Кнопки назад и вперед
 $projectsId = R::getCol('SELECT id FROM `portfolio`');
 foreach ($projectsId as $index => $value) {

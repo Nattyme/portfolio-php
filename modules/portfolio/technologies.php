@@ -45,13 +45,12 @@ foreach ($projectsDB as $current_project) {
       }
       $project['cat'] = $current_project['cat'];
 
+      // Добавляем данные о проекте в массив
       $projects [] = $project;
     }
   }
 
 } 
-
-
 
 $pageTitle = "Технология: {$technology['title']}";
 

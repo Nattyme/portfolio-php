@@ -8,6 +8,7 @@
 
   // Делаем запрос в БД для получения постов
   $posts = R::find('posts', "ORDER BY timestamp DESC LIMIT 0, 3");
+  
   // Делаем запрос в БД для получения проектов
   $projects = R::find('portfolio', "ORDER BY timestamp DESC LIMIT 0, 4");
 

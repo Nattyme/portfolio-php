@@ -38,6 +38,7 @@ $comments = R::getAll( $sqlQueryComments, [$post['id']] );
 $relatedPosts = get_related_posts($post['title']);
 
 $pageTitle = "Запись в блоге - {$post['title']}";
+
 // Подключение шаблонов страницы
 include ROOT . "templates/page-parts/_head.tpl";
 include ROOT . "templates/_parts/_header.tpl";

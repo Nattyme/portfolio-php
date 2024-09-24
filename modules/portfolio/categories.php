@@ -34,11 +34,9 @@ if ($category) {
       $current_project['cat'] = $categories[$current_project['cat']]['title'];
     }
 
-    // if ($current_product['brand'] === $brands[$current_product['brand']]['id']) {
-    //   $current_product['brand'] = $brands[$current_product['brand']]['title'];
-    // }
     $project['cat'] = $current_project['cat'];
-    // $project['brand_title'] = $current_product['brand'];
+
+    // Добавляем данные о проекте в массив
     $projects [] = $project;
   }
 } else {

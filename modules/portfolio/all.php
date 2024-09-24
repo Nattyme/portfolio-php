@@ -4,6 +4,7 @@ $pagination = pagination($settings['card_on_page_portfolio'], 'portfolio');
 $projectsDB = R::find('portfolio', 'ORDER BY id DESC ' . $pagination['sql_page_limit']);
 
 $projects = array();
+
 foreach ($projectsDB as $current_project) {
     // Получаем  текущую секцию для записи в БД
     $currentSection = $uriModule;
@@ -27,23 +28,15 @@ foreach ($projectsDB as $current_project) {
     $project['cat'] = $current_project->cat;
     $project['cat_id'] = $current_project->cat;
     $project['cover_small'] = $current_project->cover_small;
-    // $project['price'] =$current_project->price
-    // print_r($project['technology']);
-    // die();
+
     // Получаем название категории текущего продука по ID категории
     if (isset($current_project['cat']) && !empty($current_project['cat']) && $current_project['cat'] === $categories[$current_project['cat']]['id']) {
       $current_project['cat'] = $categories[$current_project['cat']]['title'];
     }
 
-    // Получчаем название бренда текущего продука по ID бренда
-    // if (  isset($current_product['brand']) 
-    //       && !empty($current_product['brand']) && $current_product['brand'] === $brands[$current_product['brand']]['id']) {
-    //   $current_product['brand'] = $brands[$current_product['brand']]['title'];
-    // }
     $project['cat'] = $current_project['cat'];
-    // $product['brand_title'] = $current_product['brand'];
-    // print_r($project);
-    // die();
+
+    // Добавляем данные о проекте в массив
     $projects [] = $project;
 }
 

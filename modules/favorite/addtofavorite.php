@@ -66,7 +66,6 @@ if ( !isLoggedIn() ) {
   setcookie('fav_list', json_encode($fav_list), time() + 60 * 60 * 24 * 30);
 }
 
-
 header('Location: ' . HOST . 'favorite');
 exit();
 
