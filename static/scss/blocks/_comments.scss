@@ -1,0 +1,11 @@
+.comment__date {
+  flex-shrink: 0;
+}
+
+.comment__link {
+  margin-left: 20px;
+  max-width: 450px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

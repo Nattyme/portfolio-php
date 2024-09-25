@@ -1,0 +1,10 @@
+.skill-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .checkbox__item + .checkbox__item {
+    margin-top: 0;
+  }
+}

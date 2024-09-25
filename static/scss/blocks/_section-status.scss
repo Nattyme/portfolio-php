@@ -1,0 +1,28 @@
+.section-status {
+  position: relative;
+  &:hover {
+    border-color: transparent;
+  }
+}
+
+.section-status:hover .section-status-text::after {
+  animation: arrowMove 0.8s ease-in infinite;
+}
+
+.section-status::after {
+  content: "";
+  background: linear-gradient(45deg, #fff 48.9%, #1647ED 49%);
+  background-size: 300% 300%;
+  border-radius: 10px;
+
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  height: calc(100% + 4px);
+  width: calc(100% + 3px);
+  z-index: -1;
+  animation: borderGradient 8s linear both infinite;
+}
+
+
+

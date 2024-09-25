@@ -143,6 +143,10 @@ switch ($uriModule) {
   case 'paymentyookassareturn':
     require ROOT . 'modules/payments/yookassareturn.php';
     break;
+
+  case 'paymentyookassanotifications':
+    require ROOT . 'modules/payments/yookassanotifications.php';
+    break;
   
   // ::::::::::::: FAVORITE :::::::::::::::::::
   case 'favorite':
