@@ -25,7 +25,7 @@ $product = R::getRow($sqlQuery, [$uriGet]);
 // $comments = R::getAll( $sqlQueryComments, [$post['id']] );
 
 // // Вывод похожих товаров
-// $relatedProducts = get_related_products($product['title'], $product['brand'], $product['cat']);
+$relatedProducts = get_related_products($product['title'], $product['brand'], $product['cat']);
 
 $pageTitle = "Название товара {$product['title']}";
 // Подключение шаблонов страницы

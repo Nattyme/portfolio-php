@@ -9,7 +9,8 @@
           <div class="card-post">
             <div class="card-post__img">
               <a href="<?php echo HOST . 'blog/' . $relatedPost['id'];?>">
-                <img src="<?php echo HOST . 'usercontent/blog/' . $relatedPost['cover_small'];?>" alt="<?php echo $relatedPost['title'];?>" />
+                <img src="<?php echo HOST;?>usercontent/blog/<?php echo empty($relatedPost['cover_small']) ? "290-no-photo.jpg" : $relatedPost['cover_small'];?>" 
+                alt="<?php echo $relatedPost['title'];?>"/>
               </a>
             </div>
             <h4 class="card-post__title">
