@@ -4041,6 +4041,7 @@ a.logo-link:hover {
   background: #ffffff;
   box-shadow: 0px 10px 40px rgba(126, 155, 189, 0.3);
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 .card-post:hover {
   box-shadow: 0px 10px 20px 0px #7e9bbd;
@@ -4084,6 +4085,7 @@ a.logo-link:hover {
   background-color: #FFFFFF;
   box-shadow: 0px 10px 40px rgba(126, 155, 189, 0.3);
   transition: all 0.3s ease-in;
+  cursor: pointer;
 }
 .card-project:hover {
   box-shadow: 0px 10px 20px 0px #7e9bbd;
