@@ -402,9 +402,6 @@ function num_decline( $number, $titles, $show_number = false ){
 	return ( $show_number ? "$number " : '' ) . $titles[ $title_index ];
 }
 
-
-
-
 // Вывод похожих постов
 function get_related_posts ($postTitle) {
   // Разбиваем заголовок на слова, записваем массив в переменую

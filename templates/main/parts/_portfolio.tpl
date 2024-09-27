@@ -10,14 +10,15 @@
           <div class="card-project__img-wrapper">
             <img src="<?php echo HOST;?>usercontent/portfolio/<?php echo empty($project['cover_small']) ? 'no-photo-small.jpg' : $project['cover_small'];?>" 
                 alt="<?php echo $project['title'];?>"/>
-        </div>
+          </div>
           <h4 class="card-project__title">
-            <a href="<?php echo HOST . 'portfolio/'. $project['id'];?>">
+            <a class="card-project__link" href="<?php echo HOST . 'portfolio/'. $project['id'];?>">
               <?php echo $project['title'];?>
             </a>
           </h4>
         </div>
       </div>
     <?php endforeach; ?>
+
   </div>
 </section>

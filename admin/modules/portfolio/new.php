@@ -64,14 +64,7 @@ if( isset($_POST['postSubmit']) ) {
   // Проверка на заполненность ссылки проекта 
   if( trim($_POST['link']) == '' ) {
     $_SESSION['errors'][] = ['title' => 'Поле "Ссылка на проект" не может быть пустым'];
-  } else {
-
-    // Валидация ссылки
-    if( !filter_var(trim($_POST['link']), FILTER_VALIDATE_URL) ) {
-      $_SESSION['errors'][] = ['title' => 'Указан неверный формат ссылки'];
-    }
-
-  }
+  } 
 
   $currentTechnologies = array();
 

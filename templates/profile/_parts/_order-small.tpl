@@ -13,7 +13,7 @@
         echo "Оплачен";
       } else {
         echo "Не оплачен<br>";
-        echo "<a class='secondary-button'>Оплатить</a>";
+        echo "<a class='secondary-button link-above-others' href=' " . HOST . 'orderselectpayment?id=' . $order['id'] . " '>Оплатить</a>";
       }
     ?>
   </td>
