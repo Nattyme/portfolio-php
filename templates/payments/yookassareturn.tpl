@@ -3,7 +3,7 @@
     <div class="order-registration">
 
       <div class="order-registration__title">
-        <h1 class="heading">Результат оплаты заказа N<?php echo $paymentDB['order_id'];?></h1>
+        <h1 class="heading">Результат оплаты заказа &#8470;<?php echo $paymentDB['order_id'];?></h1>
       </div>
 
 

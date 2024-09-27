@@ -1,9 +1,12 @@
 <?php
 // Подключаем пагинацию
-$pagination = pagination(1, 'users');
+$pagination = pagination(2, 'users');
 
 //Запрос пользователей из БД с сортировкой id по убыванию
 $usersDB = R::find('users', 'ORDER BY id DESC'); 
+
+//Запрос постов в БД с сортировкой id по убыванию
+$usersDB = R::find('users', "ORDER BY id DESC {$pagination['sql_page_limit']}");
 
 $users = array();
 

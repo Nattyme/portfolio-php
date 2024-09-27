@@ -7,7 +7,12 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']) 
 }
 
 // Подключаем пагинацию
-$pagination = pagination(8, 'comments');
+$pagination = pagination(3, 'comments');
+
+//Запрос постов в БД с сортировкой id по убыванию
+$commentsDB = R::find('comments', "ORDER BY id DESC {$pagination['sql_page_limit']}");
+
+$comments = array();
 
 $sqlQuery = 'SELECT
                     u.id AS user_id, u.name, u.surname, u.avatar_small,
@@ -17,9 +22,29 @@ $sqlQuery = 'SELECT
               FROM `users` as u
               LEFT JOIN `comments` as c ON u.id = c.user
               LEFT JOIN `posts` as p ON c.post = p.id
-              ORDER BY c.id DESC';
-              
-$comments = R::getAll($sqlQuery);
+              WHERE c.id = ?';
+
+foreach ($commentsDB as $current_comment) {
+  $commentDB = R::getRow( $sqlQuery,[ $current_comment['id'] ]);
+
+  //Проверка, что пользователь существует (не удаленный)
+  if( $commentDB['user_id'] ) {
+    $comment['id'] =  $commentDB['id'];
+    $comment['status'] =  $commentDB['status'];
+    $comment['user_id'] =  $commentDB['user_id'];
+    $comment['avatar_small'] =  $commentDB['avatar_small'];
+    $comment['name'] =  $commentDB['name'];
+    $comment['surname'] =  $commentDB['surname'];
+    $comment['text'] =  $commentDB['text'];
+    $comment['post_id'] =  $commentDB['post_id'];
+    $comment['post_id'] =  $commentDB['post_id'];
+    $comment['title'] =  $commentDB['title'];
+    $comment['timestamp'] =  $commentDB['timestamp'];
+  }
+       
+  // Добавляем данные пользователя в массив
+  $comments[] = $comment;
+}
 
 $pageTitle = "Комментарии - все записи";
 $pageClass = "admin-page";

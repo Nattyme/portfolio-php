@@ -15,7 +15,8 @@
         <?php foreach( $products as $product) : ?>
           <div class="page-shopping-cart__row">
             <div class="page-shopping-cart__img">
-              <img src="<?php echo HOST .'usercontent/products/' . $product['cover_small'];?>" alt="productName" />
+              <img src="<?php echo HOST;?>usercontent/products/<?php echo empty($product['cover_small']) ? "no-photo.jpg" : $product['cover_small'];?>" 
+                   alt="<?php echo $product['title'];?>"/>
             </div>
             <div class="page-shopping-cart__name">
               <a class="link-to-page" href="<?php echo HOST . "shop/" . $product['id'];?>"><?php echo $product['title'];?>

@@ -37,7 +37,7 @@ switch($payment['status']) {
     break;
 
   case 'succeeded':
-    $order->status = 'succeeded';
+    $order->status = 'paid';
     $order->paid = true;
     break;
 

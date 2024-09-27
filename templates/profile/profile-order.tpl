@@ -26,7 +26,7 @@
             <td>
               <?php 
                 if ($order['paid']) {
-                  echo 'Оплачен';
+                  echo 'Оплачен' . rus_date('j F Y в G:i', $payment['timestamp']);
                 } else {
                   echo 'Не оплачен<br>';
                   echo '<a href="' . HOST . 'orderselectpayment?id=' . $order['id'] .'" class="secondary-button">Оплатить</a>';

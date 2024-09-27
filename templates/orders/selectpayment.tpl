@@ -3,7 +3,7 @@
     <div class="order-registration">
 
       <div class="order-registration__title">
-        <h1 class="heading">Оплата заказа N <?php echo $order['id'];?></h1>
+        <h1 class="heading">Оплата заказа &#8470;<?php echo $order['id'];?></h1>
       </div>
 
       <table class="order-table">

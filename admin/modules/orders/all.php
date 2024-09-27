@@ -1,6 +1,9 @@
 <?php
+// Подключаем пагинацию
+$pagination = pagination(8, 'orders');
 
-$orders = R::find('orders', "ORDER BY id DESC"); 
+//Запрос постов в БД с сортировкой id по убыванию
+$orders = R::find('orders', "ORDER BY id DESC {$pagination['sql_page_limit']}");
 
 $pageTitle = "Заказы - все записи";
 $pageClass = "admin-page";
