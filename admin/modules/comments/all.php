@@ -7,7 +7,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']) 
 }
 
 // Подключаем пагинацию
-$pagination = pagination(3, 'comments');
+$pagination = pagination(8, 'comments');
 
 //Запрос постов в БД с сортировкой id по убыванию
 $commentsDB = R::find('comments', "ORDER BY id DESC {$pagination['sql_page_limit']}");

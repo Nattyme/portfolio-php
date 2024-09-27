@@ -36,7 +36,7 @@
               <?php echo $user['role'];?>
             </td>
             <td>
-              <a href="<?php echo HOST;?>admin/user-delete?id=<?php echo $user['id'];?>" class="icon-delete"></a>
+              <a href="<?php echo HOST;?>admin/user-block?id=<?php echo $user['id'];?>" class="icon-delete"></a>
             </td>
           </tr>
         <?php endforeach; ?>

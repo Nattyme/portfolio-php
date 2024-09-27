@@ -9,6 +9,8 @@
   <div class="feedback-form__input">
     <?php if (isset($_POST['name']) && !empty($_POST['name'])) : ?>
       <input name="name" class="input" type="text" placeholder="Ваше имя" value="<?php echo $_POST['name'];?>"/>
+    <?php elseif ( isLoggedIn() && isset($_SESSION['logged_user']['name'])) : ?>
+      <input name="name" class="input" type="text" placeholder="Ваше имя" value="<?php echo $_SESSION['logged_user']['name'];?>"/>
     <?php else : ?>
       <input name="name" class="input" type="text" placeholder="Ваше имя"/>
     <?php endif;?>
@@ -16,6 +18,8 @@
   <div class="feedback-form__input">
     <?php if (isset($_POST['email']) && !empty($_POST['email'])) : ?>
       <input name="email" class="input" type="text" placeholder="Email" value="<?php echo $_POST['email'];?>"/>
+    <?php elseif ( isLoggedIn() && isset($_SESSION['logged_user']['email'])) : ?>
+      <input name="email" class="input" type="text" value="<?php echo $_SESSION['logged_user']['email'];?>"/>
     <?php else : ?>
       <input name="email" class="input" type="text" placeholder="Email"/>
     <?php endif; ?>

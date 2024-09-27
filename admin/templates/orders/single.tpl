@@ -5,7 +5,7 @@
     <?php include ROOT . 'admin/templates/components/success.tpl'; ?>
 
     <div class="admin-form__item d-flex justify-content-between">
-      <h2 class="heading">Заказ N <?php echo $order['id'];?></h2>
+      <h2 class="heading">Заказ &#8470; <?php echo $order['id'];?></h2>
 
       <div class="admin-form__item buttons">
         <a class="secondary-button" href="<?php echo HOST;?>admin/orders">

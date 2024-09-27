@@ -17,7 +17,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']) 
 }
 
 // Подключаем пагинацию
-$pagination = pagination(2, 'messages');
+$pagination = pagination(8, 'messages');
 
 //Запрос сообщений в БД с сортировкой id по убыванию
 $messages = R::find('messages', "ORDER BY id DESC {$pagination['sql_page_limit']}");

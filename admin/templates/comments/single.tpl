@@ -59,7 +59,7 @@
         <a class="primary-button primary-button--red" href="<?php echo HOST . 'admin/comments?action=delete&id=' . $comment['id'];?>" class="icon-delete">
           Удалить
         </a>
-        <a href="<?php echo HOST . 'admin/user-block?id=' . $comment['id'];?>" name="block-user" class="primary-button primary-button--red" class="icon-delete">
+        <a href="<?php echo HOST . 'admin/user-block?id=' . $comment['user_id'];?>" name="block-user" class="primary-button primary-button--red" class="icon-delete">
           Заблокировать пользователя
         </a>
       </div>

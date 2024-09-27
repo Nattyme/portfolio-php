@@ -53,7 +53,11 @@
         <a class="primary-button primary-button--red" href="<?php echo HOST . 'admin/messages?action=delete&id=' . $message['id'];?>" class="icon-delete">
           Удалить
         </a>
-        <a href="<?php echo HOST . 'admin/user-block?id=' . $message['id'];?>" name="block-user" class="primary-button primary-button--red" class="icon-delete">
+        <a href="<?php 
+          $linkId = HOST . 'admin/user-block?id=' . $message['user_id'];
+          $linkEmail = HOST . 'admin/user-block?email=' . $message['email'];
+          echo !empty($message['user_id']) ? $link : $linkEmail;
+        ?>" name="block-user" class="primary-button primary-button--red" class="icon-delete">
           Заблокировать пользователя
         </a>
       </div>

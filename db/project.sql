@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: MySQL-5.7
--- Время создания: Сен 26 2024 г., 21:46
+-- Время создания: Сен 28 2024 г., 01:09
 -- Версия сервера: 5.7.44
 -- Версия PHP: 7.4.33
 
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- База данных: `project`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `blockedusers`
+--
+
+CREATE TABLE `blockedusers` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `user_id` int(11) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Дамп данных таблицы `blockedusers`
+--
+
+INSERT INTO `blockedusers` (`id`, `email`, `user_id`) VALUES
+(5, 'spam10@mail.ru', 9),
+(8, 'spam2@spam.ru', NULL),
+(9, 'spam22@yandex.ru', 10),
+(10, 'spam334@mail.ry', 11),
+(11, 'info01@yandex.ru', NULL),
+(12, 'spam9@mail.ru', 12);
 
 -- --------------------------------------------------------
 
@@ -103,14 +127,9 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `text`, `post`, `user`, `timestamp`, `status`) VALUES
-(1, 'Хорошая статья!', 25, 2, 1722183682, 'new'),
-(2, 'Комментарий от анонима к посту №26', 26, 2, 1722187674, 'new'),
-(3, 'Комментарий от админа к посту №26', 26, 1, 1722187716, 'new'),
-(4, 'Комментарий к посту №25 от пользователя без имени', 25, 3, 1722187823, 'new'),
-(5, 'Комментарий к посту №25 от пользователя без фамилии', 25, 4, 1722187873, 'new'),
-(6, 'Еще один комментарий', 17, 1, 1722194366, 'new'),
-(7, 'Привет всем!\r\n', 26, 1, 1722195314, NULL),
-(10, 'Красивая картина!', 30, 1, 1724273913, NULL);
+(1, 'Хорошая статья!', 25, 2, 1722183682, NULL),
+(2, 'Комментарий от анонима к посту №26', 26, 2, 1722187674, NULL),
+(7, 'Привет всем!\r\n', 26, 1, 1722195314, NULL);
 
 -- --------------------------------------------------------
 
@@ -126,17 +145,17 @@ CREATE TABLE `messages` (
   `timestamp` int(11) UNSIGNED DEFAULT NULL,
   `file_name_src` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `file_name_original` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `status` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
+  `status` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `user_id` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Дамп данных таблицы `messages`
 --
 
-INSERT INTO `messages` (`id`, `email`, `name`, `message`, `timestamp`, `file_name_src`, `file_name_original`, `status`) VALUES
-(1, 'info@mail.ru', 'Пользователь', 'Сообщение тестовое, номер 1', 1724270618, NULL, NULL, 'new'),
-(2, 'info2@mail.ru', 'Пользователь 2', 'Сообщение тестовое, номер 2', 1724270638, NULL, NULL, 'new'),
-(3, 'info2@mail.ru', 'Пользователь 2', 'Сообщение тестовое, номер 2', 1724270651, NULL, NULL, NULL);
+INSERT INTO `messages` (`id`, `email`, `name`, `message`, `timestamp`, `file_name_src`, `file_name_original`, `status`, `user_id`) VALUES
+(1, 'info@mail.ru', 'Пользователь', 'Сообщение тестовое, номер 1', 1724270618, NULL, NULL, NULL, NULL),
+(2, 'info2@mail.ru', 'Пользователь 2', 'Сообщение тестовое, номер 2', 1724270638, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -170,18 +189,18 @@ INSERT INTO `orders` (`id`, `name`, `surname`, `email`, `phone`, `address`, `car
 (8, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":5,\"amount\":1,\"title\":\"iPad\",\"price\":\"46000\"}]', 1, 1724141098, 'new', 0, 46000),
 (9, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":9,\"amount\":1,\"title\":\"Mac Pro\",\"price\":\"312000\"},{\"id\":7,\"amount\":1,\"title\":\"MacBook\",\"price\":\"130000\"}]', 1, 1724141330, 'new', 0, 442000),
 (10, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":7,\"amount\":1,\"title\":\"MacBook\",\"price\":\"130000\"}]', 1, 1724142919, 'new', 0, 130000),
-(11, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":9,\"amount\":1,\"title\":\"Mac Pro\",\"price\":\"312000\"}]', 1, 1724155054, 'in progress', 0, 312000),
-(12, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":12,\"amount\":1,\"title\":\"MacBook2\",\"price\":\"60000\"}]', 1, 1724679996, 'in progress', 0, 60000),
-(13, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":15,\"amount\":18,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d Xiaomi Mi 8 SE.\",\"price\":\"45000\"},{\"id\":8,\"amount\":1,\"title\":\"Mac mini\",\"price\":\"162000\"}]', 1, 1726140704, 'new', 0, 972000),
+(11, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":9,\"amount\":1,\"title\":\"Mac Pro\",\"price\":\"312000\"}]', 1, 1724155054, 'new', 0, 312000),
+(12, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":12,\"amount\":1,\"title\":\"MacBook2\",\"price\":\"60000\"}]', 1, 1724679996, 'new', 0, 60000),
+(13, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":15,\"amount\":18,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d Xiaomi Mi 8 SE.\",\"price\":\"45000\"},{\"id\":8,\"amount\":1,\"title\":\"Mac mini\",\"price\":\"162000\"}]', 1, 1726140704, 'in progress', 0, 972000),
 (14, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":7,\"amount\":1,\"title\":\"MacBook\",\"price\":\"130000\"}]', 1, 1726227339, 'new', 0, 130000),
-(15, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":16,\"amount\":1,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d Xiaomi Redmi 2 Prime\",\"price\":\"60000\"}]', 1, 1726235703, 'new', 0, 60000),
-(16, 'Elena', 'Truman', 'info@yandex.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":15,\"amount\":1,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d Xiaomi Mi 8 SE.\",\"price\":\"45000\"}]', NULL, 1726288472, 'new', 0, 45000),
-(17, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":12,\"amount\":1,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d N3\",\"price\":\"50000\"}]', 1, 1726290236, 'new', 0, 50000),
+(15, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":16,\"amount\":1,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d Xiaomi Redmi 2 Prime\",\"price\":\"60000\"}]', 1, 1726235703, 'in progress', 0, 60000),
+(16, 'Elena', 'Truman', 'info@yandex.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":15,\"amount\":1,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d Xiaomi Mi 8 SE.\",\"price\":\"45000\"}]', NULL, 1726288472, 'in progress', 0, 45000),
+(17, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":12,\"amount\":1,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d N3\",\"price\":\"50000\"}]', 1, 1726290236, 'in progress', 0, 50000),
 (18, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":16,\"amount\":1,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d Xiaomi Redmi 2 Prime\",\"price\":\"60000\"}]', 1, 1726300759, 'new', 0, 60000),
-(19, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":16,\"amount\":1,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d Xiaomi Redmi 2 Prime\",\"price\":\"60000\"}]', 1, 1726319531, 'new', 0, 60000),
-(20, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":7,\"amount\":1,\"title\":\"MacBook\",\"price\":\"130000\"}]', 1, 1726320767, 'new', 0, 130000),
-(22, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":16,\"amount\":1,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d Xiaomi Redmi 2 Prime\",\"price\":\"60000\"}]', 1, 1726322929, 'new', 0, 60000),
-(23, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":15,\"amount\":1,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d Xiaomi Mi 8 SE.\",\"price\":\"45000\"}]', 1, 1726326258, 'canceled', 0, 45000);
+(19, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":16,\"amount\":1,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d Xiaomi Redmi 2 Prime\",\"price\":\"60000\"}]', 1, 1726319531, 'in progress', 0, 60000),
+(20, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":7,\"amount\":1,\"title\":\"MacBook\",\"price\":\"130000\"}]', 1, 1726320767, 'in progress', 0, 130000),
+(22, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":16,\"amount\":1,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d Xiaomi Redmi 2 Prime\",\"price\":\"60000\"}]', 1, 1726322929, 'in progress', 0, 60000),
+(23, 'Admin', 'Adminovich', 'admin@admin.ru', 792577760741, 'BERGAME, VIA GEREMIA BONOMELLI 15', '[{\"id\":15,\"amount\":1,\"title\":\"\\u0421\\u043c\\u0430\\u0440\\u0442\\u0444\\u043e\\u043d Xiaomi Mi 8 SE.\",\"price\":\"45000\"}]', 1, 1726326258, 'paid', 1, 45000);
 
 -- --------------------------------------------------------
 
@@ -211,7 +230,9 @@ INSERT INTO `payments` (`id`, `payment`, `order_id`, `price`, `status`, `timesta
 (7, '2e77acbb-000f-5000-9000-126d875c2144', 22, 60000, 'pending', 1726322938),
 (8, '2e77ad1f-000f-5000-9000-13295038f8b2', 22, 60000, 'pending', 1726323038),
 (9, '2e77b2ce-000f-5000-a000-15136d881d11', 22, 60000, 'pending', 1726324492),
-(10, '2e77b9b8-000f-5000-9000-113820d34a68', 23, 45000, 'canceled', 1726326262);
+(10, '2e77b9b8-000f-5000-9000-113820d34a68', 23, 45000, 'canceled', 1726326262),
+(11, '2e88dfb0-000f-5000-9000-10e295073a84', 23, 45000, 'pending', 1727450096),
+(12, '2e88e002-000f-5000-9000-170a57dbd0f2', 23, 45000, 'succeeded', 1727450179);
 
 -- --------------------------------------------------------
 
@@ -447,6 +468,13 @@ INSERT INTO `users` (`id`, `email`, `role`, `password`, `name`, `surname`, `coun
 --
 
 --
+-- Индексы таблицы `blockedusers`
+--
+ALTER TABLE `blockedusers`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `index_foreignkey_blockedusers_user` (`user_id`);
+
+--
 -- Индексы таблицы `brands`
 --
 ALTER TABLE `brands`
@@ -468,7 +496,8 @@ ALTER TABLE `comments`
 -- Индексы таблицы `messages`
 --
 ALTER TABLE `messages`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `index_foreignkey_messages_user` (`user_id`);
 
 --
 -- Индексы таблицы `orders`
@@ -525,6 +554,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `blockedusers`
+--
+ALTER TABLE `blockedusers`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT для таблицы `brands`
 --
 ALTER TABLE `brands`
@@ -540,13 +575,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблицы `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT для таблицы `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT для таблицы `orders`
@@ -558,7 +593,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT для таблицы `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT для таблицы `portfolio`
@@ -594,7 +629,7 @@ ALTER TABLE `technologies`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
