@@ -31,7 +31,7 @@ foreach ( $products as $product) {
 // Получаем все товары с id массива $ids из таблицы 'products'
 $productsDB = R::findLike('products', ['id' => $ids]);
 
-$pageTitle = "Заказ от";
+$pageTitle = "Заказ &#8470;" . $order['id'] . "&#160; от &#160;" . rus_date('j F Y', $order['timestamp']);
 $pageClass = "profile-page";
 
 include ROOT . 'templates/page-parts/_head.tpl';

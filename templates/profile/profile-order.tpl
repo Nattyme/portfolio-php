@@ -2,7 +2,7 @@
   <section class="section">
     <div class="section__title">
       <div class="container">
-        <h2 class="heading">Заказ</h2>
+        <h2 class="heading">Заказ &#8470;<?php echo $order['id'];?></h2>
       </div>
     </div>
 
