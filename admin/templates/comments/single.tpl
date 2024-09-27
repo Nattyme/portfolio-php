@@ -5,7 +5,7 @@
 
   <form class="admin-form" method="POST" action="<?php echo HOST;?>admin/comment?id=<?php echo $comment['id']; ?>">
     <div class="admin-form__item admin-form__item--flex">
-      <h2 class="heading">Комментарий №<?php echo $_GET['id'];?></h2>
+      <h2 class="heading">Комментарий &#8470;<?php echo $_GET['id'];?></h2>
       <div class="admin-form__date">
         <img src="<?php echo HOST;?>static/img/favicons/clock.svg" alt="Получено">
         Получено
@@ -17,13 +17,14 @@
       <label class="input__label mb-10">
         Имя отправителя
       </label>
-      <p><?php echo $comment['user_name']; ?></p>
+      <p><?php echo !empty($comment['user_name']) ? $comment['user_name'] : 'Аноним'; ?></p>
     </div>
 
     <div class="admin-form__item">
       <label class="input__label mb-10">
-        Имя отправителя
+        Фамилия отправителя
       </label>
+      <p><?php echo !empty($comment['user_surname']) ? $comment['user_surname'] : 'Фамилия не указана'; ?></p>
       <p><?php echo $comment['user_surname']; ?></p>
     </div>
 
@@ -31,7 +32,7 @@
       <label class="input__label mb-10">
         Email отправителя
       </label>
-      <p><?php echo $comment['user_email']; ?></p>
+      <p><?php echo !empty($comment['user_email']) ? $comment['user_email'] : 'Email не указана'; ?></p>
     </div>
 
     <div class="admin-form__item">

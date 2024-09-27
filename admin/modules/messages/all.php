@@ -16,8 +16,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']) 
   R::trash($message);
 }
 
-// Запрос постов в БД с сортировкой id по убыванию
-$messages = R::find('messages', 'ORDER BY id DESC'); 
+// Подключаем пагинацию
+$pagination = pagination(2, 'messages');
+
+//Запрос сообщений в БД с сортировкой id по убыванию
+$messages = R::find('messages', "ORDER BY id DESC {$pagination['sql_page_limit']}");
 
 $pageTitle = "Сообщения - все записи";
 $pageClass = "admin-page";
