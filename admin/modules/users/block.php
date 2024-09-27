@@ -13,16 +13,16 @@ if( isset($_POST['postDelete']) ) {
   // Удаляем пользователя
   R::trash($user);
   
-  $_SESSION['success'][] = ['title' => 'Пользователь был успешно удалён.'];
+  $_SESSION['success'][] = ['title' => 'Пользователь был успешно заблокирован. Все комментарии и сообщения удалены'];
   header('Location: ' . HOST . 'admin/users');
   exit();
 }
 
-$pageTitle = "Блог - удалить пользователя";
+$pageTitle = "Блог - заблокировать пользователя";
 $pageClass = "admin-page";
 // Центральный шаблон для модуля
 ob_start();
-include ROOT . "admin/templates/users/delete.tpl";
+include ROOT . "admin/templates/users/block.tpl";
 $content = ob_get_contents();
 ob_end_clean();
 

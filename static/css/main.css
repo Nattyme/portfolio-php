@@ -4167,6 +4167,18 @@ a.logo-link:hover {
      object-fit: contain;
 }
 
+.block-text {
+  height: 60px;
+  overflow: hidden;
+}
+.block-text .block-text__desc {
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
 .input-text {
   width: 100%;
   padding: 13px 0px 13px 20px;

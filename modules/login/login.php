@@ -10,6 +10,14 @@ if( isset($_POST['login']) ) {
     $_SESSION['errors'][] = ['title' => 'Введите email', 'desc' => '<p>Email обязателен для регистрации на сайте</p>'];
   } else if ( !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) ) {
     $_SESSION['errors'][] = ['title' => 'Введите корректный Email'];
+  } else if ( trim($_POST['email']) ) {
+    $result = true;
+    $blockedUsers  = R::findOne( 'blockedusers', ' email = ? ', [ $_POST['email'] ] );
+    $result = $blockedUsers !== NULL ? true : false;
+    
+    if ($result) {
+      $_SESSION['errors'][] = ['title' => 'Ошибка, невозможно зайти в профиль.'];
+    }
   }
 
   if( trim($_POST['password']) == "") {

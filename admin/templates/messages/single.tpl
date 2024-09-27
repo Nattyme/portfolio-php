@@ -3,7 +3,7 @@
   <?php include ROOT . "admin/templates/components/errors.tpl"; ?>
   <?php include ROOT . "admin/templates/components/success.tpl"; ?>
 
-  <form class="admin-form" method="POST" action="<?php echo HOST;?>admin/category-edit?id=<?php echo $message['id']; ?>">
+  <form class="admin-form" method="POST" action="<?php echo HOST;?>admin/message?id=<?php echo $message['id']; ?>">
     <div class="admin-form__item admin-form__item--flex">
       <h2 class="heading">Сообщение №<?php echo $_GET['id'];?></h2>
       <div class="admin-form__date">
@@ -49,9 +49,15 @@
 
     <div class="admin-form__item buttons justify-content-between">
       <a class="secondary-button" href="<?php echo HOST;?>admin/messages">Отмена</a>
-      <a class="primary-button primary-button--red" href="<?php echo HOST . 'admin/messages?action=delete&id=' . $message['id'];?>" class="icon-delete">
-        Удалить
-      </a>
+      <div>
+        <a class="primary-button primary-button--red" href="<?php echo HOST . 'admin/messages?action=delete&id=' . $message['id'];?>" class="icon-delete">
+          Удалить
+        </a>
+        <a href="<?php echo HOST . 'admin/user-block?id=' . $message['id'];?>" name="block-user" class="primary-button primary-button--red" class="icon-delete">
+          Заблокировать пользователя
+        </a>
+      </div>
+      
     </div>
   </form>
 </div>

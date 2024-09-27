@@ -34,8 +34,8 @@
             <td>
               <?php echo $message['email'];?>
             </td>
-            <td>
-               <?php echo $message['message'];?>
+            <td class="block-text">
+              <p class="block-text__desc"><?php echo $message['message'];?></p>
             </td>
             <td>
               <?php echo rus_date("j. m. Y. H:i", $message['timestamp']); ?>

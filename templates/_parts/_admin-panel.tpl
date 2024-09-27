@@ -21,13 +21,15 @@
           <div class="admin-panel__message">
             <img src="<?php echo HOST; ?>static/img/admin-panel/mail.svg" alt=" Сообщение">
             
-            <?php if ($messagesNewCounter > 0 && $messagesNewCounter <= $messagesDisplayLimit) : ?>
+            <?php if ($messagesNewCounter > 0 ) : ?>
               <div class="admin-panel__message-icon">
-                <?php echo $messagesNewCounter;?>
-              </div>
-            <?php else : ?>
-              <div class="admin-panel__message-icon">
-                <?php echo '&hellip;';?>
+                <?php 
+                  if ($messagesNewCounter <= $messagesDisplayLimit) {
+                    echo $messagesNewCounter;
+                  } else {
+                    echo '&hellip;';
+                  }
+                ?>
               </div>
             <?php endif;?>
           </div>
@@ -40,13 +42,15 @@
           <div class="admin-panel__message">
             <img src="<?php echo HOST; ?>static/img/admin-panel/folder.svg" alt="Заказы">
             
-            <?php if ($ordersNewCounter > 0 && $ordersNewCounter <= $ordersDisplayLimit) : ?>
+            <?php if ($ordersNewCounter > 0) : ?>
               <div class="admin-panel__message-icon">
-                <?php echo $ordersNewCounter;?>
-              </div>
-            <?php else : ?>
-              <div class="admin-panel__message-icon">
-                <?php echo '&hellip;';?>
+                <?php 
+                  if ($ordersNewCounter <= $ordersDisplayLimit) {
+                    echo $ordersNewCounter;
+                  } else {
+                    echo '&hellip;';
+                  } 
+                ?>
               </div>
             <?php endif;?>
           </div>
@@ -58,15 +62,17 @@
         <a class="admin-panel__link" href="<?php echo HOST . 'admin/comments';?>" title="Перейти к списку комментариев">
           <div class="admin-panel__comments" data-number="15">
             <img src="<?php echo HOST; ?>static/img/admin-panel/message-square.svg" alt="Комментарии">
-              <?php if ($commentsNewCounter > 0 && $commentsNewCounter <= $commentsDisplayLimit) : ?>
+              <?php if ($commentsNewCounter > 0) : ?>
                 <div class="admin-panel__message-icon">
-                  <?php echo $commentsNewCounter;?>
+                  <?php 
+                    if ($commentsNewCounter <= $commentsDisplayLimit) {
+                      echo $commentsNewCounter;
+                    } else {
+                      echo '&hellip;';
+                    }
+                  ?>
                 </div>
-              <?php else : ?>
-                <div class="admin-panel__message-icon">
-                  <?php echo '&hellip;';?>
-                </div>
-              <?php endif;?>
+              <?php endif; ?>
           </div>
           <div class="span">Комментарии</div>
         </a>

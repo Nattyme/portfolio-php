@@ -3,8 +3,14 @@
     <div class="control-panel__list-img-wrapper">
       <img class="control-panel__list-img" src="<?php echo HOST; ?>static/img/control-panel/message.svg" alt="icon" />
       <?php if ($commentsNewCounter > 0) : ?>
-        <div class="control-panel__list-img-badge">
-          <?php echo $commentsNewCounter;?>
+        <div class="admin-panel__message-icon">
+          <?php 
+            if ($commentsNewCounter <= $commentsDisplayLimit) {
+              echo $commentsNewCounter;
+            } else {
+              echo '&hellip;';
+            }
+          ?>
         </div>
       <?php endif; ?>
     </div>

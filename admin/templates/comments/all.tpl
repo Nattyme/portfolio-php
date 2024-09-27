@@ -50,11 +50,13 @@
                 <?php echo !empty($comment['name']) ? $comment['name'] . ' ' . $comment['surname'] : "Аноним";?>
               </a>
             </td>
-            <td>
-               <?php echo $comment['text'];?>
+            <td class="block-text">
+              <p class="block-text__desc">
+                <?php echo $comment['text'];?>
+              </p>
             </td>
-            <td>
-              <a class="link-above-others" href="<?php echo HOST . 'blog/' . $comment['post_id'];?>">
+            <td class="block-text">
+              <a class="link-above-others block-text__desc" href="<?php echo HOST . 'blog/' . $comment['post_id'];?>">
                 <?php echo $comment['title'];?>
               </a>
             </td>

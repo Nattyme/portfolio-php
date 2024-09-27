@@ -32,7 +32,7 @@
       <label class="input__label mb-10">
         Email отправителя
       </label>
-      <p><?php echo !empty($comment['user_email']) ? $comment['user_email'] : 'Email не указана'; ?></p>
+      <p><?php echo !empty($comment['user_email']) ? $comment['user_email'] : 'Email не указан'; ?></p>
     </div>
 
     <div class="admin-form__item">
@@ -55,9 +55,15 @@
 
     <div class="admin-form__item buttons justify-content-between">
       <a class="secondary-button" href="<?php echo HOST;?>admin/comments">Отмена</a>
-      <a class="primary-button primary-button--red" href="<?php echo HOST . 'admin/comments?action=delete&id=' . $comment['id'];?>" class="icon-delete">
-        Удалить
-      </a>
+      <div>
+        <a class="primary-button primary-button--red" href="<?php echo HOST . 'admin/comments?action=delete&id=' . $comment['id'];?>" class="icon-delete">
+          Удалить
+        </a>
+        <a href="<?php echo HOST . 'admin/user-block?id=' . $comment['id'];?>" name="block-user" class="primary-button primary-button--red" class="icon-delete">
+          Заблокировать пользователя
+        </a>
+      </div>
+      
     </div>
   </form>
 </div>

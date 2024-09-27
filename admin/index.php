@@ -116,8 +116,8 @@ switch ($uriModule) {
     require ROOT . "admin/modules/users/edit.php";
     break; 
 
-  case 'user-delete':
-    require ROOT . "admin/modules/users/delete.php";
+  case 'user-block':
+    require ROOT . "admin/modules/users/block.php";
     break; 
 
   // ::::::::::::: SHOP :::::::::::::::::::

@@ -1,13 +1,13 @@
 <?php
 // Сообщения
 $messagesNewCounter = R::count('messages', ' status = ? ', ['new']);
-$messagesDisplayLimit = 99; 
+$messagesDisplayLimit = 9; 
 
 // Заказы
 $ordersNewCounter = R::count('orders', ' status = ?', ['new']);
-$ordersDisplayLimit = 99; 
+$ordersDisplayLimit = 9; 
 
 // Комментарии
 $commentsNewCounter = R::count('comments', ' status = ?', ['new']);
-$commentsDisplayLimit = 99; 
+$commentsDisplayLimit = 9; 
 

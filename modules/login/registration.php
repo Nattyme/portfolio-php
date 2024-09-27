@@ -1,7 +1,7 @@
 <?php
 $pageTitle = "Регистрация";
 $pageClass = "authorization-page";
-
+    
 // Если форма отправлена - делаем регистрацию
 if ( isset($_POST['register']) ) {
   //Проверка на заполненность
@@ -10,6 +10,14 @@ if ( isset($_POST['register']) ) {
     $_SESSION['errors'][] = ['title' => 'Введите email', 'desc' => '<p>Email обязателен для регистрации на сайте</p>'];
   } else if ( !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) ) {
     $_SESSION['errors'][] = ['title' => 'Введите корректный Email'];
+  } else if ( trim($_POST['email']) ) {
+    $result = true;
+    $blockedUsers  = R::findOne( 'blockedusers', ' email = ? ', [ $_POST['email'] ] );
+    $result = $blockedUsers !== NULL ? true : false;
+    
+    if ($result) {
+      $_SESSION['errors'][] = ['title' => 'Ошибка регистрации.'];
+    }
   }
 
   if( trim($_POST['password']) == "") {

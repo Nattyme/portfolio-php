@@ -30,6 +30,14 @@ if (isset($_POST['submit'])) {
           // Проверка на формат email
           if ( !filter_var(htmlentities(trim($_POST['email'])), FILTER_VALIDATE_EMAIL) )  {
           $_SESSION['errors'][] = ['title' => 'Неверный формат email'];
+          } else if ( trim($_POST['email']) ) {
+            $result = true;
+            $blockedUsers  = R::findOne( 'blockedusers', ' email = ? ', [ $_POST['email'] ] );
+            $result = $blockedUsers !== NULL ? true : false;
+            
+            if ($result) {
+              $_SESSION['errors'][] = ['title' => 'Ошибка, невозможно отправить сообщение.'];
+            }
           } else {
 
             // Проверка на пустое сообщение
@@ -44,7 +52,7 @@ if (isset($_POST['submit'])) {
           }
         }
       }
-}
+} 
 
 if (empty($_SESSION['errors'])) {
   $message = R::dispense('messages');
@@ -58,6 +66,10 @@ if (empty($_SESSION['errors'])) {
     $file = saveUploadedFile('file', 12, 'contact-form');
     $message->fileNameSrc = $file[0];
     $message->fileNameOriginal = $file[1];
+  }
+
+  if( isLoggedIn() ) {
+    $message->user_id = $_SESSION['logged_user']['id'];
   }
 
   R::store($message);
