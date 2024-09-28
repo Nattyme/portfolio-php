@@ -10,19 +10,49 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #fff;
+
+  transition: all 0.2s ease-in;
   
   a {
     color: #fff;
+
+    &:first-child {
+      padding-left: 10px;
+      margin-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 10px;
+      margin-right: 0;
+    }
+  }
+}
+
+.badge--multi {
+  padding: 0;
+
+  a {
+    padding: 5px;
+    margin-right: -5px;
+    margin-left: -5px;
+
+    display: inline-block;
+
+    &:first-child {
+      padding-left: 10px;
+      margin-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 10px;
+      margin-right: 0;
+    }
   }
 }
 
 .badges + .badges {
   margin-top: 30px;
   justify-content: flex-end;
-}
-
-.badge {
-  transition: all 0.2s ease-in;
 }
 
 .badge--light {
