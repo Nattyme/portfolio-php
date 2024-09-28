@@ -15,7 +15,18 @@
       <button name="submit" value="submit" class="primary-button primary-button--red" type="submit">
         Удалить
       </button>
-      <a class="secondary-button" href="<?php echo HOST;?>admin/category?<?php echo $currentSection;?>">Отмена</a>
+      <?php 
+        if( isset ($currentSection) && $currentSection === 'admin/project-new') {
+          $link = 'admin/project-new';
+        } else if (isset ($currentSection) && $currentSection === 'admin/shop-new') {
+          $link = 'admin/shop-new';
+        } else if (isset ($currentSection) && $currentSection === 'admin/post-new') {
+          $link = 'admin/post-new';
+        } else {
+          $link = 'admin/category?'. $currentSection;
+        }
+      ?>
+      <a class="secondary-button" href="<?php echo HOST . $link;?>">Отмена</a>
     </div>
   </form>
 </div>

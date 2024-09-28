@@ -1,8 +1,8 @@
 <?php
 $cat = R::load('categories', $_GET['id']); 
 
-// Получаем  текущую секцию для записи в БД
-$currentSection = getCurrentSection ();
+// Получаем  текущую секцию из сессии
+$currentSection = $_SESSION['currentSection'];
 
 if ( isset($_POST['submit']) ) {
   // Перезапиываем текущую секцию данными из БД 
