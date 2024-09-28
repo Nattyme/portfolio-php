@@ -24,7 +24,7 @@
       <div class="block-upload">
         <div class="block-upload__description">
           <div class="block-upload__title">Добавить изображение</div>
-          <p>Формат jpg или png, рекомендуемая ширина 68px и больше, высота от 68px и более. Вес до 2Мб.</p>
+          <p>Формат svg. Вес до 2Мб.</p>
           <div class="block-upload__file-wrapper">
             <input name="cover" class="file-button" type="file">
           </div>

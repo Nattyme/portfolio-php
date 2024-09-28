@@ -39,6 +39,7 @@ if( isset($_POST['submit'])) {
 $technology = R::load('technologies', $_GET['id']); 
 
 $pageTitle = "Технологии. Редактировать технологию {$technology['title']}";
+$pageClass = "admin-page";
 
 ob_start();
 include ROOT . "admin/templates/technologies/edit.tpl";

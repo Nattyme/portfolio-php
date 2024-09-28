@@ -35,6 +35,7 @@ if( isset($_POST['submit']) ) {
 }
 
 $pageTitle = "Технологии - новая запись";
+$pageClass = "admin-page";
 
 ob_start();
 include ROOT . "admin/templates/technologies/new.tpl";
