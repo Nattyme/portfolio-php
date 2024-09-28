@@ -14,6 +14,7 @@
         Введите название товара
         <input name="title" class="input input--width-label" type="text"
                value="<?php echo isset($_POST['title']) ? $_POST['title'] : ''; ?>"
+               placeholder="Название товара"
         />
       </label>
     </div>
@@ -35,6 +36,7 @@
         Цена товара
         <input name="price" class="input input--width-label" type="text"
                value="<?php echo isset($_POST['price']) ? $_POST['price'] : ''; ?>"
+               placeholder="Стоимость товара"
         />
       </label>
     </div>
@@ -55,7 +57,7 @@
         Описание товара
       </label>
       <textarea name="content" class="textarea textarea--width-label" id="editor">
-        <?php echo isset($_POST['content']) ? $_POST['content'] : ''; ?>"
+        <?php echo isset($_POST['content']) ? $_POST['content'] : 'Описание товара'; ?>"
       </textarea>
     </div>
     <div class="admin-form__item">

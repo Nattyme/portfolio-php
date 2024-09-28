@@ -26,6 +26,7 @@ if( isset($_POST['submit']) ) {
 }
 
 $pageTitle = "Бренды - новая запись";
+$pageClass = "admin-page";
 
 ob_start();
 include ROOT . "admin/templates/brands/new.tpl";
