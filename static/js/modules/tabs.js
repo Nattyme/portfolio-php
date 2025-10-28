@@ -9,7 +9,6 @@ function tabs() {
       currentButton.addEventListener('click', function () {
         const contentBlocks = tab.querySelectorAll('[data-control="tab-block"]');
         const currentBlock = contentBlocks[index];
-        console.log(currentBlock);
 
         // Если кликнули по активной кнопке
         if ( !currentButton.classList.contains('active')) {

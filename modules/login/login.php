@@ -1,7 +1,7 @@
 <?php
 $pageTitle = "Вход на сайт";
 $pageClass = "authorization-page";
-
+   
 //1. Проверяем массив POST
 if( isset($_POST['login']) ) {
   //2. Заполненность полей. Проверка на заполненность
@@ -42,6 +42,7 @@ if( isset($_POST['login']) ) {
         $_SESSION['cart'] = json_decode($_SESSION['logged_user']['cart'], true);
         
         $_SESSION['fav_list'] = json_decode($_SESSION['logged_user']['fav_list'], true);
+        
         // Работа с корзиной
         // Действия:
         // 1. Достать корзину из БД
